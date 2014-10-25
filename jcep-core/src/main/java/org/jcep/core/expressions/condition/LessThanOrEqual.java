@@ -1,6 +1,6 @@
 package org.jcep.core.expressions.condition;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 
 public class LessThanOrEqual<TType extends Comparable<TType>, TContext> extends BaseComparison<TType, TContext> {
 	

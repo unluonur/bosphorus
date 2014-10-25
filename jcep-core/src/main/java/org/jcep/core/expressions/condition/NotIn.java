@@ -2,7 +2,7 @@ package org.jcep.core.expressions.condition;
 
 import java.util.ArrayList;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 
 public class NotIn<TType extends Comparable<TType>, TContext> extends BaseListComparison<TType, TContext> {
 

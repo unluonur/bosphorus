@@ -2,7 +2,7 @@ package org.jcep.core.expressions.date;
 
 import java.util.Date;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 
 public class Year<TContext> implements IExpression<Integer, TContext> {
 	/**

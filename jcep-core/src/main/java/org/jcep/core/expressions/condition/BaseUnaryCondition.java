@@ -1,6 +1,6 @@
 package org.jcep.core.expressions.condition;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 
 public abstract class BaseUnaryCondition<TType, TContext> implements IExpression<Boolean, TContext> {
 

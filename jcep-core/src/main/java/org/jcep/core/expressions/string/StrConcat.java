@@ -2,7 +2,7 @@ package org.jcep.core.expressions.string;
 
 import java.util.ArrayList;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 
 public class StrConcat<TContext> implements IExpression<String, TContext> {
 	
@@ -17,6 +17,7 @@ public class StrConcat<TContext> implements IExpression<String, TContext> {
 		this.setList(new ArrayList<IExpression<String,TContext>>());
 	}
 	
+	@SafeVarargs
 	public StrConcat(IExpression<String, TContext>... list) {
 		this();
 		for(IExpression<String, TContext> expr: list) {

@@ -1,4 +1,4 @@
-package org.jcep.core.expressions.common;
+package org.jcep.core.expressions;
 
 public class Convert<TSource, TDest, TContext> implements IExpression<TDest, TContext> {
 

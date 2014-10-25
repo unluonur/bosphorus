@@ -1,6 +1,6 @@
 package org.jcep.core.expressions.math;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 
 public class ModInteger<TContext> extends BaseBinaryOperator<Integer, TContext> {
 

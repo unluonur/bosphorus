@@ -3,9 +3,9 @@ package org.jcep.builder.types;
 import java.util.ArrayList;
 import java.util.Date;
 
-import org.jcep.core.expressions.common.Constant;
-import org.jcep.core.expressions.common.Convert;
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.Constant;
+import org.jcep.core.expressions.Convert;
+import org.jcep.core.expressions.IExpression;
 import org.jcep.core.expressions.condition.Equals;
 import org.jcep.core.expressions.condition.GreaterThan;
 import org.jcep.core.expressions.condition.GreaterThanOrEqual;

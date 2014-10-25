@@ -9,7 +9,7 @@ import org.jcep.builder.types.FloatGetter;
 import org.jcep.builder.types.IntegerGetter;
 import org.jcep.builder.types.LongGetter;
 import org.jcep.builder.types.StringGetter;
-import org.jcep.core.expressions.common.Constant;
+import org.jcep.core.expressions.Constant;
 import org.jcep.core.expressions.date.Now;
 
 public class Builder<TContext> {

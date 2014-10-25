@@ -2,7 +2,7 @@ package org.jcep.builder.types;
 
 import java.util.Date;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 import org.jcep.core.expressions.condition.LessThan;
 import org.jcep.core.expressions.date.DayOfMonth;
 import org.jcep.core.expressions.date.DayOfWeek;

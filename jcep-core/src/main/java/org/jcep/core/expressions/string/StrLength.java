@@ -1,6 +1,6 @@
 package org.jcep.core.expressions.string;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 
 public class StrLength<TContext> implements IExpression<Integer, TContext> {
 	/**

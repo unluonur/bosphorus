@@ -1,7 +1,7 @@
 package org.jcep.builder.types;
 
-import org.jcep.core.expressions.common.Constant;
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.Constant;
+import org.jcep.core.expressions.IExpression;
 import org.jcep.core.expressions.condition.LessThan;
 import org.jcep.core.expressions.math.AddInteger;
 import org.jcep.core.expressions.math.DivideInteger;

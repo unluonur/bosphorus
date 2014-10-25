@@ -1,7 +1,7 @@
 package org.jcep.builder.types;
 
-import org.jcep.core.expressions.common.Constant;
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.Constant;
+import org.jcep.core.expressions.IExpression;
 import org.jcep.core.expressions.math.AddFloat;
 import org.jcep.core.expressions.math.DivideFloat;
 import org.jcep.core.expressions.math.MultiplyFloat;

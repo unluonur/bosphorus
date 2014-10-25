@@ -2,7 +2,7 @@ package org.jcep.core.expressions.condition;
 
 import java.util.ArrayList;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 
 public class In<TType extends Comparable<TType>, TContext> extends BaseListComparison<TType, TContext> {
 

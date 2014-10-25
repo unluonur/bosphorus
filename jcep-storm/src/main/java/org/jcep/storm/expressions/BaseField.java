@@ -1,6 +1,6 @@
 package org.jcep.storm.expressions;
 
-import org.jcep.core.expressions.common.IExpression;
+import org.jcep.core.expressions.IExpression;
 
 import backtype.storm.tuple.Tuple;
 
