@@ -1,4 +1,4 @@
 jcep
 ====
 
-An experimental Java CEP engine.
+An experimental distributed Java CEP engine.
