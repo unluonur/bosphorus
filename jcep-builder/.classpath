@@ -32,7 +32,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/jcep-builder"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jcep-core"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
