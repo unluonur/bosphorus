@@ -25,6 +25,7 @@ public class Convert<TInput, TOutput, TSource> implements IExpression<TInput, TO
 		this.value = value;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public TOutput execute(TInput input) {
 		return (TOutput)this.getValue().execute(input);

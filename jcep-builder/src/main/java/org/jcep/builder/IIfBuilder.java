@@ -1,7 +1,7 @@
 package org.jcep.builder;
 
-import org.jcep.builder.types.BaseTypeGetter;
-import org.jcep.builder.types.BooleanGetter;
+import org.jcep.builder.types.BaseTypeContainer;
+import org.jcep.builder.types.BooleanContainer;
 import org.jcep.core.expressions.IExpression;
 
 public class IIfBuilder<TInput> {
@@ -13,13 +13,13 @@ public class IIfBuilder<TInput> {
 			this.condition = condition;
 		}
 		
-		public FalseBuilder<Boolean, BooleanGetter<TInput>> then(BooleanGetter<TInput> trueExpression) {
-			return new FalseBuilder<Boolean, BooleanGetter<TInput>>(this.condition, trueExpression.getExpression(), BooleanGetter.class);
+		public FalseBuilder<Boolean, BooleanContainer<TInput>> then(BooleanContainer<TInput> trueExpression) {
+			return new FalseBuilder<Boolean, BooleanContainer<TInput>>(this.condition, trueExpression.getExpression(), BooleanContainer.class);
 		}
 		
 	}
 	
-	public class FalseBuilder<TOutput extends Comparable<TOutput>, TGetter extends BaseTypeGetter<TInput, TOutput>> {
+	public class FalseBuilder<TOutput extends Comparable<TOutput>, TGetter extends BaseTypeContainer<TInput, TOutput>> {
 		private IExpression<TInput, Boolean> condition;
 		private IExpression<TInput, TOutput> trueExpression;
 		private Class clz;

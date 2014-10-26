@@ -1,13 +1,13 @@
 package org.jcep.storm.builder;
 
-import org.jcep.builder.Builder;
-import org.jcep.builder.types.BooleanGetter;
-import org.jcep.builder.types.DateGetter;
-import org.jcep.builder.types.DoubleGetter;
-import org.jcep.builder.types.FloatGetter;
-import org.jcep.builder.types.IntegerGetter;
-import org.jcep.builder.types.LongGetter;
-import org.jcep.builder.types.StringGetter;
+import org.jcep.builder.ExpressionBuilder;
+import org.jcep.builder.types.BooleanContainer;
+import org.jcep.builder.types.DateContainer;
+import org.jcep.builder.types.DoubleContainer;
+import org.jcep.builder.types.FloatContainer;
+import org.jcep.builder.types.IntegerContainer;
+import org.jcep.builder.types.LongContainer;
+import org.jcep.builder.types.StringContainer;
 import org.jcep.storm.expressions.BooleanField;
 import org.jcep.storm.expressions.DateField;
 import org.jcep.storm.expressions.DoubleField;
@@ -18,34 +18,34 @@ import org.jcep.storm.expressions.StringField;
 
 import backtype.storm.tuple.Tuple;
 
-public class StormBuilder extends Builder<Tuple> {
+public class StormBuilder extends ExpressionBuilder<Tuple> {
 
-	public IntegerGetter<Tuple> integerField(String fieldName) {
-		return new IntegerGetter<Tuple>(new IntegerField(fieldName));
+	public IntegerContainer<Tuple> integerField(String fieldName) {
+		return new IntegerContainer<Tuple>(new IntegerField(fieldName));
 	}
 	
-	public LongGetter<Tuple> longField(String fieldName) {
-		return new LongGetter<Tuple>(new LongField(fieldName));
+	public LongContainer<Tuple> longField(String fieldName) {
+		return new LongContainer<Tuple>(new LongField(fieldName));
 	}
 	
-	public FloatGetter<Tuple> floatField(String fieldName) {
-		return new FloatGetter<Tuple>(new FloatField(fieldName));
+	public FloatContainer<Tuple> floatField(String fieldName) {
+		return new FloatContainer<Tuple>(new FloatField(fieldName));
 	}
 	
-	public DoubleGetter<Tuple> doubleField(String fieldName) {
-		return new DoubleGetter<Tuple>(new DoubleField(fieldName));
+	public DoubleContainer<Tuple> doubleField(String fieldName) {
+		return new DoubleContainer<Tuple>(new DoubleField(fieldName));
 	}
 
-	public StringGetter<Tuple> stringField(String fieldName) {
-		return new StringGetter<Tuple>(new StringField(fieldName));
+	public StringContainer<Tuple> stringField(String fieldName) {
+		return new StringContainer<Tuple>(new StringField(fieldName));
 	}
 	
-	public BooleanGetter<Tuple> booleanField(String fieldName) {
-		return new BooleanGetter<Tuple>(new BooleanField(fieldName));
+	public BooleanContainer<Tuple> booleanField(String fieldName) {
+		return new BooleanContainer<Tuple>(new BooleanField(fieldName));
 	}
 	
-	public DateGetter<Tuple> dateField(String fieldName) {
-		return new DateGetter<Tuple>(new DateField(fieldName));
+	public DateContainer<Tuple> dateField(String fieldName) {
+		return new DateContainer<Tuple>(new DateField(fieldName));
 	}
 	
 }

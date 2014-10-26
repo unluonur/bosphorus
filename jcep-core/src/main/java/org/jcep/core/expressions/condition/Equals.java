@@ -2,7 +2,7 @@ package org.jcep.core.expressions.condition;
 
 import org.jcep.core.expressions.IExpression;
 
-public class Equals<TInput, TOutput extends Comparable<TOutput>> extends BaseComparison<TInput, TOutput> {
+public class Equals<TInput, TType extends Comparable<TType>> extends BaseComparison<TInput, TType> {
 	
 	/**
 	 * 
@@ -13,13 +13,13 @@ public class Equals<TInput, TOutput extends Comparable<TOutput>> extends BaseCom
 		
 	}
 	
-	public Equals(IExpression<TInput, TOutput> left, IExpression<TInput, TOutput> right) {
+	public Equals(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
 		super(left, right);
 	}
 	
 	public Boolean execute(TInput input) {
-		TOutput left = this.getLeft().execute(input);
-		TOutput right = this.getRight().execute(input);
+		TType left = this.getLeft().execute(input);
+		TType right = this.getRight().execute(input);
 		if(left == null) {
 			return right == null;
 		}

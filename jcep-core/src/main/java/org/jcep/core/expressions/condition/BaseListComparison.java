@@ -4,34 +4,34 @@ import java.util.ArrayList;
 
 import org.jcep.core.expressions.IExpression;
 
-public abstract class BaseListComparison<TInput, TOutput extends Comparable<TOutput>> implements IExpression<TInput, Boolean> {
+public abstract class BaseListComparison<TInput, TType extends Comparable<TType>> implements IExpression<TInput, Boolean> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 6428482165130602494L;
 	
-	private IExpression<TInput, TOutput> value;
-	private ArrayList<IExpression<TInput, TOutput>> list;
+	private IExpression<TInput, TType> value;
+	private ArrayList<IExpression<TInput, TType>> list;
 	
 	
-	public BaseListComparison(IExpression<TInput, TOutput> value, ArrayList<IExpression<TInput, TOutput>> list) {
+	public BaseListComparison(IExpression<TInput, TType> value, ArrayList<IExpression<TInput, TType>> list) {
 		this.setValue(value);
 		this.setList(list);
 	}
 	
-	public IExpression<TInput, TOutput> getValue() {
+	public IExpression<TInput, TType> getValue() {
 		return value;
 	}
 	
-	public void setValue(IExpression<TInput, TOutput> value) {
+	public void setValue(IExpression<TInput, TType> value) {
 		this.value = value;
 	}
 	
-	public ArrayList<IExpression<TInput, TOutput>> getList() {
+	public ArrayList<IExpression<TInput, TType>> getList() {
 		return list;
 	}
 	
-	public void setList(ArrayList<IExpression<TInput, TOutput>> list) {
+	public void setList(ArrayList<IExpression<TInput, TType>> list) {
 		this.list = list;
 	}
 

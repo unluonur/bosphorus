@@ -2,14 +2,14 @@ package org.jcep.core.expressions.condition;
 
 import org.jcep.core.expressions.IExpression;
 
-public class IsNull<TInput, TOutput> extends BaseUnaryCondition<TInput, TOutput> {
+public class IsNull<TInput, TType> extends BaseUnaryCondition<TInput, TType> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3636165189362122163L;
 
-	public IsNull(IExpression<TInput, TOutput> value) {
+	public IsNull(IExpression<TInput, TType> value) {
 		super(value);
 	}
 
