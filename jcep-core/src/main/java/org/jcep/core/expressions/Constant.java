@@ -1,32 +1,32 @@
 package org.jcep.core.expressions;
 
 
-public class Constant<TType, TContext> implements IExpression<TType, TContext> {
+public class Constant<TInput, TOutput> implements IExpression<TInput, TOutput> {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7692946223335738162L;
 	
-	private TType value;
+	private TOutput value;
 	
 	public Constant() {
 		
 	}
 	
-	public Constant(TType value) {
+	public Constant(TOutput value) {
 		this.setValue(value);
 	}
 
-	public TType getValue() {
+	public TOutput getValue() {
 		return value;
 	}
 
-	public void setValue(TType value) {
+	public void setValue(TOutput value) {
 		this.value = value;
 	}
 
-	public TType execute(TContext context) {
+	public TOutput execute(TInput input) {
 		return this.getValue();
 	}
 

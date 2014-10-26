@@ -17,150 +17,151 @@ import org.jcep.core.expressions.condition.LessThanOrEqual;
 import org.jcep.core.expressions.condition.NotEquals;
 import org.jcep.core.expressions.condition.NotIn;
 
-public abstract class BaseTypeGetter<TType extends Comparable<TType>, TContext> {
-	private IExpression<TType, TContext> expression;
+public abstract class BaseTypeGetter<TInput, TOutput extends Comparable<TOutput>> implements ITypeGetter<TInput, TOutput> {
+	private IExpression<TInput, TOutput> expression;
 	
-	public BaseTypeGetter(IExpression<TType, TContext> expression) {
+	public BaseTypeGetter(IExpression<TInput, TOutput> expression) {
 		this.setExpression(expression);
 	}
 
-	public IExpression<TType, TContext> getExpression() {
+	@Override
+	public IExpression<TInput, TOutput> getExpression() {
 		return expression;
 	}
 
-	public void setExpression(IExpression<TType, TContext> expression) {
+	public void setExpression(IExpression<TInput, TOutput> expression) {
 		this.expression = expression;
 	}
 	
-	public BooleanGetter<TContext> isNull() {
-		return new BooleanGetter<TContext>(new IsNull<TType, TContext>(this.getExpression()));
+	public BooleanGetter<TInput> isNull() {
+		return new BooleanGetter<TInput>(new IsNull<TInput, TOutput>(this.getExpression()));
 	}
 	
-	public BooleanGetter<TContext> isNotNull() {
-		return new BooleanGetter<TContext>(new IsNotNull<TType, TContext>(this.getExpression()));
+	public BooleanGetter<TInput> isNotNull() {
+		return new BooleanGetter<TInput>(new IsNotNull<TInput, TOutput>(this.getExpression()));
 	}
 	
-	public BooleanGetter<TContext> isEqualTo(BaseTypeGetter<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new Equals<TType, TContext>(this.getExpression(), value.getExpression()));
+	public BooleanGetter<TInput> isEqualTo(BaseTypeGetter<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new Equals<TInput, TOutput>(this.getExpression(), value.getExpression()));
 	}
 	
-	public BooleanGetter<TContext> isEqualTo(TType value) {
-		return new BooleanGetter<TContext>(new Equals<TType, TContext>(this.getExpression(), new Constant<TType, TContext>(value)));
+	public BooleanGetter<TInput> isEqualTo(TOutput value) {
+		return new BooleanGetter<TInput>(new Equals<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
 	}
 	
-	public BooleanGetter<TContext> isEqualTo(IExpression<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new Equals<TType, TContext>(this.getExpression(), value));
+	public BooleanGetter<TInput> isEqualTo(IExpression<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new Equals<TInput, TOutput>(this.getExpression(), value));
 	}
 	
-	public BooleanGetter<TContext> isNotEqualTo(BaseTypeGetter<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new NotEquals<TType, TContext>(this.getExpression(), value.getExpression()));
+	public BooleanGetter<TInput> isNotEqualTo(BaseTypeGetter<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new NotEquals<TInput, TOutput>(this.getExpression(), value.getExpression()));
 	}
 	
-	public BooleanGetter<TContext> isNotEqualTo(TType value) {
-		return new BooleanGetter<TContext>(new NotEquals<TType, TContext>(this.getExpression(), new Constant<TType, TContext>(value)));
+	public BooleanGetter<TInput> isNotEqualTo(TOutput value) {
+		return new BooleanGetter<TInput>(new NotEquals<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
 	}
 	
-	public BooleanGetter<TContext> isNotEqualTo(IExpression<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new NotEquals<TType, TContext>(this.getExpression(), value));
+	public BooleanGetter<TInput> isNotEqualTo(IExpression<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new NotEquals<TInput, TOutput>(this.getExpression(), value));
 	}
 	
-	public BooleanGetter<TContext> isLessThan(BaseTypeGetter<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new LessThan<TType, TContext>(this.getExpression(), value.getExpression()));
+	public BooleanGetter<TInput> isLessThan(BaseTypeGetter<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new LessThan<TInput, TOutput>(this.getExpression(), value.getExpression()));
 	}
 	
-	public BooleanGetter<TContext> isLessThan(TType value) {
-		return new BooleanGetter<TContext>(new LessThan<TType, TContext>(this.getExpression(), new Constant<TType, TContext>(value)));
+	public BooleanGetter<TInput> isLessThan(TOutput value) {
+		return new BooleanGetter<TInput>(new LessThan<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
 	}
 	
-	public BooleanGetter<TContext> isLessThan(IExpression<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new LessThan<TType, TContext>(this.getExpression(), value));
+	public BooleanGetter<TInput> isLessThan(IExpression<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new LessThan<TInput, TOutput>(this.getExpression(), value));
 	}
 	
-	public BooleanGetter<TContext> isLessThanOrEqualsTo(BaseTypeGetter<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new LessThanOrEqual<TType, TContext>(this.getExpression(), value.getExpression()));
+	public BooleanGetter<TInput> isLessThanOrEqualsTo(BaseTypeGetter<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new LessThanOrEqual<TInput, TOutput>(this.getExpression(), value.getExpression()));
 	}
 	
-	public BooleanGetter<TContext> isLessThanOrEqualsTo(TType value) {
-		return new BooleanGetter<TContext>(new LessThanOrEqual<TType, TContext>(this.getExpression(), new Constant<TType, TContext>(value)));
+	public BooleanGetter<TInput> isLessThanOrEqualsTo(TOutput value) {
+		return new BooleanGetter<TInput>(new LessThanOrEqual<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
 	}
 	
-	public BooleanGetter<TContext> isLessThanOrEqualsTo(IExpression<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new LessThanOrEqual<TType, TContext>(this.getExpression(), value));
+	public BooleanGetter<TInput> isLessThanOrEqualsTo(IExpression<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new LessThanOrEqual<TInput, TOutput>(this.getExpression(), value));
 	}
 	
-	public BooleanGetter<TContext> isGreaterThan(BaseTypeGetter<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new GreaterThan<TType, TContext>(this.getExpression(), value.getExpression()));
+	public BooleanGetter<TInput> isGreaterThan(BaseTypeGetter<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new GreaterThan<TInput, TOutput>(this.getExpression(), value.getExpression()));
 	}
 	
-	public BooleanGetter<TContext> isGreaterThan(TType value) {
-		return new BooleanGetter<TContext>(new GreaterThan<TType, TContext>(this.getExpression(), new Constant<TType, TContext>(value)));
+	public BooleanGetter<TInput> isGreaterThan(TOutput value) {
+		return new BooleanGetter<TInput>(new GreaterThan<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
 	}
 	
-	public BooleanGetter<TContext> isGreaterThan(IExpression<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new GreaterThan<TType, TContext>(this.getExpression(), value));
+	public BooleanGetter<TInput> isGreaterThan(IExpression<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new GreaterThan<TInput, TOutput>(this.getExpression(), value));
 	}
 	
-	public BooleanGetter<TContext> isGreaterThanOrEqualsTo(BaseTypeGetter<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new GreaterThanOrEqual<TType, TContext>(this.getExpression(), value.getExpression()));
+	public BooleanGetter<TInput> isGreaterThanOrEqualsTo(BaseTypeGetter<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new GreaterThanOrEqual<TInput, TOutput>(this.getExpression(), value.getExpression()));
 	}
 	
-	public BooleanGetter<TContext> isGreaterThanOrEqualsTo(TType value) {
-		return new BooleanGetter<TContext>(new GreaterThanOrEqual<TType, TContext>(this.getExpression(), new Constant<TType, TContext>(value)));
+	public BooleanGetter<TInput> isGreaterThanOrEqualsTo(TOutput value) {
+		return new BooleanGetter<TInput>(new GreaterThanOrEqual<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
 	}
 	
-	public BooleanGetter<TContext> isGreaterThanOrEqualsTo(IExpression<TType, TContext> value) {
-		return new BooleanGetter<TContext>(new GreaterThanOrEqual<TType, TContext>(this.getExpression(), value));
+	public BooleanGetter<TInput> isGreaterThanOrEqualsTo(IExpression<TInput, TOutput> value) {
+		return new BooleanGetter<TInput>(new GreaterThanOrEqual<TInput, TOutput>(this.getExpression(), value));
 	}
 	
-	public BooleanGetter<TContext> isIn(ArrayList<IExpression<TType, TContext>> list) {
-		return new BooleanGetter<TContext>(new In<TType, TContext>(this.getExpression(), list));
+	public BooleanGetter<TInput> isIn(ArrayList<IExpression<TInput, TOutput>> list) {
+		return new BooleanGetter<TInput>(new In<TInput, TOutput>(this.getExpression(), list));
 	}
 
-	public BooleanGetter<TContext> isInConst(ArrayList<TType> list) {
-		ArrayList<IExpression<TType, TContext>> tmp = new ArrayList<IExpression<TType,TContext>>();
-		for(TType expr: list) {
-			tmp.add(new Constant<TType, TContext>(expr));
+	public BooleanGetter<TInput> isInConst(ArrayList<TOutput> list) {
+		ArrayList<IExpression<TInput, TOutput>> tmp = new ArrayList<IExpression<TInput, TOutput>>();
+		for(TOutput expr: list) {
+			tmp.add(new Constant<TInput, TOutput>(expr));
 		}
-		return new BooleanGetter<TContext>(new In<TType, TContext>(this.getExpression(), tmp));
+		return new BooleanGetter<TInput>(new In<TInput, TOutput>(this.getExpression(), tmp));
 	}
 
-	public BooleanGetter<TContext> isNotIn(ArrayList<IExpression<TType, TContext>> list) {
-		return new BooleanGetter<TContext>(new NotIn<TType, TContext>(this.getExpression(), list));
+	public BooleanGetter<TInput> isNotIn(ArrayList<IExpression<TInput, TOutput>> list) {
+		return new BooleanGetter<TInput>(new NotIn<TInput, TOutput>(this.getExpression(), list));
 	}
 
-	public BooleanGetter<TContext> isNotInConst(ArrayList<TType> list) {
-		ArrayList<IExpression<TType, TContext>> tmp = new ArrayList<IExpression<TType,TContext>>();
-		for(TType expr: list) {
-			tmp.add(new Constant<TType, TContext>(expr));
+	public BooleanGetter<TInput> isNotInConst(ArrayList<TOutput> list) {
+		ArrayList<IExpression<TInput, TOutput>> tmp = new ArrayList<IExpression<TInput, TOutput>>();
+		for(TOutput expr: list) {
+			tmp.add(new Constant<TInput, TOutput>(expr));
 		}
-		return new BooleanGetter<TContext>(new NotIn<TType, TContext>(this.getExpression(), tmp));
+		return new BooleanGetter<TInput>(new NotIn<TInput, TOutput>(this.getExpression(), tmp));
 	}
 	
-	public BooleanGetter<TContext> convertToBoolean() {
-		return new BooleanGetter<TContext>(new Convert<TType, Boolean, TContext>(this.getExpression()));
+	public BooleanGetter<TInput> convertToBoolean() {
+		return new BooleanGetter<TInput>(new Convert<TInput, Boolean, TOutput>(this.getExpression()));
 	}
 	
-	public DateGetter<TContext> convertToDate() {
-		return new DateGetter<TContext>(new Convert<TType, Date, TContext>(this.getExpression()));
+	public DateGetter<TInput> convertToDate() {
+		return new DateGetter<TInput>(new Convert<TInput, Date, TOutput>(this.getExpression()));
 	}
 	
-	public DoubleGetter<TContext> convertToDouble() {
-		return new DoubleGetter<TContext>(new Convert<TType, Double, TContext>(this.getExpression()));
+	public DoubleGetter<TInput> convertToDouble() {
+		return new DoubleGetter<TInput>(new Convert<TInput, Double, TOutput>(this.getExpression()));
 	}
 	
-	public FloatGetter<TContext> convertToFloat() {
-		return new FloatGetter<TContext>(new Convert<TType, Float, TContext>(this.getExpression()));
+	public FloatGetter<TInput> convertToFloat() {
+		return new FloatGetter<TInput>(new Convert<TInput, Float, TOutput>(this.getExpression()));
 	}
 	
-	public IntegerGetter<TContext> convertToInteger() {
-		return new IntegerGetter<TContext>(new Convert<TType, Integer, TContext>(this.getExpression()));
+	public IntegerGetter<TInput> convertToInteger() {
+		return new IntegerGetter<TInput>(new Convert<TInput, Integer, TOutput>(this.getExpression()));
 	}
 	
-	public LongGetter<TContext> convertToLong() {
-		return new LongGetter<TContext>(new Convert<TType, Long, TContext>(this.getExpression()));
+	public LongGetter<TInput> convertToLong() {
+		return new LongGetter<TInput>(new Convert<TInput, Long, TOutput>(this.getExpression()));
 	}
 	
-	public StringGetter<TContext> convertToString() {
-		return new StringGetter<TContext>(new Convert<TType, String, TContext>(this.getExpression()));
+	public StringGetter<TInput> convertToString() {
+		return new StringGetter<TInput>(new Convert<TInput, String, TOutput>(this.getExpression()));
 	}
 }

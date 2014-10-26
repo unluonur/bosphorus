@@ -2,15 +2,15 @@ package org.jcep.core.expressions.math;
 
 import org.jcep.core.expressions.IExpression;
 
-public class ModInteger<TContext> extends BaseBinaryOperator<Integer, TContext> {
+public class ModInteger<TInput> extends BaseBinaryOperator<TInput, Integer> {
 
-	public ModInteger(IExpression<Integer, TContext> left,
-			IExpression<Integer, TContext> right) {
+	public ModInteger(IExpression<TInput, Integer> left,
+			IExpression<TInput, Integer> right) {
 		super(left, right);
 	}
 
-	public Integer execute(TContext context) {
-		return this.getLeft().execute(context) % this.getRight().execute(context);
+	public Integer execute(TInput input) {
+		return this.getLeft().execute(input) % this.getRight().execute(input);
 	}
 
 }

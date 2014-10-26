@@ -2,7 +2,7 @@ package org.jcep.core.expressions.condition;
 
 import org.jcep.core.expressions.IExpression;
 
-public class LessThanOrEqual<TType extends Comparable<TType>, TContext> extends BaseComparison<TType, TContext> {
+public class LessThanOrEqual<TInput, TOutput extends Comparable<TOutput>> extends BaseComparison<TInput, TOutput> {
 	
 	/**
 	 * 
@@ -13,13 +13,13 @@ public class LessThanOrEqual<TType extends Comparable<TType>, TContext> extends 
 		
 	}
 	
-	public LessThanOrEqual(IExpression<TType, TContext> left, IExpression<TType, TContext> right) {
+	public LessThanOrEqual(IExpression<TInput, TOutput> left, IExpression<TInput, TOutput> right) {
 		super(left, right);
 	}
 	
-	public Boolean execute(TContext context) {
-		TType left = this.getLeft().execute(context);
-		TType right = this.getRight().execute(context);
+	public Boolean execute(TInput input) {
+		TOutput left = this.getLeft().execute(input);
+		TOutput right = this.getRight().execute(input);
 		if(left == null) {
 			return right == null;
 		}

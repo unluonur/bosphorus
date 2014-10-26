@@ -16,8 +16,8 @@ public class DateField extends BaseField<Date> {
 	}
 
 	@Override
-	public Date execute(Tuple context) {
-		return (Date)context.getValueByField(this.getFieldName());
+	public Date execute(Tuple input) {
+		return (Date)input.getValueByField(this.getFieldName());
 	}
 	
 }

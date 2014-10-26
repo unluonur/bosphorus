@@ -8,62 +8,62 @@ import org.jcep.core.expressions.math.DivideDouble;
 import org.jcep.core.expressions.math.MultiplyDouble;
 import org.jcep.core.expressions.math.SubtractDouble;
 
-public class DoubleGetter<TContext> extends BaseTypeGetter<Double, TContext> {
+public class DoubleGetter<TInput> extends BaseTypeGetter<TInput, Double> {
 
-	public DoubleGetter(IExpression<Double, TContext> expression) {
+	public DoubleGetter(IExpression<TInput, Double> expression) {
 		super(expression);
 	}
 	
 
-	public DoubleGetter<TContext> add(DoubleGetter<TContext> expression) {
-		return new DoubleGetter<TContext>(new AddDouble<TContext>(this.getExpression(), expression.getExpression()));
+	public DoubleGetter<TInput> add(DoubleGetter<TInput> expression) {
+		return new DoubleGetter<TInput>(new AddDouble<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public DoubleGetter<TContext> add(IExpression<Double, TContext> expression) {
-		return new DoubleGetter<TContext>(new AddDouble<TContext>(this.getExpression(), expression));
+	public DoubleGetter<TInput> add(IExpression<TInput, Double> expression) {
+		return new DoubleGetter<TInput>(new AddDouble<TInput>(this.getExpression(), expression));
 	}
 	
-	public DoubleGetter<TContext> add(Double value) {
-		return new DoubleGetter<TContext>(new AddDouble<TContext>(this.getExpression(), new Constant<Double, TContext>(value)));
-	}
-	
-	
-	public DoubleGetter<TContext> subtract(DoubleGetter<TContext> expression) {
-		return new DoubleGetter<TContext>(new SubtractDouble<TContext>(this.getExpression(), expression.getExpression()));
-	}
-	
-	public DoubleGetter<TContext> subtract(IExpression<Double, TContext> expression) {
-		return new DoubleGetter<TContext>(new SubtractDouble<TContext>(this.getExpression(), expression));
-	}
-	
-	public DoubleGetter<TContext> subtract(Double value) {
-		return new DoubleGetter<TContext>(new SubtractDouble<TContext>(this.getExpression(), new Constant<Double, TContext>(value)));
+	public DoubleGetter<TInput> add(Double value) {
+		return new DoubleGetter<TInput>(new AddDouble<TInput>(this.getExpression(), new Constant<TInput, Double>(value)));
 	}
 	
 	
-	public DoubleGetter<TContext> multiply(DoubleGetter<TContext> expression) {
-		return new DoubleGetter<TContext>(new MultiplyDouble<TContext>(this.getExpression(), expression.getExpression()));
+	public DoubleGetter<TInput> subtract(DoubleGetter<TInput> expression) {
+		return new DoubleGetter<TInput>(new SubtractDouble<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public DoubleGetter<TContext> multiply(IExpression<Double, TContext> expression) {
-		return new DoubleGetter<TContext>(new MultiplyDouble<TContext>(this.getExpression(), expression));
+	public DoubleGetter<TInput> subtract(IExpression<TInput, Double> expression) {
+		return new DoubleGetter<TInput>(new SubtractDouble<TInput>(this.getExpression(), expression));
 	}
 	
-	public DoubleGetter<TContext> multiply(Double value) {
-		return new DoubleGetter<TContext>(new MultiplyDouble<TContext>(this.getExpression(), new Constant<Double, TContext>(value)));
+	public DoubleGetter<TInput> subtract(Double value) {
+		return new DoubleGetter<TInput>(new SubtractDouble<TInput>(this.getExpression(), new Constant<TInput, Double>(value)));
 	}
 	
 	
-	public DoubleGetter<TContext> divideBy(DoubleGetter<TContext> expression) {
-		return new DoubleGetter<TContext>(new DivideDouble<TContext>(this.getExpression(), expression.getExpression()));
+	public DoubleGetter<TInput> multiply(DoubleGetter<TInput> expression) {
+		return new DoubleGetter<TInput>(new MultiplyDouble<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public DoubleGetter<TContext> divideBy(IExpression<Double, TContext> expression) {
-		return new DoubleGetter<TContext>(new DivideDouble<TContext>(this.getExpression(), expression));
+	public DoubleGetter<TInput> multiply(IExpression<TInput, Double> expression) {
+		return new DoubleGetter<TInput>(new MultiplyDouble<TInput>(this.getExpression(), expression));
 	}
 	
-	public DoubleGetter<TContext> divideBy(Double value) {
-		return new DoubleGetter<TContext>(new DivideDouble<TContext>(this.getExpression(), new Constant<Double, TContext>(value)));
+	public DoubleGetter<TInput> multiply(Double value) {
+		return new DoubleGetter<TInput>(new MultiplyDouble<TInput>(this.getExpression(), new Constant<TInput, Double>(value)));
+	}
+	
+	
+	public DoubleGetter<TInput> divideBy(DoubleGetter<TInput> expression) {
+		return new DoubleGetter<TInput>(new DivideDouble<TInput>(this.getExpression(), expression.getExpression()));
+	}
+	
+	public DoubleGetter<TInput> divideBy(IExpression<TInput, Double> expression) {
+		return new DoubleGetter<TInput>(new DivideDouble<TInput>(this.getExpression(), expression));
+	}
+	
+	public DoubleGetter<TInput> divideBy(Double value) {
+		return new DoubleGetter<TInput>(new DivideDouble<TInput>(this.getExpression(), new Constant<TInput, Double>(value)));
 	}
 		
 }

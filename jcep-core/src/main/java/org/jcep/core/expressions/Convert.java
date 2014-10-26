@@ -1,33 +1,33 @@
 package org.jcep.core.expressions;
 
-public class Convert<TSource, TDest, TContext> implements IExpression<TDest, TContext> {
+public class Convert<TInput, TOutput, TSource> implements IExpression<TInput, TOutput> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2025249527382007687L;
 	
-	private IExpression<TSource, TContext> value;
+	private IExpression<TInput, TSource> value;
 	
 	public Convert() {
 		
 	}
 	
-	public Convert(IExpression<TSource, TContext> value) {
+	public Convert(IExpression<TInput, TSource> value) {
 		this.setValue(value);
 	}
 
-	public IExpression<TSource, TContext> getValue() {
+	public IExpression<TInput, TSource> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<TSource, TContext> value) {
+	public void setValue(IExpression<TInput, TSource> value) {
 		this.value = value;
 	}
 
 	@Override
-	public TDest execute(TContext context) {
-		return (TDest)this.getValue().execute(context);
+	public TOutput execute(TInput input) {
+		return (TOutput)this.getValue().execute(input);
 	}
 
 }

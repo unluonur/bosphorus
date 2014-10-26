@@ -1,53 +1,53 @@
 package org.jcep.core.expressions;
 
-public class IIf<TType, TContext> implements IExpression<TType, TContext> {
+public class IIf<TInput, TOutput> implements IExpression<TInput, TOutput> {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -1997499773697734754L;
 	
-	private IExpression<Boolean, TContext> condition;
-	private IExpression<TType, TContext> trueValue;
-	private IExpression<TType, TContext> falseValue;
+	private IExpression<TInput, Boolean> condition;
+	private IExpression<TInput, TOutput> trueValue;
+	private IExpression<TInput, TOutput> falseValue;
 
 	public IIf() {
 		
 	}
 	
-	public IIf(IExpression<Boolean, TContext> condition, IExpression<TType, TContext> trueValue, IExpression<TType, TContext> falseValue) {
+	public IIf(IExpression<TInput, Boolean> condition, IExpression<TInput, TOutput> trueValue, IExpression<TInput, TOutput> falseValue) {
 		this.setCondition(condition);
 		this.setTrueValue(trueValue);
 		this.setFalseValue(falseValue);
 	}
 
-	public IExpression<Boolean, TContext> getCondition() {
+	public IExpression<TInput, Boolean> getCondition() {
 		return condition;
 	}
 
-	public void setCondition(IExpression<Boolean, TContext> condition) {
+	public void setCondition(IExpression<TInput, Boolean> condition) {
 		this.condition = condition;
 	}
 
-	public IExpression<TType, TContext> getTrueValue() {
+	public IExpression<TInput, TOutput> getTrueValue() {
 		return trueValue;
 	}
 
-	public void setTrueValue(IExpression<TType, TContext> trueValue) {
+	public void setTrueValue(IExpression<TInput, TOutput> trueValue) {
 		this.trueValue = trueValue;
 	}
 
-	public IExpression<TType, TContext> getFalseValue() {
+	public IExpression<TInput, TOutput> getFalseValue() {
 		return falseValue;
 	}
 
-	public void setFalseValue(IExpression<TType, TContext> falseValue) {
+	public void setFalseValue(IExpression<TInput, TOutput> falseValue) {
 		this.falseValue = falseValue;
 	}
 
 	@Override
-	public TType execute(TContext context) {
-		return this.getCondition().execute(context) ? this.getTrueValue().execute(context) : this.getFalseValue().execute(context);
+	public TOutput execute(TInput input) {
+		return this.getCondition().execute(input) ? this.getTrueValue().execute(input) : this.getFalseValue().execute(input);
 	}
 	
 }

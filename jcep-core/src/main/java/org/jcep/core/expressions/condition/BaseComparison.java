@@ -2,37 +2,37 @@ package org.jcep.core.expressions.condition;
 
 import org.jcep.core.expressions.IExpression;
 
-public abstract class BaseComparison<TType extends Comparable<TType>, TContext> implements IExpression<Boolean, TContext> {
+public abstract class BaseComparison<TInput, TOutput extends Comparable<TOutput>> implements IExpression<TInput, Boolean> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1011658918506083769L;
 	
-	private IExpression<TType, TContext> left;
-	private IExpression<TType, TContext> right;
+	private IExpression<TInput, TOutput> left;
+	private IExpression<TInput, TOutput> right;
 	
 	public BaseComparison() {
 		
 	}
 	
-	public BaseComparison(IExpression<TType, TContext> left, IExpression<TType, TContext> right) {
+	public BaseComparison(IExpression<TInput, TOutput> left, IExpression<TInput, TOutput> right) {
 		this.setLeft(left);
 		this.setRight(right);
 	}
 
-	public IExpression<TType, TContext> getLeft() {
+	public IExpression<TInput, TOutput> getLeft() {
 		return left;
 	}
 
-	public void setLeft(IExpression<TType, TContext> left) {
+	public void setLeft(IExpression<TInput, TOutput> left) {
 		this.left = left;
 	}
 
-	public IExpression<TType, TContext> getRight() {
+	public IExpression<TInput, TOutput> getRight() {
 		return right;
 	}
 
-	public void setRight(IExpression<TType, TContext> right) {
+	public void setRight(IExpression<TInput, TOutput> right) {
 		this.right = right;
 	}
 

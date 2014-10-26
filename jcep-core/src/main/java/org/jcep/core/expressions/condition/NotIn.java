@@ -4,23 +4,23 @@ import java.util.ArrayList;
 
 import org.jcep.core.expressions.IExpression;
 
-public class NotIn<TType extends Comparable<TType>, TContext> extends BaseListComparison<TType, TContext> {
+public class NotIn<TInput, TOutput extends Comparable<TOutput>> extends BaseListComparison<TInput, TOutput> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -3888947395923766733L;
 	
-	public NotIn(IExpression<TType, TContext> value,
-			ArrayList<IExpression<TType, TContext>> list) {
+	public NotIn(IExpression<TInput, TOutput> value,
+			ArrayList<IExpression<TInput, TOutput>> list) {
 		super(value, list);
 	}
 
 	@Override
-	public Boolean execute(TContext context) {
-		TType value = this.getValue().execute(context);
-		for(IExpression<TType, TContext> expr: this.getList()) {
-			if(value.equals(expr.execute(context))) {
+	public Boolean execute(TInput input) {
+		TOutput value = this.getValue().execute(input);
+		for(IExpression<TInput, TOutput> expr: this.getList()) {
+			if(value.equals(expr.execute(input))) {
 				return false;
 			}
 		}

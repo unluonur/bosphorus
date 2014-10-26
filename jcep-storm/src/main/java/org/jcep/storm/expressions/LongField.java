@@ -14,8 +14,8 @@ public class LongField extends BaseField<Long> {
 	}
 
 	@Override
-	public Long execute(Tuple context) {
-		return context.getLongByField(this.getFieldName());
+	public Long execute(Tuple input) {
+		return input.getLongByField(this.getFieldName());
 	}
 	
 }

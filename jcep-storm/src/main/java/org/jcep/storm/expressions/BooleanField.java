@@ -14,8 +14,8 @@ public class BooleanField extends BaseField<Boolean> {
 	}
 
 	@Override
-	public Boolean execute(Tuple context) {
-		return context.getBooleanByField(this.getFieldName());
+	public Boolean execute(Tuple input) {
+		return input.getBooleanByField(this.getFieldName());
 	}
 	
 }

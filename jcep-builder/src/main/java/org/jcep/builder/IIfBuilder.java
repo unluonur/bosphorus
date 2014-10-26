@@ -4,26 +4,27 @@ import org.jcep.builder.types.BaseTypeGetter;
 import org.jcep.builder.types.BooleanGetter;
 import org.jcep.core.expressions.IExpression;
 
-public class IIfBuilder<TContext> {
+public class IIfBuilder<TInput> {
 
 	public class TrueBuilder {
-		private IExpression<Boolean, TContext> condition;
-		public TrueBuilder(IExpression<Boolean, TContext> condition) {
+		private IExpression<TInput, Boolean> condition;
+		
+		public TrueBuilder(IExpression<TInput, Boolean> condition) {
 			this.condition = condition;
 		}
 		
-		public FalseBuilder<Boolean, BooleanGetter<TContext>> then(BooleanGetter<TContext> trueExpression) {
-			return new FalseBuilder<Boolean, BooleanGetter<TContext>>(this.condition, trueExpression.getExpression(), BooleanGetter.class);
+		public FalseBuilder<Boolean, BooleanGetter<TInput>> then(BooleanGetter<TInput> trueExpression) {
+			return new FalseBuilder<Boolean, BooleanGetter<TInput>>(this.condition, trueExpression.getExpression(), BooleanGetter.class);
 		}
 		
 	}
 	
-	public class FalseBuilder<TType extends Comparable<TType>, TGetter extends BaseTypeGetter<TType, TContext>> {
-		private IExpression<Boolean, TContext> condition;
-		private IExpression<TType, TContext> trueExpression;
+	public class FalseBuilder<TOutput extends Comparable<TOutput>, TGetter extends BaseTypeGetter<TInput, TOutput>> {
+		private IExpression<TInput, Boolean> condition;
+		private IExpression<TInput, TOutput> trueExpression;
 		private Class clz;
 		
-		public FalseBuilder(IExpression<Boolean, TContext> condition, IExpression<TType, TContext> trueExpression, Class clz) {
+		public FalseBuilder(IExpression<TInput, Boolean> condition, IExpression<TInput, TOutput> trueExpression, Class clz) {
 			this.condition = condition;
 			this.trueExpression = trueExpression;
 			this.clz = clz;

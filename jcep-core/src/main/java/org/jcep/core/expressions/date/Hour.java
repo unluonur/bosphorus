@@ -4,32 +4,32 @@ import java.util.Date;
 
 import org.jcep.core.expressions.IExpression;
 
-public class Hour<TContext> implements IExpression<Integer, TContext> {
+public class Hour<TInput> implements IExpression<TInput, Integer> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5227154640492699704L;
 	
-	private IExpression<Date, TContext> value;
+	private IExpression<TInput, Date> value;
 	
 	public Hour() {
 	}
 	
-	public Hour(IExpression<Date, TContext> value) {
+	public Hour(IExpression<TInput, Date> value) {
 		this.setValue(value);
 	}
 
-	public IExpression<Date, TContext> getValue() {
+	public IExpression<TInput, Date> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<Date, TContext> value) {
+	public void setValue(IExpression<TInput, Date> value) {
 		this.value = value;
 	}
 
 	@Override
-	public Integer execute(TContext context) {
-		return this.getValue().execute(context).getHours();
+	public Integer execute(TInput input) {
+		return this.getValue().execute(input).getHours();
 	}
 
 }

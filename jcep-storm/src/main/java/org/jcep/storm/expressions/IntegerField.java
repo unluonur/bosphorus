@@ -14,8 +14,8 @@ public class IntegerField extends BaseField<Integer> {
 	}
 
 	@Override
-	public Integer execute(Tuple context) {
-		return context.getIntegerByField(this.getFieldName());
+	public Integer execute(Tuple input) {
+		return input.getIntegerByField(this.getFieldName());
 	}
 	
 }

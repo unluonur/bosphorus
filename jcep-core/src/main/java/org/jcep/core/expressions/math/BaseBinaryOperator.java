@@ -2,29 +2,29 @@ package org.jcep.core.expressions.math;
 
 import org.jcep.core.expressions.IExpression;
 
-public abstract class BaseBinaryOperator<TType extends Number, TContext> implements IExpression<TType, TContext> {
+public abstract class BaseBinaryOperator<TInput, TOutput extends Number> implements IExpression<TInput, TOutput> {
 	
-	private IExpression<TType, TContext> left;
-	private IExpression<TType, TContext> right;
+	private IExpression<TInput, TOutput> left;
+	private IExpression<TInput, TOutput> right;
 	
-	public BaseBinaryOperator(IExpression<TType, TContext> left, IExpression<TType, TContext> right) {
+	public BaseBinaryOperator(IExpression<TInput, TOutput> left, IExpression<TInput, TOutput> right) {
 		this.setLeft(left);
 		this.setRight(right);
 	}
 	
-	public IExpression<TType, TContext> getLeft() {
+	public IExpression<TInput, TOutput> getLeft() {
 		return left;
 	}
 	
-	public void setLeft(IExpression<TType, TContext> left) {
+	public void setLeft(IExpression<TInput, TOutput> left) {
 		this.left = left;
 	}
 	
-	public IExpression<TType, TContext> getRight() {
+	public IExpression<TInput, TOutput> getRight() {
 		return right;
 	}
 	
-	public void setRight(IExpression<TType, TContext> right) {
+	public void setRight(IExpression<TInput, TOutput> right) {
 		this.right = right;
 	}
 

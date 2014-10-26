@@ -14,8 +14,8 @@ public class StringField extends BaseField<String> {
 	}
 
 	@Override
-	public String execute(Tuple context) {
-		return context.getStringByField(this.getFieldName());
+	public String execute(Tuple input) {
+		return input.getStringByField(this.getFieldName());
 	}
 	
 }

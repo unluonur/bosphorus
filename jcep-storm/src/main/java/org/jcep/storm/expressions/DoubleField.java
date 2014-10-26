@@ -14,8 +14,8 @@ public class DoubleField extends BaseField<Double> {
 	}
 
 	@Override
-	public Double execute(Tuple context) {
-		return context.getDoubleByField(this.getFieldName());
+	public Double execute(Tuple input) {
+		return input.getDoubleByField(this.getFieldName());
 	}
 	
 }

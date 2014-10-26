@@ -2,16 +2,16 @@ package org.jcep.core.expressions.math;
 
 import org.jcep.core.expressions.IExpression;
 
-public class DivideDouble<TContext> extends BaseBinaryOperator<Double, TContext> {
+public class DivideDouble<TInput> extends BaseBinaryOperator<TInput, Double> {
 
-	public DivideDouble(IExpression<Double, TContext> left,
-			IExpression<Double, TContext> right) {
+	public DivideDouble(IExpression<TInput, Double> left,
+			IExpression<TInput, Double> right) {
 		super(left, right);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Double execute(TContext context) {
-		return this.getLeft().execute(context) / this.getRight().execute(context);
+	public Double execute(TInput input) {
+		return this.getLeft().execute(input) / this.getRight().execute(input);
 	}
 
 }

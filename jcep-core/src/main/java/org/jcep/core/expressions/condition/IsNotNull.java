@@ -2,20 +2,20 @@ package org.jcep.core.expressions.condition;
 
 import org.jcep.core.expressions.IExpression;
 
-public class IsNotNull<TType, TContext> extends BaseUnaryCondition<TType, TContext> {
+public class IsNotNull<TInput, TOutput> extends BaseUnaryCondition<TInput, TOutput> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4900316036835479432L;
 
-	public IsNotNull(IExpression<TType, TContext> value) {
+	public IsNotNull(IExpression<TInput, TOutput> value) {
 		super(value);
 	}
 
 	@Override
-	public Boolean execute(TContext context) {
-		return this.getValue().execute(context) != null;
+	public Boolean execute(TInput input) {
+		return this.getValue().execute(input) != null;
 	}
 
 }

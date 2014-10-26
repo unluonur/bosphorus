@@ -2,32 +2,32 @@ package org.jcep.core.expressions.string;
 
 import org.jcep.core.expressions.IExpression;
 
-public class StrLength<TContext> implements IExpression<Integer, TContext> {
+public class StrLength<TInput> implements IExpression<TInput, Integer> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8792321758093603310L;
 	
-	private IExpression<String, TContext> value;
+	private IExpression<TInput, String> value;
 	
 	public StrLength() {
 	}
 	
-	public StrLength(IExpression<String, TContext> value) {
+	public StrLength(IExpression<TInput, String> value) {
 		this.setValue(value);
 	}
 
-	public IExpression<String, TContext> getValue() {
+	public IExpression<TInput, String> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<String, TContext> value) {
+	public void setValue(IExpression<TInput, String> value) {
 		this.value = value;
 	}
 
 	@Override
-	public Integer execute(TContext context) {
-		return this.getValue().execute(context).length();
+	public Integer execute(TInput input) {
+		return this.getValue().execute(input).length();
 	}
 
 }

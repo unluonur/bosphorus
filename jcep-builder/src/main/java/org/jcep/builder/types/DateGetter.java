@@ -13,38 +13,38 @@ import org.jcep.core.expressions.date.Now;
 import org.jcep.core.expressions.date.Second;
 import org.jcep.core.expressions.date.Year;
 
-public class DateGetter<TContext> extends BaseTypeGetter<Date, TContext> {
+public class DateGetter<TInput> extends BaseTypeGetter<TInput, Date> {
 
-	public DateGetter(IExpression<Date, TContext> expression) {
+	public DateGetter(IExpression<TInput, Date> expression) {
 		super(expression);
 	}
 	
-	public IntegerGetter<TContext> dayOfMonth() {
-		return new IntegerGetter<TContext>(new DayOfMonth<TContext>(this.getExpression()));
+	public IntegerGetter<TInput> dayOfMonth() {
+		return new IntegerGetter<TInput>(new DayOfMonth<TInput>(this.getExpression()));
 	}
 	
-	public IntegerGetter<TContext> dayOfWeek() {
-		return new IntegerGetter<TContext>(new DayOfWeek<TContext>(this.getExpression()));
+	public IntegerGetter<TInput> dayOfWeek() {
+		return new IntegerGetter<TInput>(new DayOfWeek<TInput>(this.getExpression()));
 	}
 	
-	public IntegerGetter<TContext> month() {
-		return new IntegerGetter<TContext>(new Month<TContext>(this.getExpression()));
+	public IntegerGetter<TInput> month() {
+		return new IntegerGetter<TInput>(new Month<TInput>(this.getExpression()));
 	}
 	
-	public IntegerGetter<TContext> year() {
-		return new IntegerGetter<TContext>(new Year<TContext>(this.getExpression()));
+	public IntegerGetter<TInput> year() {
+		return new IntegerGetter<TInput>(new Year<TInput>(this.getExpression()));
 	}
 	
-	public IntegerGetter<TContext> hour() {
-		return new IntegerGetter<TContext>(new Hour<TContext>(this.getExpression()));
+	public IntegerGetter<TInput> hour() {
+		return new IntegerGetter<TInput>(new Hour<TInput>(this.getExpression()));
 	}
 	
-	public IntegerGetter<TContext> minute() {
-		return new IntegerGetter<TContext>(new Minute<TContext>(this.getExpression()));
+	public IntegerGetter<TInput> minute() {
+		return new IntegerGetter<TInput>(new Minute<TInput>(this.getExpression()));
 	}
 	
-	public IntegerGetter<TContext> second() {
-		return new IntegerGetter<TContext>(new Second<TContext>(this.getExpression()));
+	public IntegerGetter<TInput> second() {
+		return new IntegerGetter<TInput>(new Second<TInput>(this.getExpression()));
 	}
 
 }

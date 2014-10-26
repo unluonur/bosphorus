@@ -8,74 +8,74 @@ import org.jcep.core.expressions.math.ModLong;
 import org.jcep.core.expressions.math.MultiplyLong;
 import org.jcep.core.expressions.math.SubtractLong;
 
-public class LongGetter<TContext> extends BaseTypeGetter<Long, TContext> {
+public class LongGetter<TInput> extends BaseTypeGetter<TInput, Long> {
 
-	public LongGetter(IExpression<Long, TContext> expression) {
+	public LongGetter(IExpression<TInput, Long> expression) {
 		super(expression);
 	}
 	
-	public LongGetter<TContext> add(LongGetter<TContext> expression) {
-		return new LongGetter<TContext>(new AddLong<TContext>(this.getExpression(), expression.getExpression()));
+	public LongGetter<TInput> add(LongGetter<TInput> expression) {
+		return new LongGetter<TInput>(new AddLong<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public LongGetter<TContext> add(IExpression<Long, TContext> expression) {
-		return new LongGetter<TContext>(new AddLong<TContext>(this.getExpression(), expression));
+	public LongGetter<TInput> add(IExpression<TInput, Long> expression) {
+		return new LongGetter<TInput>(new AddLong<TInput>(this.getExpression(), expression));
 	}
 	
-	public LongGetter<TContext> add(Long value) {
-		return new LongGetter<TContext>(new AddLong<TContext>(this.getExpression(), new Constant<Long, TContext>(value)));
-	}
-	
-	
-	public LongGetter<TContext> subtract(LongGetter<TContext> expression) {
-		return new LongGetter<TContext>(new SubtractLong<TContext>(this.getExpression(), expression.getExpression()));
-	}
-	
-	public LongGetter<TContext> subtract(IExpression<Long, TContext> expression) {
-		return new LongGetter<TContext>(new SubtractLong<TContext>(this.getExpression(), expression));
-	}
-	
-	public LongGetter<TContext> subtract(Long value) {
-		return new LongGetter<TContext>(new SubtractLong<TContext>(this.getExpression(), new Constant<Long, TContext>(value)));
+	public LongGetter<TInput> add(Long value) {
+		return new LongGetter<TInput>(new AddLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
 	}
 	
 	
-	public LongGetter<TContext> multiply(LongGetter<TContext> expression) {
-		return new LongGetter<TContext>(new MultiplyLong<TContext>(this.getExpression(), expression.getExpression()));
+	public LongGetter<TInput> subtract(LongGetter<TInput> expression) {
+		return new LongGetter<TInput>(new SubtractLong<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public LongGetter<TContext> multiply(IExpression<Long, TContext> expression) {
-		return new LongGetter<TContext>(new MultiplyLong<TContext>(this.getExpression(), expression));
+	public LongGetter<TInput> subtract(IExpression<TInput, Long> expression) {
+		return new LongGetter<TInput>(new SubtractLong<TInput>(this.getExpression(), expression));
 	}
 	
-	public LongGetter<TContext> multiply(Long value) {
-		return new LongGetter<TContext>(new MultiplyLong<TContext>(this.getExpression(), new Constant<Long, TContext>(value)));
-	}
-	
-	
-	public LongGetter<TContext> divideBy(LongGetter<TContext> expression) {
-		return new LongGetter<TContext>(new DivideLong<TContext>(this.getExpression(), expression.getExpression()));
-	}
-	
-	public LongGetter<TContext> divideBy(IExpression<Long, TContext> expression) {
-		return new LongGetter<TContext>(new DivideLong<TContext>(this.getExpression(), expression));
-	}
-	
-	public LongGetter<TContext> divideBy(Long value) {
-		return new LongGetter<TContext>(new DivideLong<TContext>(this.getExpression(), new Constant<Long, TContext>(value)));
+	public LongGetter<TInput> subtract(Long value) {
+		return new LongGetter<TInput>(new SubtractLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
 	}
 	
 	
-	public LongGetter<TContext> mod(LongGetter<TContext> expression) {
-		return new LongGetter<TContext>(new ModLong<TContext>(this.getExpression(), expression.getExpression()));
+	public LongGetter<TInput> multiply(LongGetter<TInput> expression) {
+		return new LongGetter<TInput>(new MultiplyLong<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public LongGetter<TContext> mod(IExpression<Long, TContext> expression) {
-		return new LongGetter<TContext>(new ModLong<TContext>(this.getExpression(), expression));
+	public LongGetter<TInput> multiply(IExpression<TInput, Long> expression) {
+		return new LongGetter<TInput>(new MultiplyLong<TInput>(this.getExpression(), expression));
 	}
 	
-	public LongGetter<TContext> mod(Long value) {
-		return new LongGetter<TContext>(new ModLong<TContext>(this.getExpression(), new Constant<Long, TContext>(value)));
+	public LongGetter<TInput> multiply(Long value) {
+		return new LongGetter<TInput>(new MultiplyLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
+	}
+	
+	
+	public LongGetter<TInput> divideBy(LongGetter<TInput> expression) {
+		return new LongGetter<TInput>(new DivideLong<TInput>(this.getExpression(), expression.getExpression()));
+	}
+	
+	public LongGetter<TInput> divideBy(IExpression<TInput, Long> expression) {
+		return new LongGetter<TInput>(new DivideLong<TInput>(this.getExpression(), expression));
+	}
+	
+	public LongGetter<TInput> divideBy(Long value) {
+		return new LongGetter<TInput>(new DivideLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
+	}
+	
+	
+	public LongGetter<TInput> mod(LongGetter<TInput> expression) {
+		return new LongGetter<TInput>(new ModLong<TInput>(this.getExpression(), expression.getExpression()));
+	}
+	
+	public LongGetter<TInput> mod(IExpression<TInput, Long> expression) {
+		return new LongGetter<TInput>(new ModLong<TInput>(this.getExpression(), expression));
+	}
+	
+	public LongGetter<TInput> mod(Long value) {
+		return new LongGetter<TInput>(new ModLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
 	}
 	
 }

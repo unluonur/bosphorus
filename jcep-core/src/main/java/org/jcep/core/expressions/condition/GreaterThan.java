@@ -2,7 +2,7 @@ package org.jcep.core.expressions.condition;
 
 import org.jcep.core.expressions.IExpression;
 
-public class GreaterThan<TType extends Comparable<TType>, TContext> extends BaseComparison<TType, TContext> {
+public class GreaterThan<TInput, TOutput extends Comparable<TOutput>> extends BaseComparison<TInput, TOutput> {
 	
 	/**
 	 * 
@@ -13,13 +13,13 @@ public class GreaterThan<TType extends Comparable<TType>, TContext> extends Base
 		
 	}
 	
-	public GreaterThan(IExpression<TType, TContext> left, IExpression<TType, TContext> right) {
+	public GreaterThan(IExpression<TInput, TOutput> left, IExpression<TInput, TOutput> right) {
 		super(left, right);
 	}
 	
-	public Boolean execute(TContext context) {
-		TType left = this.getLeft().execute(context);
-		TType right = this.getRight().execute(context);
+	public Boolean execute(TInput input) {
+		TOutput left = this.getLeft().execute(input);
+		TOutput right = this.getRight().execute(input);
 		if(left == null) {
 			return false;
 		}

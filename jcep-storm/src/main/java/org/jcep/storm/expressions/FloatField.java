@@ -14,8 +14,8 @@ public class FloatField extends BaseField<Float> {
 	}
 
 	@Override
-	public Float execute(Tuple context) {
-		return context.getFloatByField(this.getFieldName());
+	public Float execute(Tuple input) {
+		return input.getFloatByField(this.getFieldName());
 	}
 	
 }

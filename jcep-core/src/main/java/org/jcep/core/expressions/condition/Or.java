@@ -2,20 +2,20 @@ package org.jcep.core.expressions.condition;
 
 import org.jcep.core.expressions.IExpression;
 
-public class Or<TContext> extends BaseBinaryCondition<TContext> {
+public class Or<TInput> extends BaseBinaryCondition<TInput> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 9154941041282771924L;
 
-	public Or(IExpression<Boolean, TContext> left,
-			IExpression<Boolean, TContext> right) {
+	public Or(IExpression<TInput, Boolean> left,
+			IExpression<TInput, Boolean> right) {
 		super(left, right);
 	}
 
-	public Boolean execute(TContext context) {
-		return this.getLeft().execute(context) || this.getRight().execute(context);
+	public Boolean execute(TInput input) {
+		return this.getLeft().execute(input) || this.getRight().execute(input);
 	}
 
 }

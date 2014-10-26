@@ -4,7 +4,7 @@ import org.jcep.core.expressions.IExpression;
 
 import backtype.storm.tuple.Tuple;
 
-public abstract class BaseField<TType> implements IExpression<TType, Tuple> {
+public abstract class BaseField<TType> implements IExpression<Tuple, TType> {
 	/**
 	 * 
 	 */

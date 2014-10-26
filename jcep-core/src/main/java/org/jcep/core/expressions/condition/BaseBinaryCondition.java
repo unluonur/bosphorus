@@ -2,34 +2,34 @@ package org.jcep.core.expressions.condition;
 
 import org.jcep.core.expressions.IExpression;
 
-public abstract class BaseBinaryCondition<TContext> implements IExpression<Boolean, TContext> {
+public abstract class BaseBinaryCondition<TInput> implements IExpression<TInput, Boolean> {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7116031993084212345L;
 	
-	private IExpression<Boolean, TContext> left;
-	private IExpression<Boolean, TContext> right;
+	private IExpression<TInput, Boolean> left;
+	private IExpression<TInput, Boolean> right;
 	
-	public BaseBinaryCondition(IExpression<Boolean, TContext> left, IExpression<Boolean, TContext> right) {
+	public BaseBinaryCondition(IExpression<TInput, Boolean> left, IExpression<TInput, Boolean> right) {
 		this.setLeft(left);
 		this.setRight(right);
 	}
 
-	public IExpression<Boolean, TContext> getLeft() {
+	public IExpression<TInput, Boolean> getLeft() {
 		return left;
 	}
 
-	public void setLeft(IExpression<Boolean, TContext> left) {
+	public void setLeft(IExpression<TInput, Boolean> left) {
 		this.left = left;
 	}
 
-	public IExpression<Boolean, TContext> getRight() {
+	public IExpression<TInput, Boolean> getRight() {
 		return right;
 	}
 
-	public void setRight(IExpression<Boolean, TContext> right) {
+	public void setRight(IExpression<TInput, Boolean> right) {
 		this.right = right;
 	}
 

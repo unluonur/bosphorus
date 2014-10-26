@@ -4,32 +4,32 @@ import java.util.Date;
 
 import org.jcep.core.expressions.IExpression;
 
-public class DayOfMonth<TContext> implements IExpression<Integer, TContext> {
+public class DayOfMonth<TInput> implements IExpression<TInput, Integer> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 10769287980143654L;
 	
-	private IExpression<Date, TContext> value;
+	private IExpression<TInput, Date> value;
 	
 	public DayOfMonth() {
 	}
 	
-	public DayOfMonth(IExpression<Date, TContext> value) {
+	public DayOfMonth(IExpression<TInput, Date> value) {
 		this.setValue(value);
 	}
 
-	public IExpression<Date, TContext> getValue() {
+	public IExpression<TInput, Date> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<Date, TContext> value) {
+	public void setValue(IExpression<TInput, Date> value) {
 		this.value = value;
 	}
 
 	@Override
-	public Integer execute(TContext context) {
-		return this.getValue().execute(context).getDate();
+	public Integer execute(TInput input) {
+		return this.getValue().execute(input).getDate();
 	}
 
 }
