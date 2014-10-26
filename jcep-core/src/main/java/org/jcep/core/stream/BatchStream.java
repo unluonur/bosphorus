@@ -2,9 +2,11 @@ package org.jcep.core.stream;
 
 import java.util.List;
 
-public class BatchStream<TType> implements IExecutor<TType> {
+import org.jcep.core.statements.IStatement;
+
+public class BatchStream<TType> implements IStatement<TType> {
 	
-	private ICollector<List<TType>> collector;
+	private IStatement<List<TType>> collector;
 
 	@Override
 	public void execute(TType input) {
