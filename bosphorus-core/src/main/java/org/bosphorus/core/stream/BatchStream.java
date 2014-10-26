@@ -2,7 +2,7 @@ package org.bosphorus.core.stream;
 
 import java.util.List;
 
-import org.bosphorus.core.statements.IStatement;
+import org.bosphorus.core.statement.IStatement;
 
 public class BatchStream<TType> implements IStatement<TType> {
 	

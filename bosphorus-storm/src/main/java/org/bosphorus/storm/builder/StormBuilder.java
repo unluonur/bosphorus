@@ -1,20 +1,20 @@
 package org.bosphorus.storm.builder;
 
 import org.bosphorus.builder.ExpressionBuilder;
-import org.bosphorus.builder.types.BooleanContainer;
-import org.bosphorus.builder.types.DateContainer;
-import org.bosphorus.builder.types.DoubleContainer;
-import org.bosphorus.builder.types.FloatContainer;
-import org.bosphorus.builder.types.IntegerContainer;
-import org.bosphorus.builder.types.LongContainer;
-import org.bosphorus.builder.types.StringContainer;
-import org.bosphorus.storm.expressions.BooleanField;
-import org.bosphorus.storm.expressions.DateField;
-import org.bosphorus.storm.expressions.DoubleField;
-import org.bosphorus.storm.expressions.FloatField;
-import org.bosphorus.storm.expressions.IntegerField;
-import org.bosphorus.storm.expressions.LongField;
-import org.bosphorus.storm.expressions.StringField;
+import org.bosphorus.builder.container.BooleanContainer;
+import org.bosphorus.builder.container.DateContainer;
+import org.bosphorus.builder.container.DoubleContainer;
+import org.bosphorus.builder.container.FloatContainer;
+import org.bosphorus.builder.container.IntegerContainer;
+import org.bosphorus.builder.container.LongContainer;
+import org.bosphorus.builder.container.StringContainer;
+import org.bosphorus.storm.expression.BooleanField;
+import org.bosphorus.storm.expression.DateField;
+import org.bosphorus.storm.expression.DoubleField;
+import org.bosphorus.storm.expression.FloatField;
+import org.bosphorus.storm.expression.IntegerField;
+import org.bosphorus.storm.expression.LongField;
+import org.bosphorus.storm.expression.StringField;
 
 import backtype.storm.tuple.Tuple;
 

@@ -1,8 +1,8 @@
 package org.bosphorus.builder;
 
-import org.bosphorus.builder.types.BaseTypeContainer;
-import org.bosphorus.builder.types.BooleanContainer;
-import org.bosphorus.core.expressions.IExpression;
+import org.bosphorus.builder.container.BaseTypeContainer;
+import org.bosphorus.builder.container.BooleanContainer;
+import org.bosphorus.core.expression.IExpression;
 
 /*
  * TODO

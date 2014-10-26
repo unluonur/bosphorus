@@ -2,15 +2,15 @@ package org.bosphorus.builder;
 
 import java.util.Date;
 
-import org.bosphorus.builder.types.BooleanContainer;
-import org.bosphorus.builder.types.DateContainer;
-import org.bosphorus.builder.types.DoubleContainer;
-import org.bosphorus.builder.types.FloatContainer;
-import org.bosphorus.builder.types.IntegerContainer;
-import org.bosphorus.builder.types.LongContainer;
-import org.bosphorus.builder.types.StringContainer;
-import org.bosphorus.core.expressions.Constant;
-import org.bosphorus.core.expressions.date.Now;
+import org.bosphorus.builder.container.BooleanContainer;
+import org.bosphorus.builder.container.DateContainer;
+import org.bosphorus.builder.container.DoubleContainer;
+import org.bosphorus.builder.container.FloatContainer;
+import org.bosphorus.builder.container.IntegerContainer;
+import org.bosphorus.builder.container.LongContainer;
+import org.bosphorus.builder.container.StringContainer;
+import org.bosphorus.core.expression.Constant;
+import org.bosphorus.core.expression.date.Now;
 
 public class ExpressionBuilder<TInput> {
 	
