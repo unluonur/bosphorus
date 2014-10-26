@@ -15,7 +15,7 @@ public class AddDouble<TInput> extends BaseBinaryOperator<TInput, Double> {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Double execute(TInput input) {
+	public Double execute(TInput input) throws Exception {
 		return this.getLeft().execute(input) + this.getRight().execute(input);
 	}
 

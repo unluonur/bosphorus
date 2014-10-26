@@ -34,7 +34,7 @@ public class StrConcat<TInput> implements IExpression<TInput, String> {
 	}
 
 	@Override
-	public String execute(TInput input) {
+	public String execute(TInput input) throws Exception {
 		String result = "";
 		for(IExpression<TInput, String> expr: this.getList()) {
 			result += expr.execute(input);

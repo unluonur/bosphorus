@@ -14,7 +14,7 @@ public class IsNotNull<TInput, TType> extends BaseUnaryCondition<TInput, TType> 
 	}
 
 	@Override
-	public Boolean execute(TInput input) {
+	public Boolean execute(TInput input) throws Exception {
 		return this.getValue().execute(input) != null;
 	}
 

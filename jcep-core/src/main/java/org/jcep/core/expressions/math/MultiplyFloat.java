@@ -10,7 +10,7 @@ public class MultiplyFloat<TInput> extends BaseBinaryOperator<TInput, Float> {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Float execute(TInput input) {
+	public Float execute(TInput input) throws Exception {
 		return this.getLeft().execute(input) * this.getRight().execute(input);
 	}
 

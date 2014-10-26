@@ -46,7 +46,7 @@ public class IIf<TInput, TOutput> implements IExpression<TInput, TOutput> {
 	}
 
 	@Override
-	public TOutput execute(TInput input) {
+	public TOutput execute(TInput input) throws Exception {
 		return this.getCondition().execute(input) ? this.getTrueValue().execute(input) : this.getFalseValue().execute(input);
 	}
 	

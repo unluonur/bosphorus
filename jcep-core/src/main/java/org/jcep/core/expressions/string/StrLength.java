@@ -26,7 +26,7 @@ public class StrLength<TInput> implements IExpression<TInput, Integer> {
 	}
 
 	@Override
-	public Integer execute(TInput input) {
+	public Integer execute(TInput input) throws Exception {
 		return this.getValue().execute(input).length();
 	}
 

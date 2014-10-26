@@ -15,7 +15,7 @@ public class If<TInput> implements IStatement<TInput> {
 	}
 
 	@Override
-	public void execute(TInput input) {
+	public void execute(TInput input) throws Exception {
 		if(condition.execute(input)) {
 			trueStatement.execute(input);
 		}

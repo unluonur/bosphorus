@@ -14,7 +14,7 @@ public class Not<TInput> extends BaseUnaryCondition<TInput, Boolean> {
 	}
 
 	@Override
-	public Boolean execute(TInput input) {
+	public Boolean execute(TInput input) throws Exception {
 		return !this.getValue().execute(input);
 	}
 

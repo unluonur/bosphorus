@@ -45,7 +45,7 @@ public class SubString<TInput> implements IExpression<TInput, String> {
 	}
 
 	@Override
-	public String execute(TInput input) {
+	public String execute(TInput input) throws Exception {
 		String value = this.getValue().execute(input);
 		Integer startIndex = this.getStartIndex().execute(input);
 		Integer endIndex = startIndex + this.getLength().execute(input);

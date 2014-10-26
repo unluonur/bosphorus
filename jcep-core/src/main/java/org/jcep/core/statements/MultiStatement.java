@@ -13,7 +13,7 @@ public class MultiStatement<TInput> implements IStatement<TInput> {
 	}
 	
 	@Override
-	public void execute(TInput input) {
+	public void execute(TInput input) throws Exception {
 		for(IStatement<TInput> stat: statements) {
 			stat.execute(input);
 		}

@@ -9,7 +9,7 @@ public class ModInteger<TInput> extends BaseBinaryOperator<TInput, Integer> {
 		super(left, right);
 	}
 
-	public Integer execute(TInput input) {
+	public Integer execute(TInput input) throws Exception {
 		return this.getLeft().execute(input) % this.getRight().execute(input);
 	}
 

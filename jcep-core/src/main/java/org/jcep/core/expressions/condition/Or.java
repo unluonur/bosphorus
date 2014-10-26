@@ -14,7 +14,7 @@ public class Or<TInput> extends BaseBinaryCondition<TInput> {
 		super(left, right);
 	}
 
-	public Boolean execute(TInput input) {
+	public Boolean execute(TInput input) throws Exception {
 		return this.getLeft().execute(input) || this.getRight().execute(input);
 	}
 

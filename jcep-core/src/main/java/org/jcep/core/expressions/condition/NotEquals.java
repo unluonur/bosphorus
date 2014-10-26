@@ -17,7 +17,7 @@ public class NotEquals<TInput, TType extends Comparable<TType>> extends BaseComp
 		super(left, right);
 	}
 	
-	public Boolean execute(TInput input) {
+	public Boolean execute(TInput input) throws Exception {
 		TType left = this.getLeft().execute(input);
 		TType right = this.getRight().execute(input);
 		if(left == null) {

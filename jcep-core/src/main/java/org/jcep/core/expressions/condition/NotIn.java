@@ -17,7 +17,7 @@ public class NotIn<TInput, TType extends Comparable<TType>> extends BaseListComp
 	}
 
 	@Override
-	public Boolean execute(TInput input) {
+	public Boolean execute(TInput input) throws Exception {
 		TType value = this.getValue().execute(input);
 		for(IExpression<TInput, TType> expr: this.getList()) {
 			if(value.equals(expr.execute(input))) {

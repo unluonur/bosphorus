@@ -10,7 +10,7 @@ public class SubtractLong<TInput> extends BaseBinaryOperator<TInput, Long> {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long execute(TInput input) {
+	public Long execute(TInput input) throws Exception {
 		return this.getLeft().execute(input) - this.getRight().execute(input);
 	}
 

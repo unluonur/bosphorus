@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.jcep.core.expressions.IExpression;
 import org.jcep.core.statements.IStatement;
+
 import backtype.storm.task.OutputCollector;
 import backtype.storm.tuple.Tuple;
 
@@ -14,7 +15,7 @@ public class StreamCollector implements IStatement<Tuple> {
 	private OutputCollector collector;
 
 	@Override
-	public void execute(Tuple data) {
+	public void execute(Tuple data) throws Exception {
 		ArrayList<Object> values = new ArrayList<Object>();
 		for(IExpression<Tuple, Object> expr: streamDefinition) {
 			values.add(expr.execute(data));

@@ -10,7 +10,7 @@ public class SubtractInteger<TInput> extends BaseBinaryOperator<TInput, Integer>
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer execute(TInput input) {
+	public Integer execute(TInput input) throws Exception {
 		return this.getLeft().execute(input) - this.getRight().execute(input);
 	}
 
