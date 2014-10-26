@@ -4,8 +4,8 @@ import java.util.Date;
 
 import org.bosphorus.core.expressions.Convert;
 import org.bosphorus.core.expressions.IExpression;
-import org.bosphorus.core.expressions.condition.IsNotNull;
-import org.bosphorus.core.expressions.condition.IsNull;
+import org.bosphorus.core.expressions.conditions.IsNotNull;
+import org.bosphorus.core.expressions.conditions.IsNull;
 
 public abstract class BaseTypeContainer<TInput, TOutput> implements ITypeContainer<TInput, TOutput> {
 	private IExpression<TInput, TOutput> expression;

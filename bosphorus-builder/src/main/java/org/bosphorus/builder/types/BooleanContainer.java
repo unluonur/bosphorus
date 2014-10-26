@@ -1,9 +1,9 @@
 package org.bosphorus.builder.types;
 
 import org.bosphorus.core.expressions.IExpression;
-import org.bosphorus.core.expressions.condition.And;
-import org.bosphorus.core.expressions.condition.Not;
-import org.bosphorus.core.expressions.condition.Or;
+import org.bosphorus.core.expressions.conditions.And;
+import org.bosphorus.core.expressions.conditions.Not;
+import org.bosphorus.core.expressions.conditions.Or;
 
 public class BooleanContainer<TInput> extends BaseComparableContainer<TInput, Boolean> {
 

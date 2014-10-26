@@ -7,8 +7,8 @@ public class MultiStatement<TInput> implements IStatement<TInput> {
 	
 	public MultiStatement(IStatement<TInput>... statements) {
 		this.statements = new ArrayList<IStatement<TInput>>();
-		for(IStatement<TInput> stat: statements) {
-			this.statements.add(stat);
+		for(IStatement<TInput> statement: statements) {
+			this.statements.add(statement);
 		}
 	}
 	

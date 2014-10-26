@@ -1,4 +1,4 @@
-package org.bosphorus.core.expressions.condition;
+package org.bosphorus.core.expressions.conditions;
 
 import java.util.ArrayList;
 

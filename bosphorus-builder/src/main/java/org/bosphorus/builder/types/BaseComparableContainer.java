@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 import org.bosphorus.core.expressions.Constant;
 import org.bosphorus.core.expressions.IExpression;
-import org.bosphorus.core.expressions.condition.Equals;
-import org.bosphorus.core.expressions.condition.GreaterThan;
-import org.bosphorus.core.expressions.condition.GreaterThanOrEqual;
-import org.bosphorus.core.expressions.condition.In;
-import org.bosphorus.core.expressions.condition.LessThan;
-import org.bosphorus.core.expressions.condition.LessThanOrEqual;
-import org.bosphorus.core.expressions.condition.NotEquals;
-import org.bosphorus.core.expressions.condition.NotIn;
+import org.bosphorus.core.expressions.conditions.Equals;
+import org.bosphorus.core.expressions.conditions.GreaterThan;
+import org.bosphorus.core.expressions.conditions.GreaterThanOrEqual;
+import org.bosphorus.core.expressions.conditions.In;
+import org.bosphorus.core.expressions.conditions.LessThan;
+import org.bosphorus.core.expressions.conditions.LessThanOrEqual;
+import org.bosphorus.core.expressions.conditions.NotEquals;
+import org.bosphorus.core.expressions.conditions.NotIn;
 
 public abstract class BaseComparableContainer<TInput, TOutput extends Comparable<TOutput>> extends BaseTypeContainer<TInput, TOutput> {
 	
