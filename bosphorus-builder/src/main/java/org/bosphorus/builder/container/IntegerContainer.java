@@ -1,12 +1,12 @@
 package org.bosphorus.builder.container;
 
-import org.bosphorus.core.expression.Constant;
-import org.bosphorus.core.expression.IExpression;
-import org.bosphorus.core.expression.math.AddInteger;
-import org.bosphorus.core.expression.math.DivideInteger;
-import org.bosphorus.core.expression.math.ModInteger;
-import org.bosphorus.core.expression.math.MultiplyInteger;
-import org.bosphorus.core.expression.math.SubtractInteger;
+import org.bosphorus.expression.Constant;
+import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.math.AddInteger;
+import org.bosphorus.expression.math.DivideInteger;
+import org.bosphorus.expression.math.ModInteger;
+import org.bosphorus.expression.math.MultiplyInteger;
+import org.bosphorus.expression.math.SubtractInteger;
 
 public class IntegerContainer<TInput> extends BaseComparableContainer<TInput, Integer> {
 

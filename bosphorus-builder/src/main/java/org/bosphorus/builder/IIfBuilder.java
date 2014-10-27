@@ -2,7 +2,7 @@ package org.bosphorus.builder;
 
 import org.bosphorus.builder.container.BaseTypeContainer;
 import org.bosphorus.builder.container.BooleanContainer;
-import org.bosphorus.core.expression.IExpression;
+import org.bosphorus.expression.IExpression;
 
 /*
  * TODO

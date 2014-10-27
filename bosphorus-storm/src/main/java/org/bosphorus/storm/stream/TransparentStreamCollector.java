@@ -1,6 +1,6 @@
 package org.bosphorus.storm.stream;
 
-import org.bosphorus.core.statement.IStatement;
+import org.bosphorus.statement.IStatement;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.tuple.Tuple;

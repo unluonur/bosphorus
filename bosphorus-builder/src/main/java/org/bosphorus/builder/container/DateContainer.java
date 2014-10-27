@@ -2,14 +2,14 @@ package org.bosphorus.builder.container;
 
 import java.util.Date;
 
-import org.bosphorus.core.expression.IExpression;
-import org.bosphorus.core.expression.date.DayOfMonth;
-import org.bosphorus.core.expression.date.DayOfWeek;
-import org.bosphorus.core.expression.date.Hour;
-import org.bosphorus.core.expression.date.Minute;
-import org.bosphorus.core.expression.date.Month;
-import org.bosphorus.core.expression.date.Second;
-import org.bosphorus.core.expression.date.Year;
+import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.date.DayOfMonth;
+import org.bosphorus.expression.date.DayOfWeek;
+import org.bosphorus.expression.date.Hour;
+import org.bosphorus.expression.date.Minute;
+import org.bosphorus.expression.date.Month;
+import org.bosphorus.expression.date.Second;
+import org.bosphorus.expression.date.Year;
 
 public class DateContainer<TInput> extends BaseComparableContainer<TInput, Date> {
 

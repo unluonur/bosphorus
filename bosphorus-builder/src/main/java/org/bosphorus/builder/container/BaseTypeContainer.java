@@ -2,10 +2,10 @@ package org.bosphorus.builder.container;
 
 import java.util.Date;
 
-import org.bosphorus.core.expression.Convert;
-import org.bosphorus.core.expression.IExpression;
-import org.bosphorus.core.expression.condition.IsNotNull;
-import org.bosphorus.core.expression.condition.IsNull;
+import org.bosphorus.expression.Convert;
+import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.condition.IsNotNull;
+import org.bosphorus.expression.condition.IsNull;
 
 public abstract class BaseTypeContainer<TInput, TOutput> implements ITypeContainer<TInput, TOutput> {
 	private IExpression<TInput, TOutput> expression;

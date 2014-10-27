@@ -3,8 +3,8 @@ package org.bosphorus.storm.stream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.core.expression.IExpression;
-import org.bosphorus.core.statement.IStatement;
+import org.bosphorus.expression.IExpression;
+import org.bosphorus.statement.IStatement;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.tuple.Tuple;

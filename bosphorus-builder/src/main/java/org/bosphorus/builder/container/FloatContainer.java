@@ -1,11 +1,11 @@
 package org.bosphorus.builder.container;
 
-import org.bosphorus.core.expression.Constant;
-import org.bosphorus.core.expression.IExpression;
-import org.bosphorus.core.expression.math.AddFloat;
-import org.bosphorus.core.expression.math.DivideFloat;
-import org.bosphorus.core.expression.math.MultiplyFloat;
-import org.bosphorus.core.expression.math.SubtractFloat;
+import org.bosphorus.expression.Constant;
+import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.math.AddFloat;
+import org.bosphorus.expression.math.DivideFloat;
+import org.bosphorus.expression.math.MultiplyFloat;
+import org.bosphorus.expression.math.SubtractFloat;
 
 public class FloatContainer<TInput> extends BaseComparableContainer<TInput, Float> {
 

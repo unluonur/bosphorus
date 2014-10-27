@@ -1,12 +1,12 @@
 package org.bosphorus.builder.container;
 
-import org.bosphorus.core.expression.Constant;
-import org.bosphorus.core.expression.IExpression;
-import org.bosphorus.core.expression.math.AddLong;
-import org.bosphorus.core.expression.math.DivideLong;
-import org.bosphorus.core.expression.math.ModLong;
-import org.bosphorus.core.expression.math.MultiplyLong;
-import org.bosphorus.core.expression.math.SubtractLong;
+import org.bosphorus.expression.Constant;
+import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.math.AddLong;
+import org.bosphorus.expression.math.DivideLong;
+import org.bosphorus.expression.math.ModLong;
+import org.bosphorus.expression.math.MultiplyLong;
+import org.bosphorus.expression.math.SubtractLong;
 
 public class LongContainer<TInput> extends BaseComparableContainer<TInput, Long> {
 
