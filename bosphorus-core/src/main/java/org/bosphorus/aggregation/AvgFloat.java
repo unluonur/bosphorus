@@ -4,9 +4,9 @@ import org.bosphorus.aggregation.bag.AvgBagFloat;
 import org.bosphorus.aggregation.bag.IAggregationBag;
 import org.bosphorus.expression.IExpression;
 
-public class AvgFloat<TInput> extends BaseExpressionAggregation<TInput, Float, Float> {
+public class AvgFloat extends BaseExpressionAggregation<Float, Float> {
 
-	public AvgFloat(IExpression<TInput, Float> expression) {
+	public AvgFloat(IExpression<Float> expression) {
 		super(expression);
 		// TODO Auto-generated constructor stub
 	}

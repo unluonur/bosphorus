@@ -3,19 +3,20 @@ package org.bosphorus.expression.string;
 import java.util.regex.Pattern;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class RegexMatchConst<TInput> implements IExpression<TInput, Boolean> {
+public class RegexMatchConst implements IExpression<Boolean> {
 
 	private Pattern pattern;
-	private IExpression<TInput, String> text;
+	private IExpression<String> text;
 	
-	public RegexMatchConst(String pattern, IExpression<TInput, String> text) {
+	public RegexMatchConst(String pattern, IExpression<String> text) {
 		this.pattern = Pattern.compile(pattern);
 		this.text = text;
 	}
 	
 	@Override
-	public Boolean execute(TInput input) throws Exception {
+	public Boolean execute(ITuple input) throws Exception {
 		return pattern.matcher(text.execute(input)).matches();
 	}
 

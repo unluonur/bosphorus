@@ -1,8 +1,9 @@
 package org.bosphorus.expression.condition;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class GreaterThanOrEqual<TInput, TType extends Comparable<TType>> extends BaseComparison<TInput, TType> {
+public class GreaterThanOrEqual<TType extends Comparable<TType>> extends BaseComparison<TType> {
 	
 	/**
 	 * 
@@ -13,11 +14,11 @@ public class GreaterThanOrEqual<TInput, TType extends Comparable<TType>> extends
 		
 	}
 	
-	public GreaterThanOrEqual(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
+	public GreaterThanOrEqual(IExpression<TType> left, IExpression<TType> right) {
 		super(left, right);
 	}
 	
-	public Boolean execute(TInput input) throws Exception {
+	public Boolean execute(ITuple input) throws Exception {
 		TType left = this.getLeft().execute(input);
 		TType right = this.getRight().execute(input);
 		if(left == null) {

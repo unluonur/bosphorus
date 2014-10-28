@@ -11,38 +11,38 @@ import org.bosphorus.expression.date.Month;
 import org.bosphorus.expression.date.Second;
 import org.bosphorus.expression.date.Year;
 
-public class DateContainer<TInput> extends BaseComparableContainer<TInput, Date> {
+public class DateContainer extends BaseComparableContainer<Date> {
 
-	public DateContainer(IExpression<TInput, Date> expression) {
+	public DateContainer(IExpression<Date> expression) {
 		super(expression);
 	}
 	
-	public IntegerContainer<TInput> dayOfMonth() {
-		return new IntegerContainer<TInput>(new DayOfMonth<TInput>(this.getExpression()));
+	public IntegerContainer dayOfMonth() {
+		return new IntegerContainer(new DayOfMonth(this.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> dayOfWeek() {
-		return new IntegerContainer<TInput>(new DayOfWeek<TInput>(this.getExpression()));
+	public IntegerContainer dayOfWeek() {
+		return new IntegerContainer(new DayOfWeek(this.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> month() {
-		return new IntegerContainer<TInput>(new Month<TInput>(this.getExpression()));
+	public IntegerContainer month() {
+		return new IntegerContainer(new Month(this.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> year() {
-		return new IntegerContainer<TInput>(new Year<TInput>(this.getExpression()));
+	public IntegerContainer year() {
+		return new IntegerContainer(new Year(this.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> hour() {
-		return new IntegerContainer<TInput>(new Hour<TInput>(this.getExpression()));
+	public IntegerContainer hour() {
+		return new IntegerContainer(new Hour(this.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> minute() {
-		return new IntegerContainer<TInput>(new Minute<TInput>(this.getExpression()));
+	public IntegerContainer minute() {
+		return new IntegerContainer(new Minute(this.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> second() {
-		return new IntegerContainer<TInput>(new Second<TInput>(this.getExpression()));
+	public IntegerContainer second() {
+		return new IntegerContainer(new Second(this.getExpression()));
 	}
 
 }

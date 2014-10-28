@@ -3,32 +3,33 @@ package org.bosphorus.expression.date;
 import java.util.Date;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class Second<TInput> implements IExpression<TInput, Integer> {
+public class Second implements IExpression<Integer> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7293112921515384397L;
 	
-	private IExpression<TInput, Date> value;
+	private IExpression<Date> value;
 	
 	public Second() {
 	}
 	
-	public Second(IExpression<TInput, Date> value) {
+	public Second(IExpression<Date> value) {
 		this.setValue(value);
 	}
 
-	public IExpression<TInput, Date> getValue() {
+	public IExpression<Date> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<TInput, Date> value) {
+	public void setValue(IExpression<Date> value) {
 		this.value = value;
 	}
 
 	@Override
-	public Integer execute(TInput input) throws Exception {
+	public Integer execute(ITuple input) throws Exception {
 		return this.getValue().execute(input).getSeconds();
 	}
 

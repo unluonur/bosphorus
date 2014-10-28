@@ -1,14 +1,15 @@
 package org.bosphorus.expression.string;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class StrIndexOf<TInput> implements IExpression<TInput, Integer> {
+public class StrIndexOf implements IExpression<Integer> {
 	
-	private IExpression<TInput, String> text;
-	private IExpression<TInput, String> searchString;
+	private IExpression<String> text;
+	private IExpression<String> searchString;
 
 	@Override
-	public Integer execute(TInput input) throws Exception {
+	public Integer execute(ITuple input) throws Exception {
 		return text.execute(input).indexOf(searchString.execute(input));
 	}
 

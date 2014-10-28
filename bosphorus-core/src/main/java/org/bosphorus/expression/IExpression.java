@@ -2,6 +2,8 @@ package org.bosphorus.expression;
 
 import java.io.Serializable;
 
-public interface IExpression <TInput, TOutput> extends Serializable {
-	TOutput execute(TInput input) throws Exception;
+import org.bosphorus.stream.ITuple;
+
+public interface IExpression <TOutput> extends Serializable {
+	TOutput execute(ITuple input) throws Exception;
 }

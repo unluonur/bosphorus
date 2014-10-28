@@ -1,16 +1,17 @@
 package org.bosphorus.expression.math;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class AddInteger<TInput> extends BaseBinaryOperator<TInput, Integer> {
+public class AddInteger extends BaseBinaryOperator<Integer> {
 
-	public AddInteger(IExpression<TInput, Integer> left,
-			IExpression<TInput, Integer> right) {
+	public AddInteger(IExpression<Integer> left,
+			IExpression<Integer> right) {
 		super(left, right);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Integer execute(TInput input) throws Exception {
+	public Integer execute(ITuple input) throws Exception {
 		return this.getLeft().execute(input) + this.getRight().execute(input);
 	}
 

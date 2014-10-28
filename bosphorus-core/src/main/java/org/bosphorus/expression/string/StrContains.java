@@ -1,14 +1,15 @@
 package org.bosphorus.expression.string;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class StrContains<TInput> implements IExpression<TInput, Boolean> {
+public class StrContains implements IExpression<Boolean> {
 	
-	private IExpression<TInput, String> text;
-	private IExpression<TInput, String> searchString;
+	private IExpression<String> text;
+	private IExpression<String> searchString;
 
 	@Override
-	public Boolean execute(TInput input) throws Exception {
+	public Boolean execute(ITuple input) throws Exception {
 		return text.execute(input).contains(searchString.execute(input));
 	}
 

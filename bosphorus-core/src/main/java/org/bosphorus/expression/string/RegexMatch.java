@@ -3,14 +3,15 @@ package org.bosphorus.expression.string;
 import java.util.regex.Pattern;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class RegexMatch<TInput> implements IExpression<TInput, Boolean> {
+public class RegexMatch implements IExpression<Boolean> {
 
-	private IExpression<TInput, String> pattern;
-	private IExpression<TInput, String> text;
+	private IExpression<String> pattern;
+	private IExpression<String> text;
 	
 	@Override
-	public Boolean execute(TInput input) throws Exception {
+	public Boolean execute(ITuple input) throws Exception {
 		Pattern p = Pattern.compile(pattern.execute(input));
 		return p.matcher(text.execute(input)).matches();
 	}

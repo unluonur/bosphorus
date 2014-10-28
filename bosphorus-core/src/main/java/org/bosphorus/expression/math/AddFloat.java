@@ -1,16 +1,17 @@
 package org.bosphorus.expression.math;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class AddFloat<TInput> extends BaseBinaryOperator<TInput, Float> {
+public class AddFloat extends BaseBinaryOperator<Float> {
 
-	public AddFloat(IExpression<TInput, Float> left,
-			IExpression<TInput, Float> right) {
+	public AddFloat(IExpression<Float> left,
+			IExpression<Float> right) {
 		super(left, right);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Float execute(TInput input) throws Exception {
+	public Float execute(ITuple input) throws Exception {
 		return this.getLeft().execute(input) + this.getRight().execute(input);
 	}
 

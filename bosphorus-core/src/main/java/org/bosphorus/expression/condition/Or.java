@@ -1,20 +1,21 @@
 package org.bosphorus.expression.condition;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class Or<TInput> extends BaseBinaryCondition<TInput> {
+public class Or extends BaseBinaryCondition {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 9154941041282771924L;
 
-	public Or(IExpression<TInput, Boolean> left,
-			IExpression<TInput, Boolean> right) {
+	public Or(IExpression<Boolean> left,
+			IExpression<Boolean> right) {
 		super(left, right);
 	}
 
-	public Boolean execute(TInput input) throws Exception {
+	public Boolean execute(ITuple input) throws Exception {
 		return this.getLeft().execute(input) || this.getRight().execute(input);
 	}
 

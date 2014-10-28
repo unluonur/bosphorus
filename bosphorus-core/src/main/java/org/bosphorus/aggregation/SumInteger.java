@@ -4,9 +4,9 @@ import org.bosphorus.aggregation.bag.IAggregationBag;
 import org.bosphorus.aggregation.bag.SumBagInteger;
 import org.bosphorus.expression.IExpression;
 
-public class SumInteger<TInput> extends BaseExpressionAggregation<TInput, Integer, Integer> {
+public class SumInteger extends BaseExpressionAggregation<Integer, Integer> {
 	
-	public SumInteger(IExpression<TInput, Integer> expression) {
+	public SumInteger(IExpression<Integer> expression) {
 		super(expression);
 		// TODO Auto-generated constructor stub
 	}

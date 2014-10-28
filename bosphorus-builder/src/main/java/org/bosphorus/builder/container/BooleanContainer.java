@@ -5,30 +5,30 @@ import org.bosphorus.expression.condition.And;
 import org.bosphorus.expression.condition.Not;
 import org.bosphorus.expression.condition.Or;
 
-public class BooleanContainer<TInput> extends BaseComparableContainer<TInput, Boolean> {
+public class BooleanContainer extends BaseComparableContainer<Boolean> {
 
-	public BooleanContainer(IExpression<TInput, Boolean> expression) {
+	public BooleanContainer(IExpression<Boolean> expression) {
 		super(expression);
 	}
 	
-	public BooleanContainer<TInput> and(BooleanContainer<TInput> expression) {
-		return new BooleanContainer<TInput>(new And<TInput>(this.getExpression(), expression.getExpression()));
+	public BooleanContainer and(BooleanContainer expression) {
+		return new BooleanContainer(new And(this.getExpression(), expression.getExpression()));
 	}
 	
-	public BooleanContainer<TInput> and(IExpression<TInput, Boolean> expression) {
-		return new BooleanContainer<TInput>(new And<TInput>(this.getExpression(), expression));
+	public BooleanContainer and(IExpression<Boolean> expression) {
+		return new BooleanContainer(new And(this.getExpression(), expression));
 	}
 	
-	public BooleanContainer<TInput> or(BooleanContainer<TInput> expression) {
-		return new BooleanContainer<TInput>(new Or<TInput>(this.getExpression(), expression.getExpression()));
+	public BooleanContainer or(BooleanContainer expression) {
+		return new BooleanContainer(new Or(this.getExpression(), expression.getExpression()));
 	}
 	
-	public BooleanContainer<TInput> or(IExpression<TInput, Boolean> expression) {
-		return new BooleanContainer<TInput>(new Or<TInput>(this.getExpression(), expression));
+	public BooleanContainer or(IExpression<Boolean> expression) {
+		return new BooleanContainer(new Or(this.getExpression(), expression));
 	}
 	
-	public BooleanContainer<TInput> not() {
-		return new BooleanContainer<TInput>(new Not<TInput>(this.getExpression()));
+	public BooleanContainer not() {
+		return new BooleanContainer(new Not(this.getExpression()));
 	}
 
 }

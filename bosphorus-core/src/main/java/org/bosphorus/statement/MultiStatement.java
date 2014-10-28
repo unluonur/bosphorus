@@ -2,19 +2,21 @@ package org.bosphorus.statement;
 
 import java.util.ArrayList;
 
-public class MultiStatement<TInput> implements IStatement<TInput> {
-	private ArrayList<IStatement<TInput>> statements;
+import org.bosphorus.stream.ITuple;
+
+public class MultiStatement implements IStatement {
+	private ArrayList<IStatement> statements;
 	
-	public MultiStatement(IStatement<TInput>... statements) {
-		this.statements = new ArrayList<IStatement<TInput>>();
-		for(IStatement<TInput> statement: statements) {
+	public MultiStatement(IStatement... statements) {
+		this.statements = new ArrayList<IStatement>();
+		for(IStatement statement: statements) {
 			this.statements.add(statement);
 		}
 	}
 	
 	@Override
-	public void execute(TInput input) throws Exception {
-		for(IStatement<TInput> stat: statements) {
+	public void execute(ITuple input) throws Exception {
+		for(IStatement stat: statements) {
 			stat.execute(input);
 		}
 	}

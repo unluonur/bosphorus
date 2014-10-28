@@ -1,8 +1,9 @@
 package org.bosphorus.expression.condition;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class Equals<TInput, TType extends Comparable<TType>> extends BaseComparison<TInput, TType> {
+public class Equals<TType extends Comparable<TType>> extends BaseComparison<TType> {
 	
 	/**
 	 * 
@@ -13,11 +14,11 @@ public class Equals<TInput, TType extends Comparable<TType>> extends BaseCompari
 		
 	}
 	
-	public Equals(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
+	public Equals(IExpression<TType> left, IExpression<TType> right) {
 		super(left, right);
 	}
 	
-	public Boolean execute(TInput input) throws Exception {
+	public Boolean execute(ITuple input) throws Exception {
 		TType left = this.getLeft().execute(input);
 		TType right = this.getRight().execute(input);
 		if(left == null) {

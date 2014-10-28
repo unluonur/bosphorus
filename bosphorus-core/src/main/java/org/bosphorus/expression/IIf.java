@@ -1,52 +1,54 @@
 package org.bosphorus.expression;
 
-public class IIf<TInput, TOutput> implements IExpression<TInput, TOutput> {
+import org.bosphorus.stream.ITuple;
+
+public class IIf<TOutput> implements IExpression<TOutput> {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -1997499773697734754L;
 	
-	private IExpression<TInput, Boolean> condition;
-	private IExpression<TInput, TOutput> trueValue;
-	private IExpression<TInput, TOutput> falseValue;
+	private IExpression<Boolean> condition;
+	private IExpression<TOutput> trueValue;
+	private IExpression<TOutput> falseValue;
 
 	public IIf() {
 		
 	}
 	
-	public IIf(IExpression<TInput, Boolean> condition, IExpression<TInput, TOutput> trueValue, IExpression<TInput, TOutput> falseValue) {
+	public IIf(IExpression<Boolean> condition, IExpression<TOutput> trueValue, IExpression<TOutput> falseValue) {
 		this.setCondition(condition);
 		this.setTrueValue(trueValue);
 		this.setFalseValue(falseValue);
 	}
 
-	public IExpression<TInput, Boolean> getCondition() {
+	public IExpression<Boolean> getCondition() {
 		return condition;
 	}
 
-	public void setCondition(IExpression<TInput, Boolean> condition) {
+	public void setCondition(IExpression<Boolean> condition) {
 		this.condition = condition;
 	}
 
-	public IExpression<TInput, TOutput> getTrueValue() {
+	public IExpression<TOutput> getTrueValue() {
 		return trueValue;
 	}
 
-	public void setTrueValue(IExpression<TInput, TOutput> trueValue) {
+	public void setTrueValue(IExpression<TOutput> trueValue) {
 		this.trueValue = trueValue;
 	}
 
-	public IExpression<TInput, TOutput> getFalseValue() {
+	public IExpression<TOutput> getFalseValue() {
 		return falseValue;
 	}
 
-	public void setFalseValue(IExpression<TInput, TOutput> falseValue) {
+	public void setFalseValue(IExpression<TOutput> falseValue) {
 		this.falseValue = falseValue;
 	}
 
 	@Override
-	public TOutput execute(TInput input) throws Exception {
+	public TOutput execute(ITuple input) throws Exception {
 		return this.getCondition().execute(input) ? this.getTrueValue().execute(input) : this.getFalseValue().execute(input);
 	}
 	

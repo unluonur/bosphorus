@@ -2,8 +2,9 @@ package org.bosphorus.aggregation;
 
 import org.bosphorus.aggregation.bag.IAggregationBag;
 import org.bosphorus.aggregation.bag.SumBagInteger;
+import org.bosphorus.stream.ITuple;
 
-public class Count<TInput> implements IAggregation<TInput, Integer, Integer> {
+public class Count implements IAggregation<Integer, Integer> {
 
 	@Override
 	public IAggregationBag<Integer, Integer> newBag() {
@@ -11,7 +12,7 @@ public class Count<TInput> implements IAggregation<TInput, Integer, Integer> {
 	}
 
 	@Override
-	public void execute(TInput input, IAggregationBag<Integer, Integer> bag)
+	public void execute(ITuple input, IAggregationBag<Integer, Integer> bag)
 			throws Exception {
 		bag.execute(1);
 	}

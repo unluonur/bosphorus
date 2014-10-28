@@ -4,9 +4,9 @@ import org.bosphorus.aggregation.bag.AvgBagLong;
 import org.bosphorus.aggregation.bag.IAggregationBag;
 import org.bosphorus.expression.IExpression;
 
-public class AvgLong<TInput> extends BaseExpressionAggregation<TInput, Long, Long> {
+public class AvgLong extends BaseExpressionAggregation<Long, Long> {
 
-	public AvgLong(IExpression<TInput, Long> expression) {
+	public AvgLong(IExpression<Long> expression) {
 		super(expression);
 		// TODO Auto-generated constructor stub
 	}

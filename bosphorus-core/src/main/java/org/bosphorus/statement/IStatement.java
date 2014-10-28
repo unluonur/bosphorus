@@ -1,5 +1,7 @@
 package org.bosphorus.statement;
 
-public interface IStatement<TInput> {
-	void execute(TInput input) throws Exception;
+import org.bosphorus.stream.ITuple;
+
+public interface IStatement {
+	void execute(ITuple input) throws Exception;
 }

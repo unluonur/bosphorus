@@ -1,16 +1,17 @@
 package org.bosphorus.expression.math;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class ModLong<TInput> extends BaseBinaryOperator<TInput, Long> {
+public class ModLong extends BaseBinaryOperator<Long> {
 
-	public ModLong(IExpression<TInput, Long> left,
-			IExpression<TInput, Long> right) {
+	public ModLong(IExpression<Long> left,
+			IExpression<Long> right) {
 		super(left, right);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Long execute(TInput input) throws Exception {
+	public Long execute(ITuple input) throws Exception {
 		return this.getLeft().execute(input) % this.getRight().execute(input);
 	}
 

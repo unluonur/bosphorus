@@ -1,32 +1,33 @@
 package org.bosphorus.expression.string;
 
 import org.bosphorus.expression.IExpression;
+import org.bosphorus.stream.ITuple;
 
-public class StrLength<TInput> implements IExpression<TInput, Integer> {
+public class StrLength implements IExpression<Integer> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 8792321758093603310L;
 	
-	private IExpression<TInput, String> value;
+	private IExpression<String> value;
 	
 	public StrLength() {
 	}
 	
-	public StrLength(IExpression<TInput, String> value) {
+	public StrLength(IExpression<String> value) {
 		this.setValue(value);
 	}
 
-	public IExpression<TInput, String> getValue() {
+	public IExpression<String> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<TInput, String> value) {
+	public void setValue(IExpression<String> value) {
 		this.value = value;
 	}
 
 	@Override
-	public Integer execute(TInput input) throws Exception {
+	public Integer execute(ITuple input) throws Exception {
 		return this.getValue().execute(input).length();
 	}
 
