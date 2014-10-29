@@ -2,14 +2,14 @@ package org.bosphorus.expression.field;
 
 import org.bosphorus.core.ITuple;
 
-public class FloatFieldByName extends BaseFieldByName<Float> {
+public class FloatFieldByName<TInput extends ITuple> extends BaseFieldByName<TInput, Float> {
 
 	public FloatFieldByName(String fieldName) {
 		super(fieldName);
 	}
 
 	@Override
-	public Float execute(ITuple input) {
+	public Float execute(TInput input) {
 		return input.getFloat(this.getFieldName());
 	}
 	

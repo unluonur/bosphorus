@@ -4,16 +4,16 @@ import org.bosphorus.expression.IExpression;
 import org.bosphorus.query.aggregation.bag.CountBagInteger;
 import org.bosphorus.query.aggregation.bag.IAggregationBag;
 
-public class CountInteger<TType> extends BaseExpressionAggregation<Integer, TType> {
+public class CountInteger<TInput, TType> extends BaseExpressionAggregation<TInput, Integer, TType> {
 
-	public CountInteger(IExpression<TType> expression) {
+	public CountInteger(IExpression<TInput, TType> expression) {
 		super(expression);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public IAggregationBag<Integer> newBag() {
-		return new CountBagInteger<TType>(this.getExpression());
+	public IAggregationBag<TInput, Integer> newBag() {
+		return new CountBagInteger<TInput, TType>(this.getExpression());
 	}
 	
 }

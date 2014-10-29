@@ -3,50 +3,50 @@ package org.bosphorus.expression.string;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class SubString implements IExpression<String> {
+public class SubString<TInput> implements IExpression<TInput, String> {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 4211643535077089466L;
 	
-	private IExpression<String> value;
-	private IExpression<Integer> startIndex;
-	private IExpression<Integer> length;
+	private IExpression<TInput, String> value;
+	private IExpression<TInput, Integer> startIndex;
+	private IExpression<TInput, Integer> length;
 	
 	public SubString() {
 	}
 	
-	public SubString(IExpression<String> value, IExpression<Integer> startIndex, IExpression<Integer> length) {
+	public SubString(IExpression<TInput, String> value, IExpression<TInput, Integer> startIndex, IExpression<TInput, Integer> length) {
 	}
 
 
-	public IExpression<String> getValue() {
+	public IExpression<TInput, String> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<String> value) {
+	public void setValue(IExpression<TInput, String> value) {
 		this.value = value;
 	}
 
-	public IExpression<Integer> getStartIndex() {
+	public IExpression<TInput, Integer> getStartIndex() {
 		return startIndex;
 	}
 
-	public void setStartIndex(IExpression<Integer> startIndex) {
+	public void setStartIndex(IExpression<TInput, Integer> startIndex) {
 		this.startIndex = startIndex;
 	}
 
-	public IExpression<Integer> getLength() {
+	public IExpression<TInput, Integer> getLength() {
 		return length;
 	}
 
-	public void setLength(IExpression<Integer> length) {
+	public void setLength(IExpression<TInput, Integer> length) {
 		this.length = length;
 	}
 
 	@Override
-	public String execute(ITuple input) throws Exception {
+	public String execute(TInput input) throws Exception {
 		String value = this.getValue().execute(input);
 		Integer startIndex = this.getStartIndex().execute(input);
 		Integer endIndex = startIndex + this.getLength().execute(input);

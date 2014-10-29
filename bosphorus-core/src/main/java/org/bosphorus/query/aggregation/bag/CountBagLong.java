@@ -1,19 +1,18 @@
 package org.bosphorus.query.aggregation.bag;
 
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class CountBagLong<TType> extends BaseAggregationBag<Long, TType> {
+public class CountBagLong<TInput, TType> extends BaseAggregationBag<TInput, Long, TType> {
 	private Long value;
 
-	public CountBagLong(IExpression<TType> expression) {
+	public CountBagLong(IExpression<TInput, TType> expression) {
 		super(expression);
 		this.value = 0L;
 	}
 
 	@Override
-	public void execute(ITuple input) throws Exception {
-		IExpression<TType> expr = this.getExpression();
+	public void execute(TInput input) throws Exception {
+		IExpression<TInput, TType> expr = this.getExpression();
 		if(expr != null && expr.execute(input) != null) {
 			value++;
 		}

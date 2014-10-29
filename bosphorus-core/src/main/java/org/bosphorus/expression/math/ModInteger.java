@@ -3,14 +3,14 @@ package org.bosphorus.expression.math;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class ModInteger extends BaseBinaryOperator<Integer> {
+public class ModInteger<TInput> extends BaseBinaryOperator<TInput, Integer> {
 
-	public ModInteger(IExpression<Integer> left,
-			IExpression<Integer> right) {
+	public ModInteger(IExpression<TInput, Integer> left,
+			IExpression<TInput, Integer> right) {
 		super(left, right);
 	}
 
-	public Integer execute(ITuple input) throws Exception {
+	public Integer execute(TInput input) throws Exception {
 		return this.getLeft().execute(input) % this.getRight().execute(input);
 	}
 

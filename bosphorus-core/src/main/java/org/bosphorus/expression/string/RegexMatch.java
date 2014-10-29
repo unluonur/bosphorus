@@ -5,13 +5,13 @@ import java.util.regex.Pattern;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class RegexMatch implements IExpression<Boolean> {
+public class RegexMatch<TInput> implements IExpression<TInput, Boolean> {
 
-	private IExpression<String> pattern;
-	private IExpression<String> text;
+	private IExpression<TInput, String> pattern;
+	private IExpression<TInput, String> text;
 	
 	@Override
-	public Boolean execute(ITuple input) throws Exception {
+	public Boolean execute(TInput input) throws Exception {
 		Pattern p = Pattern.compile(pattern.execute(input));
 		return p.matcher(text.execute(input)).matches();
 	}

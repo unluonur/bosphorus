@@ -5,18 +5,18 @@ import java.util.regex.Pattern;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class RegexMatchConst implements IExpression<Boolean> {
+public class RegexMatchConst<TInput> implements IExpression<TInput, Boolean> {
 
 	private Pattern pattern;
-	private IExpression<String> text;
+	private IExpression<TInput, String> text;
 	
-	public RegexMatchConst(String pattern, IExpression<String> text) {
+	public RegexMatchConst(String pattern, IExpression<TInput, String> text) {
 		this.pattern = Pattern.compile(pattern);
 		this.text = text;
 	}
 	
 	@Override
-	public Boolean execute(ITuple input) throws Exception {
+	public Boolean execute(TInput input) throws Exception {
 		return pattern.matcher(text.execute(input)).matches();
 	}
 

@@ -1,9 +1,6 @@
 package org.bosphorus.expression;
 
-import org.bosphorus.core.ITuple;
-
-
-public class Constant<TOutput> implements IExpression<TOutput> {
+public class Constant<TInput, TOutput> implements IExpression <TInput, TOutput> {
 	
 	/**
 	 * 
@@ -27,7 +24,7 @@ public class Constant<TOutput> implements IExpression<TOutput> {
 		this.value = value;
 	}
 
-	public TOutput execute(ITuple input) {
+	public TOutput execute(TInput input) {
 		return this.getValue();
 	}
 

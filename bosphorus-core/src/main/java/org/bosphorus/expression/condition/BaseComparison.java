@@ -2,37 +2,37 @@ package org.bosphorus.expression.condition;
 
 import org.bosphorus.expression.IExpression;
 
-public abstract class BaseComparison<TType extends Comparable<TType>> implements IExpression<Boolean> {
+public abstract class BaseComparison<TInput, TType extends Comparable<TType>> implements IExpression<TInput, Boolean> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1011658918506083769L;
 	
-	private IExpression<TType> left;
-	private IExpression<TType> right;
+	private IExpression<TInput, TType> left;
+	private IExpression<TInput, TType> right;
 	
 	public BaseComparison() {
 		
 	}
 	
-	public BaseComparison(IExpression<TType> left, IExpression<TType> right) {
+	public BaseComparison(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
 		this.setLeft(left);
 		this.setRight(right);
 	}
 
-	public IExpression<TType> getLeft() {
+	public IExpression<TInput, TType> getLeft() {
 		return left;
 	}
 
-	public void setLeft(IExpression<TType> left) {
+	public void setLeft(IExpression<TInput, TType> left) {
 		this.left = left;
 	}
 
-	public IExpression<TType> getRight() {
+	public IExpression<TInput, TType> getRight() {
 		return right;
 	}
 
-	public void setRight(IExpression<TType> right) {
+	public void setRight(IExpression<TInput, TType> right) {
 		this.right = right;
 	}
 

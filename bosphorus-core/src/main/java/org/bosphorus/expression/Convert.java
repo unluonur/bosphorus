@@ -2,34 +2,34 @@ package org.bosphorus.expression;
 
 import org.bosphorus.core.ITuple;
 
-public class Convert<TOutput, TSource> implements IExpression<TOutput> {
+public class Convert<TInput, TOutput, TSource> implements IExpression<TInput, TOutput> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 2025249527382007687L;
 	
-	private IExpression<TSource> value;
+	private IExpression<TInput, TSource> value;
 	
 	public Convert() {
 		
 	}
 	
-	public Convert(IExpression<TSource> value) {
+	public Convert(IExpression<TInput, TSource> value) {
 		this.setValue(value);
 	}
 
-	public IExpression<TSource> getValue() {
+	public IExpression<TInput, TSource> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<TSource> value) {
+	public void setValue(IExpression<TInput, TSource> value) {
 		this.value = value;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public TOutput execute(ITuple input) throws Exception {
+	public TOutput execute(TInput input) throws Exception {
 		return (TOutput)this.getValue().execute(input);
 	}
 

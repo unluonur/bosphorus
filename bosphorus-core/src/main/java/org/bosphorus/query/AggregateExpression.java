@@ -2,7 +2,7 @@ package org.bosphorus.query;
 
 import org.bosphorus.core.ITuple;
 
-public class AggregateExpression<TOutput> implements ISelectExpression<TOutput> {
+public class AggregateExpression<TInput, TOutput> implements ISelectExpression<TInput, TOutput> {
 
 	@Override
 	public void init() {

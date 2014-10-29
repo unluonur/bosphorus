@@ -3,13 +3,13 @@ package org.bosphorus.expression.string;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class StrIndexOf implements IExpression<Integer> {
+public class StrIndexOf<TInput> implements IExpression<TInput, Integer> {
 	
-	private IExpression<String> text;
-	private IExpression<String> searchString;
+	private IExpression<TInput, String> text;
+	private IExpression<TInput, String> searchString;
 
 	@Override
-	public Integer execute(ITuple input) throws Exception {
+	public Integer execute(TInput input) throws Exception {
 		return text.execute(input).indexOf(searchString.execute(input));
 	}
 

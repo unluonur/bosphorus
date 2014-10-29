@@ -3,7 +3,7 @@ package org.bosphorus.expression.condition;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class Equals<TType extends Comparable<TType>> extends BaseComparison<TType> {
+public class Equals<TInput, TType extends Comparable<TType>> extends BaseComparison<TInput, TType> {
 	
 	/**
 	 * 
@@ -14,11 +14,11 @@ public class Equals<TType extends Comparable<TType>> extends BaseComparison<TTyp
 		
 	}
 	
-	public Equals(IExpression<TType> left, IExpression<TType> right) {
+	public Equals(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
 		super(left, right);
 	}
 	
-	public Boolean execute(ITuple input) throws Exception {
+	public Boolean execute(TInput input) throws Exception {
 		TType left = this.getLeft().execute(input);
 		TType right = this.getRight().execute(input);
 		if(left == null) {

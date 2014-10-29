@@ -2,8 +2,8 @@ package org.bosphorus.builder.container;
 
 import org.bosphorus.expression.IExpression;
 
-public interface ITypeContainer<TOutput> {
+public interface ITypeContainer<TInput, TOutput> {
 
-	IExpression<TOutput> getExpression();
+	IExpression<TInput, TOutput> getExpression();
 	
 }

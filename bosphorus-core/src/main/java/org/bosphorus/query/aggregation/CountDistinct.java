@@ -4,15 +4,15 @@ import org.bosphorus.expression.IExpression;
 import org.bosphorus.query.aggregation.bag.CountDistinctBag;
 import org.bosphorus.query.aggregation.bag.IAggregationBag;
 
-public class CountDistinct<TType extends Comparable<TType>> extends BaseExpressionAggregation<Integer, TType> {
+public class CountDistinct<TInput, TType extends Comparable<TType>> extends BaseExpressionAggregation<TInput, Integer, TType> {
 
-	public CountDistinct(IExpression<TType> expression) {
+	public CountDistinct(IExpression<TInput, TType> expression) {
 		super(expression);		
 	}
 
 	@Override
-	public IAggregationBag<Integer> newBag() {
-		return new CountDistinctBag<TType>(this.getExpression());
+	public IAggregationBag<TInput, Integer> newBag() {
+		return new CountDistinctBag<TInput, TType>(this.getExpression());
 	}
 
 }

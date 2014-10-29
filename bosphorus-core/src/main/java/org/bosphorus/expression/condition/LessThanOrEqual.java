@@ -3,7 +3,7 @@ package org.bosphorus.expression.condition;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class LessThanOrEqual<TType extends Comparable<TType>> extends BaseComparison<TType> {
+public class LessThanOrEqual<TInput, TType extends Comparable<TType>> extends BaseComparison<TInput, TType> {
 	
 	/**
 	 * 
@@ -14,11 +14,11 @@ public class LessThanOrEqual<TType extends Comparable<TType>> extends BaseCompar
 		
 	}
 	
-	public LessThanOrEqual(IExpression<TType> left, IExpression<TType> right) {
+	public LessThanOrEqual(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
 		super(left, right);
 	}
 	
-	public Boolean execute(ITuple input) throws Exception {
+	public Boolean execute(TInput input) throws Exception {
 		TType left = this.getLeft().execute(input);
 		TType right = this.getRight().execute(input);
 		if(left == null) {

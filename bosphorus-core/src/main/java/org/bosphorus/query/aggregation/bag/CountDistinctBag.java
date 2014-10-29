@@ -2,19 +2,18 @@ package org.bosphorus.query.aggregation.bag;
 
 import java.util.ArrayList;
 
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class CountDistinctBag<TType extends Comparable<TType>> extends BaseAggregationBag<Integer, TType> {
+public class CountDistinctBag<TInput, TType extends Comparable<TType>> extends BaseAggregationBag<TInput, Integer, TType> {
 	private ArrayList<TType> list;
 
-	public CountDistinctBag(IExpression<TType> expression) {
+	public CountDistinctBag(IExpression<TInput, TType> expression) {
 		super(expression);
 		list = new ArrayList<TType>();
 	}
 
 	@Override
-	public void execute(ITuple input) throws Exception {
+	public void execute(TInput input) throws Exception {
 		TType value = this.getExpression().execute(input);
 		if(!list.contains(value)) {
 			list.add(value);

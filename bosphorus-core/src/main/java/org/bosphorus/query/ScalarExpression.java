@@ -2,7 +2,7 @@ package org.bosphorus.query;
 
 import org.bosphorus.core.ITuple;
 
-public class ScalarExpression<TOutput> implements ISelectExpression<TOutput> {
+public class ScalarExpression<TInput, TOutput> implements ISelectExpression<TInput, TOutput> {
 
 	@Override
 	public void init() {

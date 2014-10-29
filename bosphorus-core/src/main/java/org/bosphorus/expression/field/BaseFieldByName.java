@@ -3,7 +3,7 @@ package org.bosphorus.expression.field;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public abstract class BaseFieldByName<TType> implements IExpression<TType> {
+public abstract class BaseFieldByName<TInput, TType> implements IExpression<TInput, TType> {
 	
 	private String fieldName;
 	

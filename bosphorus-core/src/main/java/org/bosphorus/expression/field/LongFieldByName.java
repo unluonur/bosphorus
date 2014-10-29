@@ -2,14 +2,14 @@ package org.bosphorus.expression.field;
 
 import org.bosphorus.core.ITuple;
 
-public class LongFieldByName extends BaseFieldByName<Long> {
+public class LongFieldByName<TInput extends ITuple> extends BaseFieldByName<TInput, Long> {
 
 	public LongFieldByName(String fieldName) {
 		super(fieldName);
 	}
 
 	@Override
-	public Long execute(ITuple input) {
+	public Long execute(TInput input) {
 		return input.getLong(this.getFieldName());
 	}
 	

@@ -9,7 +9,6 @@ import org.bosphorus.builder.container.FloatContainer;
 import org.bosphorus.builder.container.IntegerContainer;
 import org.bosphorus.builder.container.LongContainer;
 import org.bosphorus.builder.container.StringContainer;
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.Constant;
 import org.bosphorus.expression.date.Now;
 import org.bosphorus.expression.field.BooleanFieldByIndex;
@@ -27,97 +26,99 @@ import org.bosphorus.expression.field.LongFieldByName;
 import org.bosphorus.expression.field.StringFieldByIndex;
 import org.bosphorus.expression.field.StringFieldByName;
 
-public class ExpressionBuilder {
+public class ExpressionBuilder<TInput> {
 	
-	public DateContainer now() {
-		return new DateContainer(new Now());
+	public DateContainer<TInput> now() {
+		return new DateContainer<TInput>(new Now<TInput>());
 	}
 	
-	public IntegerContainer constant(Integer value) {
-		return new IntegerContainer(new Constant<Integer>(value));
+	public IntegerContainer<TInput> constant(Integer value) {
+		return new IntegerContainer<TInput>(new Constant<TInput, Integer>(value));
 	}
 	
-	public LongContainer constant(Long value) {
-		return new LongContainer(new Constant<Long>(value));
+	public LongContainer<TInput> constant(Long value) {
+		return new LongContainer<TInput>(new Constant<TInput, Long>(value));
 	}
 	
-	public FloatContainer constant(Float value) {
-		return new FloatContainer(new Constant<Float>(value));
+	public FloatContainer<TInput> constant(Float value) {
+		return new FloatContainer<TInput>(new Constant<TInput, Float>(value));
 	}
 	
-	public DoubleContainer constant(Double value) {
-		return new DoubleContainer(new Constant<Double>(value));
+	public DoubleContainer<TInput> constant(Double value) {
+		return new DoubleContainer<TInput>(new Constant<TInput, Double>(value));
 	}
 	
-	public StringContainer constant(String value) {
-		return new StringContainer(new Constant<String>(value));
+	public StringContainer<TInput> constant(String value) {
+		return new StringContainer<TInput>(new Constant<TInput, String>(value));
 	}
 	
-	public DateContainer constant(Date value) {
-		return new DateContainer(new Constant<Date>(value));
+	public DateContainer<TInput> constant(Date value) {
+		return new DateContainer<TInput>(new Constant<TInput, Date>(value));
 	}
 	
-	public BooleanContainer constant(Boolean value) {
-		return new BooleanContainer(new Constant<Boolean>(value));
+	public BooleanContainer<TInput> constant(Boolean value) {
+		return new BooleanContainer<TInput>(new Constant<TInput, Boolean>(value));
 	}
 	
 	
 
-	
-	public IntegerContainer integerField(String fieldName) {
-		return new IntegerContainer(new IntegerFieldByName(fieldName));
+	/*
+	public IntegerContainer<TInput> integerField(String fieldName) {
+		return new IntegerContainer<TInput>(new IntegerFieldByName<TInput>(fieldName));
 	}
 	
-	public IntegerContainer integerField(Integer fieldIndex) {
-		return new IntegerContainer(new IntegerFieldByIndex(fieldIndex));
+	public IntegerContainer<TInput> integerField(Integer fieldIndex) {
+		return new IntegerContainer<TInput>(new IntegerFieldByIndex<TInput>(fieldIndex));
 	}
 	
-	public LongContainer longField(String fieldName) {
-		return new LongContainer(new LongFieldByName(fieldName));
+	public LongContainer<TInput> longField(String fieldName) {
+		return new LongContainer<TInput>(new LongFieldByName<TInput>(fieldName));
 	}
 	
-	public LongContainer longField(Integer fieldIndex) {
-		return new LongContainer(new LongFieldByIndex(fieldIndex));
+	public LongContainer<TInput> longField(Integer fieldIndex) {
+		return new LongContainer<TInput>(new LongFieldByIndex<TInput>(fieldIndex));
 	}
 	
-	public FloatContainer floatField(String fieldName) {
-		return new FloatContainer(new FloatFieldByName(fieldName));
+	public FloatContainer<TInput> floatField(String fieldName) {
+		return new FloatContainer<TInput>(new FloatFieldByName<TInput>(fieldName));
 	}
 	
-	public FloatContainer floatField(Integer fieldIndex) {
-		return new FloatContainer(new FloatFieldByIndex(fieldIndex));
+	public FloatContainer<TInput> floatField(Integer fieldIndex) {
+		return new FloatContainer<TInput>(new FloatFieldByIndex<TInput>(fieldIndex));
 	}
 	
-	public DoubleContainer doubleField(String fieldName) {
-		return new DoubleContainer(new DoubleFieldByName(fieldName));
+	public DoubleContainer<TInput> doubleField(String fieldName) {
+		return new DoubleContainer<TInput>(new DoubleFieldByName<TInput>(fieldName));
 	}
 	
-	public DoubleContainer doubleField(Integer fieldIndex) {
-		return new DoubleContainer(new DoubleFieldByIndex(fieldIndex));
+	public DoubleContainer<TInput> doubleField(Integer fieldIndex) {
+		return new DoubleContainer<TInput>(new DoubleFieldByIndex<TInput>(fieldIndex));
 	}
 
-	public StringContainer stringField(String fieldName) {
-		return new StringContainer(new StringFieldByName(fieldName));
+	public StringContainer<TInput> stringField(String fieldName) {
+		return new StringContainer<TInput>(new StringFieldByName<TInput>(fieldName));
 	}
 
-	public StringContainer stringField(Integer fieldIndex) {
-		return new StringContainer(new StringFieldByIndex(fieldIndex));
+	public StringContainer<TInput> stringField(Integer fieldIndex) {
+		return new StringContainer<TInput>(new StringFieldByIndex<TInput>(fieldIndex));
 	}
 	
-	public BooleanContainer booleanField(String fieldName) {
-		return new BooleanContainer(new BooleanFieldByName(fieldName));
+	public BooleanContainer<TInput> booleanField(String fieldName) {
+		return new BooleanContainer<TInput>(new BooleanFieldByName<TInput>(fieldName));
 	}
 	
-	public BooleanContainer booleanField(Integer fieldIndex) {
-		return new BooleanContainer(new BooleanFieldByIndex(fieldIndex));
+	public BooleanContainer<TInput> booleanField(Integer fieldIndex) {
+		return new BooleanContainer<TInput>(new BooleanFieldByIndex<TInput>(fieldIndex));
 	}
 	
-	public DateContainer dateField(String fieldName) {
-		return new DateContainer(new DateFieldByName(fieldName));
+	public DateContainer<TInput> dateField(String fieldName) {
+		return new DateContainer<TInput>(new DateFieldByName<TInput>(fieldName));
 	}
 	
-	public DateContainer dateField(Integer fieldIndex) {
-		return new DateContainer(new DateFieldByIndex(fieldIndex));
+	public DateContainer<TInput> dateField(Integer fieldIndex) {
+		return new DateContainer<TInput>(new DateFieldByIndex<TInput>(fieldIndex));
 	}
+	
+	*/
 
 }

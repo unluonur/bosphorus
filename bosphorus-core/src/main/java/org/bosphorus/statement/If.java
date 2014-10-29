@@ -3,20 +3,20 @@ package org.bosphorus.statement;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class If implements IStatement {
+public class If<TInput> implements IStatement<TInput> {
 	
-	private IExpression<Boolean> condition;
-	private IStatement trueStatement;
-	private IStatement falseStatement;
+	private IExpression<TInput, Boolean> condition;
+	private IStatement<TInput> trueStatement;
+	private IStatement<TInput> falseStatement;
 	
-	public If(IExpression<Boolean> condition, IStatement trueStatement, IStatement falseStatement) {
+	public If(IExpression<TInput, Boolean> condition, IStatement<TInput> trueStatement, IStatement<TInput> falseStatement) {
 		this.condition = condition;
 		this.trueStatement = trueStatement;
 		this.falseStatement = falseStatement;
 	}
 
 	@Override
-	public void execute(ITuple input) throws Exception {
+	public void execute(TInput input) throws Exception {
 		if(condition.execute(input)) {
 			trueStatement.execute(input);
 		}

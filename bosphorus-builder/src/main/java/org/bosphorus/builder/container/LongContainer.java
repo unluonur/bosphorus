@@ -8,74 +8,74 @@ import org.bosphorus.expression.math.ModLong;
 import org.bosphorus.expression.math.MultiplyLong;
 import org.bosphorus.expression.math.SubtractLong;
 
-public class LongContainer extends BaseComparableContainer<Long> {
+public class LongContainer<TInput> extends BaseComparableContainer<TInput, Long> {
 
-	public LongContainer(IExpression<Long> expression) {
+	public LongContainer(IExpression<TInput, Long> expression) {
 		super(expression);
 	}
 	
-	public LongContainer add(LongContainer expression) {
-		return new LongContainer(new AddLong(this.getExpression(), expression.getExpression()));
+	public LongContainer<TInput> add(LongContainer<TInput> expression) {
+		return new LongContainer<TInput>(new AddLong<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public LongContainer add(IExpression<Long> expression) {
-		return new LongContainer(new AddLong(this.getExpression(), expression));
+	public LongContainer<TInput> add(IExpression<TInput, Long> expression) {
+		return new LongContainer<TInput>(new AddLong<TInput>(this.getExpression(), expression));
 	}
 	
-	public LongContainer add(Long value) {
-		return new LongContainer(new AddLong(this.getExpression(), new Constant<Long>(value)));
-	}
-	
-	
-	public LongContainer subtract(LongContainer expression) {
-		return new LongContainer(new SubtractLong(this.getExpression(), expression.getExpression()));
-	}
-	
-	public LongContainer subtract(IExpression<Long> expression) {
-		return new LongContainer(new SubtractLong(this.getExpression(), expression));
-	}
-	
-	public LongContainer subtract(Long value) {
-		return new LongContainer(new SubtractLong(this.getExpression(), new Constant<Long>(value)));
+	public LongContainer<TInput> add(Long value) {
+		return new LongContainer<TInput>(new AddLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
 	}
 	
 	
-	public LongContainer multiply(LongContainer expression) {
-		return new LongContainer(new MultiplyLong(this.getExpression(), expression.getExpression()));
+	public LongContainer<TInput> subtract(LongContainer<TInput> expression) {
+		return new LongContainer<TInput>(new SubtractLong<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public LongContainer multiply(IExpression<Long> expression) {
-		return new LongContainer(new MultiplyLong(this.getExpression(), expression));
+	public LongContainer<TInput> subtract(IExpression<TInput, Long> expression) {
+		return new LongContainer<TInput>(new SubtractLong<TInput>(this.getExpression(), expression));
 	}
 	
-	public LongContainer multiply(Long value) {
-		return new LongContainer(new MultiplyLong(this.getExpression(), new Constant<Long>(value)));
-	}
-	
-	
-	public LongContainer divideBy(LongContainer expression) {
-		return new LongContainer(new DivideLong(this.getExpression(), expression.getExpression()));
-	}
-	
-	public LongContainer divideBy(IExpression<Long> expression) {
-		return new LongContainer(new DivideLong(this.getExpression(), expression));
-	}
-	
-	public LongContainer divideBy(Long value) {
-		return new LongContainer(new DivideLong(this.getExpression(), new Constant<Long>(value)));
+	public LongContainer<TInput> subtract(Long value) {
+		return new LongContainer<TInput>(new SubtractLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
 	}
 	
 	
-	public LongContainer mod(LongContainer expression) {
-		return new LongContainer(new ModLong(this.getExpression(), expression.getExpression()));
+	public LongContainer<TInput> multiply(LongContainer<TInput> expression) {
+		return new LongContainer<TInput>(new MultiplyLong<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public LongContainer mod(IExpression<Long> expression) {
-		return new LongContainer(new ModLong(this.getExpression(), expression));
+	public LongContainer<TInput> multiply(IExpression<TInput, Long> expression) {
+		return new LongContainer<TInput>(new MultiplyLong<TInput>(this.getExpression(), expression));
 	}
 	
-	public LongContainer mod(Long value) {
-		return new LongContainer(new ModLong(this.getExpression(), new Constant<Long>(value)));
+	public LongContainer<TInput> multiply(Long value) {
+		return new LongContainer<TInput>(new MultiplyLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
+	}
+	
+	
+	public LongContainer<TInput> divideBy(LongContainer<TInput> expression) {
+		return new LongContainer<TInput>(new DivideLong<TInput>(this.getExpression(), expression.getExpression()));
+	}
+	
+	public LongContainer<TInput> divideBy(IExpression<TInput, Long> expression) {
+		return new LongContainer<TInput>(new DivideLong<TInput>(this.getExpression(), expression));
+	}
+	
+	public LongContainer<TInput> divideBy(Long value) {
+		return new LongContainer<TInput>(new DivideLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
+	}
+	
+	
+	public LongContainer<TInput> mod(LongContainer<TInput> expression) {
+		return new LongContainer<TInput>(new ModLong<TInput>(this.getExpression(), expression.getExpression()));
+	}
+	
+	public LongContainer<TInput> mod(IExpression<TInput, Long> expression) {
+		return new LongContainer<TInput>(new ModLong<TInput>(this.getExpression(), expression));
+	}
+	
+	public LongContainer<TInput> mod(Long value) {
+		return new LongContainer<TInput>(new ModLong<TInput>(this.getExpression(), new Constant<TInput, Long>(value)));
 	}
 	
 }

@@ -2,14 +2,14 @@ package org.bosphorus.expression.field;
 
 import org.bosphorus.core.ITuple;
 
-public class IntegerFieldByIndex extends BaseFieldByIndex<Integer> {
+public class IntegerFieldByIndex<TInput extends ITuple> extends BaseFieldByIndex<TInput, Integer> {
 
 	public IntegerFieldByIndex(Integer fieldIndex) {
 		super(fieldIndex);
 	}
 
 	@Override
-	public Integer execute(ITuple input) {
+	public Integer execute(TInput input) {
 		return input.getInteger(this.getFieldIndex());
 	}
 }

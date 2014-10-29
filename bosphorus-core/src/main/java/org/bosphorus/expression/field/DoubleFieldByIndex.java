@@ -2,14 +2,14 @@ package org.bosphorus.expression.field;
 
 import org.bosphorus.core.ITuple;
 
-public class DoubleFieldByIndex extends BaseFieldByIndex<Double> {
+public class DoubleFieldByIndex<TInput extends ITuple> extends BaseFieldByIndex<TInput, Double> {
 
 	public DoubleFieldByIndex(Integer fieldIndex) {
 		super(fieldIndex);
 	}
 
 	@Override
-	public Double execute(ITuple input) {
+	public Double execute(TInput input) {
 		return input.getDouble(this.getFieldIndex());
 	}
 }

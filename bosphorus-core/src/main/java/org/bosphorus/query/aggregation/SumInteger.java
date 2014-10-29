@@ -4,16 +4,16 @@ import org.bosphorus.expression.IExpression;
 import org.bosphorus.query.aggregation.bag.IAggregationBag;
 import org.bosphorus.query.aggregation.bag.SumBagInteger;
 
-public class SumInteger extends BaseExpressionAggregation<Integer, Integer> {
+public class SumInteger<TInput> extends BaseExpressionAggregation<TInput, Integer, Integer> {
 	
-	public SumInteger(IExpression<Integer> expression) {
+	public SumInteger(IExpression<TInput, Integer> expression) {
 		super(expression);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public IAggregationBag<Integer> newBag() {
-		return new SumBagInteger(this.getExpression());
+	public IAggregationBag<TInput, Integer> newBag() {
+		return new SumBagInteger<TInput>(this.getExpression());
 	}
 
 }

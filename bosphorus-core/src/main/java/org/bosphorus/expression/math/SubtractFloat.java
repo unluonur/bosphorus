@@ -3,15 +3,15 @@ package org.bosphorus.expression.math;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class SubtractFloat extends BaseBinaryOperator<Float> {
+public class SubtractFloat<TInput> extends BaseBinaryOperator<TInput, Float> {
 
-	public SubtractFloat(IExpression<Float> left,
-			IExpression<Float> right) {
+	public SubtractFloat(IExpression<TInput, Float> left,
+			IExpression<TInput, Float> right) {
 		super(left, right);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Float execute(ITuple input) throws Exception {
+	public Float execute(TInput input) throws Exception {
 		return this.getLeft().execute(input) - this.getRight().execute(input);
 	}
 

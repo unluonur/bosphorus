@@ -2,29 +2,29 @@ package org.bosphorus.expression.math;
 
 import org.bosphorus.expression.IExpression;
 
-public abstract class BaseBinaryOperator<TOutput extends Number> implements IExpression<TOutput> {
+public abstract class BaseBinaryOperator<TInput, TOutput extends Number> implements IExpression<TInput, TOutput> {
 	
-	private IExpression<TOutput> left;
-	private IExpression<TOutput> right;
+	private IExpression<TInput, TOutput> left;
+	private IExpression<TInput, TOutput> right;
 	
-	public BaseBinaryOperator(IExpression<TOutput> left, IExpression<TOutput> right) {
+	public BaseBinaryOperator(IExpression<TInput, TOutput> left, IExpression<TInput, TOutput> right) {
 		this.setLeft(left);
 		this.setRight(right);
 	}
 	
-	public IExpression<TOutput> getLeft() {
+	public IExpression<TInput, TOutput> getLeft() {
 		return left;
 	}
 	
-	public void setLeft(IExpression<TOutput> left) {
+	public void setLeft(IExpression<TInput, TOutput> left) {
 		this.left = left;
 	}
 	
-	public IExpression<TOutput> getRight() {
+	public IExpression<TInput, TOutput> getRight() {
 		return right;
 	}
 	
-	public void setRight(IExpression<TOutput> right) {
+	public void setRight(IExpression<TInput, TOutput> right) {
 		this.right = right;
 	}
 

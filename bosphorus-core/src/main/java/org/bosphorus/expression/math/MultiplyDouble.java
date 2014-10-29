@@ -3,15 +3,15 @@ package org.bosphorus.expression.math;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class MultiplyDouble extends BaseBinaryOperator<Double> {
+public class MultiplyDouble<TInput> extends BaseBinaryOperator<TInput, Double> {
 
-	public MultiplyDouble(IExpression<Double> left,
-			IExpression<Double> right) {
+	public MultiplyDouble(IExpression<TInput, Double> left,
+			IExpression<TInput, Double> right) {
 		super(left, right);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Double execute(ITuple input) throws Exception {
+	public Double execute(TInput input) throws Exception {
 		return this.getLeft().execute(input) * this.getRight().execute(input);
 	}
 

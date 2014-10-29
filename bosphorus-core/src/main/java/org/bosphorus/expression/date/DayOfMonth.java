@@ -5,31 +5,31 @@ import java.util.Date;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class DayOfMonth implements IExpression<Integer> {
+public class DayOfMonth<TInput> implements IExpression<TInput, Integer> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 10769287980143654L;
 	
-	private IExpression<Date> value;
+	private IExpression<TInput, Date> value;
 	
 	public DayOfMonth() {
 	}
 	
-	public DayOfMonth(IExpression<Date> value) {
+	public DayOfMonth(IExpression<TInput, Date> value) {
 		this.setValue(value);
 	}
 
-	public IExpression<Date> getValue() {
+	public IExpression<TInput, Date> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<Date> value) {
+	public void setValue(IExpression<TInput, Date> value) {
 		this.value = value;
 	}
 
 	@Override
-	public Integer execute(ITuple input) throws Exception {
+	public Integer execute(TInput input) throws Exception {
 		return this.getValue().execute(input).getDate();
 	}
 

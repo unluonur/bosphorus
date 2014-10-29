@@ -1,18 +1,17 @@
 package org.bosphorus.query.aggregation.bag;
 
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class SumBagInteger extends BaseAggregationBag<Integer, Integer> {
+public class SumBagInteger<TInput> extends BaseAggregationBag<TInput, Integer, Integer> {
 	private Integer sum;
 	
-	public SumBagInteger(IExpression<Integer> expression) {
+	public SumBagInteger(IExpression<TInput, Integer> expression) {
 		super(expression);
 		sum = 0;
 	}
 
 	@Override
-	public void execute(ITuple input) throws Exception {
+	public void execute(TInput input) throws Exception {
 		sum += this.getExpression().execute(input);
 	}
 

@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 import org.bosphorus.core.ITuple;
 
-public class MultiStatement implements IStatement {
-	private ArrayList<IStatement> statements;
+public class MultiStatement<TInput> implements IStatement<TInput> {
+	private ArrayList<IStatement<TInput>> statements;
 	
-	public MultiStatement(IStatement... statements) {
-		this.statements = new ArrayList<IStatement>();
-		for(IStatement statement: statements) {
+	public MultiStatement(IStatement<TInput>... statements) {
+		this.statements = new ArrayList<IStatement<TInput>>();
+		for(IStatement<TInput> statement: statements) {
 			this.statements.add(statement);
 		}
 	}
 	
 	@Override
-	public void execute(ITuple input) throws Exception {
-		for(IStatement stat: statements) {
+	public void execute(TInput input) throws Exception {
+		for(IStatement<TInput> stat: statements) {
 			stat.execute(input);
 		}
 	}

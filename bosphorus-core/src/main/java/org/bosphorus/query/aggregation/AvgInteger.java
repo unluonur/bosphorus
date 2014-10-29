@@ -4,16 +4,16 @@ import org.bosphorus.expression.IExpression;
 import org.bosphorus.query.aggregation.bag.AvgBagInteger;
 import org.bosphorus.query.aggregation.bag.IAggregationBag;
 
-public class AvgInteger extends BaseExpressionAggregation<Integer, Integer> {
+public class AvgInteger<TInput> extends BaseExpressionAggregation<TInput, Integer, Integer> {
 
-	public AvgInteger(IExpression<Integer> expression) {
+	public AvgInteger(IExpression<TInput, Integer> expression) {
 		super(expression);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
-	public IAggregationBag<Integer> newBag() {
-		return new AvgBagInteger(this.getExpression());
+	public IAggregationBag<TInput, Integer> newBag() {
+		return new AvgBagInteger<TInput>(this.getExpression());
 	}
 
 }

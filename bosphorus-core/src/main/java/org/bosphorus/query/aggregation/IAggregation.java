@@ -2,8 +2,8 @@ package org.bosphorus.query.aggregation;
 
 import org.bosphorus.query.aggregation.bag.IAggregationBag;
 
-public interface IAggregation<TOutput> {
+public interface IAggregation<TInput, TOutput> {
 
-	IAggregationBag<TOutput> newBag();
+	IAggregationBag<TInput, TOutput> newBag();
 	
 }

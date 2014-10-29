@@ -5,31 +5,31 @@ import java.util.Date;
 import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class Second implements IExpression<Integer> {
+public class Second<TInput> implements IExpression<TInput, Integer> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7293112921515384397L;
 	
-	private IExpression<Date> value;
+	private IExpression<TInput, Date> value;
 	
 	public Second() {
 	}
 	
-	public Second(IExpression<Date> value) {
+	public Second(IExpression<TInput, Date> value) {
 		this.setValue(value);
 	}
 
-	public IExpression<Date> getValue() {
+	public IExpression<TInput, Date> getValue() {
 		return value;
 	}
 
-	public void setValue(IExpression<Date> value) {
+	public void setValue(IExpression<TInput, Date> value) {
 		this.value = value;
 	}
 
 	@Override
-	public Integer execute(ITuple input) throws Exception {
+	public Integer execute(TInput input) throws Exception {
 		return this.getValue().execute(input).getSeconds();
 	}
 
