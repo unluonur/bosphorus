@@ -2,10 +2,9 @@ package org.bosphorus.query.group;
 
 import java.util.List;
 
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
-public class GroupBy<TInput> implements IGroupBy {
+public class GroupBy<TInput> implements IGroupBy<TInput> {
 	@SuppressWarnings("rawtypes")
 	private List<IExpression> groups;
 
@@ -14,7 +13,7 @@ public class GroupBy<TInput> implements IGroupBy {
 	}
 
 	@Override
-	public void group(ITuple input) {
+	public void group(TInput input) {
 		// TODO Auto-generated method stub
 		
 	}

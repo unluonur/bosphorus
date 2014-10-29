@@ -1,10 +1,8 @@
 package org.bosphorus.query.group;
 
-import org.bosphorus.core.ITuple;
-
-public interface IGroupBy {
+public interface IGroupBy<TInput> {
 	
 	void init();
-	void group(ITuple input);
+	void group(TInput input);
 	
 }
