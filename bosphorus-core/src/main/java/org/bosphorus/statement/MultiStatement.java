@@ -2,7 +2,7 @@ package org.bosphorus.statement;
 
 import java.util.ArrayList;
 
-import org.bosphorus.stream.ITuple;
+import org.bosphorus.core.ITuple;
 
 public class MultiStatement implements IStatement {
 	private ArrayList<IStatement> statements;

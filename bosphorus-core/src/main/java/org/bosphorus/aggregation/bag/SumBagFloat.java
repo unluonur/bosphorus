@@ -1,17 +1,24 @@
 package org.bosphorus.aggregation.bag;
 
-public class SumBagFloat implements IAggregationBag<Float, Float> {
-	private Float _value;
+import org.bosphorus.core.ITuple;
+import org.bosphorus.expression.IExpression;
 
-	@Override
-	public void execute(Float value) {
-		this._value += value;
-	}
-
-	@Override
-	public Float value() {
-		return this._value;
-	}
-
+public class SumBagFloat extends BaseAggregationBag<Float, Float> {
+	private Float sum;
 	
+	public SumBagFloat(IExpression<Float> expression) {
+		super(expression);
+		sum = 0.0F;
+	}
+
+	@Override
+	public void execute(ITuple input) throws Exception {
+		sum += this.getExpression().execute(input);
+	}
+
+	@Override
+	public Float getValue() {
+		return sum;
+	}
+
 }

@@ -2,8 +2,8 @@ package org.bosphorus.expression.string;
 
 import java.util.ArrayList;
 
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
 public class StrConcat implements IExpression<String> {
 	

@@ -1,7 +1,7 @@
 package org.bosphorus.expression.math;
 
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
 public class MultiplyFloat extends BaseBinaryOperator<Float> {
 

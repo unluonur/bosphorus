@@ -1,17 +1,26 @@
 package org.bosphorus.aggregation.bag;
 
-public class AvgBagDouble implements IAggregationBag<Double, Double> {
+import org.bosphorus.core.ITuple;
+import org.bosphorus.expression.IExpression;
+
+public class AvgBagDouble extends BaseAggregationBag<Double, Double> {
 	private Double sum;
 	private Integer count;
-
-	@Override
-	public void execute(Double value) {
-		this.sum += value;
-		this.count++;
+	
+	public AvgBagDouble(IExpression<Double> expression) {
+		super(expression);
+		sum = 0.0;
+		count = 0;
 	}
 
 	@Override
-	public Double value() {
+	public void execute(ITuple input) throws Exception {
+		sum += this.getExpression().execute(input);
+		count++;
+	}
+
+	@Override
+	public Double getValue() {
 		if(this.count != 0) {
 			return this.sum / this.count;	
 		}

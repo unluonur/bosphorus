@@ -12,8 +12,8 @@ public class AvgFloat extends BaseExpressionAggregation<Float, Float> {
 	}
 
 	@Override
-	public IAggregationBag<Float, Float> newBag() {
-		return new AvgBagFloat();
+	public IAggregationBag<Float> newBag() {
+		return new AvgBagFloat(this.getExpression());
 	}
 
 }

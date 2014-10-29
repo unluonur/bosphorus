@@ -2,8 +2,8 @@ package org.bosphorus.expression.date;
 
 import java.util.Date;
 
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
 public class DayOfMonth implements IExpression<Integer> {
 	/**

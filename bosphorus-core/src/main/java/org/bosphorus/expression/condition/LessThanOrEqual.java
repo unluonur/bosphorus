@@ -1,7 +1,7 @@
 package org.bosphorus.expression.condition;
 
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
 public class LessThanOrEqual<TType extends Comparable<TType>> extends BaseComparison<TType> {
 	

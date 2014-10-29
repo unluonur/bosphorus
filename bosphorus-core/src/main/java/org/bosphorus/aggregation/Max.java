@@ -12,8 +12,8 @@ public class Max<TOutput extends Comparable<TOutput>> extends BaseExpressionAggr
 	}
 
 	@Override
-	public IAggregationBag<TOutput, TOutput> newBag() {
-		return new MaxBag<TOutput>();
+	public IAggregationBag<TOutput> newBag() {
+		return new MaxBag<TOutput>(this.getExpression());
 	}
 
 }

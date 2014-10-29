@@ -1,6 +1,6 @@
 package org.bosphorus.expression.field;
 
-import org.bosphorus.stream.ITuple;
+import org.bosphorus.core.ITuple;
 
 public class DoubleFieldByName extends BaseFieldByName<Double> {
 

@@ -2,8 +2,8 @@ package org.bosphorus.expression.string;
 
 import java.util.regex.Pattern;
 
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
 public class RegexMatchConst implements IExpression<Boolean> {
 

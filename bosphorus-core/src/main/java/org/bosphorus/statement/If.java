@@ -1,7 +1,7 @@
 package org.bosphorus.statement;
 
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
 public class If implements IStatement {
 	

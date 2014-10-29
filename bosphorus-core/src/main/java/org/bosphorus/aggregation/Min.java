@@ -12,8 +12,8 @@ public class Min<TOutput extends Comparable<TOutput>> extends BaseExpressionAggr
 	}
 
 	@Override
-	public IAggregationBag<TOutput, TOutput> newBag() {
-		return new MinBag<TOutput>();
+	public IAggregationBag<TOutput> newBag() {
+		return new MinBag<TOutput>(this.getExpression());
 	}
 
 }

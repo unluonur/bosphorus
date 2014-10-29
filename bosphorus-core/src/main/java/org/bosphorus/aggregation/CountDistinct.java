@@ -11,8 +11,8 @@ public class CountDistinct<TType extends Comparable<TType>> extends BaseExpressi
 	}
 
 	@Override
-	public IAggregationBag<Integer, TType> newBag() {
-		return new CountDistinctBag<TType>();
+	public IAggregationBag<Integer> newBag() {
+		return new CountDistinctBag<TType>(this.getExpression());
 	}
 
 }

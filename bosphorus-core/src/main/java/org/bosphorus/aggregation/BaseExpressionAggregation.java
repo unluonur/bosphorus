@@ -1,10 +1,8 @@
 package org.bosphorus.aggregation;
 
-import org.bosphorus.aggregation.bag.IAggregationBag;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
-public abstract class BaseExpressionAggregation<TOutput, TType> implements IAggregation<TOutput, TType> {
+public abstract class BaseExpressionAggregation<TOutput, TType> implements IAggregation<TOutput> {
 	private IExpression<TType> expression;
 	
 	public BaseExpressionAggregation(IExpression<TType> expression) {
@@ -19,9 +17,4 @@ public abstract class BaseExpressionAggregation<TOutput, TType> implements IAggr
 		this.expression = expression;
 	}
 
-	@Override
-	public void execute(ITuple input, IAggregationBag<TOutput, TType> bag)
-			throws Exception {
-		bag.execute(this.getExpression().execute(input));
-	}
 }

@@ -2,23 +2,28 @@ package org.bosphorus.aggregation.bag;
 
 import java.util.ArrayList;
 
-public class CountDistinctBag<TType extends Comparable<TType>> implements IAggregationBag<Integer, TType> {
+import org.bosphorus.core.ITuple;
+import org.bosphorus.expression.IExpression;
+
+public class CountDistinctBag<TType extends Comparable<TType>> extends BaseAggregationBag<Integer, TType> {
 	private ArrayList<TType> list;
-	
-	public CountDistinctBag() {
-		this.list = new ArrayList<TType>();
+
+	public CountDistinctBag(IExpression<TType> expression) {
+		super(expression);
+		list = new ArrayList<TType>();
 	}
-	
+
 	@Override
-	public void execute(TType value) {
-		if(!this.list.contains(value)) {
-			this.list.add(value);
+	public void execute(ITuple input) throws Exception {
+		TType value = this.getExpression().execute(input);
+		if(!list.contains(value)) {
+			list.add(value);
 		}
 	}
 
 	@Override
-	public Integer value() {
-		return this.list.size();
+	public Integer getValue() {
+		return list.size();
 	}
 
 }

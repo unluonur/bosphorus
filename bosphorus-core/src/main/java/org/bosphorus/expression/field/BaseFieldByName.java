@@ -1,7 +1,7 @@
 package org.bosphorus.expression.field;
 
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
 public abstract class BaseFieldByName<TType> implements IExpression<TType> {
 	

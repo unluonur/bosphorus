@@ -1,6 +1,6 @@
 package org.bosphorus.expression;
 
-import org.bosphorus.stream.ITuple;
+import org.bosphorus.core.ITuple;
 
 public class Convert<TOutput, TSource> implements IExpression<TOutput> {
 

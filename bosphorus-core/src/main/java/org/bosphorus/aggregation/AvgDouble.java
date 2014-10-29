@@ -12,8 +12,8 @@ public class AvgDouble extends BaseExpressionAggregation<Double, Double> {
 	}
 
 	@Override
-	public IAggregationBag<Double, Double> newBag() {
-		return new AvgBagDouble();
+	public IAggregationBag<Double> newBag() {
+		return new AvgBagDouble(this.getExpression());
 	}
-
+	
 }

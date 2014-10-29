@@ -12,8 +12,8 @@ public class SumFloat extends BaseExpressionAggregation<Float, Float> {
 	}
 
 	@Override
-	public IAggregationBag<Float, Float> newBag() {
-		return new SumBagFloat();
+	public IAggregationBag<Float> newBag() {
+		return new SumBagFloat(this.getExpression());
 	}
 
 }

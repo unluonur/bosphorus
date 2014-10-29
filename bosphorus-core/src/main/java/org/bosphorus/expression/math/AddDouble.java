@@ -1,14 +1,9 @@
 package org.bosphorus.expression.math;
 
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
 public class AddDouble extends BaseBinaryOperator<Double> {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5895203379539587045L;
 
 	public AddDouble(IExpression<Double> left,
 			IExpression<Double> right) {

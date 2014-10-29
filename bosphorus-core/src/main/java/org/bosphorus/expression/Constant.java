@@ -1,6 +1,6 @@
 package org.bosphorus.expression;
 
-import org.bosphorus.stream.ITuple;
+import org.bosphorus.core.ITuple;
 
 
 public class Constant<TOutput> implements IExpression<TOutput> {
@@ -13,7 +13,6 @@ public class Constant<TOutput> implements IExpression<TOutput> {
 	private TOutput value;
 	
 	public Constant() {
-		
 	}
 	
 	public Constant(TOutput value) {

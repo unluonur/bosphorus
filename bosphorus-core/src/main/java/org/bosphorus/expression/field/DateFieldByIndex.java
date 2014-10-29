@@ -2,7 +2,7 @@ package org.bosphorus.expression.field;
 
 import java.util.Date;
 
-import org.bosphorus.stream.ITuple;
+import org.bosphorus.core.ITuple;
 
 public class DateFieldByIndex extends BaseFieldByIndex<Date> {
 

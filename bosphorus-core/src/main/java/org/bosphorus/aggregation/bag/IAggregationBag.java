@@ -1,8 +1,10 @@
 package org.bosphorus.aggregation.bag;
 
-public interface IAggregationBag<TOutput, TType> {
+import org.bosphorus.core.ITuple;
+
+public interface IAggregationBag<TOutput> {
 	
-	void execute(TType value);
-	TOutput value();
+	void execute(ITuple input) throws Exception;
+	TOutput getValue();
 	
 }

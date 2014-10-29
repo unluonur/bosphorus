@@ -12,8 +12,8 @@ public class AvgLong extends BaseExpressionAggregation<Long, Long> {
 	}
 
 	@Override
-	public IAggregationBag<Long, Long> newBag() {
-		return new AvgBagLong();
+	public IAggregationBag<Long> newBag() {
+		return new AvgBagLong(this.getExpression());
 	}
 
 }

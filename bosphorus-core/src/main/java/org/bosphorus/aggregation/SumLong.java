@@ -12,8 +12,8 @@ public class SumLong extends BaseExpressionAggregation<Long, Long> {
 	}
 
 	@Override
-	public IAggregationBag<Long, Long> newBag() {
-		return new SumBagLong();
+	public IAggregationBag<Long> newBag() {
+		return new SumBagLong(this.getExpression());
 	}
 
 }

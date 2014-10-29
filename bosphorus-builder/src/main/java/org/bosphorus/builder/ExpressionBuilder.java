@@ -9,6 +9,7 @@ import org.bosphorus.builder.container.FloatContainer;
 import org.bosphorus.builder.container.IntegerContainer;
 import org.bosphorus.builder.container.LongContainer;
 import org.bosphorus.builder.container.StringContainer;
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.Constant;
 import org.bosphorus.expression.date.Now;
 import org.bosphorus.expression.field.BooleanFieldByIndex;
@@ -25,7 +26,6 @@ import org.bosphorus.expression.field.LongFieldByIndex;
 import org.bosphorus.expression.field.LongFieldByName;
 import org.bosphorus.expression.field.StringFieldByIndex;
 import org.bosphorus.expression.field.StringFieldByName;
-import org.bosphorus.stream.ITuple;
 
 public class ExpressionBuilder {
 	

@@ -1,4 +1,4 @@
-package org.bosphorus.stream;
+package org.bosphorus.core;
 
 import java.util.Date;
 

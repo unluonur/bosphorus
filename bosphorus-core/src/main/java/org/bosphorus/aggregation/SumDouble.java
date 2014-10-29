@@ -12,8 +12,8 @@ public class SumDouble extends BaseExpressionAggregation<Double, Double> {
 	}
 
 	@Override
-	public IAggregationBag<Double, Double> newBag() {
-		return new SumBagDouble();
+	public IAggregationBag<Double> newBag() {
+		return new SumBagDouble(this.getExpression());
 	}
 
 }

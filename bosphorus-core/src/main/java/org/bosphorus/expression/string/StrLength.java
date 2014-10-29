@@ -1,7 +1,7 @@
 package org.bosphorus.expression.string;
 
+import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.ITuple;
 
 public class StrLength implements IExpression<Integer> {
 	/**
