@@ -1,9 +1,10 @@
 package org.bosphorus.query.aggregation;
 
-import org.bosphorus.query.aggregation.bag.IAggregationBag;
+import java.util.List;
 
-public interface IAggregation<TInput, TOutput> {
-
-	IAggregationBag<TInput, TOutput> newBag();
+public interface IAggregation {
+	
+	void put(List<Object> input) throws Exception;
+	List<List<Object>> get(Boolean reset) throws Exception;
 	
 }

@@ -9,13 +9,19 @@ public class GroupBy<TInput> implements IGroupBy<TInput> {
 	private List<IExpression> groups;
 
 	@Override
-	public void init() {
+	public void reset() {
 	}
 
 	@Override
-	public void group(TInput input) {
+	public void execute(TInput input) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<List<Object>> getValues() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
