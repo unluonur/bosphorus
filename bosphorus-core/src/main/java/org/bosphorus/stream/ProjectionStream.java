@@ -13,12 +13,12 @@ public class ProjectionStream<TOutput> implements IStreamWriter<TOutput> {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
-	public void writeSingle(TOutput input) throws Exception {
+	public void writeOne(TOutput input) throws Exception {
 		ArrayList<Object> result = new ArrayList<Object>();
 		for(IExpression expr: expressions) {
 			result.add(expr.execute(input));
 		}
-		outputStream.writeSingle(result);
+		outputStream.writeOne(result);
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })

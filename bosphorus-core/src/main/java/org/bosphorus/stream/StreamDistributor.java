@@ -7,9 +7,9 @@ public class StreamDistributor<TType> implements IStreamWriter<TType> {
 	private ArrayList<IStreamWriter<TType>> outputStreams;
 
 	@Override
-	public void writeSingle(TType input) throws Exception {
+	public void writeOne(TType input) throws Exception {
 		for(IStreamWriter<TType> writer: outputStreams) {
-			writer.writeSingle(input);
+			writer.writeOne(input);
 		}
 	}
 

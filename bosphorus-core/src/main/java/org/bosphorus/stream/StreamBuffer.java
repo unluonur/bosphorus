@@ -14,7 +14,7 @@ public class StreamBuffer<TInput> implements IStreamReader<TInput>, IStreamWrite
 	}
 	
 	@Override
-	public void writeSingle(TInput input) throws Exception {
+	public void writeOne(TInput input) throws Exception {
 		synchronized (lockObject) {
 			buffer.add(input);
 		}
@@ -24,16 +24,6 @@ public class StreamBuffer<TInput> implements IStreamReader<TInput>, IStreamWrite
 	public void writeMulti(List<TInput> input) throws Exception {
 		synchronized (lockObject) {
 			buffer.addAll(input);
-		}
-	}
-
-	@Override
-	public TInput read() throws Exception {
-		synchronized (lockObject) {
-			if(buffer.size()>0) {
-				return buffer.remove(0);
-			}
-			return null;
 		}
 	}
 

@@ -13,7 +13,6 @@ public class JoinFieldBoolean<TInput extends List<List<Object>>> extends BaseJoi
 	public Boolean execute(List<List<Object>> input) throws Exception {
 		List<Object> streamRow = input.get(this.getStreamIndex());
 		if(streamRow != null) {
-			
 			return (Boolean)(streamRow.get(this.getFieldIndex()));	
 		}
 		return null;

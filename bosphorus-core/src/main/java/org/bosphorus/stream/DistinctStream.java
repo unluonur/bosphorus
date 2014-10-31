@@ -18,7 +18,7 @@ public class DistinctStream<TInput> implements IStreamReader<TInput>, IStreamWri
 	}
 	
 	@Override
-	public void writeSingle(TInput input) throws Exception {
+	public void writeOne(TInput input) throws Exception {
 		synchronized (lockObject) {
 			writeSingleData(input);
 		}
@@ -30,16 +30,6 @@ public class DistinctStream<TInput> implements IStreamReader<TInput>, IStreamWri
 			for(TInput tuple: input) {
 				writeSingleData(tuple);
 			}
-		}
-	}
-
-	@Override
-	public TInput read() throws Exception {
-		synchronized (lockObject) {
-			if(data.size()>0) {
-				return data.remove(0);
-			}
-			return null;
 		}
 	}
 

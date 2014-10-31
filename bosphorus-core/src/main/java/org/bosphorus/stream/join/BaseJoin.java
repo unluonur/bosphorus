@@ -39,10 +39,5 @@ public abstract class BaseJoin<TInput> implements IStreamReader<List<TInput>> {
 	public void setExpression(IExpression<List<TInput>, Boolean> expression) {
 		this.expression = expression;
 	}
-
-	@Override
-	public List<TInput> read() throws Exception {
-		throw new java.lang.UnsupportedOperationException();
-	}
 	
 }

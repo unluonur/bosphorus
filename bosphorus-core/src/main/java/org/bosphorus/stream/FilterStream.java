@@ -10,9 +10,9 @@ public class FilterStream<TInput> implements IStreamWriter<TInput> {
 	private IStreamWriter<TInput> outputStream;
 
 	@Override
-	public void writeSingle(TInput input) throws Exception {
+	public void writeOne(TInput input) throws Exception {
 		if(expression.execute(input)) {
-			outputStream.writeSingle(input);
+			outputStream.writeOne(input);
 		}
 	}
 
