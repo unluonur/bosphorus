@@ -2,8 +2,6 @@ package org.bosphorus.expression.stream;
 
 import java.util.List;
 
-import org.bosphorus.core.ITuple;
-
 public class StreamFieldInteger<TInput extends List<Object>> extends BaseStreamField<TInput, Integer> {
 
 	public StreamFieldInteger(Integer fieldIndex) {

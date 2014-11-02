@@ -28,12 +28,11 @@ public class StreamBuffer<TInput> implements IStreamReader<TInput>, IStreamWrite
 	}
 
 	@Override
-	public List<TInput> readAll() throws Exception {
+	public List<TInput> read() throws Exception {
 		synchronized (lockObject) {
 			List<TInput> result = buffer;
 			buffer = new ArrayList<TInput>();
 			return result;
 		}
 	}
-
 }

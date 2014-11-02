@@ -1,6 +1,5 @@
 package org.bosphorus.expression.condition;
 
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
 public class And<TInput> extends BaseBinaryCondition<TInput> {

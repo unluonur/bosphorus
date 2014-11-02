@@ -1,6 +1,5 @@
 package org.bosphorus.expression.math;
 
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
 public class MultiplyLong<TInput> extends BaseBinaryOperator<TInput, Long> {

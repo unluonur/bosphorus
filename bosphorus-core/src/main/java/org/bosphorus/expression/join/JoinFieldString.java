@@ -13,7 +13,6 @@ public class JoinFieldString<TInput extends List<List<Object>>> extends BaseJoin
 	public String execute(List<List<Object>> input) throws Exception {
 		List<Object> streamRow = input.get(this.getStreamIndex());
 		if(streamRow != null) {
-			
 			return (String)(streamRow.get(this.getFieldIndex()));	
 		}
 		return null;

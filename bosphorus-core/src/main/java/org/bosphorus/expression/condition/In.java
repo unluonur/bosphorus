@@ -1,8 +1,6 @@
 package org.bosphorus.expression.condition;
 
 import java.util.ArrayList;
-
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
 public class In<TInput, TType extends Comparable<TType>> extends BaseListComparison<TInput, TType> {

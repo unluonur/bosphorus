@@ -13,7 +13,6 @@ public class JoinFieldFloat<TInput extends List<List<Object>>> extends BaseJoinF
 	public Float execute(List<List<Object>> input) throws Exception {
 		List<Object> streamRow = input.get(this.getStreamIndex());
 		if(streamRow != null) {
-			
 			return (Float)(streamRow.get(this.getFieldIndex()));	
 		}
 		return null;

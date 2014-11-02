@@ -13,7 +13,6 @@ public class JoinFieldLong<TInput extends List<List<Object>>> extends BaseJoinFi
 	public Long execute(List<List<Object>> input) throws Exception {
 		List<Object> streamRow = input.get(this.getStreamIndex());
 		if(streamRow != null) {
-			
 			return (Long)(streamRow.get(this.getFieldIndex()));	
 		}
 		return null;

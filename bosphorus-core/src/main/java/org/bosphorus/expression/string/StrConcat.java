@@ -1,8 +1,6 @@
 package org.bosphorus.expression.string;
 
 import java.util.ArrayList;
-
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
 public class StrConcat<TInput> implements IExpression<TInput, String> {

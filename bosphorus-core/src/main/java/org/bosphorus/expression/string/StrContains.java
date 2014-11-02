@@ -1,6 +1,5 @@
 package org.bosphorus.expression.string;
 
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
 public class StrContains<TInput> implements IExpression<TInput, Boolean> {

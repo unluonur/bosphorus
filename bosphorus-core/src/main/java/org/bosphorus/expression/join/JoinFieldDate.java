@@ -14,7 +14,6 @@ public class JoinFieldDate<TInput extends List<List<Object>>> extends BaseJoinFi
 	public Date execute(List<List<Object>> input) throws Exception {
 		List<Object> streamRow = input.get(this.getStreamIndex());
 		if(streamRow != null) {
-			
 			return (Date)(streamRow.get(this.getFieldIndex()));	
 		}
 		return null;

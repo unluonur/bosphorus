@@ -9,8 +9,8 @@ public class StreamJoin<TInput> implements IStreamReader<List<TInput>> {
 	private IStreamReader<TInput> maimStream;
 
 	@Override
-	public List<List<TInput>> readAll() throws Exception {
-		List<TInput> data = maimStream.readAll();
+	public List<List<TInput>> read() throws Exception {
+		List<TInput> data = maimStream.read();
 		ArrayList<List<TInput>> result = new ArrayList<List<TInput>>();
 		for(TInput tuple: data) {
 			ArrayList<TInput> aggregateTuple = new ArrayList<TInput>();

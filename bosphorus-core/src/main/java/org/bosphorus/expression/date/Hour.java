@@ -2,7 +2,6 @@ package org.bosphorus.expression.date;
 
 import java.util.Date;
 
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
 public class Hour<TInput> implements IExpression<TInput, Integer> {
@@ -28,6 +27,7 @@ public class Hour<TInput> implements IExpression<TInput, Integer> {
 		this.value = value;
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public Integer execute(TInput input) throws Exception {
 		return this.getValue().execute(input).getHours();

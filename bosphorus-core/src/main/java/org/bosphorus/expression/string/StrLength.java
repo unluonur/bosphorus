@@ -1,6 +1,5 @@
 package org.bosphorus.expression.string;
 
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
 public class StrLength<TInput> implements IExpression<TInput, Integer> {

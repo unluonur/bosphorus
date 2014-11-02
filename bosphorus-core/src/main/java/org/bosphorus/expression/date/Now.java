@@ -1,8 +1,6 @@
 package org.bosphorus.expression.date;
 
 import java.util.Date;
-
-import org.bosphorus.core.ITuple;
 import org.bosphorus.expression.IExpression;
 
 public class Now<TInput> implements IExpression<TInput, Date> {

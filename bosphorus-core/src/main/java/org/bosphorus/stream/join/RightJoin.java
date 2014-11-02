@@ -16,9 +16,9 @@ public class RightJoin<TInput> extends BaseJoin<TInput> {
 	}
 
 	@Override
-	public List<List<TInput>> readAll() throws Exception {
-		List<List<TInput>> left = this.getLeft().readAll();
-		List<TInput> right = this.getRight().readAll();
+	public List<List<TInput>> read() throws Exception {
+		List<List<TInput>> left = this.getLeft().read();
+		List<TInput> right = this.getRight().read();
 		ArrayList<List<TInput>> result = new ArrayList<List<TInput>>();
 		for(TInput rightRow: right) {
 			Boolean found = false;

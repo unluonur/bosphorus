@@ -1,7 +1,5 @@
 package org.bosphorus.expression;
 
-import org.bosphorus.core.ITuple;
-
 public class Convert<TInput, TOutput, TSource> implements IExpression<TInput, TOutput> {
 
 	/**

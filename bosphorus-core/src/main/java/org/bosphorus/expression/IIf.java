@@ -1,7 +1,5 @@
 package org.bosphorus.expression;
 
-import org.bosphorus.core.ITuple;
-
 public class IIf<TInput, TOutput> implements IExpression<TInput, TOutput> {
 	
 	/**

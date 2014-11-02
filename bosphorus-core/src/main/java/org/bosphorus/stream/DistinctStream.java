@@ -34,7 +34,7 @@ public class DistinctStream<TInput> implements IStreamReader<TInput>, IStreamWri
 	}
 
 	@Override
-	public List<TInput> readAll() throws Exception {
+	public List<TInput> read() throws Exception {
 		synchronized (lockObject) {
 			List<TInput> result = data;
 			data = new ArrayList<TInput>();
