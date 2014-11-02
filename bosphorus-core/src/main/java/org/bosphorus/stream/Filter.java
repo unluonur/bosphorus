@@ -5,9 +5,14 @@ import java.util.List;
 
 import org.bosphorus.expression.IExpression;
 
-public class FilterStream<TInput> implements IStreamWriter<TInput> {
+public class Filter<TInput> implements IStreamWriter<TInput> {
 	private IExpression<TInput, Boolean> expression;
 	private IStreamWriter<TInput> outputStream;
+	
+	public Filter(IExpression<TInput, Boolean> expression, IStreamWriter<TInput> outputStream) {
+		this.expression = expression;
+		this.outputStream = outputStream;
+	}
 
 	@Override
 	public void writeOne(TInput input) throws Exception {

@@ -3,7 +3,7 @@ package org.bosphorus.stream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DistinctStream<TInput> implements IStreamReader<TInput>, IStreamWriter<TInput> {
+public class Distinct<TInput> implements IStreamReader<TInput>, IStreamWriter<TInput> {
 
 	private Object lockObject;
 	private ArrayList<TInput> data;

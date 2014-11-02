@@ -1,10 +1,13 @@
 package org.bosphorus.stream;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class StreamDistributor<TType> implements IStreamWriter<TType> {
-	private ArrayList<IStreamWriter<TType>> outputStreams;
+public class AllDistributor<TType> implements IStreamWriter<TType> {
+	private List<IStreamWriter<TType>> outputStreams;
+	
+	public AllDistributor(List<IStreamWriter<TType>> outputStreams) {
+		this.outputStreams = outputStreams;
+	}
 
 	@Override
 	public void writeOne(TType input) throws Exception {

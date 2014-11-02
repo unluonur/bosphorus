@@ -3,12 +3,12 @@ package org.bosphorus.stream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StreamBuffer<TInput> implements IStreamReader<TInput>, IStreamWriter<TInput> {
+public class Buffer<TInput> implements IStreamReader<TInput>, IStreamWriter<TInput> {
 
 	private Object lockObject;
 	private ArrayList<TInput> buffer;
 	
-	public StreamBuffer() {
+	public Buffer() {
 		lockObject = new Object();
 		buffer = new ArrayList<TInput>();
 	}
