@@ -7,7 +7,6 @@ public class SumBagFloat<TInput> extends BaseAggregationBag<TInput, Float, Float
 	
 	public SumBagFloat(IExpression<TInput, Float> expression) {
 		super(expression);
-		sum = 0.0F;
 	}
 
 	@Override
@@ -18,6 +17,11 @@ public class SumBagFloat<TInput> extends BaseAggregationBag<TInput, Float, Float
 	@Override
 	public Float getValue() {
 		return sum;
+	}
+
+	@Override
+	public void reset() {
+		sum = 0.0F;
 	}
 
 }

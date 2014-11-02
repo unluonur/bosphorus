@@ -7,7 +7,6 @@ public class CountBagInteger<TInput, TType> extends BaseAggregationBag<TInput, I
 
 	public CountBagInteger(IExpression<TInput, TType> expression) {
 		super(expression);
-		this.value = 0;
 	}
 
 	@Override
@@ -21,5 +20,10 @@ public class CountBagInteger<TInput, TType> extends BaseAggregationBag<TInput, I
 	@Override
 	public Integer getValue() {
 		return value;
+	}
+
+	@Override
+	public void reset() {
+		this.value = 0;
 	}
 }

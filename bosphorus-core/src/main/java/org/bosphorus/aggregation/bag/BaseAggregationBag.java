@@ -7,6 +7,7 @@ public abstract class BaseAggregationBag<TInput, TOutput, TType> implements IAgg
 	
 	public BaseAggregationBag(IExpression<TInput, TType> expression) {
 		this.setExpression(expression);
+		this.reset();
 	}
 
 	public IExpression<TInput, TType> getExpression() {

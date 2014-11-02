@@ -15,7 +15,6 @@ public class StreamPusher<TInput> {
 		timer = new Timer();
 		StreamPusher<TInput> pusher = this;
 		timer.schedule(new TimerTask() {
-			
 			@Override
 			public void run() {
 				try {

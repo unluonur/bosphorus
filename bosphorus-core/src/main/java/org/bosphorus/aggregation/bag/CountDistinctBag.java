@@ -9,7 +9,6 @@ public class CountDistinctBag<TInput, TType extends Comparable<TType>> extends B
 
 	public CountDistinctBag(IExpression<TInput, TType> expression) {
 		super(expression);
-		list = new ArrayList<TType>();
 	}
 
 	@Override
@@ -23,6 +22,11 @@ public class CountDistinctBag<TInput, TType extends Comparable<TType>> extends B
 	@Override
 	public Integer getValue() {
 		return list.size();
+	}
+
+	@Override
+	public void reset() {
+		list = new ArrayList<TType>();
 	}
 
 }

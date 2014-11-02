@@ -8,8 +8,6 @@ public class AvgBagDouble<TInput> extends BaseAggregationBag<TInput, Double, Dou
 	
 	public AvgBagDouble(IExpression<TInput, Double> expression) {
 		super(expression);
-		sum = 0.0;
-		count = 0;
 	}
 
 	@Override
@@ -24,6 +22,12 @@ public class AvgBagDouble<TInput> extends BaseAggregationBag<TInput, Double, Dou
 			return this.sum / this.count;	
 		}
 		return null;
+	}
+
+	@Override
+	public void reset() {
+		sum = 0.0;
+		count = 0;
 	}
 
 }

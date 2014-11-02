@@ -7,7 +7,6 @@ public class SumBagInteger<TInput> extends BaseAggregationBag<TInput, Integer, I
 	
 	public SumBagInteger(IExpression<TInput, Integer> expression) {
 		super(expression);
-		sum = 0;
 	}
 
 	@Override
@@ -18,6 +17,11 @@ public class SumBagInteger<TInput> extends BaseAggregationBag<TInput, Integer, I
 	@Override
 	public Integer getValue() {
 		return sum;
+	}
+
+	@Override
+	public void reset() {
+		sum = 0;
 	}
 
 }

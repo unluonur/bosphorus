@@ -23,4 +23,9 @@ public class MaxBag<TInput, TOutput extends Comparable<TOutput>> extends BaseAgg
 		return this.value;
 	}
 
+	@Override
+	public void reset() {
+		value = null;
+	}
+
 }

@@ -4,5 +4,6 @@ public interface IAggregationBag<TInput, TOutput> {
 	
 	void execute(TInput input) throws Exception;
 	TOutput getValue();
+	void reset();
 	
 }

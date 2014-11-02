@@ -8,8 +8,6 @@ public class AvgBagFloat<TInput> extends BaseAggregationBag<TInput, Float, Float
 
 	public AvgBagFloat(IExpression<TInput, Float> expression) {
 		super(expression);
-		sum = 0.0F;
-		count = 0;
 	}
 
 	@Override
@@ -24,6 +22,12 @@ public class AvgBagFloat<TInput> extends BaseAggregationBag<TInput, Float, Float
 			return this.sum / this.count;	
 		}
 		return null;
+	}
+
+	@Override
+	public void reset() {
+		sum = 0.0F;
+		count = 0;
 	}
 
 }
