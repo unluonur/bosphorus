@@ -1,4 +1,4 @@
-package org.bosphorus.builder;
+package org.bosphorus.builder.old;
 
 import java.util.Date;
 

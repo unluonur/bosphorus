@@ -11,16 +11,12 @@ import org.bosphorus.expression.IExpression;
 public class GroupAggregation<TInput> implements IStreamWriter<TInput>, IStreamReader<List<Object>> {
 	private Object lockObject;
 	
-	@SuppressWarnings("rawtypes")
-	private ArrayList<IExpression> keyExpressions;
+	private ArrayList<IExpression<TInput, ?>> keyExpressions;
 	
-	@SuppressWarnings("rawtypes")
-	private ArrayList<IAggregateFunction> valueExpressions;
+	private ArrayList<IAggregateFunction<TInput, ?>> valueExpressions;
 	
-	@SuppressWarnings("rawtypes")
-	private HashMap<ArrayList<Object>, ArrayList<IAggregationBag>> map;
+	private HashMap<ArrayList<Object>, ArrayList<IAggregationBag<TInput, ?>>> map;
 	
-	@SuppressWarnings("rawtypes")
 	@Override
 	public List<List<Object>> read() throws Exception {
 		synchronized (lockObject) {
@@ -28,7 +24,7 @@ public class GroupAggregation<TInput> implements IStreamWriter<TInput>, IStreamR
 			for(ArrayList<Object> key: map.keySet()) {
 				ArrayList<Object> tuple = new ArrayList<Object>();
 				tuple.addAll(key);
-				for(IAggregationBag bag: map.get(key)) {
+				for(IAggregationBag<TInput, ?> bag: map.get(key)) {
 					tuple.add(bag.getValue());
 				}
 			}
@@ -53,24 +49,23 @@ public class GroupAggregation<TInput> implements IStreamWriter<TInput>, IStreamR
 		}
 	}
 	
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void process(TInput input) throws Exception {
 		ArrayList<Object> keys = new ArrayList<Object>();
-		ArrayList<IAggregationBag> values;
-		for(IExpression expr: keyExpressions) {
+		ArrayList<IAggregationBag<TInput, ?>> values;
+		for(IExpression<TInput, ?> expr: keyExpressions) {
 			keys.add(expr.execute(input));
 		}
 		if(map.containsKey(keys)) {
 			values = map.get(keys);
 		}
 		else {
-			values = new ArrayList<IAggregationBag>();
-			for(IAggregateFunction expr: valueExpressions) {
+			values = new ArrayList<IAggregationBag<TInput, ?>>();
+			for(IAggregateFunction<TInput, ?> expr: valueExpressions) {
 				values.add(expr.newBag());
 			}
 			map.put(keys,  values);
 		}
-		for(IAggregationBag bag: values) {
+		for(IAggregationBag<TInput, ?> bag: values) {
 			bag.execute(input);
 		}
 	}

@@ -9,7 +9,7 @@ import org.bosphorus.stream.IStreamWriter;
 public class StreamPusher<TInput> {
 	private IStreamReader<TInput> reader;
 	private IStreamWriter<TInput> writer;
-	Timer timer;
+	private Timer timer;
 	
 	public StreamPusher(Integer interval) {
 		timer = new Timer();

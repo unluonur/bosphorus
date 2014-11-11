@@ -9,24 +9,21 @@ import org.bosphorus.aggregation.bag.IAggregationBag;
 public class NonGroupAggregation<TInput> implements IStreamWriter<TInput>, IStreamReader<List<Object>> {
 	
 	private Object lockObject;
-	@SuppressWarnings("rawtypes")
-	private ArrayList<IAggregationBag> bags;
+	private ArrayList<IAggregationBag<TInput, ?>> bags;
 	
-	@SuppressWarnings("rawtypes")
-	public NonGroupAggregation(List<IAggregateFunction> expressions) {
+	public NonGroupAggregation(List<IAggregateFunction<TInput, ?>> expressions) {
 		lockObject = new Object();
-		bags = new ArrayList<IAggregationBag>();
-		for(IAggregateFunction expr: expressions) {
+		bags = new ArrayList<IAggregationBag<TInput, ?>>();
+		for(IAggregateFunction<TInput, ?> expr: expressions) {
 			bags.add(expr.newBag());
 		}
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
 	public List<List<Object>> read() throws Exception {
 		synchronized (lockObject) {
 			ArrayList<Object> tuple = new ArrayList<Object>();
-			for(IAggregationBag bag: bags) {
+			for(IAggregationBag<TInput, ?> bag: bags) {
 				tuple.add(bag.getValue());
 				bag.reset();
 			}
@@ -52,9 +49,8 @@ public class NonGroupAggregation<TInput> implements IStreamWriter<TInput>, IStre
 		}
 	}
 	
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void process(TInput input) throws Exception {
-		for(IAggregationBag bag: bags) {
+		for(IAggregationBag<TInput, ?> bag: bags) {
 			bag.execute(input);
 		}
 	}
