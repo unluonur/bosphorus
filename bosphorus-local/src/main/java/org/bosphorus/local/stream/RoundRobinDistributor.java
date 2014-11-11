@@ -1,6 +1,8 @@
-package org.bosphorus.stream;
+package org.bosphorus.local.stream;
 
 import java.util.List;
+
+import org.bosphorus.stream.IStreamWriter;
 
 public class RoundRobinDistributor<TType> implements IStreamWriter<TType> {
 	private Object lockObject;

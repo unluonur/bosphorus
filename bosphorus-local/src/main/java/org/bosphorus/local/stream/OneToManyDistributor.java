@@ -1,11 +1,13 @@
-package org.bosphorus.stream;
+package org.bosphorus.local.stream;
 
 import java.util.List;
 
-public class AllDistributor<TType> implements IStreamWriter<TType> {
+import org.bosphorus.stream.IStreamWriter;
+
+public class OneToManyDistributor<TType> implements IStreamWriter<TType> {
 	private List<IStreamWriter<TType>> outputStreams;
 	
-	public AllDistributor(List<IStreamWriter<TType>> outputStreams) {
+	public OneToManyDistributor(List<IStreamWriter<TType>> outputStreams) {
 		this.outputStreams = outputStreams;
 	}
 
