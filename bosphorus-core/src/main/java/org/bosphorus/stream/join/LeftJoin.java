@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.IStreamReader;
+import org.bosphorus.pipe.IReader;
 
 public class LeftJoin<TInput> extends BaseJoin<TInput> {
 
-	public LeftJoin(IStreamReader<List<TInput>> left,
-			IStreamReader<TInput> right,
+	public LeftJoin(IReader<List<TInput>> left,
+			IReader<TInput> right,
 			IExpression<List<TInput>, Boolean> expression) {
 		super(left, right, expression);
 		// TODO Auto-generated constructor stub

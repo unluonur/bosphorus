@@ -3,10 +3,10 @@ package org.bosphorus.stream.join;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.stream.IStreamReader;
+import org.bosphorus.pipe.IReader;
 
-public class StreamJoin<TInput> implements IStreamReader<List<TInput>> {
-	private IStreamReader<TInput> maimStream;
+public class StreamJoin<TInput> implements IReader<List<TInput>> {
+	private IReader<TInput> maimStream;
 
 	@Override
 	public List<List<TInput>> read() throws Exception {

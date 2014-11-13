@@ -2,8 +2,6 @@ package org.bosphorus.builder.old;
 
 import java.util.List;
 
-import org.bosphorus.stream.IStreamWriter;
-
 public class Node implements INode {
 
 	@Override

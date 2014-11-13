@@ -2,13 +2,12 @@ package org.bosphorus.stream.connector;
 
 import java.util.Timer;
 import java.util.TimerTask;
-
-import org.bosphorus.stream.IStreamReader;
-import org.bosphorus.stream.IStreamWriter;
+import org.bosphorus.pipe.IPipe;
+import org.bosphorus.pipe.IReader;
 
 public class StreamPusher<TInput> {
-	private IStreamReader<TInput> reader;
-	private IStreamWriter<TInput> writer;
+	private IReader<TInput> reader;
+	private IPipe<TInput> writer;
 	private Timer timer;
 	
 	public StreamPusher(Integer interval) {
@@ -18,7 +17,7 @@ public class StreamPusher<TInput> {
 			@Override
 			public void run() {
 				try {
-					pusher.writer.writeMulti(pusher.reader.read());
+					pusher.writer.write(pusher.reader.read());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

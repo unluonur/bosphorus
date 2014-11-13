@@ -3,32 +3,32 @@ package org.bosphorus.stream.join;
 import java.util.List;
 
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.stream.IStreamReader;
+import org.bosphorus.pipe.IReader;
 
-public abstract class BaseJoin<TInput> implements IStreamReader<List<TInput>> {
-	private IStreamReader<List<TInput>> left;
-	private IStreamReader<TInput> right;
+public abstract class BaseJoin<TInput> implements IReader<List<TInput>> {
+	private IReader<List<TInput>> left;
+	private IReader<TInput> right;
 	private IExpression<List<TInput>, Boolean> expression;
 	
-	public BaseJoin(IStreamReader<List<TInput>> left, IStreamReader<TInput> right, IExpression<List<TInput>, Boolean> expression) {
+	public BaseJoin(IReader<List<TInput>> left, IReader<TInput> right, IExpression<List<TInput>, Boolean> expression) {
 		this.setLeft(left);
 		this.setRight(right);
 		this.setExpression(expression);
 	}
 	
-	public IStreamReader<List<TInput>> getLeft() {
+	public IReader<List<TInput>> getLeft() {
 		return left;
 	}
 	
-	public void setLeft(IStreamReader<List<TInput>> left) {
+	public void setLeft(IReader<List<TInput>> left) {
 		this.left = left;
 	}
 	
-	public IStreamReader<TInput> getRight() {
+	public IReader<TInput> getRight() {
 		return right;
 	}
 	
-	public void setRight(IStreamReader<TInput> right) {
+	public void setRight(IReader<TInput> right) {
 		this.right = right;
 	}
 
