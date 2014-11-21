@@ -1,7 +1,7 @@
 package org.bosphorus.topology.builder;
 
-import org.bosphorus.pipe.IPipe;
-import org.bosphorus.pipe.IReader;
+import org.bosphorus.stream.batch.IReader;
+import org.bosphorus.stream.pipe.IPipe;
 
 public interface IConnector<TInput> {
 	

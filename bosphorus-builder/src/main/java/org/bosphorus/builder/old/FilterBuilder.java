@@ -3,7 +3,7 @@ package org.bosphorus.builder.old;
 import java.util.List;
 
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.pipe.IPipe;
+import org.bosphorus.stream.pipe.IPipe;
 
 public class FilterBuilder implements IStreamBuilder {
 	private IExpression<List<Object>, Boolean> expression;

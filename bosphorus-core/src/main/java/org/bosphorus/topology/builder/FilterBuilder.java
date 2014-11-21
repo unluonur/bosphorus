@@ -1,8 +1,8 @@
 package org.bosphorus.topology.builder;
 
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.pipe.Filter;
-import org.bosphorus.pipe.IPipe;
+import org.bosphorus.stream.pipe.Filter;
+import org.bosphorus.stream.pipe.IPipe;
 
 public class FilterBuilder<TInput> implements IStreamBuilder<TInput, TInput> {
 

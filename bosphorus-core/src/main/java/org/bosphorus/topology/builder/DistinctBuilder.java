@@ -1,7 +1,7 @@
 package org.bosphorus.topology.builder;
 
-import org.bosphorus.pipe.Distinct;
-import org.bosphorus.pipe.IPipe;
+import org.bosphorus.stream.batch.Distinct;
+import org.bosphorus.stream.pipe.IPipe;
 
 public class DistinctBuilder<TInput> implements IStreamBuilder<TInput, TInput> {
 	private IConnector<TInput> connector;

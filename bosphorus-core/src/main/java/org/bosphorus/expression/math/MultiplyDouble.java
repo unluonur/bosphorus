@@ -4,14 +4,14 @@ import org.bosphorus.expression.IExpression;
 
 public class MultiplyDouble<TInput> extends BaseBinaryOperator<TInput, Double> {
 
-	public MultiplyDouble(IExpression<TInput, Double> left,
-			IExpression<TInput, Double> right) {
+	public MultiplyDouble(IExpression<TInput, ? extends Number> left,
+			IExpression<TInput, ? extends Number> right) {
 		super(left, right);
 		// TODO Auto-generated constructor stub
 	}
 
 	public Double execute(TInput input) throws Exception {
-		return this.getLeft().execute(input) * this.getRight().execute(input);
+		return this.getLeft().execute(input).doubleValue() * this.getRight().execute(input).doubleValue();
 	}
 
 }

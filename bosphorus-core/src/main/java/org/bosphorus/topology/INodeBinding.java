@@ -1,12 +1,16 @@
 package org.bosphorus.topology;
 
-import org.bosphorus.topology.node.IInputNode;
-import org.bosphorus.topology.node.IOutputNode;
+import org.bosphorus.topology.node.IWriteNode;
+import org.bosphorus.topology.node.IReadNode;
 
 public interface INodeBinding<TType> {
 	
-	IOutputNode<TType> getSource();
+	IReadNode<TType> getSourceNode();
 	
-	IInputNode<TType> getTarget();
+	Integer getSourceIndex();
+	
+	IWriteNode<TType> getTargetNode();
+	
+	Integer getTargetIndex();
 	
 }

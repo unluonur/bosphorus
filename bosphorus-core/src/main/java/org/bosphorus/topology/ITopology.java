@@ -1,50 +1,54 @@
 package org.bosphorus.topology;
 
 import java.util.List;
-import java.util.function.IntBinaryOperator;
 
-import org.bosphorus.pipe.IPipe;
+import org.bosphorus.stream.pipe.IPipe;
 import org.bosphorus.topology.builder.IStreamBuilder;
-import org.bosphorus.topology.node.IInputNode;
-import org.bosphorus.topology.node.IInputOutputNode;
-import org.bosphorus.topology.node.IJoinNode;
-import org.bosphorus.topology.node.IOutputNode;
-import org.bosphorus.topology.stream.IBaseStream;
-import org.bosphorus.topology.stream.IInputOutputStream;
-import org.bosphorus.topology.stream.IInputStream;
-import org.bosphorus.topology.stream.IOutputStream;
+import org.bosphorus.topology.node.IBaseNode;
+import org.bosphorus.topology.node.IWriteNode;
+import org.bosphorus.topology.node.IReadWriteNode;
+import org.bosphorus.topology.node.IReadNode;
+import org.bosphorus.topology.stream.IReadWriteStream;
+import org.bosphorus.topology.stream.IWriteStream;
+import org.bosphorus.topology.stream.IReadStream;
 
 public interface ITopology {
 	
-	<TInput> IInputStream<TInput> createInputStream(String name, IInputNode<TInput> input);
+	<TInput> IWriteStream<TInput> createInputStream(String name, IWriteNode<TInput> input);
 	
-	<TOutput> IOutputStream<TOutput> createOutputStream(String name, IOutputNode<TOutput> output);
+	<TOutput> IReadStream<TOutput> createOutputStream(String name, IReadNode<TOutput> output);
 	
-	<TInput, TOutput> IInputOutputStream<TInput, TOutput> createInputOutputStream(String name, IInputNode<TInput> input, IOutputNode<TOutput> output);
-	
-	<TInput> IInputStream<TInput> getInputStream(String name);
-	
-	<TOutput> IOutputStream<TOutput> getOutputStream(String name);
-	
-	<TInput, TOutput> IInputOutputStream<TInput, TOutput> getInputOutputStream(String name);
-	
-		
-	<TInput> IInputNode<TInput> createInputNode(IPipe<TInput> pipe);
-	
-	<TOutput> IOutputNode<TOutput> createOutputNode(IStreamBuilder<?, TOutput> pipe);
-	
-	<TInput, TOutput> IInputOutputNode<TInput, TOutput> createInputOutputNode(IPipe<TInput> input, IStreamBuilder<?, TOutput> output);
+	<TInput, TOutput> IReadWriteStream<TInput, TOutput> createInputOutputStream(String name, IWriteNode<TInput> input, IReadNode<TOutput> output);
 	
 	
+	<TInput> IWriteStream<TInput> getInputStream(String name);
+	
+	<TOutput> IReadStream<TOutput> getOutputStream(String name);
+	
+	<TInput, TOutput> IReadWriteStream<TInput, TOutput> getInputOutputStream(String name);
 	
 		
-	<TType> INodeBinding<TType> bind(IInputNode<TType> source, IOutputNode<TType> target);
+	<TInput> IWriteNode<TInput> createInputNode(IPipe<TInput> pipe, Integer parallelism);
 	
-	<TType> IJoinBinding<TType> join(List<IOutputNode<TType>> sources, IJoinNode<TType> target);
+	<TOutput> IReadNode<TOutput> createOutputNode(IStreamBuilder<?, TOutput> pipe, Integer parallelism);
+	
+	<TInput, TOutput> IReadWriteNode<TInput, TOutput> createInputOutputNode(IPipe<TInput> input, IStreamBuilder<?, TOutput> output, Integer parallelism);
 	
 	
+	<TInput> IWriteNode<TInput> getInputNode(String name);
+	
+	<TOutput> IReadNode<TOutput> getOutputNode(String name);
+	
+	<TInput, TOutput> IReadWriteNode<TInput, TOutput> getInputOutputNode(String name);
+	
+	
+	
+	<TType> INodeBinding<TType> bind(IWriteNode<TType> source, Integer sourceIndex, IReadNode<TType> target, Integer targetIndex);
+		
+	
+	List<IBaseNode> getNodes();
 	List<INodeBinding<?>> getBindings();
 	
-	List<IJoinBinding<?>> getJoins();
+	//List<IJoinBinding<?>> getJoins();
 	
 }

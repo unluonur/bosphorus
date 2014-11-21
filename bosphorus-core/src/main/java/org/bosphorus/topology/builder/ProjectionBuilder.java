@@ -3,8 +3,8 @@ package org.bosphorus.topology.builder;
 import java.util.List;
 
 import org.bosphorus.expression.IExpression;
-import org.bosphorus.pipe.IPipe;
-import org.bosphorus.pipe.Projection;
+import org.bosphorus.stream.pipe.IPipe;
+import org.bosphorus.stream.pipe.Projection;
 
 public class ProjectionBuilder<TInput> implements IStreamBuilder<TInput, List<Object>> {
 

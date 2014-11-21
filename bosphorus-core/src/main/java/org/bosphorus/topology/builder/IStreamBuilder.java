@@ -1,6 +1,6 @@
 package org.bosphorus.topology.builder;
 
-import org.bosphorus.pipe.IPipe;
+import org.bosphorus.stream.pipe.IPipe;
 
 public interface IStreamBuilder<TInput, TOutput> {
 	
