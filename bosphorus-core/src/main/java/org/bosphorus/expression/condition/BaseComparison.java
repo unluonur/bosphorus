@@ -3,18 +3,10 @@ package org.bosphorus.expression.condition;
 import org.bosphorus.expression.IExpression;
 
 public abstract class BaseComparison<TInput, TType extends Comparable<TType>> implements IExpression<TInput, Boolean> {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1011658918506083769L;
 	
 	private IExpression<TInput, TType> left;
 	private IExpression<TInput, TType> right;
-	
-	public BaseComparison() {
-		
-	}
-	
+
 	public BaseComparison(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
 		this.setLeft(left);
 		this.setRight(right);

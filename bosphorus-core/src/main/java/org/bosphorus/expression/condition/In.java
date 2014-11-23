@@ -5,11 +5,6 @@ import org.bosphorus.expression.IExpression;
 
 public class In<TInput, TType extends Comparable<TType>> extends BaseListComparison<TInput, TType> {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 326293447079841977L;
-
 	public In(IExpression<TInput, TType> value,
 			ArrayList<IExpression<TInput, TType>> list) {
 		super(value, list);

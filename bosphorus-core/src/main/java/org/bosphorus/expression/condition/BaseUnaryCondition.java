@@ -3,15 +3,9 @@ package org.bosphorus.expression.condition;
 import org.bosphorus.expression.IExpression;
 
 public abstract class BaseUnaryCondition<TInput, TType> implements IExpression<TInput, Boolean> {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5255053841479396562L;
 	
 	private IExpression<TInput, TType> value;
 	
-
 	public BaseUnaryCondition(IExpression<TInput, TType> value) {
 		this.setValue(value);
 	}

@@ -3,16 +3,7 @@ package org.bosphorus.expression.condition;
 import org.bosphorus.expression.IExpression;
 
 public class LessThanOrEqual<TInput, TType extends Comparable<TType>> extends BaseComparison<TInput, TType> {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5250387200507384768L;
 
-	public LessThanOrEqual() {
-		
-	}
-	
 	public LessThanOrEqual(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
 		super(left, right);
 	}

@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.bosphorus.stream.pipe.IPipe;
-import org.bosphorus.topology.node.IReadNode;
-import org.bosphorus.topology.node.IStreamDefinition;
+import org.bosphorus.topology.node.old.IReadNode;
+import org.bosphorus.topology.node.old.IStreamDefinition;
 
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;

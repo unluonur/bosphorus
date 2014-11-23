@@ -9,20 +9,12 @@ public class ListElement<TInput extends List<Object>, TType> implements IExpress
 	private Integer fieldIndex;
 	
 	public ListElement(Integer fieldIndex) {
-		this.setFieldIndex(fieldIndex);
-	}
-
-	public Integer getFieldIndex() {
-		return fieldIndex;
-	}
-
-	public void setFieldIndex(Integer fieldIndex) {
 		this.fieldIndex = fieldIndex;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public TType execute(TInput input) {
-		return (TType)input.get(this.getFieldIndex());
+		return (TType)input.get(fieldIndex);
 	}
 }

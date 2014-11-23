@@ -4,15 +4,6 @@ import org.bosphorus.expression.IExpression;
 
 public class GreaterThan<TInput, TType extends Comparable<TType>> extends BaseComparison<TInput, TType> {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3663170692244945292L;
-
-	public GreaterThan() {
-		
-	}
-	
 	public GreaterThan(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
 		super(left, right);
 	}

@@ -1,4 +1,4 @@
-package org.bosphorus.topology.node;
+package org.bosphorus.topology.node.old;
 
 import java.util.List;
 

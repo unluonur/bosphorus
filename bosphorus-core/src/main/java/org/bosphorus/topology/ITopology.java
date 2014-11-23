@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.bosphorus.stream.pipe.IPipe;
 import org.bosphorus.topology.builder.IStreamBuilder;
-import org.bosphorus.topology.node.IBaseNode;
-import org.bosphorus.topology.node.IWriteNode;
-import org.bosphorus.topology.node.IReadWriteNode;
-import org.bosphorus.topology.node.IReadNode;
+import org.bosphorus.topology.node.old.IBaseNode;
+import org.bosphorus.topology.node.old.IReadNode;
+import org.bosphorus.topology.node.old.IReadWriteNode;
+import org.bosphorus.topology.node.old.IWriteNode;
 import org.bosphorus.topology.stream.IReadWriteStream;
 import org.bosphorus.topology.stream.IWriteStream;
 import org.bosphorus.topology.stream.IReadStream;

@@ -8,8 +8,8 @@ import org.bosphorus.stream.pipe.IPipe;
 import org.bosphorus.topology.INodeBinding;
 import org.bosphorus.topology.ITopology;
 import org.bosphorus.topology.ITopologySubmitter;
-import org.bosphorus.topology.node.IReadNode;
-import org.bosphorus.topology.node.IWriteNode;
+import org.bosphorus.topology.node.old.IReadNode;
+import org.bosphorus.topology.node.old.IWriteNode;
 
 public class LocalSubmitter implements ITopologySubmitter {
 

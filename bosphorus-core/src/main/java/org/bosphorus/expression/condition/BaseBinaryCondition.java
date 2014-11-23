@@ -4,11 +4,6 @@ import org.bosphorus.expression.IExpression;
 
 public abstract class BaseBinaryCondition<TInput> implements IExpression<TInput, Boolean> {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 7116031993084212345L;
-	
 	private IExpression<TInput, Boolean> left;
 	private IExpression<TInput, Boolean> right;
 	

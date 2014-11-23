@@ -1,7 +1,7 @@
 package org.bosphorus.topology;
 
-import org.bosphorus.topology.node.IWriteNode;
-import org.bosphorus.topology.node.IReadNode;
+import org.bosphorus.topology.node.old.IReadNode;
+import org.bosphorus.topology.node.old.IWriteNode;
 
 public interface INodeBinding<TType> {
 	

@@ -3,16 +3,7 @@ package org.bosphorus.expression.condition;
 import org.bosphorus.expression.IExpression;
 
 public class NotEquals<TInput, TType extends Comparable<TType>> extends BaseComparison<TInput, TType> {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -482856060241315973L;
 
-	public NotEquals() {
-		
-	}
-	
 	public NotEquals(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
 		super(left, right);
 	}

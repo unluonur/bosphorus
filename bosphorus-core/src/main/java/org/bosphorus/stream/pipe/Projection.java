@@ -5,34 +5,26 @@ import java.util.List;
 
 import org.bosphorus.expression.IExpression;
 
-public class Projection<TInput> implements IPipe<TInput> {
+public class Projection<TInput, TOutput> implements IPipe<TInput> {
 
-	private List<IExpression<TInput, ?>> expressions;
-	private IPipe<List<Object>> outputStream;
+	private IExpression<TInput, TOutput> expression;
+	private IPipe<TOutput> outputStream;
 	
-	public Projection(List<IExpression<TInput, ?>> expressions, IPipe<List<Object>> outputStream) {
-		this.expressions = expressions;
+	public Projection(IExpression<TInput, TOutput> expression, IPipe<TOutput> outputStream) {
+		this.expression = expression;
 		this.outputStream = outputStream;
-	}
-	
-	private List<Object> convert(TInput input) throws Exception {
-		ArrayList<Object> result = new ArrayList<Object>();
-		for(IExpression<TInput, ?> expr: expressions) {
-			result.add(expr.execute(input));
-		}
-		return result;
 	}
 
 	@Override
 	public void writeOne(TInput input) throws Exception {
-		outputStream.writeOne(convert(input));
+		outputStream.writeOne(expression.execute(input));
 	}
 
 	@Override
 	public void writeMulti(List<TInput> input) throws Exception {
-		ArrayList<List<Object>> result = new ArrayList<List<Object>>();
+		ArrayList<TOutput> result = new ArrayList<TOutput>();
 		for(TInput item: input) {
-			result.add(convert(item));
+			result.add(expression.execute(item));
 		}
 		outputStream.writeMulti(result);
 	}

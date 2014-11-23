@@ -4,15 +4,6 @@ import org.bosphorus.expression.IExpression;
 
 public class Equals<TInput, TType extends Comparable<TType>> extends BaseComparison<TInput, TType> {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -5949718832077514015L;
-
-	public Equals() {
-		
-	}
-	
 	public Equals(IExpression<TInput, TType> left, IExpression<TInput, TType> right) {
 		super(left, right);
 	}

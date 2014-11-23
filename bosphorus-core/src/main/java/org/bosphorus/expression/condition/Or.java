@@ -4,11 +4,6 @@ import org.bosphorus.expression.IExpression;
 
 public class Or<TInput> extends BaseBinaryCondition<TInput> {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 9154941041282771924L;
-
 	public Or(IExpression<TInput, Boolean> left,
 			IExpression<TInput, Boolean> right) {
 		super(left, right);

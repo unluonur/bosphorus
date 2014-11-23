@@ -1,22 +1,20 @@
 package org.bosphorus.topology.builder;
 
-import java.util.List;
-
 import org.bosphorus.expression.IExpression;
 import org.bosphorus.stream.pipe.IPipe;
 import org.bosphorus.stream.pipe.Projection;
 
-public class ProjectionBuilder<TInput> implements IStreamBuilder<TInput, List<Object>> {
+public class ProjectionBuilder<TInput, TOutput> implements IStreamBuilder<TInput, TOutput> {
 
-	private List<IExpression<TInput, ?>> expressions;
+	private IExpression<TInput, TOutput> expression;
 	
-	public ProjectionBuilder(List<IExpression<TInput, ?>> expressions) {
-		this.expressions = expressions;
+	public ProjectionBuilder(IExpression<TInput, TOutput> expression) {
+		this.expression = expression;
 	}
 
 	@Override
-	public IPipe<TInput> build(IPipe<List<Object>> output) {
-		return new Projection<TInput>(this.expressions, output);
+	public IPipe<TInput> build(IPipe<TOutput> output) {
+		return new Projection<TInput, TOutput>(this.expression, output);
 	}
 
 }

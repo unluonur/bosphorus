@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.bosphorus.topology.node.IBaseNode;
+import org.bosphorus.topology.node.old.IBaseNode;
 
 /*
  * Term Topology is borrowed from Storm
