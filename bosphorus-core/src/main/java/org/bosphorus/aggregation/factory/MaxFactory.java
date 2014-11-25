@@ -1,7 +1,7 @@
 package org.bosphorus.aggregation.factory;
 
-import org.bosphorus.aggregation.bag.IAggregationBag;
-import org.bosphorus.aggregation.bag.MaxBag;
+import org.bosphorus.aggregation.executor.IAggregationExecutor;
+import org.bosphorus.aggregation.executor.MaxExecutor;
 import org.bosphorus.expression.IExpression;
 
 public class MaxFactory<TInput, TOutput extends Comparable<TOutput>> extends BaseExpressionAggregationFactory<TInput, TOutput, TOutput> {
@@ -12,8 +12,8 @@ public class MaxFactory<TInput, TOutput extends Comparable<TOutput>> extends Bas
 	}
 
 	@Override
-	public IAggregationBag<TInput, TOutput> create() {
-		return new MaxBag<TInput, TOutput>(this.getExpression());
+	public IAggregationExecutor<TInput, TOutput> create() {
+		return new MaxExecutor<TInput, TOutput>(this.getExpression());
 	}
 
 }

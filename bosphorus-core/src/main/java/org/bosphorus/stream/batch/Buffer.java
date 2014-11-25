@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.bosphorus.stream.pipe.IPipe;
 
-public class Buffer<TInput> implements IPipe<TInput>, IReader<TInput> {
+public class Buffer<TInput> implements IPipe<TInput>, IReader<List<TInput>> {
 
 	private Object lockObject;
 	private ArrayList<TInput> buffer;

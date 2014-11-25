@@ -5,7 +5,7 @@ import org.bosphorus.expression.IExpression;
 public class DivideDouble<TInput> extends BaseBinaryOperator<TInput, Double> {
 
 	public DivideDouble(IExpression<TInput, ? extends Number> left,
-			IExpression<TInput, Double> right) {
+			IExpression<TInput, ? extends Number> right) {
 		super(left, right);
 	}
 

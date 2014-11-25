@@ -1,6 +1,6 @@
 package org.bosphorus.topology.builder;
 
-import org.bosphorus.stream.batch.Distinct;
+import org.bosphorus.stream.batch.SelectDistinct;
 import org.bosphorus.stream.pipe.IPipe;
 
 public class DistinctBuilder<TInput> implements IStreamBuilder<TInput, TInput> {
@@ -8,7 +8,7 @@ public class DistinctBuilder<TInput> implements IStreamBuilder<TInput, TInput> {
 
 	@Override
 	public IPipe<TInput> build(IPipe<TInput> output) {
-		Distinct<TInput> result = new Distinct<TInput>();
+		SelectDistinct<TInput> result = new SelectDistinct<TInput>();
 		this.connector.connect(result, output);
 		return result;
 	}

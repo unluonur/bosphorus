@@ -1,41 +1,28 @@
 package org.bosphorus.stream.batch;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bosphorus.aggregation.bag.IAggregationBag;
+import org.bosphorus.aggregation.executor.IAggregationExecutor;
 import org.bosphorus.aggregation.factory.IAggregationFactory;
 import org.bosphorus.stream.pipe.BaseSyncPipe;
 
-public class NonGroupAggregation<TInput> extends BaseSyncPipe<TInput> implements IReader<List<Object>> {
+public class NonGroupAggregation<TInput, TOutput> extends BaseSyncPipe<TInput> implements IReader<TOutput> {
 	
-	private ArrayList<IAggregationBag<TInput, ?>> bags;
+	private IAggregationExecutor<TInput, ? extends TOutput> executor;
 	
-	public NonGroupAggregation(List<IAggregationFactory<TInput, ?>> expressions) {
-		bags = new ArrayList<IAggregationBag<TInput, ?>>();
-		for(IAggregationFactory<TInput, ?> expr: expressions) {
-			bags.add(expr.create());
-		}
+	public NonGroupAggregation(IAggregationFactory<TInput, ? extends TOutput> expression) {
+		executor = expression.create();
 	}
 
 	@Override
-	public List<List<Object>> read() throws Exception {
+	public TOutput read() throws Exception {
 		synchronized (lockObject) {
-			ArrayList<Object> tuple = new ArrayList<Object>();
-			for(IAggregationBag<TInput, ?> bag: bags) {
-				tuple.add(bag.getValue());
-				bag.reset();
-			}
-			ArrayList<List<Object>> result = new ArrayList<List<Object>>();
-			result.add(tuple);
+			TOutput result = executor.getValue();
+			executor.reset();
 			return result;
 		}
 	}
 	
 	@Override
 	protected void process(TInput input) throws Exception {
-		for(IAggregationBag<TInput, ?> bag: bags) {
-			bag.execute(input);
-		}
+		executor.execute(input);
 	}
 }

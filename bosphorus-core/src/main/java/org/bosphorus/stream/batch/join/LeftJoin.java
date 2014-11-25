@@ -8,8 +8,8 @@ import org.bosphorus.stream.batch.IReader;
 
 public class LeftJoin<TInput> extends BaseJoin<TInput> {
 
-	public LeftJoin(IReader<List<TInput>> left,
-			IReader<TInput> right,
+	public LeftJoin(IReader<List<List<TInput>>> left,
+			IReader<List<TInput>> right,
 			IExpression<List<TInput>, Boolean> expression) {
 		super(left, right, expression);
 		// TODO Auto-generated constructor stub

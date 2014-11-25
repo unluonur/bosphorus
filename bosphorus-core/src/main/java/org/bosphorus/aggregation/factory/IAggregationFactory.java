@@ -1,9 +1,9 @@
 package org.bosphorus.aggregation.factory;
 
-import org.bosphorus.aggregation.bag.IAggregationBag;
+import org.bosphorus.aggregation.executor.IAggregationExecutor;
 
 public interface IAggregationFactory<TInput, TOutput> {
 
-	IAggregationBag<TInput, TOutput> create();
+	IAggregationExecutor<TInput, TOutput> create();
 	
 }

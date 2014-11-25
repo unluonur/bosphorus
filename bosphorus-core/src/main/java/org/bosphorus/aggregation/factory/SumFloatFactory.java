@@ -1,7 +1,7 @@
 package org.bosphorus.aggregation.factory;
 
-import org.bosphorus.aggregation.bag.IAggregationBag;
-import org.bosphorus.aggregation.bag.SumBagFloat;
+import org.bosphorus.aggregation.executor.IAggregationExecutor;
+import org.bosphorus.aggregation.executor.SumFloatExecutor;
 import org.bosphorus.expression.IExpression;
 
 public class SumFloatFactory<TInput> extends BaseExpressionAggregationFactory<TInput, Float, Float> {
@@ -12,8 +12,8 @@ public class SumFloatFactory<TInput> extends BaseExpressionAggregationFactory<TI
 	}
 
 	@Override
-	public IAggregationBag<TInput, Float> create() {
-		return new SumBagFloat<TInput>(this.getExpression());
+	public IAggregationExecutor<TInput, Float> create() {
+		return new SumFloatExecutor<TInput>(this.getExpression());
 	}
 
 }

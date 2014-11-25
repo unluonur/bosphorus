@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.bosphorus.stream.batch.IReader;
 
-public class StreamJoin<TInput> implements IReader<List<TInput>> {
-	private IReader<TInput> maimStream;
+public class StreamJoin<TInput> implements IReader<List<List<TInput>>> {
+	private IReader<List<TInput>> maimStream;
 
 	@Override
 	public List<List<TInput>> read() throws Exception {

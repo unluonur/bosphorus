@@ -1,7 +1,7 @@
 package org.bosphorus.aggregation.factory;
 
-import org.bosphorus.aggregation.bag.AvgBagDouble;
-import org.bosphorus.aggregation.bag.IAggregationBag;
+import org.bosphorus.aggregation.executor.AvgDoubleExecutor;
+import org.bosphorus.aggregation.executor.IAggregationExecutor;
 import org.bosphorus.expression.IExpression;
 
 public class AvgDoubleFactory<TInput> extends BaseExpressionAggregationFactory<TInput, Double, Double> {
@@ -12,8 +12,8 @@ public class AvgDoubleFactory<TInput> extends BaseExpressionAggregationFactory<T
 	}
 
 	@Override
-	public IAggregationBag<TInput, Double> create() {
-		return new AvgBagDouble<TInput>(this.getExpression());
+	public IAggregationExecutor<TInput, Double> create() {
+		return new AvgDoubleExecutor<TInput>(this.getExpression());
 	}
 	
 }
