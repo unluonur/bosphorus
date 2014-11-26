@@ -26,13 +26,11 @@ public class CountLongExecutor implements IBatchExecutor<Object, Long> {
 
 	@Override
 	public Object getState() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.value;
 	}
 
 	@Override
-	public void init(Object state) {
-		// TODO Auto-generated method stub
-		
+	public void setState(Object state) {
+		this.value = (Long)state;
 	}
 }

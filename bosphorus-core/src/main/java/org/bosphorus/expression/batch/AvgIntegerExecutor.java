@@ -1,23 +1,25 @@
 package org.bosphorus.expression.batch;
 
+import java.io.Serializable;
+
 public class AvgIntegerExecutor implements IBatchExecutor<Number, Integer> {
-	private Long sum;
-	private Integer count;
+	private State state;
 
 	public AvgIntegerExecutor() {
+		this.state = new State();
 		this.reset();
 	}
 
 	@Override
 	public void execute(Number input) throws Exception {
-		sum += input.intValue();
-		this.count++;
+		state.sum += input.longValue();
+		state.count++;
 	}
 
 	@Override
 	public Integer getValue() {
-		if(this.count != 0) {
-			Long l = this.sum / this.count;
+		if(state.count != 0) {
+			Long l = state.sum / state.count;
 			return l.intValue();	
 		}
 		return null;
@@ -25,20 +27,28 @@ public class AvgIntegerExecutor implements IBatchExecutor<Number, Integer> {
 
 	@Override
 	public void reset() {
-		sum = 0L;
-		count = 0;
+		state.sum = 0L;
+		state.count = 0L;
 	}
 
 	@Override
 	public Object getState() {
-		// TODO Auto-generated method stub
-		return null;
+		return state;
 	}
 
 	@Override
-	public void init(Object state) {
-		// TODO Auto-generated method stub
+	public void setState(Object state) {
+		this.state = (State)state;
+	}
+	
+	private static class State implements Serializable {
+		/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
 		
+		public Long sum;
+		public Long count;
 	}
 
 }

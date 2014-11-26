@@ -48,14 +48,22 @@ public class GroupAggregationExecutor<TInput, TKey, TValue> implements IBatchExe
 
 	@Override
 	public Object getState() {
-		// TODO Auto-generated method stub
-		return null;
+		HashMap<TKey, Object> state = new HashMap<TKey, Object>();
+		for(TKey key: this.map.keySet()) {
+			state.put(key, this.map.get(key).getState());
+		}
+		return state;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void init(Object state) {
-		// TODO Auto-generated method stub
-		
+	public void setState(Object state) {
+		HashMap<TKey, Object> stateMap = (HashMap<TKey, Object>)state;
+		for(TKey key: stateMap.keySet()) {
+			IBatchExecutor<TInput, ? extends TValue> value = valueExpression.create();
+			value.setState(stateMap.get(key));
+			map.put(key, value);
+		}
 	}
 
 }

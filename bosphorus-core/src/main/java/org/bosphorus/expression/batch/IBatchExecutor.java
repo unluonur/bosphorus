@@ -6,6 +6,6 @@ public interface IBatchExecutor<TInput, TOutput> {
 	TOutput getValue();
 	void reset();
 	Object getState();
-	void init(Object state);
+	void setState(Object state);
 
 }

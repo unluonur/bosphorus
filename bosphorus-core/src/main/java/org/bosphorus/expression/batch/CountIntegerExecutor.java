@@ -26,13 +26,11 @@ public class CountIntegerExecutor implements IBatchExecutor<Object, Integer> {
 
 	@Override
 	public Object getState() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.value;
 	}
 
 	@Override
-	public void init(Object state) {
-		// TODO Auto-generated method stub
-		
+	public void setState(Object state) {
+		this.value = (Integer)state;
 	}
 }

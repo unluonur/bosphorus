@@ -28,14 +28,12 @@ public class ExpressionExecutor<TInput, TType, TOutput> implements IBatchExecuto
 
 	@Override
 	public Object getState() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.executor.getState();
 	}
 
 	@Override
-	public void init(Object state) {
-		// TODO Auto-generated method stub
-		
+	public void setState(Object state) {
+		this.executor.setState(state);
 	}
 
 }

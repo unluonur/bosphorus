@@ -35,14 +35,20 @@ public class BatchListExecutor<TInput, TOutput> implements IBatchExecutor<TInput
 
 	@Override
 	public Object getState() {
-		// TODO Auto-generated method stub
-		return null;
+		ArrayList<Object> state = new ArrayList<Object>();
+		for(IBatchExecutor<TInput, ? extends TOutput> executor: this.list) {
+			state.add(executor.getState());
+		}
+		return state;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void init(Object state) {
-		// TODO Auto-generated method stub
-		
+	public void setState(Object state) {
+		ArrayList<Object> stateList = (ArrayList<Object>)state;
+		for(Integer i=0; i<this.list.size(); i++) {
+			this.list.get(i).setState(stateList.get(i));
+		}
 	}
 
 }

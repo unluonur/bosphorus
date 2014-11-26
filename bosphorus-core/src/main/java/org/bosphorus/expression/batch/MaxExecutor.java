@@ -26,14 +26,13 @@ public class MaxExecutor<TType extends Comparable<TType>> implements IBatchExecu
 
 	@Override
 	public Object getState() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.value;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void init(Object state) {
-		// TODO Auto-generated method stub
-		
+	public void setState(Object state) {
+		this.value = (TType)state;
 	}
 
 }

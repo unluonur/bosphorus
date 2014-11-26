@@ -29,14 +29,13 @@ public class CountDistinctExecutor<TType extends Comparable<TType>> implements I
 
 	@Override
 	public Object getState() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.list;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public void init(Object state) {
-		// TODO Auto-generated method stub
-		
+	public void setState(Object state) {
+		this.list = (ArrayList<Integer>)state;
 	}
 
 }
