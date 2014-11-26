@@ -1,6 +1,6 @@
 package org.bosphorus.builder.container;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.bosphorus.expression.Constant;
 import org.bosphorus.expression.IExpression;
@@ -91,28 +91,12 @@ public abstract class BaseComparableContainer<TInput, TOutput extends Comparable
 		return new BooleanContainer<TInput>(new GreaterThanOrEqual<TInput, TOutput>(this.getExpression(), value));
 	}
 	
-	public BooleanContainer<TInput> isIn(ArrayList<IExpression<TInput, TOutput>> list) {
-		return new BooleanContainer<TInput>(new In<TInput, TOutput>(this.getExpression(), list));
+	public BooleanContainer<TInput> isIn(List<TOutput> list) {
+		return new BooleanContainer<TInput>(new In<TInput, TOutput>(this.getExpression(), new Constant<TInput, List<TOutput>>(list)));
 	}
 
-	public BooleanContainer<TInput> isInConst(ArrayList<TOutput> list) {
-		ArrayList<IExpression<TInput, TOutput>> tmp = new ArrayList<IExpression<TInput, TOutput>>();
-		for(TOutput expr: list) {
-			tmp.add(new Constant<TInput, TOutput>(expr));
-		}
-		return new BooleanContainer<TInput>(new In<TInput, TOutput>(this.getExpression(), tmp));
-	}
-
-	public BooleanContainer<TInput> isNotIn(ArrayList<IExpression<TInput, TOutput>> list) {
-		return new BooleanContainer<TInput>(new NotIn<TInput, TOutput>(this.getExpression(), list));
-	}
-
-	public BooleanContainer<TInput> isNotInConst(ArrayList<TOutput> list) {
-		ArrayList<IExpression<TInput, TOutput>> tmp = new ArrayList<IExpression<TInput, TOutput>>();
-		for(TOutput expr: list) {
-			tmp.add(new Constant<TInput, TOutput>(expr));
-		}
-		return new BooleanContainer<TInput>(new NotIn<TInput, TOutput>(this.getExpression(), tmp));
+	public BooleanContainer<TInput> isNotIn(List<TOutput> list) {
+		return new BooleanContainer<TInput>(new NotIn<TInput, TOutput>(this.getExpression(), new Constant<TInput, List<TOutput>>(list)));
 	}
 
 }

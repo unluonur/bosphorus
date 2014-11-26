@@ -1,20 +1,16 @@
 package org.bosphorus.aggregation.executor;
 
-import org.bosphorus.expression.IExpression;
-
-public class AvgDoubleExecutor<TInput> implements IAggregationExecutor<TInput, Double> {
-	private IExpression<TInput, ? extends Number> expression;
+public class AvgDoubleExecutor implements IAggregationExecutor<Number, Double> {
 	private Double sum;
 	private Long count;
 	
-	public AvgDoubleExecutor(IExpression<TInput, ? extends Number> expression) {
-		this.expression = expression;
+	public AvgDoubleExecutor() {
 		this.reset();
 	}
 
 	@Override
-	public void execute(TInput input) throws Exception {
-		sum += this.expression.execute(input).doubleValue();
+	public void execute(Number input) throws Exception {
+		sum += input.doubleValue();
 		count++;
 	}
 

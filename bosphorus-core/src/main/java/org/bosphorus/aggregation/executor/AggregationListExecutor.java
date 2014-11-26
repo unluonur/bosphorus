@@ -28,7 +28,7 @@ public class AggregationListExecutor<TInput, TOutput> implements IAggregationExe
 
 	@Override
 	public void reset() {
-		for(IAggregationExecutor<TInput, ? extends TOutput> bag: list) {
+		for(IAggregationExecutor<? extends TInput, ? extends TOutput> bag: list) {
 			bag.reset();
 		}
 	}

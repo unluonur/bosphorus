@@ -2,21 +2,16 @@ package org.bosphorus.aggregation.executor;
 
 import java.util.ArrayList;
 
-import org.bosphorus.expression.IExpression;
-
-public class CountDistinctExecutor<TInput, TType> implements IAggregationExecutor<TInput, Integer> {
-	private IExpression<TInput, TType> expression;
+public class CountDistinctExecutor<TType extends Comparable<TType>> implements IAggregationExecutor<TType, Integer> {
 	private ArrayList<Integer> list;
 
-	public CountDistinctExecutor(IExpression<TInput, TType> expression) {
-		this.expression = expression;
+	public CountDistinctExecutor() {
 		this.list = new ArrayList<Integer>();
 	}
 
 	@Override
-	public void execute(TInput input) throws Exception {
-		TType value = this.expression.execute(input);
-		Integer hashCode = value.hashCode();
+	public void execute(TType input) throws Exception {
+		Integer hashCode = input.hashCode();
 		if(!list.contains(hashCode)) {
 			list.add(hashCode);
 		}

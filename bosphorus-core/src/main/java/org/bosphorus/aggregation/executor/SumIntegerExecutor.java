@@ -1,19 +1,15 @@
 package org.bosphorus.aggregation.executor;
 
-import org.bosphorus.expression.IExpression;
-
-public class SumIntegerExecutor<TInput> implements IAggregationExecutor<TInput, Integer> {
-	private IExpression<TInput, Integer> expression;
+public class SumIntegerExecutor implements IAggregationExecutor<Number, Integer> {
 	private Integer sum;
 	
-	public SumIntegerExecutor(IExpression<TInput, Integer> expression) {
-		this.expression = expression;
+	public SumIntegerExecutor() {
 		this.reset();
 	}
 
 	@Override
-	public void execute(TInput input) throws Exception {
-		sum += expression.execute(input);
+	public void execute(Number input) throws Exception {
+		sum += input.intValue();
 	}
 
 	@Override

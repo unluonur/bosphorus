@@ -1,19 +1,15 @@
 package org.bosphorus.aggregation.executor;
 
-import org.bosphorus.expression.IExpression;
-
-public class CountIntegerExecutor<TInput, TType> implements IAggregationExecutor<TInput, Integer> {
-	private IExpression<TInput, TType> expression;
+public class CountIntegerExecutor implements IAggregationExecutor<Object, Integer> {
 	private Integer value;
 
-	public CountIntegerExecutor(IExpression<TInput, TType> expression) {
-		this.expression = expression;
+	public CountIntegerExecutor() {
 		this.reset();
 	}
 
 	@Override
-	public void execute(TInput input) throws Exception {
-		if(expression != null && expression.execute(input) != null) {
+	public void execute(Object input) throws Exception {
+		if(input != null) {
 			value++;
 		}
 	}

@@ -1,19 +1,15 @@
 package org.bosphorus.aggregation.executor;
 
-import org.bosphorus.expression.IExpression;
-
-public class SumLongExecutor<TInput> implements IAggregationExecutor<TInput, Long> {
-	private IExpression<TInput, Long> expression;
+public class SumLongExecutor implements IAggregationExecutor<Number, Long> {
 	private Long sum;
 	
-	public SumLongExecutor(IExpression<TInput, Long> expression) {
-		this.expression = expression;
+	public SumLongExecutor() {
 		this.reset();
 	}
 
 	@Override
-	public void execute(TInput input) throws Exception {
-		sum += expression.execute(input);
+	public void execute(Number input) throws Exception {
+		sum += input.longValue();
 	}
 
 	@Override

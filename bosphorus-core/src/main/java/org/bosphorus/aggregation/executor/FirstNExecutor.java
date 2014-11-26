@@ -3,23 +3,19 @@ package org.bosphorus.aggregation.executor;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.IExpression;
-
-public class FirstNExecutor<TInput, TType> implements IAggregationExecutor<TInput, List<TType>> {
-	private IExpression<TInput, TType> expression;
+public class FirstNExecutor<TType> implements IAggregationExecutor<TType, List<TType>> {
 	private ArrayList<TType> list;
 	private Integer maxSize;
 	
-	public FirstNExecutor(IExpression<TInput, TType> expression, Integer maxSize) {
-		this.expression = expression;
+	public FirstNExecutor(Integer maxSize) {
 		this.maxSize = maxSize;
 		this.list = new ArrayList<TType>();
 	}
 
 	@Override
-	public void execute(TInput input) throws Exception {
+	public void execute(TType input) throws Exception {
 		if(list.size()<maxSize) {
-			list.add(expression.execute(input));
+			list.add(input);
 		}
 	}
 

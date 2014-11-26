@@ -1,26 +1,21 @@
 package org.bosphorus.aggregation.executor;
 
-import org.bosphorus.expression.IExpression;
-
-public class MinExecutor<TInput, TOutput extends Comparable<TOutput>> implements IAggregationExecutor<TInput, TOutput> {
-	private IExpression<TInput, TOutput> expression;
-	private TOutput value;
+public class MinExecutor<TType extends Comparable<TType>> implements IAggregationExecutor<TType, TType> {
+	private TType value;
 	
-	public MinExecutor(IExpression<TInput, TOutput> expression) {
-		this.expression = expression;
+	public MinExecutor() {
 		this.reset();
 	}
 
 	@Override
-	public void execute(TInput input) throws Exception {
-		TOutput expr = expression.execute(input);
-		if(this.value == null || this.value.compareTo(expr) > 0) {
-			this.value = expr;
+	public void execute(TType input) throws Exception {
+		if(this.value == null || this.value.compareTo(input) > 0) {
+			this.value = input;
 		}
 	}
 
 	@Override
-	public TOutput getValue() {
+	public TType getValue() {
 		return this.value;
 	}
 

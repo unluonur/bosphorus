@@ -3,14 +3,13 @@ package org.bosphorus.stream.batch;
 import java.util.List;
 
 import org.bosphorus.aggregation.executor.DistinctExecutor;
-import org.bosphorus.expression.InputExpression;
 import org.bosphorus.stream.pipe.BaseSyncPipe;
 
 public class SelectDistinct<TInput> extends BaseSyncPipe<TInput> implements IReader<List<TInput>> {
-	private DistinctExecutor<TInput, TInput> distinct;
+	private DistinctExecutor<TInput> distinct;
 
 	public SelectDistinct() {
-		this.distinct = new DistinctExecutor<TInput, TInput>(new InputExpression<TInput>());
+		this.distinct = new DistinctExecutor<TInput>();
 	}
 	
 	@Override
