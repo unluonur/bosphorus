@@ -2,7 +2,7 @@ package org.bosphorus.builder.old;
 
 import org.bosphorus.builder.container.BaseTypeContainer;
 import org.bosphorus.builder.container.BooleanContainer;
-import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.scalar.IScalarExecutor;
 
 /*
  * TODO
@@ -10,9 +10,9 @@ import org.bosphorus.expression.IExpression;
 public class IIfBuilder<TInput> {
 
 	public class TrueBuilder {
-		private IExpression<TInput, Boolean> condition;
+		private IScalarExecutor<TInput, Boolean> condition;
 		
-		public TrueBuilder(IExpression<TInput, Boolean> condition) {
+		public TrueBuilder(IScalarExecutor<TInput, Boolean> condition) {
 			this.condition = condition;
 		}
 
@@ -23,11 +23,11 @@ public class IIfBuilder<TInput> {
 	}
 	
 	public class FalseBuilder<TOutput extends Comparable<TOutput>, TGetter extends BaseTypeContainer<TInput, TOutput>> {
-		private IExpression<TInput, Boolean> condition;
-		private IExpression<TInput, TOutput> trueExpression;
+		private IScalarExecutor<TInput, Boolean> condition;
+		private IScalarExecutor<TInput, TOutput> trueExpression;
 		private Class clz;
 		
-		public FalseBuilder(IExpression<TInput, Boolean> condition, IExpression<TInput, TOutput> trueExpression, Class clz) {
+		public FalseBuilder(IScalarExecutor<TInput, Boolean> condition, IScalarExecutor<TInput, TOutput> trueExpression, Class clz) {
 			this.condition = condition;
 			this.trueExpression = trueExpression;
 			this.clz = clz;

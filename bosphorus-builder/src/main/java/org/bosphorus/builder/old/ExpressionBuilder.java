@@ -9,8 +9,8 @@ import org.bosphorus.builder.container.FloatContainer;
 import org.bosphorus.builder.container.IntegerContainer;
 import org.bosphorus.builder.container.LongContainer;
 import org.bosphorus.builder.container.StringContainer;
-import org.bosphorus.expression.Constant;
-import org.bosphorus.expression.date.Now;
+import org.bosphorus.expression.scalar.ConstantExecutor;
+import org.bosphorus.expression.scalar.date.Now;
 
 public class ExpressionBuilder<TInput> {
 	
@@ -19,31 +19,31 @@ public class ExpressionBuilder<TInput> {
 	}
 	
 	public IntegerContainer<TInput> constant(Integer value) {
-		return new IntegerContainer<TInput>(new Constant<TInput, Integer>(value));
+		return new IntegerContainer<TInput>(new ConstantExecutor<TInput, Integer>(value));
 	}
 	
 	public LongContainer<TInput> constant(Long value) {
-		return new LongContainer<TInput>(new Constant<TInput, Long>(value));
+		return new LongContainer<TInput>(new ConstantExecutor<TInput, Long>(value));
 	}
 	
 	public FloatContainer<TInput> constant(Float value) {
-		return new FloatContainer<TInput>(new Constant<TInput, Float>(value));
+		return new FloatContainer<TInput>(new ConstantExecutor<TInput, Float>(value));
 	}
 	
 	public DoubleContainer<TInput> constant(Double value) {
-		return new DoubleContainer<TInput>(new Constant<TInput, Double>(value));
+		return new DoubleContainer<TInput>(new ConstantExecutor<TInput, Double>(value));
 	}
 	
 	public StringContainer<TInput> constant(String value) {
-		return new StringContainer<TInput>(new Constant<TInput, String>(value));
+		return new StringContainer<TInput>(new ConstantExecutor<TInput, String>(value));
 	}
 	
 	public DateContainer<TInput> constant(Date value) {
-		return new DateContainer<TInput>(new Constant<TInput, Date>(value));
+		return new DateContainer<TInput>(new ConstantExecutor<TInput, Date>(value));
 	}
 	
 	public BooleanContainer<TInput> constant(Boolean value) {
-		return new BooleanContainer<TInput>(new Constant<TInput, Boolean>(value));
+		return new BooleanContainer<TInput>(new ConstantExecutor<TInput, Boolean>(value));
 	}
 	
 	

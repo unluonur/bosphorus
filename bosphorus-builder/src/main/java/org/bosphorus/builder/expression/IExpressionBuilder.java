@@ -1,10 +1,10 @@
 package org.bosphorus.builder.expression;
 
 import org.bosphorus.builder.IBuilder;
-import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.scalar.IScalarExecutor;
 
 public interface IExpressionBuilder<TInput, TOutput> extends IBuilder
 {
-	IExpression<TInput, TOutput> build();
+	IScalarExecutor<TInput, TOutput> build();
 	
 }

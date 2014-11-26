@@ -1,14 +1,17 @@
 package org.bosphorus.topology.builder;
 
-import org.bosphorus.stream.batch.SelectDistinct;
+import java.util.List;
+
+import org.bosphorus.expression.batch.SelectDistinctExecutor;
+import org.bosphorus.stream.batch.BatchStream;
 import org.bosphorus.stream.pipe.IPipe;
 
-public class DistinctBuilder<TInput> implements IStreamBuilder<TInput, TInput> {
+public class DistinctBuilder<TInput extends Comparable<TInput>> implements IStreamBuilder<TInput, TInput> {
 	private IConnector<TInput> connector;
 
 	@Override
 	public IPipe<TInput> build(IPipe<TInput> output) {
-		SelectDistinct<TInput> result = new SelectDistinct<TInput>();
+		BatchStream<TInput, List<TInput>> result = new BatchStream<TInput, List<TInput>>(new SelectDistinctExecutor<TInput>());
 		this.connector.connect(result, output);
 		return result;
 	}

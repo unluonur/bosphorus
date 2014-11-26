@@ -2,10 +2,10 @@ package org.bosphorus.stream.pipe;
 
 import java.util.List;
 
-import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.scalar.IScalarExecutor;
 
 public class IfElse<TInput> implements IPipe<TInput> {
-	private IExpression<TInput, Boolean> condition;
+	private IScalarExecutor<TInput, Boolean> condition;
 	private IPipe<TInput> truePipe;
 	private IPipe<TInput> falsePipe;
 

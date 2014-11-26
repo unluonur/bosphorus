@@ -1,7 +1,7 @@
 package org.bosphorus.builder.expression;
 
-import org.bosphorus.expression.Constant;
-import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.scalar.ConstantExecutor;
+import org.bosphorus.expression.scalar.IScalarExecutor;
 
 public abstract class BaseConstantBuilder<TInput, TOutput> implements IExpressionBuilder<TInput, TOutput> {
 	/**
@@ -20,8 +20,8 @@ public abstract class BaseConstantBuilder<TInput, TOutput> implements IExpressio
 	}
 
 	@Override
-	public IExpression<TInput, TOutput> build() {
-		return new Constant<TInput, TOutput>(this.getValue());
+	public IScalarExecutor<TInput, TOutput> build() {
+		return new ConstantExecutor<TInput, TOutput>(this.getValue());
 	}
 
 }

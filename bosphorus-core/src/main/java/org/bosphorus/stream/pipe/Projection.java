@@ -3,14 +3,14 @@ package org.bosphorus.stream.pipe;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.scalar.IScalarExecutor;
 
 public class Projection<TInput, TOutput> implements IPipe<TInput> {
 
-	private IExpression<TInput, TOutput> expression;
+	private IScalarExecutor<TInput, TOutput> expression;
 	private IPipe<TOutput> outputStream;
 	
-	public Projection(IExpression<TInput, TOutput> expression, IPipe<TOutput> outputStream) {
+	public Projection(IScalarExecutor<TInput, TOutput> expression, IPipe<TOutput> outputStream) {
 		this.expression = expression;
 		this.outputStream = outputStream;
 	}

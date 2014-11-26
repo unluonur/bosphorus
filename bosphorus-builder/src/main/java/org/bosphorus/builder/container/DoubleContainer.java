@@ -1,15 +1,15 @@
 package org.bosphorus.builder.container;
 
-import org.bosphorus.expression.Constant;
-import org.bosphorus.expression.IExpression;
-import org.bosphorus.expression.math.AddDouble;
-import org.bosphorus.expression.math.DivideDouble;
-import org.bosphorus.expression.math.MultiplyDouble;
-import org.bosphorus.expression.math.SubtractDouble;
+import org.bosphorus.expression.scalar.ConstantExecutor;
+import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.math.AddDouble;
+import org.bosphorus.expression.scalar.math.DivideDouble;
+import org.bosphorus.expression.scalar.math.MultiplyDouble;
+import org.bosphorus.expression.scalar.math.SubtractDouble;
 
 public class DoubleContainer<TInput> extends BaseComparableContainer<TInput, Double> {
 
-	public DoubleContainer(IExpression<TInput, Double> expression) {
+	public DoubleContainer(IScalarExecutor<TInput, Double> expression) {
 		super(expression);
 	}
 	
@@ -18,12 +18,12 @@ public class DoubleContainer<TInput> extends BaseComparableContainer<TInput, Dou
 		return new DoubleContainer<TInput>(new AddDouble<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public DoubleContainer<TInput> add(IExpression<TInput, Double> expression) {
+	public DoubleContainer<TInput> add(IScalarExecutor<TInput, Double> expression) {
 		return new DoubleContainer<TInput>(new AddDouble<TInput>(this.getExpression(), expression));
 	}
 	
 	public DoubleContainer<TInput> add(Double value) {
-		return new DoubleContainer<TInput>(new AddDouble<TInput>(this.getExpression(), new Constant<TInput, Double>(value)));
+		return new DoubleContainer<TInput>(new AddDouble<TInput>(this.getExpression(), new ConstantExecutor<TInput, Double>(value)));
 	}
 	
 	
@@ -31,12 +31,12 @@ public class DoubleContainer<TInput> extends BaseComparableContainer<TInput, Dou
 		return new DoubleContainer<TInput>(new SubtractDouble<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public DoubleContainer<TInput> subtract(IExpression<TInput, Double> expression) {
+	public DoubleContainer<TInput> subtract(IScalarExecutor<TInput, Double> expression) {
 		return new DoubleContainer<TInput>(new SubtractDouble<TInput>(this.getExpression(), expression));
 	}
 	
 	public DoubleContainer<TInput> subtract(Double value) {
-		return new DoubleContainer<TInput>(new SubtractDouble<TInput>(this.getExpression(), new Constant<TInput, Double>(value)));
+		return new DoubleContainer<TInput>(new SubtractDouble<TInput>(this.getExpression(), new ConstantExecutor<TInput, Double>(value)));
 	}
 	
 	
@@ -44,12 +44,12 @@ public class DoubleContainer<TInput> extends BaseComparableContainer<TInput, Dou
 		return new DoubleContainer<TInput>(new MultiplyDouble<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public DoubleContainer<TInput> multiply(IExpression<TInput, Double> expression) {
+	public DoubleContainer<TInput> multiply(IScalarExecutor<TInput, Double> expression) {
 		return new DoubleContainer<TInput>(new MultiplyDouble<TInput>(this.getExpression(), expression));
 	}
 	
 	public DoubleContainer<TInput> multiply(Double value) {
-		return new DoubleContainer<TInput>(new MultiplyDouble<TInput>(this.getExpression(), new Constant<TInput, Double>(value)));
+		return new DoubleContainer<TInput>(new MultiplyDouble<TInput>(this.getExpression(), new ConstantExecutor<TInput, Double>(value)));
 	}
 	
 	
@@ -57,12 +57,12 @@ public class DoubleContainer<TInput> extends BaseComparableContainer<TInput, Dou
 		return new DoubleContainer<TInput>(new DivideDouble<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public DoubleContainer<TInput> divideBy(IExpression<TInput, Double> expression) {
+	public DoubleContainer<TInput> divideBy(IScalarExecutor<TInput, Double> expression) {
 		return new DoubleContainer<TInput>(new DivideDouble<TInput>(this.getExpression(), expression));
 	}
 	
 	public DoubleContainer<TInput> divideBy(Double value) {
-		return new DoubleContainer<TInput>(new DivideDouble<TInput>(this.getExpression(), new Constant<TInput, Double>(value)));
+		return new DoubleContainer<TInput>(new DivideDouble<TInput>(this.getExpression(), new ConstantExecutor<TInput, Double>(value)));
 	}
 		
 }

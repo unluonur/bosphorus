@@ -2,18 +2,18 @@ package org.bosphorus.builder.container;
 
 import java.util.Date;
 
-import org.bosphorus.expression.IExpression;
-import org.bosphorus.expression.date.DayOfMonth;
-import org.bosphorus.expression.date.DayOfWeek;
-import org.bosphorus.expression.date.Hour;
-import org.bosphorus.expression.date.Minute;
-import org.bosphorus.expression.date.Month;
-import org.bosphorus.expression.date.Second;
-import org.bosphorus.expression.date.Year;
+import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.date.DayOfMonth;
+import org.bosphorus.expression.scalar.date.DayOfWeek;
+import org.bosphorus.expression.scalar.date.Hour;
+import org.bosphorus.expression.scalar.date.Minute;
+import org.bosphorus.expression.scalar.date.Month;
+import org.bosphorus.expression.scalar.date.Second;
+import org.bosphorus.expression.scalar.date.Year;
 
 public class DateContainer<TInput> extends BaseComparableContainer<TInput, Date> {
 
-	public DateContainer(IExpression<TInput, Date> expression) {
+	public DateContainer(IScalarExecutor<TInput, Date> expression) {
 		super(expression);
 	}
 	

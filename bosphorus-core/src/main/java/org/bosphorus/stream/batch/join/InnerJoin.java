@@ -3,14 +3,14 @@ package org.bosphorus.stream.batch.join;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.IExpression;
+import org.bosphorus.expression.scalar.IScalarExecutor;
 import org.bosphorus.stream.batch.IReader;
 
 public class InnerJoin<TInput> extends BaseJoin<TInput> {
 
 	public InnerJoin(IReader<List<List<TInput>>> left,
 			IReader<List<TInput>> right,
-			IExpression<List<TInput>, Boolean> expression) {
+			IScalarExecutor<List<TInput>, Boolean> expression) {
 		super(left, right, expression);
 		// TODO Auto-generated constructor stub
 	}

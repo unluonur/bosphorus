@@ -1,12 +1,12 @@
 package org.bosphorus.builder.container;
 
-import org.bosphorus.expression.IExpression;
-import org.bosphorus.expression.string.StrConcat;
-import org.bosphorus.expression.string.StrLength;
+import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.string.StrConcat;
+import org.bosphorus.expression.scalar.string.StrLength;
 
 public class StringContainer<TInput> extends BaseComparableContainer<TInput, String> {
 
-	public StringContainer(IExpression<TInput, String> expression) {
+	public StringContainer(IScalarExecutor<TInput, String> expression) {
 		super(expression);
 	}
 	

@@ -4,11 +4,4 @@
   <artifactId>bosphorus-core</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>bosphorus-core</name>
-  <dependencies>
-  	<dependency>
-  		<groupId>org.json</groupId>
-  		<artifactId>json</artifactId>
-  		<version>20140107</version>
-  	</dependency>
-  </dependencies>
 </project>

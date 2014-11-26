@@ -1,16 +1,16 @@
 package org.bosphorus.builder.container;
 
-import org.bosphorus.expression.Constant;
-import org.bosphorus.expression.IExpression;
-import org.bosphorus.expression.math.AddInteger;
-import org.bosphorus.expression.math.DivideInteger;
-import org.bosphorus.expression.math.ModInteger;
-import org.bosphorus.expression.math.MultiplyInteger;
-import org.bosphorus.expression.math.SubtractInteger;
+import org.bosphorus.expression.scalar.ConstantExecutor;
+import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.math.AddInteger;
+import org.bosphorus.expression.scalar.math.DivideInteger;
+import org.bosphorus.expression.scalar.math.ModInteger;
+import org.bosphorus.expression.scalar.math.MultiplyInteger;
+import org.bosphorus.expression.scalar.math.SubtractInteger;
 
 public class IntegerContainer<TInput> extends BaseComparableContainer<TInput, Integer> {
 
-	public IntegerContainer(IExpression<TInput, Integer> expression) {
+	public IntegerContainer(IScalarExecutor<TInput, Integer> expression) {
 		super(expression);
 	}
 	
@@ -18,12 +18,12 @@ public class IntegerContainer<TInput> extends BaseComparableContainer<TInput, In
 		return new IntegerContainer<TInput>(new AddInteger<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> add(IExpression<TInput, Integer> expression) {
+	public IntegerContainer<TInput> add(IScalarExecutor<TInput, Integer> expression) {
 		return new IntegerContainer<TInput>(new AddInteger<TInput>(this.getExpression(), expression));
 	}
 	
 	public IntegerContainer<TInput> add(Integer value) {
-		return new IntegerContainer<TInput>(new AddInteger<TInput>(this.getExpression(), new Constant<TInput, Integer>(value)));
+		return new IntegerContainer<TInput>(new AddInteger<TInput>(this.getExpression(), new ConstantExecutor<TInput, Integer>(value)));
 	}
 	
 	
@@ -31,12 +31,12 @@ public class IntegerContainer<TInput> extends BaseComparableContainer<TInput, In
 		return new IntegerContainer<TInput>(new SubtractInteger<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> subtract(IExpression<TInput, Integer> expression) {
+	public IntegerContainer<TInput> subtract(IScalarExecutor<TInput, Integer> expression) {
 		return new IntegerContainer<TInput>(new SubtractInteger<TInput>(this.getExpression(), expression));
 	}
 	
 	public IntegerContainer<TInput> subtract(Integer value) {
-		return new IntegerContainer<TInput>(new SubtractInteger<TInput>(this.getExpression(), new Constant<TInput, Integer>(value)));
+		return new IntegerContainer<TInput>(new SubtractInteger<TInput>(this.getExpression(), new ConstantExecutor<TInput, Integer>(value)));
 	}
 	
 	
@@ -44,12 +44,12 @@ public class IntegerContainer<TInput> extends BaseComparableContainer<TInput, In
 		return new IntegerContainer<TInput>(new MultiplyInteger<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> multiply(IExpression<TInput, Integer> expression) {
+	public IntegerContainer<TInput> multiply(IScalarExecutor<TInput, Integer> expression) {
 		return new IntegerContainer<TInput>(new MultiplyInteger<TInput>(this.getExpression(), expression));
 	}
 	
 	public IntegerContainer<TInput> multiply(Integer value) {
-		return new IntegerContainer<TInput>(new MultiplyInteger<TInput>(this.getExpression(), new Constant<TInput, Integer>(value)));
+		return new IntegerContainer<TInput>(new MultiplyInteger<TInput>(this.getExpression(), new ConstantExecutor<TInput, Integer>(value)));
 	}
 	
 	
@@ -57,12 +57,12 @@ public class IntegerContainer<TInput> extends BaseComparableContainer<TInput, In
 		return new IntegerContainer<TInput>(new DivideInteger<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> divideBy(IExpression<TInput, Integer> expression) {
+	public IntegerContainer<TInput> divideBy(IScalarExecutor<TInput, Integer> expression) {
 		return new IntegerContainer<TInput>(new DivideInteger<TInput>(this.getExpression(), expression));
 	}
 	
 	public IntegerContainer<TInput> divideBy(Integer value) {
-		return new IntegerContainer<TInput>(new DivideInteger<TInput>(this.getExpression(), new Constant<TInput, Integer>(value)));
+		return new IntegerContainer<TInput>(new DivideInteger<TInput>(this.getExpression(), new ConstantExecutor<TInput, Integer>(value)));
 	}
 	
 	
@@ -70,12 +70,12 @@ public class IntegerContainer<TInput> extends BaseComparableContainer<TInput, In
 		return new IntegerContainer<TInput>(new ModInteger<TInput>(this.getExpression(), expression.getExpression()));
 	}
 	
-	public IntegerContainer<TInput> mod(IExpression<TInput, Integer> expression) {
+	public IntegerContainer<TInput> mod(IScalarExecutor<TInput, Integer> expression) {
 		return new IntegerContainer<TInput>(new ModInteger<TInput>(this.getExpression(), expression));
 	}
 	
 	public IntegerContainer<TInput> mod(Integer value) {
-		return new IntegerContainer<TInput>(new ModInteger<TInput>(this.getExpression(), new Constant<TInput, Integer>(value)));
+		return new IntegerContainer<TInput>(new ModInteger<TInput>(this.getExpression(), new ConstantExecutor<TInput, Integer>(value)));
 	}
 
 

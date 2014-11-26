@@ -2,20 +2,20 @@ package org.bosphorus.builder.container;
 
 import java.util.List;
 
-import org.bosphorus.expression.Constant;
-import org.bosphorus.expression.IExpression;
-import org.bosphorus.expression.condition.Equals;
-import org.bosphorus.expression.condition.GreaterThan;
-import org.bosphorus.expression.condition.GreaterThanOrEqual;
-import org.bosphorus.expression.condition.In;
-import org.bosphorus.expression.condition.LessThan;
-import org.bosphorus.expression.condition.LessThanOrEqual;
-import org.bosphorus.expression.condition.NotEquals;
-import org.bosphorus.expression.condition.NotIn;
+import org.bosphorus.expression.scalar.ConstantExecutor;
+import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.condition.Equals;
+import org.bosphorus.expression.scalar.condition.GreaterThan;
+import org.bosphorus.expression.scalar.condition.GreaterThanOrEqual;
+import org.bosphorus.expression.scalar.condition.In;
+import org.bosphorus.expression.scalar.condition.LessThan;
+import org.bosphorus.expression.scalar.condition.LessThanOrEqual;
+import org.bosphorus.expression.scalar.condition.NotEquals;
+import org.bosphorus.expression.scalar.condition.NotIn;
 
 public abstract class BaseComparableContainer<TInput, TOutput extends Comparable<TOutput>> extends BaseTypeContainer<TInput, TOutput> {
 	
-	public BaseComparableContainer(IExpression<TInput, TOutput> expression) {
+	public BaseComparableContainer(IScalarExecutor<TInput, TOutput> expression) {
 		super(expression);
 	}
 	
@@ -24,10 +24,10 @@ public abstract class BaseComparableContainer<TInput, TOutput extends Comparable
 	}
 	
 	public BooleanContainer<TInput> isEqualTo(TOutput value) {
-		return new BooleanContainer<TInput>(new Equals<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
+		return new BooleanContainer<TInput>(new Equals<TInput, TOutput>(this.getExpression(), new ConstantExecutor<TInput, TOutput>(value)));
 	}
 	
-	public BooleanContainer<TInput> isEqualTo(IExpression<TInput, TOutput> value) {
+	public BooleanContainer<TInput> isEqualTo(IScalarExecutor<TInput, TOutput> value) {
 		return new BooleanContainer<TInput>(new Equals<TInput, TOutput>(this.getExpression(), value));
 	}
 	
@@ -36,10 +36,10 @@ public abstract class BaseComparableContainer<TInput, TOutput extends Comparable
 	}
 	
 	public BooleanContainer<TInput> isNotEqualTo(TOutput value) {
-		return new BooleanContainer<TInput>(new NotEquals<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
+		return new BooleanContainer<TInput>(new NotEquals<TInput, TOutput>(this.getExpression(), new ConstantExecutor<TInput, TOutput>(value)));
 	}
 	
-	public BooleanContainer<TInput> isNotEqualTo(IExpression<TInput, TOutput> value) {
+	public BooleanContainer<TInput> isNotEqualTo(IScalarExecutor<TInput, TOutput> value) {
 		return new BooleanContainer<TInput>(new NotEquals<TInput, TOutput>(this.getExpression(), value));
 	}
 	
@@ -48,10 +48,10 @@ public abstract class BaseComparableContainer<TInput, TOutput extends Comparable
 	}
 	
 	public BooleanContainer<TInput> isLessThan(TOutput value) {
-		return new BooleanContainer<TInput>(new LessThan<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
+		return new BooleanContainer<TInput>(new LessThan<TInput, TOutput>(this.getExpression(), new ConstantExecutor<TInput, TOutput>(value)));
 	}
 	
-	public BooleanContainer<TInput> isLessThan(IExpression<TInput, TOutput> value) {
+	public BooleanContainer<TInput> isLessThan(IScalarExecutor<TInput, TOutput> value) {
 		return new BooleanContainer<TInput>(new LessThan<TInput, TOutput>(this.getExpression(), value));
 	}
 	
@@ -60,10 +60,10 @@ public abstract class BaseComparableContainer<TInput, TOutput extends Comparable
 	}
 	
 	public BooleanContainer<TInput> isLessThanOrEqualsTo(TOutput value) {
-		return new BooleanContainer<TInput>(new LessThanOrEqual<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
+		return new BooleanContainer<TInput>(new LessThanOrEqual<TInput, TOutput>(this.getExpression(), new ConstantExecutor<TInput, TOutput>(value)));
 	}
 	
-	public BooleanContainer<TInput> isLessThanOrEqualsTo(IExpression<TInput, TOutput> value) {
+	public BooleanContainer<TInput> isLessThanOrEqualsTo(IScalarExecutor<TInput, TOutput> value) {
 		return new BooleanContainer<TInput>(new LessThanOrEqual<TInput, TOutput>(this.getExpression(), value));
 	}
 	
@@ -72,10 +72,10 @@ public abstract class BaseComparableContainer<TInput, TOutput extends Comparable
 	}
 	
 	public BooleanContainer<TInput> isGreaterThan(TOutput value) {
-		return new BooleanContainer<TInput>(new GreaterThan<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
+		return new BooleanContainer<TInput>(new GreaterThan<TInput, TOutput>(this.getExpression(), new ConstantExecutor<TInput, TOutput>(value)));
 	}
 	
-	public BooleanContainer<TInput> isGreaterThan(IExpression<TInput, TOutput> value) {
+	public BooleanContainer<TInput> isGreaterThan(IScalarExecutor<TInput, TOutput> value) {
 		return new BooleanContainer<TInput>(new GreaterThan<TInput, TOutput>(this.getExpression(), value));
 	}
 	
@@ -84,19 +84,19 @@ public abstract class BaseComparableContainer<TInput, TOutput extends Comparable
 	}
 	
 	public BooleanContainer<TInput> isGreaterThanOrEqualsTo(TOutput value) {
-		return new BooleanContainer<TInput>(new GreaterThanOrEqual<TInput, TOutput>(this.getExpression(), new Constant<TInput, TOutput>(value)));
+		return new BooleanContainer<TInput>(new GreaterThanOrEqual<TInput, TOutput>(this.getExpression(), new ConstantExecutor<TInput, TOutput>(value)));
 	}
 	
-	public BooleanContainer<TInput> isGreaterThanOrEqualsTo(IExpression<TInput, TOutput> value) {
+	public BooleanContainer<TInput> isGreaterThanOrEqualsTo(IScalarExecutor<TInput, TOutput> value) {
 		return new BooleanContainer<TInput>(new GreaterThanOrEqual<TInput, TOutput>(this.getExpression(), value));
 	}
 	
 	public BooleanContainer<TInput> isIn(List<TOutput> list) {
-		return new BooleanContainer<TInput>(new In<TInput, TOutput>(this.getExpression(), new Constant<TInput, List<TOutput>>(list)));
+		return new BooleanContainer<TInput>(new In<TInput, TOutput>(this.getExpression(), new ConstantExecutor<TInput, List<TOutput>>(list)));
 	}
 
 	public BooleanContainer<TInput> isNotIn(List<TOutput> list) {
-		return new BooleanContainer<TInput>(new NotIn<TInput, TOutput>(this.getExpression(), new Constant<TInput, List<TOutput>>(list)));
+		return new BooleanContainer<TInput>(new NotIn<TInput, TOutput>(this.getExpression(), new ConstantExecutor<TInput, List<TOutput>>(list)));
 	}
 
 }

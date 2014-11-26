@@ -1,7 +1,7 @@
 package org.bosphorus.builder.expression.condition;
 
-import org.bosphorus.expression.IExpression;
-import org.bosphorus.expression.condition.And;
+import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.condition.And;
 
 public class AndBuilder<TInput> extends BaseConditionListBuilder<TInput> {
 
@@ -16,9 +16,9 @@ public class AndBuilder<TInput> extends BaseConditionListBuilder<TInput> {
 	}
 
 	@Override
-	protected IExpression<TInput, Boolean> build(
-			IExpression<TInput, Boolean> left,
-			IExpression<TInput, Boolean> right) {
+	protected IScalarExecutor<TInput, Boolean> build(
+			IScalarExecutor<TInput, Boolean> left,
+			IScalarExecutor<TInput, Boolean> right) {
 		return new And<TInput>(left, right);
 	}
 
