@@ -2,16 +2,16 @@ package org.bosphorus.builder.container;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.ConstantExecutor;
-import org.bosphorus.expression.scalar.IScalarExecutor;
-import org.bosphorus.expression.scalar.condition.Equals;
-import org.bosphorus.expression.scalar.condition.GreaterThan;
-import org.bosphorus.expression.scalar.condition.GreaterThanOrEqual;
-import org.bosphorus.expression.scalar.condition.In;
-import org.bosphorus.expression.scalar.condition.LessThan;
-import org.bosphorus.expression.scalar.condition.LessThanOrEqual;
-import org.bosphorus.expression.scalar.condition.NotEquals;
-import org.bosphorus.expression.scalar.condition.NotIn;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
+import org.bosphorus.expression.scalar.executor.condition.Equals;
+import org.bosphorus.expression.scalar.executor.condition.GreaterThan;
+import org.bosphorus.expression.scalar.executor.condition.GreaterThanOrEqual;
+import org.bosphorus.expression.scalar.executor.condition.In;
+import org.bosphorus.expression.scalar.executor.condition.LessThan;
+import org.bosphorus.expression.scalar.executor.condition.LessThanOrEqual;
+import org.bosphorus.expression.scalar.executor.condition.NotEquals;
+import org.bosphorus.expression.scalar.executor.condition.NotIn;
 
 public abstract class BaseComparableContainer<TInput, TOutput extends Comparable<TOutput>> extends BaseTypeContainer<TInput, TOutput> {
 	

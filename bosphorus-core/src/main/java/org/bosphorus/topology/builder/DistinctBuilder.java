@@ -2,7 +2,7 @@ package org.bosphorus.topology.builder;
 
 import java.util.List;
 
-import org.bosphorus.expression.batch.SelectDistinctExecutor;
+import org.bosphorus.expression.aggregate.executor.list.SelectDistinctExecutor;
 import org.bosphorus.stream.batch.BatchStream;
 import org.bosphorus.stream.pipe.IPipe;
 

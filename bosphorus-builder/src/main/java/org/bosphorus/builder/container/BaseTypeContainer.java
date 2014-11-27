@@ -2,10 +2,10 @@ package org.bosphorus.builder.container;
 
 import java.util.Date;
 
-import org.bosphorus.expression.scalar.ConvertExecutor;
-import org.bosphorus.expression.scalar.IScalarExecutor;
-import org.bosphorus.expression.scalar.condition.IsNotNull;
-import org.bosphorus.expression.scalar.condition.IsNull;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.common.ConvertExecutor;
+import org.bosphorus.expression.scalar.executor.condition.IsNotNull;
+import org.bosphorus.expression.scalar.executor.condition.IsNull;
 
 public abstract class BaseTypeContainer<TInput, TOutput> implements ITypeContainer<TInput, TOutput> {
 	private IScalarExecutor<TInput, TOutput> expression;

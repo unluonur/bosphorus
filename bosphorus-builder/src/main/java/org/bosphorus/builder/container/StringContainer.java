@@ -1,8 +1,8 @@
 package org.bosphorus.builder.container;
 
-import org.bosphorus.expression.scalar.IScalarExecutor;
-import org.bosphorus.expression.scalar.string.StrConcat;
-import org.bosphorus.expression.scalar.string.StrLength;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.string.StrConcat;
+import org.bosphorus.expression.scalar.executor.string.StrLength;
 
 public class StringContainer<TInput> extends BaseComparableContainer<TInput, String> {
 

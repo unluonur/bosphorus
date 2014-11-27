@@ -9,8 +9,8 @@ import org.bosphorus.builder.container.FloatContainer;
 import org.bosphorus.builder.container.IntegerContainer;
 import org.bosphorus.builder.container.LongContainer;
 import org.bosphorus.builder.container.StringContainer;
-import org.bosphorus.expression.scalar.ConstantExecutor;
-import org.bosphorus.expression.scalar.date.Now;
+import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
+import org.bosphorus.expression.scalar.executor.date.Now;
 
 public class ExpressionBuilder<TInput> {
 	

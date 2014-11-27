@@ -2,7 +2,7 @@ package org.bosphorus.stream.batch.join;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 import org.bosphorus.stream.batch.IReader;
 
 public abstract class BaseJoin<TInput> implements IReader<List<List<TInput>>> {

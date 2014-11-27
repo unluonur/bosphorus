@@ -1,6 +1,6 @@
 package org.bosphorus.topology.builder;
 
-import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 import org.bosphorus.stream.pipe.Filter;
 import org.bosphorus.stream.pipe.IPipe;
 

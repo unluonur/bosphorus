@@ -2,26 +2,17 @@ package org.bosphorus.stream.batch;
 
 import java.util.List;
 
-import org.bosphorus.expression.batch.IBatchExecutor;
+import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.stream.pipe.IPipe;
 
 public class BatchStream<TInput, TOutput> implements IPipe<TInput>, IReader<TOutput> {
 
 	protected Object lockObject;
-	private IBatchExecutor<TInput, ? extends TOutput> executor;
+	private IAggregateExecutor<TInput, ? extends TOutput> executor;
 	
-	public BatchStream(IBatchExecutor<TInput, ? extends TOutput> executor) {
+	public BatchStream(IAggregateExecutor<TInput, ? extends TOutput> executor) {
 		this.lockObject = new Object();
 		this.executor = executor;
-	}
-
-	@Override
-	public TOutput read() throws Exception {
-		synchronized (lockObject) {
-			TOutput result = executor.getValue();
-			executor.reset();
-			return result;
-		}
 	}
 	
 	@Override
@@ -37,6 +28,17 @@ public class BatchStream<TInput, TOutput> implements IPipe<TInput>, IReader<TOut
 			for(TInput item: input) {
 				executor.execute(item);
 			}
+		}
+	}
+
+	@Override
+	public TOutput read() throws Exception {
+		synchronized (lockObject) {
+			TOutput result = executor.getValue();
+			// TODO : state will be saved
+			Object state = executor.getState();
+			executor.reset();
+			return result;
 		}
 	}
 	

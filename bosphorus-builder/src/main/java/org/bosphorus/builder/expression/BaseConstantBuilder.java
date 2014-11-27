@@ -1,7 +1,7 @@
 package org.bosphorus.builder.expression;
 
-import org.bosphorus.expression.scalar.ConstantExecutor;
-import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
 
 public abstract class BaseConstantBuilder<TInput, TOutput> implements IExpressionBuilder<TInput, TOutput> {
 	/**

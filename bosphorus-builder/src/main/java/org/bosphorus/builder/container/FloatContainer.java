@@ -1,11 +1,11 @@
 package org.bosphorus.builder.container;
 
-import org.bosphorus.expression.scalar.ConstantExecutor;
-import org.bosphorus.expression.scalar.IScalarExecutor;
-import org.bosphorus.expression.scalar.math.AddFloat;
-import org.bosphorus.expression.scalar.math.DivideFloat;
-import org.bosphorus.expression.scalar.math.MultiplyFloat;
-import org.bosphorus.expression.scalar.math.SubtractFloat;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
+import org.bosphorus.expression.scalar.executor.math.AddFloat;
+import org.bosphorus.expression.scalar.executor.math.DivideFloat;
+import org.bosphorus.expression.scalar.executor.math.MultiplyFloat;
+import org.bosphorus.expression.scalar.executor.math.SubtractFloat;
 
 public class FloatContainer<TInput> extends BaseComparableContainer<TInput, Float> {
 

@@ -1,11 +1,11 @@
 package org.bosphorus.builder.container;
 
-import org.bosphorus.expression.scalar.ConstantExecutor;
-import org.bosphorus.expression.scalar.IScalarExecutor;
-import org.bosphorus.expression.scalar.math.AddDouble;
-import org.bosphorus.expression.scalar.math.DivideDouble;
-import org.bosphorus.expression.scalar.math.MultiplyDouble;
-import org.bosphorus.expression.scalar.math.SubtractDouble;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
+import org.bosphorus.expression.scalar.executor.math.AddDouble;
+import org.bosphorus.expression.scalar.executor.math.DivideDouble;
+import org.bosphorus.expression.scalar.executor.math.MultiplyDouble;
+import org.bosphorus.expression.scalar.executor.math.SubtractDouble;
 
 public class DoubleContainer<TInput> extends BaseComparableContainer<TInput, Double> {
 

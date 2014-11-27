@@ -1,7 +1,7 @@
 package org.bosphorus.builder.expression;
 
 import org.bosphorus.builder.IBuilder;
-import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public interface IExpressionBuilder<TInput, TOutput> extends IBuilder
 {

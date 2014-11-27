@@ -3,7 +3,7 @@ package org.bosphorus.builder.expression.condition;
 import java.util.List;
 
 import org.bosphorus.builder.expression.IExpressionBuilder;
-import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public abstract class BaseConditionListBuilder<TInput> implements IExpressionBuilder<TInput, Boolean> {
 	/**

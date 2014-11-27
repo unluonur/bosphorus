@@ -2,7 +2,7 @@ package org.bosphorus.builder.old;
 
 import org.bosphorus.builder.container.BaseTypeContainer;
 import org.bosphorus.builder.container.BooleanContainer;
-import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 /*
  * TODO

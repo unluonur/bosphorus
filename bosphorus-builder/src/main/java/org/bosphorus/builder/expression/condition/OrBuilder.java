@@ -1,7 +1,7 @@
 package org.bosphorus.builder.expression.condition;
 
-import org.bosphorus.expression.scalar.IScalarExecutor;
-import org.bosphorus.expression.scalar.condition.Or;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.condition.Or;
 
 public class OrBuilder<TInput> extends BaseConditionListBuilder<TInput> {
 

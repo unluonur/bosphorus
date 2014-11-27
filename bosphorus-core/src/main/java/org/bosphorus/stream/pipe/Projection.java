@@ -3,7 +3,7 @@ package org.bosphorus.stream.pipe;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class Projection<TInput, TOutput> implements IPipe<TInput> {
 

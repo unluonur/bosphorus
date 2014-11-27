@@ -3,7 +3,7 @@ package org.bosphorus.topology.node.builder;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.scalar.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 import org.bosphorus.stream.pipe.Filter;
 import org.bosphorus.stream.pipe.IPipe;
 
