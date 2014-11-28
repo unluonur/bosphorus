@@ -1,7 +1,7 @@
 package org.bosphorus.builder.expression.condition;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.expression.scalar.executor.condition.Or;
+import org.bosphorus.expression.scalar.executor.condition.OrExecutor;
 
 public class OrBuilder<TInput> extends BaseConditionListBuilder<TInput> {
 
@@ -19,7 +19,7 @@ public class OrBuilder<TInput> extends BaseConditionListBuilder<TInput> {
 	protected IScalarExecutor<TInput, Boolean> build(
 			IScalarExecutor<TInput, Boolean> left,
 			IScalarExecutor<TInput, Boolean> right) {
-		return new Or<TInput>(left, right);
+		return new OrExecutor<TInput>(left, right);
 	}
 
 }

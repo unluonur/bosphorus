@@ -4,8 +4,8 @@ import java.util.Date;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 import org.bosphorus.expression.scalar.executor.common.ConvertExecutor;
-import org.bosphorus.expression.scalar.executor.condition.IsNotNull;
-import org.bosphorus.expression.scalar.executor.condition.IsNull;
+import org.bosphorus.expression.scalar.executor.condition.IsNotNullExecutor;
+import org.bosphorus.expression.scalar.executor.condition.IsNullExecutor;
 
 public abstract class BaseTypeContainer<TInput, TOutput> implements ITypeContainer<TInput, TOutput> {
 	private IScalarExecutor<TInput, TOutput> expression;
@@ -24,11 +24,11 @@ public abstract class BaseTypeContainer<TInput, TOutput> implements ITypeContain
 	}
 	
 	public BooleanContainer<TInput> isNull() {
-		return new BooleanContainer<TInput>(new IsNull<TInput, TOutput>(this.getExpression()));
+		return new BooleanContainer<TInput>(new IsNullExecutor<TInput, TOutput>(this.getExpression()));
 	}
 	
 	public BooleanContainer<TInput> isNotNull() {
-		return new BooleanContainer<TInput>(new IsNotNull<TInput, TOutput>(this.getExpression()));
+		return new BooleanContainer<TInput>(new IsNotNullExecutor<TInput, TOutput>(this.getExpression()));
 	}
 	
 	public BooleanContainer<TInput> convertToBoolean() {
