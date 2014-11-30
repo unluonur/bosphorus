@@ -1,13 +1,14 @@
 package org.bosphorus.expression.aggregate.executor.scalar;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.expression.aggregate.factory.IAggregateExecutorFactory;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
-public class GroupAggregationExecutor<TInput, TKey, TValue> implements IAggregateExecutor<TInput, Map<TKey, TValue>> {
+public class GroupAggregationExecutor<TInput, TType, TKey extends TType, TValue extends TType> implements IAggregateExecutor<TInput, List<List<TType>>> {
 	private IScalarExecutor<TInput, ? extends TKey> keyExpression;
 	private IAggregateExecutorFactory<TInput, ? extends TValue> valueFactory;
 	private HashMap<TKey, IAggregateExecutor<TInput, ? extends TValue>> map;
@@ -31,7 +32,21 @@ public class GroupAggregationExecutor<TInput, TKey, TValue> implements IAggregat
 		}
 		value.execute(input);
 	}
-
+	
+	@Override
+	public List<List<TType>> getValue() {
+		ArrayList<List<TType>> result = new ArrayList<List<TType>>();
+		for(TKey key: map.keySet()) {
+			ArrayList<TType> item = new ArrayList<TType>();
+			item.add(key);
+			item.add(map.get(key).getValue());
+			result.add(item);
+		}
+		return result;
+		
+	}
+	
+/*
 	@Override
 	public Map<TKey, TValue> getValue() {
 		HashMap<TKey, TValue> result = new HashMap<TKey, TValue>();
@@ -41,6 +56,7 @@ public class GroupAggregationExecutor<TInput, TKey, TValue> implements IAggregat
 		}
 		return result;
 	}
+*/
 
 	@Override
 	public void reset() {

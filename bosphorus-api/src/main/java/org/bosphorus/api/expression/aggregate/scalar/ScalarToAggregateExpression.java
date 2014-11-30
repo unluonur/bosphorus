@@ -11,19 +11,19 @@ public class ScalarToAggregateExpression<TInput, TType, TOutput> implements IAgg
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private IScalarExpression<TInput, TType> scalarExpression;
+	private IScalarExpression<TInput, ? extends TType> scalarExpression;
 	private IAggregateExpression<TType, TOutput> aggregateExpression;
 	
-	public ScalarToAggregateExpression(IScalarExpression<TInput, TType> scalarExpression, IAggregateExpression<TType, TOutput> aggregateExpression) {
+	public ScalarToAggregateExpression(IScalarExpression<TInput, ? extends TType> scalarExpression, IAggregateExpression<TType, TOutput> aggregateExpression) {
 		this.setScalarExpression(scalarExpression);
 		this.setAggregateExpression(aggregateExpression);
 	}
 	
-	public IScalarExpression<TInput, TType> getScalarExpression() {
+	public IScalarExpression<TInput, ? extends TType> getScalarExpression() {
 		return scalarExpression;
 	}
 	
-	public void setScalarExpression(IScalarExpression<TInput, TType> scalarExpression) {
+	public void setScalarExpression(IScalarExpression<TInput, ? extends TType> scalarExpression) {
 		this.scalarExpression = scalarExpression;
 	}
 	

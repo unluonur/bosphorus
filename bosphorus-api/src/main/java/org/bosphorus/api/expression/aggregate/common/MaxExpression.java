@@ -2,9 +2,9 @@ package org.bosphorus.api.expression.aggregate.common;
 
 import org.bosphorus.api.expression.aggregate.IAggregateExpression;
 import org.bosphorus.expression.aggregate.factory.IAggregateExecutorFactory;
-import org.bosphorus.expression.aggregate.factory.common.CountIntegerFactory;
+import org.bosphorus.expression.aggregate.factory.common.MaxFactory;
 
-public class CountIntegerExpression implements IAggregateExpression<Object, Integer> {
+public class MaxExpression<TType extends Comparable<TType>> implements IAggregateExpression<TType, TType> {
 
 	/**
 	 * 
@@ -12,9 +12,8 @@ public class CountIntegerExpression implements IAggregateExpression<Object, Inte
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public IAggregateExecutorFactory<Object, Integer> build() {
-		return new CountIntegerFactory();
+	public IAggregateExecutorFactory<TType, TType> build() {
+		return new MaxFactory<TType>();
 	}
-
 
 }

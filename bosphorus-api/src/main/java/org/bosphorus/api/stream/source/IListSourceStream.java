@@ -1,6 +1,4 @@
-package org.bosphorus.api.stream;
-
-import java.io.Serializable;
+package org.bosphorus.api.stream.source;
 
 import org.bosphorus.api.expression.scalar.type.list.BooleanListExpression;
 import org.bosphorus.api.expression.scalar.type.list.DateListExpression;
@@ -17,8 +15,24 @@ import org.bosphorus.api.expression.scalar.type.primitive.IntegerExpression;
 import org.bosphorus.api.expression.scalar.type.primitive.LongExpression;
 import org.bosphorus.api.expression.scalar.type.primitive.StringExpression;
 
-public interface ISourceStream<TType> extends Serializable {
+public interface IListSourceStream<TType> {
+
+	IntegerExpression<TType> integerField(Integer index) throws Exception;
+	LongExpression<TType> longField(Integer index) throws Exception;
+	FloatExpression<TType> floatField(Integer index) throws Exception;
+	DoubleExpression<TType> doubleField(Integer index) throws Exception;
+	BooleanExpression<TType> booleanField(Integer index) throws Exception;
+	StringExpression<TType> stringField(Integer index) throws Exception;
+	DateExpression<TType> dateField(Integer index) throws Exception;
 	
+	IntegerListExpression<TType> integerList(Integer index) throws Exception;
+	LongListExpression<TType> longList(Integer index) throws Exception;
+	FloatListExpression<TType> floatList(Integer index) throws Exception;
+	DoubleListExpression<TType> doubleList(Integer index) throws Exception;
+	BooleanListExpression<TType> booleanList(Integer index) throws Exception;
+	StringListExpression<TType> stringList(Integer index) throws Exception;
+	DateListExpression<TType> dateList(Integer index) throws Exception;
+
 	IntegerExpression<TType> integerField(String name) throws Exception;
 	LongExpression<TType> longField(String name) throws Exception;
 	FloatExpression<TType> floatField(String name) throws Exception;
@@ -34,5 +48,4 @@ public interface ISourceStream<TType> extends Serializable {
 	BooleanListExpression<TType> booleanList(String name) throws Exception;
 	StringListExpression<TType> stringList(String name) throws Exception;
 	DateListExpression<TType> dateList(String name) throws Exception;
-
 }

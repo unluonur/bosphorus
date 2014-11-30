@@ -1,4 +1,4 @@
-package org.bosphorus.api.stream;
+package org.bosphorus.api.stream.source;
 
 import java.util.Date;
 import java.util.List;
@@ -18,12 +18,9 @@ import org.bosphorus.api.expression.scalar.type.primitive.FloatExpression;
 import org.bosphorus.api.expression.scalar.type.primitive.IntegerExpression;
 import org.bosphorus.api.expression.scalar.type.primitive.LongExpression;
 import org.bosphorus.api.expression.scalar.type.primitive.StringExpression;
+import org.bosphorus.api.stream.SourceField;
 
-public class ListStream<TType> implements ISourceStream<List<TType>> {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class ListSourceStream<TType> implements IListSourceStream<List<TType>> {
 	
 	private List<SourceField> fields;
 
@@ -128,6 +125,104 @@ public class ListStream<TType> implements ISourceStream<List<TType>> {
 	public DateListExpression<List<TType>> dateList(String name)
 			throws Exception {
 		return new DateListExpression<List<TType>>(new ListElementExpression<List<TType>, List<Date>>(this.getFieldIndex(name, "DateList")));
+	}
+
+	@Override
+	public IntegerExpression<List<TType>> integerField(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LongExpression<List<TType>> longField(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FloatExpression<List<TType>> floatField(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DoubleExpression<List<TType>> doubleField(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BooleanExpression<List<TType>> booleanField(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StringExpression<List<TType>> stringField(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DateExpression<List<TType>> dateField(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IntegerListExpression<List<TType>> integerList(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LongListExpression<List<TType>> longList(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FloatListExpression<List<TType>> floatList(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DoubleListExpression<List<TType>> doubleList(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BooleanListExpression<List<TType>> booleanList(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public StringListExpression<List<TType>> stringList(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DateListExpression<List<TType>> dateList(Integer index)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

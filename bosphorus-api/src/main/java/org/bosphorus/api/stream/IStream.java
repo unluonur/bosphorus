@@ -1,5 +1,9 @@
 package org.bosphorus.api.stream;
 
-public interface IStream {
+import org.bosphorus.api.expression.scalar.IScalarExpression;
 
+public interface IStream<TInput, TOutput> {
+	IScalarExpression<TInput, TOutput> getProjection();
+	
+	IScalarExpression<TInput, Boolean> getFilter();
 }
