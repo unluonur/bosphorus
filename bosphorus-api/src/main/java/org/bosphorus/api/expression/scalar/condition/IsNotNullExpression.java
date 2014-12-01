@@ -2,7 +2,7 @@ package org.bosphorus.api.expression.scalar.condition;
 
 import org.bosphorus.api.expression.scalar.IScalarExpression;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.expression.scalar.executor.condition.IsNotNullExecutor;
+import org.bosphorus.expression.scalar.executor.logical.IsNotNullExecutor;
 
 public class IsNotNullExpression<TInput, TType> extends BaseUnaryConditionExpression<TInput, TType> {
 

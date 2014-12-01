@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
-import org.bosphorus.expression.scalar.executor.condition.EqualsExecutor;
-import org.bosphorus.expression.scalar.executor.condition.GreaterThanExecutor;
-import org.bosphorus.expression.scalar.executor.condition.GreaterThanOrEqualExecutor;
-import org.bosphorus.expression.scalar.executor.condition.InExecutor;
-import org.bosphorus.expression.scalar.executor.condition.LessThanExecutor;
-import org.bosphorus.expression.scalar.executor.condition.LessThanOrEqualExecutor;
-import org.bosphorus.expression.scalar.executor.condition.NotEquals;
-import org.bosphorus.expression.scalar.executor.condition.NotInExecutor;
+import org.bosphorus.expression.scalar.executor.logical.EqualsExecutor;
+import org.bosphorus.expression.scalar.executor.logical.GreaterThanExecutor;
+import org.bosphorus.expression.scalar.executor.logical.GreaterThanOrEqualExecutor;
+import org.bosphorus.expression.scalar.executor.logical.InExecutor;
+import org.bosphorus.expression.scalar.executor.logical.LessThanExecutor;
+import org.bosphorus.expression.scalar.executor.logical.LessThanOrEqualExecutor;
+import org.bosphorus.expression.scalar.executor.logical.NotEquals;
+import org.bosphorus.expression.scalar.executor.logical.NotInExecutor;
 
 public abstract class BaseComparableContainer<TInput, TOutput extends Comparable<TOutput>> extends BaseTypeContainer<TInput, TOutput> {
 	

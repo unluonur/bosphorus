@@ -4,8 +4,8 @@ import java.util.Date;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 import org.bosphorus.expression.scalar.executor.common.ConvertExecutor;
-import org.bosphorus.expression.scalar.executor.condition.IsNotNullExecutor;
-import org.bosphorus.expression.scalar.executor.condition.IsNullExecutor;
+import org.bosphorus.expression.scalar.executor.logical.IsNotNullExecutor;
+import org.bosphorus.expression.scalar.executor.logical.IsNullExecutor;
 
 public abstract class BaseTypeContainer<TInput, TOutput> implements ITypeContainer<TInput, TOutput> {
 	private IScalarExecutor<TInput, TOutput> expression;

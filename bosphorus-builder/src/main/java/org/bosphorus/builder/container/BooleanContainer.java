@@ -1,9 +1,9 @@
 package org.bosphorus.builder.container;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.expression.scalar.executor.condition.AndExecutor;
-import org.bosphorus.expression.scalar.executor.condition.NotExecutor;
-import org.bosphorus.expression.scalar.executor.condition.OrExecutor;
+import org.bosphorus.expression.scalar.executor.logical.AndExecutor;
+import org.bosphorus.expression.scalar.executor.logical.NotExecutor;
+import org.bosphorus.expression.scalar.executor.logical.OrExecutor;
 
 public class BooleanContainer<TInput> extends BaseComparableContainer<TInput, Boolean> {
 

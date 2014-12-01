@@ -1,7 +1,7 @@
 package org.bosphorus.builder.expression.condition;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.expression.scalar.executor.condition.AndExecutor;
+import org.bosphorus.expression.scalar.executor.logical.AndExecutor;
 
 public class AndBuilder<TInput> extends BaseConditionListBuilder<TInput> {
 

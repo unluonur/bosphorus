@@ -2,7 +2,7 @@ package org.bosphorus.api.expression.scalar.condition;
 
 import org.bosphorus.api.expression.scalar.IScalarExpression;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.expression.scalar.executor.condition.NotEquals;
+import org.bosphorus.expression.scalar.executor.logical.NotEquals;
 
 public class NotEqualsExpression<TInput, TType extends Comparable<TType>> extends BaseComparisonExpression<TInput, TType> {
 
