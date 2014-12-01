@@ -20,14 +20,15 @@ public class StdDevExecutor implements IAggregateExecutor<Number, Double> {
 
 	@Override
 	public Double getValue() {
-		if(list.size() == 0) {
+		Integer size = list.size();
+		if(size == 0) {
 			return null;
 		}
 		Double sum = 0.0;
 		for(Number num: list) {
 			sum += num.doubleValue();
 		}
-		Double avg = sum / list.size();
+		Double avg = sum / size;
 		Double var = 0.0;
 		for(Number num: list) {
 			Double d = num.doubleValue();

@@ -6,10 +6,10 @@ import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class ListExpressionExecutor<TInput, TType, TOutput> implements IAggregateExecutor<TInput, TOutput> {
-	private IScalarExecutor<TInput, List<TType>> expression;
-	private IAggregateExecutor<TType, TOutput> executor;
+	private IScalarExecutor<TInput, List<? extends TType>> expression;
+	private IAggregateExecutor<TType, ? extends TOutput> executor;
 	
-	public ListExpressionExecutor(IScalarExecutor<TInput, List<TType>> expression, IAggregateExecutor<TType, TOutput> executor) {
+	public ListExpressionExecutor(IScalarExecutor<TInput, List<? extends TType>> expression, IAggregateExecutor<TType, ? extends TOutput> executor) {
 		this.expression = expression;
 		this.executor = executor;
 	}

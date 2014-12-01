@@ -2,11 +2,11 @@ package org.bosphorus.expression.scalar.executor.logical;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
-public class IsNullExecutor<TInput, TType> implements IScalarExecutor<TInput, Boolean> {
+public class IsNullExecutor<TInput> implements IScalarExecutor<TInput, Boolean> {
 
-	private IScalarExecutor<TInput, TType> value;
+	private IScalarExecutor<TInput, ?> value;
 
-	public IsNullExecutor(IScalarExecutor<TInput, TType> value) {
+	public IsNullExecutor(IScalarExecutor<TInput, ?> value) {
 		this.value = value;
 	}
 

@@ -1,11 +1,10 @@
 package org.bosphorus.expression.aggregate.executor;
 
-public interface IAggregateExecutor<TInput, TOutput> {
+import org.bosphorus.expression.IStateExpression;
+
+public interface IAggregateExecutor<TInput, TOutput> extends IStateExpression {
 
 	void execute(TInput input) throws Exception;
 	TOutput getValue();
-	void reset();
-	Object getState();
-	void setState(Object state) throws Exception;
 
 }

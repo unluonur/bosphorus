@@ -8,9 +8,9 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 public class ExpressionFactory<TInput, TType, TOutput> implements IAggregateExecutorFactory<TInput, TOutput> {
 	
 	private IScalarExecutor<TInput, ? extends TType> expression;
-	private IAggregateExecutorFactory<TType, TOutput> factory;
+	private IAggregateExecutorFactory<TType, ? extends TOutput> factory;
 	
-	public ExpressionFactory(IScalarExecutor<TInput, ? extends TType> expression, IAggregateExecutorFactory<TType, TOutput> factory) {
+	public ExpressionFactory(IScalarExecutor<TInput, ? extends TType> expression, IAggregateExecutorFactory<TType, ? extends TOutput> factory) {
 		this.expression = expression;
 		this.factory = factory;
 	}

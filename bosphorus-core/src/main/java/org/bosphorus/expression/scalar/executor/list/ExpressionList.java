@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
-public class ExpressionList<TInput, TOutput> implements IScalarExecutor<TInput, List<TOutput>> {
+public class ExpressionList<TInput, TOutput> implements IScalarExecutor<TInput, List<? extends TOutput>> {
 
 	private List<IScalarExecutor<TInput, ? extends TOutput>> expressions;
 
