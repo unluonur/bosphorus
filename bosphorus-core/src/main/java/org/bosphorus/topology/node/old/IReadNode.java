@@ -2,7 +2,7 @@ package org.bosphorus.topology.node.old;
 
 import java.util.List;
 
-import org.bosphorus.stream.pipe.IPipe;
+import org.bosphorus.stream.IWriter;
 
 public interface IReadNode<TOutput> extends IBaseNode {
 	
@@ -10,6 +10,6 @@ public interface IReadNode<TOutput> extends IBaseNode {
 	
 	List<IStreamDefinition> defineOutput();
 	
-	void setOutputs(List<IPipe<TOutput>> writers);
+	void setOutputs(List<IWriter<TOutput>> writers);
 
 }

@@ -7,8 +7,8 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class StrSplit<TInput> implements IScalarExecutor<TInput, List<String>> {
 	
-	private IScalarExecutor<TInput, String> text;
-	private IScalarExecutor<TInput, String> split;
+	private IScalarExecutor<? super TInput, String> text;
+	private IScalarExecutor<? super TInput, String> split;
 
 	@Override
 	public List<String> execute(TInput input) throws Exception {

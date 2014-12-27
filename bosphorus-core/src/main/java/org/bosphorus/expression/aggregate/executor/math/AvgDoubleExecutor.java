@@ -14,8 +14,10 @@ public class AvgDoubleExecutor implements IAggregateExecutor<Number, Double> {
 
 	@Override
 	public void execute(Number input) throws Exception {
-		state.sum += input.doubleValue();
-		state.count++;
+		if(input != null) {
+			state.sum += input.doubleValue();
+			state.count++;
+		}
 	}
 
 	@Override

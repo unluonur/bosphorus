@@ -4,11 +4,13 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class SubString<TInput> implements IScalarExecutor<TInput, String> {
 	
-	private IScalarExecutor<TInput, String> value;
-	private IScalarExecutor<TInput, Integer> startIndex;
-	private IScalarExecutor<TInput, Integer> length;
+	private IScalarExecutor<? super TInput, String> value;
+	private IScalarExecutor<? super TInput, Integer> startIndex;
+	private IScalarExecutor<? super TInput, Integer> length;
 	
-	public SubString(IScalarExecutor<TInput, String> value, IScalarExecutor<TInput, Integer> startIndex, IScalarExecutor<TInput, Integer> length) {
+	public SubString(IScalarExecutor<? super TInput, String> value, 
+			IScalarExecutor<? super TInput, Integer> startIndex, 
+			IScalarExecutor<? super TInput, Integer> length) {
 		this.value = value;
 		this.startIndex = startIndex;
 		this.length = length;

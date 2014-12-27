@@ -8,10 +8,11 @@ import java.util.Locale;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class ParseDateConst<TInput> implements IScalarExecutor<TInput, Date> {
-	private IScalarExecutor<TInput, String> expression;
+	private IScalarExecutor<? super TInput, String> expression;
 	private final ThreadLocal<DateFormat> dateFormat;
 
-	public ParseDateConst(IScalarExecutor<TInput, String> expression, String formatExpression) {
+	public ParseDateConst(IScalarExecutor<? super TInput, String> expression, 
+			String formatExpression) {
 		this.expression = expression;
 		this.dateFormat = new ThreadLocal<DateFormat>(){
 			@Override

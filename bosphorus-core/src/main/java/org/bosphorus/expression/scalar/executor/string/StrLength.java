@@ -4,9 +4,9 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class StrLength<TInput> implements IScalarExecutor<TInput, Integer> {
 	
-	private IScalarExecutor<TInput, String> value;
+	private IScalarExecutor<? super TInput, String> value;
 
-	public StrLength(IScalarExecutor<TInput, String> value) {
+	public StrLength(IScalarExecutor<? super TInput, String> value) {
 		this.value = value;
 	}
 	

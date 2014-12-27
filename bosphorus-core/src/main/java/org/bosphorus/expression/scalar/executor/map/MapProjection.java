@@ -6,9 +6,9 @@ import java.util.Map;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class MapProjection<TInput, TOutput> implements IScalarExecutor<TInput, Map<String, TOutput>> {
-	private Map<String, IScalarExecutor<TInput, ? extends TOutput>> expressions;
+	private Map<String, ? extends IScalarExecutor<TInput, ? extends TOutput>> expressions;
 
-	public MapProjection(Map<String, IScalarExecutor<TInput, ? extends TOutput>> expressions) {
+	public MapProjection(Map<String, ? extends IScalarExecutor<TInput, ? extends TOutput>> expressions) {
 		this.expressions = expressions;
 	}
 	

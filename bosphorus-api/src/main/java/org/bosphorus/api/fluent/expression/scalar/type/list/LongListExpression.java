@@ -13,7 +13,7 @@ public class LongListExpression<TInput> extends BaseNumberListExpression<TInput,
 	private static final long serialVersionUID = 1L;
 
 	public LongListExpression(
-			IScalarExpression<TInput, List<? extends Long>> builder) {
+			IScalarExpression<TInput, List<Long>> builder) {
 		super(builder);
 	}
 
@@ -21,6 +21,10 @@ public class LongListExpression<TInput> extends BaseNumberListExpression<TInput,
 	protected LongExpression<TInput> create(
 			IScalarExpression<TInput, Long> expression) {
 		return new LongExpression<TInput>(expression);
+	}
+	
+	public LongExpression<TInput> sum() {
+		return this.sumLong();
 	}
 
 }

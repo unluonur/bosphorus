@@ -2,8 +2,8 @@ package org.bosphorus.topology;
 
 import java.util.List;
 
-import org.bosphorus.stream.pipe.IPipe;
-import org.bosphorus.topology.builder.IStreamBuilder;
+import org.bosphorus.stream.IWriter;
+//import org.bosphorus.topology.builder.IStreamBuilder;
 import org.bosphorus.topology.node.old.IBaseNode;
 import org.bosphorus.topology.node.old.IReadNode;
 import org.bosphorus.topology.node.old.IReadWriteNode;
@@ -28,11 +28,11 @@ public interface ITopology {
 	<TInput, TOutput> IReadWriteStream<TInput, TOutput> getInputOutputStream(String name);
 	
 		
-	<TInput> IWriteNode<TInput> createInputNode(IPipe<TInput> pipe, Integer parallelism);
+	<TInput> IWriteNode<TInput> createInputNode(IWriter<TInput> pipe, Integer parallelism);
 	
-	<TOutput> IReadNode<TOutput> createOutputNode(IStreamBuilder<?, TOutput> pipe, Integer parallelism);
+	//<TOutput> IReadNode<TOutput> createOutputNode(IStreamBuilder<?, TOutput> pipe, Integer parallelism);
 	
-	<TInput, TOutput> IReadWriteNode<TInput, TOutput> createInputOutputNode(IPipe<TInput> input, IStreamBuilder<?, TOutput> output, Integer parallelism);
+	//<TInput, TOutput> IReadWriteNode<TInput, TOutput> createInputOutputNode(IWriter<TInput> input, IStreamBuilder<?, TOutput> output, Integer parallelism);
 	
 	
 	<TInput> IWriteNode<TInput> getInputNode(String name);

@@ -2,8 +2,8 @@ package org.bosphorus.builder.old;
 
 import java.util.List;
 
-import org.bosphorus.stream.pipe.IPipe;
+import org.bosphorus.stream.IWriter;
 
 public interface IStreamBuilder {
-	IPipe<List<Object>> build(IPipe<List<Object>> output);
+	IWriter<List<Object>> build(IWriter<List<Object>> output);
 }

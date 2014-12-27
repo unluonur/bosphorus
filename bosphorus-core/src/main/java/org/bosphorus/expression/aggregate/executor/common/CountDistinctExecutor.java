@@ -14,9 +14,11 @@ public class CountDistinctExecutor<TType extends Comparable<TType>> implements I
 
 	@Override
 	public void execute(TType input) throws Exception {
-		Integer hashCode = input.hashCode();
-		if(!list.contains(hashCode)) {
-			list.add(hashCode);
+		if(input != null) {
+			Integer hashCode = input.hashCode();
+			if(!list.contains(hashCode)) {
+				list.add(hashCode);
+			}
 		}
 	}
 

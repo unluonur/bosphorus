@@ -24,11 +24,11 @@ public abstract class BaseTypeContainer<TInput, TOutput> implements ITypeContain
 	}
 	
 	public BooleanContainer<TInput> isNull() {
-		return new BooleanContainer<TInput>(new IsNullExecutor<TInput, TOutput>(this.getExpression()));
+		return new BooleanContainer<TInput>(new IsNullExecutor<TInput>(this.getExpression()));
 	}
 	
 	public BooleanContainer<TInput> isNotNull() {
-		return new BooleanContainer<TInput>(new IsNotNullExecutor<TInput, TOutput>(this.getExpression()));
+		return new BooleanContainer<TInput>(new IsNotNullExecutor<TInput>(this.getExpression()));
 	}
 	
 	public BooleanContainer<TInput> convertToBoolean() {

@@ -16,7 +16,7 @@ public class DateListExpression<TInput> extends BasePrimitiveListExpression<TInp
 	private static final long serialVersionUID = 1L;
 
 	public DateListExpression(
-			IScalarExpression<TInput, List<? extends Date>> builder) {
+			IScalarExpression<TInput, List<Date>> builder) {
 		super(builder);
 	}
 

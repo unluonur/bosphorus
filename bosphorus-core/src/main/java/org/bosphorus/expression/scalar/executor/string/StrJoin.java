@@ -6,8 +6,8 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class StrJoin<TInput> implements IScalarExecutor<TInput, String> {
 	
-	private IScalarExecutor<TInput, List<String>> list;
-	private IScalarExecutor<TInput, String> delimeter;
+	private IScalarExecutor<? super TInput, ? extends List<String>> list;
+	private IScalarExecutor<? super TInput, String> delimeter;
 
 	@Override
 	public String execute(TInput input) throws Exception {

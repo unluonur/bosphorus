@@ -1,7 +1,7 @@
 package org.bosphorus.builder.old;
 
-import org.bosphorus.stream.pipe.IPipe;
+import org.bosphorus.stream.IWriter;
 
 public interface INodeBuilder<TInput, TOutput> {
-	IPipe<TInput> build(IPipe<TOutput> output);
+	IWriter<TInput> build(IWriter<TOutput> output);
 }

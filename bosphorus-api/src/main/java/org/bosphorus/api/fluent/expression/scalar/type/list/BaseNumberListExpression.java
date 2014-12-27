@@ -1,65 +1,65 @@
 package org.bosphorus.api.fluent.expression.scalar.type.list;
 
-import java.util.Date;
 import java.util.List;
 
-import org.bosphorus.api.builder.expression.aggregate.common.MinExpression;
+import org.bosphorus.api.builder.expression.aggregate.math.AvgDoubleExpression;
+import org.bosphorus.api.builder.expression.aggregate.math.AvgFloatExpression;
+import org.bosphorus.api.builder.expression.aggregate.math.AvgIntegerExpression;
+import org.bosphorus.api.builder.expression.aggregate.math.AvgLongExpression;
+import org.bosphorus.api.builder.expression.aggregate.math.SumDoubleExpression;
+import org.bosphorus.api.builder.expression.aggregate.math.SumFloatExpression;
 import org.bosphorus.api.builder.expression.aggregate.math.SumIntegerExpression;
 import org.bosphorus.api.builder.expression.aggregate.math.SumLongExpression;
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 import org.bosphorus.api.builder.expression.scalar.aggregate.ListAggregateExpression;
-import org.bosphorus.api.fluent.expression.scalar.type.primitive.BasePrimitiveExpression;
-import org.bosphorus.api.fluent.expression.scalar.type.primitive.DateExpression;
+import org.bosphorus.api.fluent.expression.scalar.type.primitive.BaseComparableExpression;
 import org.bosphorus.api.fluent.expression.scalar.type.primitive.DoubleExpression;
 import org.bosphorus.api.fluent.expression.scalar.type.primitive.FloatExpression;
 import org.bosphorus.api.fluent.expression.scalar.type.primitive.IntegerExpression;
 import org.bosphorus.api.fluent.expression.scalar.type.primitive.LongExpression;
 
-public abstract class BaseNumberListExpression<TInput, TType extends Number & Comparable<TType>, TPrimitiveType extends BasePrimitiveExpression<TInput, TType>> extends BasePrimitiveListExpression<TInput, TType, TPrimitiveType> {
+public abstract class BaseNumberListExpression<TInput, TType extends Number & Comparable<TType>, TPrimitiveType extends BaseComparableExpression<TInput, TType>> extends BasePrimitiveListExpression<TInput, TType, TPrimitiveType> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public BaseNumberListExpression(IScalarExpression<TInput, List<? extends TType>> builder) {
+	public BaseNumberListExpression(IScalarExpression<TInput, ? extends List<? extends TType>> builder) {
 		super(builder);
 	}
-	
+
 	public IntegerExpression<TInput> sumInteger() {
-		return null;
-		//IScalarExpression<TInput, Integer> expr = new ListAggregateExpression<TInput, Integer, Integer>(this, null);
-		//this.<Integer>aggregate(null);
-		//return new IntegerExpression<TInput>(this.<Integer>aggregate(new SumIntegerExpression()));
+		return new IntegerExpression<TInput>(new ListAggregateExpression<TInput, Number, Integer>(this, new SumIntegerExpression()));
 	}
 	
+	
 	public LongExpression<TInput> sumLong() {
-		return null;
-		//return new LongExpression<TInput>(this.aggregate(new SumLongExpression()));
+		return new LongExpression<TInput>(new ListAggregateExpression<TInput, Number, Long>(this, new SumLongExpression()));
 	}
 	
 	public FloatExpression<TInput> sumFloat() {
-		return null;
+		return new FloatExpression<TInput>(new ListAggregateExpression<TInput, Number, Float>(this, new SumFloatExpression()));
 	}
 	
 	public DoubleExpression<TInput> sumDouble() {
-		return null;
+		return new DoubleExpression<TInput>(new ListAggregateExpression<TInput, Number, Double>(this, new SumDoubleExpression()));
 	}
 	
 	public IntegerExpression<TInput> avgInteger() {
-		return null;
+		return new IntegerExpression<TInput>(new ListAggregateExpression<TInput, Number, Integer>(this, new AvgIntegerExpression()));
 	}
 	
 	public LongExpression<TInput> avgLong() {
-		return null;
+		return new LongExpression<TInput>(new ListAggregateExpression<TInput, Number, Long>(this, new AvgLongExpression()));
 	}
 	
 	public FloatExpression<TInput> avgFloat() {
-		return null;
+		return new FloatExpression<TInput>(new ListAggregateExpression<TInput, Number, Float>(this, new AvgFloatExpression()));
 	}
 	
 	public DoubleExpression<TInput> avgDouble() {
-		return null;
+		return new DoubleExpression<TInput>(new ListAggregateExpression<TInput, Number, Double>(this, new AvgDoubleExpression()));
 	}
 
 }

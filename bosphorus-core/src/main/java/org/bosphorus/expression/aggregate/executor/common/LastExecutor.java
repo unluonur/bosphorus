@@ -11,7 +11,9 @@ public class LastExecutor<TType> implements IAggregateExecutor<TType, TType> {
 
 	@Override
 	public void execute(TType input) throws Exception {
-		value = input;
+		if(input != null) {
+			value = input;
+		}
 	}
 
 	@Override

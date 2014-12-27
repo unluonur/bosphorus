@@ -2,7 +2,7 @@ package org.bosphorus.api.fluent.expression.scalar.type.primitive;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 
-public class IntegerExpression<TInput> extends BaseNumberExpression<TInput, Integer> {
+public class IntegerExpression<TInput> extends BaseComparableExpression<TInput, Integer> {
 
 	/**
 	 * 

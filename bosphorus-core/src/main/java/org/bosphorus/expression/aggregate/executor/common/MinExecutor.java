@@ -12,8 +12,10 @@ public class MinExecutor<TType extends Comparable<TType>> implements IAggregateE
 
 	@Override
 	public void execute(TType input) throws Exception {
-		if(input != null && (value == null || value.compareTo(input) > 0)) {
-			value = input;
+		if(input != null) {
+			if(value == null || value.compareTo(input) > 0) {
+				value = input;
+			}
 		}
 	}
 

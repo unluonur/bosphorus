@@ -14,19 +14,21 @@ public class ListAggregateExpression<TInput, TType, TOutput> implements IScalarE
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private IScalarExpression<TInput, List<? extends TType>> scalarExpression;
-	private IAggregateExpression<TType, ? extends TOutput> aggregateExpression;
+	private IScalarExpression<TInput, ? extends List<? extends TType>> scalarExpression;
+	private IAggregateExpression<TType, TOutput> aggregateExpression;
 	
-	public ListAggregateExpression(IScalarExpression<TInput, List<? extends TType>> scalarExpression, IAggregateExpression<TType, ? extends TOutput> aggregateExpression) {
+	public ListAggregateExpression(
+			IScalarExpression<TInput, ? extends List<? extends TType>> scalarExpression, 
+			IAggregateExpression<TType, TOutput> aggregateExpression) {
 		this.setScalarExpression(scalarExpression);
 		this.setAggregateExpression(aggregateExpression);
 	}
 
-	public IScalarExpression<TInput, List<? extends TType>> getScalarExpression() {
+	public IScalarExpression<TInput, ? extends List<? extends TType>> getScalarExpression() {
 		return scalarExpression;
 	}
 
-	public void setScalarExpression(IScalarExpression<TInput, List<? extends TType>> scalarExpression) {
+	public void setScalarExpression(IScalarExpression<TInput, ? extends List<? extends TType>> scalarExpression) {
 		this.scalarExpression = scalarExpression;
 	}
 
@@ -34,7 +36,7 @@ public class ListAggregateExpression<TInput, TType, TOutput> implements IScalarE
 		return aggregateExpression;
 	}
 
-	public void setAggregateExpression(IAggregateExpression<TType, ? extends TOutput> aggregateExpression) {
+	public void setAggregateExpression(IAggregateExpression<TType, TOutput> aggregateExpression) {
 		this.aggregateExpression = aggregateExpression;
 	}
 

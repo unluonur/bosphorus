@@ -13,7 +13,7 @@ public class FloatListExpression<TInput> extends BaseNumberListExpression<TInput
 	private static final long serialVersionUID = 1L;
 
 	public FloatListExpression(
-			IScalarExpression<TInput, List<? extends Float>> builder) {
+			IScalarExpression<TInput, List<Float>> builder) {
 		super(builder);
 	}
 
@@ -21,6 +21,10 @@ public class FloatListExpression<TInput> extends BaseNumberListExpression<TInput
 	protected FloatExpression<TInput> create(
 			IScalarExpression<TInput, Float> expression) {
 		return new FloatExpression<TInput>(expression);
+	}
+	
+	public FloatExpression<TInput> sum() {
+		return this.sumFloat();
 	}
 
 }

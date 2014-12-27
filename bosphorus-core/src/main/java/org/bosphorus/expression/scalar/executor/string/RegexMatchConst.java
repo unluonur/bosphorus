@@ -7,9 +7,9 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 public class RegexMatchConst<TInput> implements IScalarExecutor<TInput, Boolean> {
 
 	private Pattern pattern;
-	private IScalarExecutor<TInput, String> text;
+	private IScalarExecutor<? super TInput, String> text;
 	
-	public RegexMatchConst(String pattern, IScalarExecutor<TInput, String> text) {
+	public RegexMatchConst(String pattern, IScalarExecutor<? super TInput, String> text) {
 		this.pattern = Pattern.compile(pattern);
 		this.text = text;
 	}

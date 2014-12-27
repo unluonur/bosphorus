@@ -4,12 +4,11 @@ import java.util.Map;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
-public class MapField<TOutput> implements IScalarExecutor<Map<String, ?>, TOutput> {
+public class MapField<TOutput> implements IScalarExecutor<Map<String, ? extends TOutput>, TOutput> {
 	private String name;
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public TOutput execute(Map<String, ?> input) throws Exception {
+	public TOutput execute(Map<String, ? extends TOutput> input) throws Exception {
 		return (TOutput)input.get(name);
 	}
 

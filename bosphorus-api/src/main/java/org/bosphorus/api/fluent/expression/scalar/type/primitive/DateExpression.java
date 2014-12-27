@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 
-public class DateExpression<TInput> extends BasePrimitiveExpression<TInput, Date> {
+public class DateExpression<TInput> extends BaseComparableExpression<TInput, Date> {
 
 	/**
 	 * 

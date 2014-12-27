@@ -2,8 +2,8 @@ package org.bosphorus.topology.node.builder;
 
 import java.util.List;
 
-import org.bosphorus.stream.pipe.IPipe;
+import org.bosphorus.stream.IWriter;
 
 public interface IReadWriteNodeBuilder<TInput, TOutput> {
-	List<IPipe<TInput>> build(List<IPipe<TOutput>> outputs);
+	List<IWriter<TInput>> build(List<IWriter<TOutput>> outputs);
 }

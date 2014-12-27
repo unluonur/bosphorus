@@ -4,9 +4,9 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class IsNotNullExecutor<TInput> implements IScalarExecutor<TInput, Boolean> {
 
-	private IScalarExecutor<TInput, ?> value;
+	private IScalarExecutor<? super TInput, ?> value;
 
-	public IsNotNullExecutor(IScalarExecutor<TInput, ?> value) {
+	public IsNotNullExecutor(IScalarExecutor<? super TInput, ?> value) {
 		this.value = value;
 	}
 

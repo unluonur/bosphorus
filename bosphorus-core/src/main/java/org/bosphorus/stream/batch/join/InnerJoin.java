@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.stream.batch.IReader;
+import org.bosphorus.stream.IReader;
 
 public class InnerJoin<TInput> extends BaseJoin<TInput> {
 

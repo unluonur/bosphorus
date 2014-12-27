@@ -4,10 +4,11 @@ import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class ExpressionExecutor<TInput, TType, TOutput> implements IAggregateExecutor<TInput, TOutput> {
-	private IScalarExecutor<TInput, ? extends TType> expression;
-	private IAggregateExecutor<TType, ? extends TOutput> executor;
+	private IScalarExecutor<? super TInput, ? extends TType> expression;
+	private IAggregateExecutor<? super TType, ? extends TOutput> executor;
 	
-	public ExpressionExecutor(IScalarExecutor<TInput, ? extends TType> expression, IAggregateExecutor<TType, ? extends TOutput> executor) {
+	public ExpressionExecutor(IScalarExecutor<? super TInput, ? extends TType> expression, 
+			IAggregateExecutor<? super TType, ? extends TOutput> executor) {
 		this.expression = expression;
 		this.executor = executor;
 	}

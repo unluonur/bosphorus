@@ -6,8 +6,8 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class RegexMatch<TInput> implements IScalarExecutor<TInput, Boolean> {
 
-	private IScalarExecutor<TInput, String> pattern;
-	private IScalarExecutor<TInput, String> text;
+	private IScalarExecutor<? super TInput, String> pattern;
+	private IScalarExecutor<? super TInput, String> text;
 	
 	@Override
 	public Boolean execute(TInput input) throws Exception {

@@ -13,13 +13,17 @@ public class DoubleListExpression<TInput> extends BaseNumberListExpression<TInpu
 	private static final long serialVersionUID = 1L;
 
 	public DoubleListExpression(
-			IScalarExpression<TInput, List<? extends Double>> builder) {
+			IScalarExpression<TInput, List<Double>> builder) {
 		super(builder);
 	}
 
 	@Override
 	protected DoubleExpression<TInput> create(IScalarExpression<TInput, Double> expression) {
 		return new DoubleExpression<TInput>(expression);
+	}
+	
+	public DoubleExpression<TInput> sum() {
+		return this.sumDouble();
 	}
 
 }

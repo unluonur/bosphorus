@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import org.bosphorus.stream.pipe.IPipe;
+import org.bosphorus.stream.IWriter;
 import org.bosphorus.topology.INodeBinding;
 import org.bosphorus.topology.ITopology;
 import org.bosphorus.topology.ITopologySubmitter;
@@ -30,7 +30,7 @@ public class LocalSubmitter implements ITopologySubmitter {
 		}
 		for(String key: map.keySet()) {
 			IReadNode<?> source = topology.getOutputNode(key);
-			ArrayList<IPipe<?>> inputs = new ArrayList<IPipe<?>>();
+			ArrayList<IWriter<?>> inputs = new ArrayList<IWriter<?>>();
 			for(List<INodeBinding<?>> bindings: map.get(key)) {
 				//bindings.get(0).getSourceNode().
 				//inputs.add(binding.getSourceNode().s)

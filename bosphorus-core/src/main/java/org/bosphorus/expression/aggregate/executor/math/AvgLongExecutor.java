@@ -15,8 +15,10 @@ public class AvgLongExecutor implements IAggregateExecutor<Number, Long> {
 
 	@Override
 	public void execute(Number input) throws Exception {
-		state.sum += input.longValue();
-		state.count++;
+		if(input != null) {
+			state.sum += input.longValue();
+			state.count++;
+		}
 	}
 
 	@Override

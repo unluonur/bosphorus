@@ -4,10 +4,11 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class GreaterThanOrEqualExecutor<TInput, TType extends Comparable<TType>> implements IScalarExecutor<TInput, Boolean> {
 
-	private IScalarExecutor<TInput, ? extends TType> left;
-	private IScalarExecutor<TInput, ? extends TType> right;
+	private IScalarExecutor<? super TInput, ? extends TType> left;
+	private IScalarExecutor<? super TInput, ? extends TType> right;
 
-	public GreaterThanOrEqualExecutor(IScalarExecutor<TInput, ? extends TType> left, IScalarExecutor<TInput, ? extends TType> right) {
+	public GreaterThanOrEqualExecutor(IScalarExecutor<? super TInput, ? extends TType> left, 
+			IScalarExecutor<? super TInput, ? extends TType> right) {
 		this.left = left;
 		this.right = right;
 	}

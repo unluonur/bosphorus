@@ -5,18 +5,18 @@ import java.util.List;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
-public class ExpressionList<TInput, TOutput> implements IScalarExecutor<TInput, List<? extends TOutput>> {
+public class ExpressionList<TInput, TOutput> implements IScalarExecutor<TInput, List<TOutput>> {
 
-	private List<IScalarExecutor<TInput, ? extends TOutput>> expressions;
+	private List<? extends IScalarExecutor<? super TInput, ? extends TOutput>> expressions;
 
-	public ExpressionList(List<IScalarExecutor<TInput, ? extends TOutput>> expressions) {
+	public ExpressionList(List<? extends IScalarExecutor<? super TInput, ? extends TOutput>> expressions) {
 		this.expressions = expressions;
 	}
 	
 	@Override
 	public List<TOutput> execute(TInput input) throws Exception {
 		ArrayList<TOutput> result = new ArrayList<TOutput>();
-		for(IScalarExecutor<TInput, ? extends TOutput> expr: expressions) {
+		for(IScalarExecutor<? super TInput, ? extends TOutput> expr: expressions) {
 			result.add(expr.execute(input));
 		}
 		return result;

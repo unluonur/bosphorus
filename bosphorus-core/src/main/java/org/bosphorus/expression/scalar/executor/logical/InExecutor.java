@@ -6,11 +6,11 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class InExecutor<TInput, TType extends Comparable<TType>> implements IScalarExecutor<TInput, Boolean> {
 
-	private IScalarExecutor<TInput, ? extends TType> value;
-	private IScalarExecutor<TInput, List<? extends TType>> list;
+	private IScalarExecutor<? super TInput, ? extends TType> value;
+	private IScalarExecutor<? super TInput, ? extends List<? extends TType>> list;
 
-	public InExecutor(IScalarExecutor<TInput, ? extends TType> value,
-			IScalarExecutor<TInput, List<? extends TType>> list) {
+	public InExecutor(IScalarExecutor<? super TInput, ? extends TType> value,
+			IScalarExecutor<? super TInput, ? extends List<? extends TType>> list) {
 		this.value = value;
 		this.list = list;
 	}

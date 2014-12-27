@@ -14,9 +14,11 @@ public class FirstExecutor<TType> implements IAggregateExecutor<TType, TType> {
 
 	@Override
 	public void execute(TType input) throws Exception {
-		if(!state.hasValue) {
-			state.value = input;
-			state.hasValue = true;
+		if(input != null) {
+			if(!state.hasValue) {
+				state.value = input;
+				state.hasValue = true;
+			}
 		}
 	}
 

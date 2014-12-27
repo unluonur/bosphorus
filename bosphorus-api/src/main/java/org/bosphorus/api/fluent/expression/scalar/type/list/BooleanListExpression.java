@@ -13,7 +13,7 @@ public class BooleanListExpression<TInput> extends BasePrimitiveListExpression<T
 	private static final long serialVersionUID = 1L;
 
 	public BooleanListExpression(
-			IScalarExpression<TInput, List<? extends Boolean>> builder) {
+			IScalarExpression<TInput, List<Boolean>> builder) {
 		super(builder);
 	}
 

@@ -2,7 +2,7 @@ package org.bosphorus.api.fluent.expression.scalar.type.primitive;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 
-public class BooleanExpression<TInput> extends BasePrimitiveExpression<TInput, Boolean> {
+public class BooleanExpression<TInput> extends BaseComparableExpression<TInput, Boolean> {
 
 	/**
 	 * 

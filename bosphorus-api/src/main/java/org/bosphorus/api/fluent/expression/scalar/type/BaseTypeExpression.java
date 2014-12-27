@@ -1,6 +1,7 @@
 package org.bosphorus.api.fluent.expression.scalar.type;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.common.ConvertExpression;
 import org.bosphorus.api.fluent.expression.scalar.type.primitive.BooleanExpression;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
@@ -37,4 +38,9 @@ public abstract class BaseTypeExpression<TInput, TOutput> implements IScalarExpr
 	public BooleanExpression<TInput> isNotNull() {
 		return null;
 	}
+	
+	public <TType> IScalarExpression<TInput, TType> convert() {
+		return new ConvertExpression<TInput, TType, TOutput>(this);
+	}
+	
 }

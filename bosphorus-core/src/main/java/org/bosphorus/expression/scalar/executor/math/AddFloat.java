@@ -4,11 +4,11 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class AddFloat<TInput> implements IScalarExecutor<TInput, Float> {
 
-	private IScalarExecutor<TInput, ? extends Number> left;
-	private IScalarExecutor<TInput, ? extends Number> right;
+	private IScalarExecutor<? super TInput, ? extends Number> left;
+	private IScalarExecutor<? super TInput, ? extends Number> right;
 
-	public AddFloat(IScalarExecutor<TInput, ? extends Number> left,
-			IScalarExecutor<TInput, ? extends Number> right) {
+	public AddFloat(IScalarExecutor<? super TInput, ? extends Number> left,
+			IScalarExecutor<? super TInput, ? extends Number> right) {
 		this.left = left;
 		this.right = right;
 	}

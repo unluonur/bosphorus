@@ -4,11 +4,13 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class IIfExecutor<TInput, TOutput> implements IScalarExecutor<TInput, TOutput> {
 	
-	private IScalarExecutor<TInput, Boolean> condition;
-	private IScalarExecutor<TInput, ? extends TOutput> trueValue;
-	private IScalarExecutor<TInput, ? extends TOutput> falseValue;
+	private IScalarExecutor<? super TInput, Boolean> condition;
+	private IScalarExecutor<? super TInput, ? extends TOutput> trueValue;
+	private IScalarExecutor<? super TInput, ? extends TOutput> falseValue;
 	
-	public IIfExecutor(IScalarExecutor<TInput, Boolean> condition, IScalarExecutor<TInput, ? extends TOutput> trueValue, IScalarExecutor<TInput, ? extends TOutput> falseValue) {
+	public IIfExecutor(IScalarExecutor<? super TInput, Boolean> condition, 
+			IScalarExecutor<? super TInput, ? extends TOutput> trueValue, 
+			IScalarExecutor<? super TInput, ? extends TOutput> falseValue) {
 		this.condition = condition;
 		this.trueValue = trueValue;
 		this.falseValue = falseValue;

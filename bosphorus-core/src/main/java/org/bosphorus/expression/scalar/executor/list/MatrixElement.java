@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
-public class MatrixElement<TInput extends List<List<?>>, TOutput> implements IScalarExecutor<TInput, TOutput> {
+public class MatrixElement<TInput extends List<? extends List<?>>, TOutput> implements IScalarExecutor<TInput, TOutput> {
 	private Integer streamIndex;
 	private Integer fieldIndex;
 	

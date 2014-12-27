@@ -2,12 +2,12 @@ package org.bosphorus.topology.node.old;
 
 import java.util.List;
 
-import org.bosphorus.stream.pipe.IPipe;
+import org.bosphorus.stream.IWriter;
 
 public interface IWriteNode<TInput> extends IBaseNode {
 	
 	List<IStreamDefinition> defineInput();
 
-	List<IPipe<TInput>> getInputs();
+	List<IWriter<TInput>> getInputs();
 
 }

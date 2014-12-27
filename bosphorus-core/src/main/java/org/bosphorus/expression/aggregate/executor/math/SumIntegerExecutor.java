@@ -12,7 +12,9 @@ public class SumIntegerExecutor implements IAggregateExecutor<Number, Integer> {
 
 	@Override
 	public void execute(Number input) throws Exception {
-		sum += input.intValue();
+		if(input != null) {
+			sum += input.intValue();
+		}
 	}
 
 	@Override

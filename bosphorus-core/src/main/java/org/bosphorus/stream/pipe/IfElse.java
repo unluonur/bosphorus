@@ -3,11 +3,12 @@ package org.bosphorus.stream.pipe;
 import java.util.List;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.stream.IWriter;
 
-public class IfElse<TInput> implements IPipe<TInput> {
+public class IfElse<TInput> implements IWriter<TInput> {
 	private IScalarExecutor<TInput, Boolean> condition;
-	private IPipe<TInput> truePipe;
-	private IPipe<TInput> falsePipe;
+	private IWriter<TInput> truePipe;
+	private IWriter<TInput> falsePipe;
 
 	@Override
 	public void writeOne(TInput input) throws Exception {
@@ -20,7 +21,7 @@ public class IfElse<TInput> implements IPipe<TInput> {
 	}
 
 	@Override
-	public void writeMulti(List<TInput> input) throws Exception {
+	public void writeMulti(List<? extends TInput> input) throws Exception {
 		// TODO Auto-generated method stub
 		
 	}

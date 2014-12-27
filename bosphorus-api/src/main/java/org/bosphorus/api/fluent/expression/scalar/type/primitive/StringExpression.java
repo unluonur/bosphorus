@@ -3,7 +3,7 @@ package org.bosphorus.api.fluent.expression.scalar.type.primitive;
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 import org.bosphorus.api.fluent.expression.scalar.type.list.StringListExpression;
 
-public class StringExpression<TInput> extends BasePrimitiveExpression<TInput, String> {
+public class StringExpression<TInput> extends BaseComparableExpression<TInput, String> {
 
 	/**
 	 * 

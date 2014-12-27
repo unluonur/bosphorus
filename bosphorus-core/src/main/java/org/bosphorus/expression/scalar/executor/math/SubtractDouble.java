@@ -4,11 +4,11 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
 public class SubtractDouble<TInput> implements IScalarExecutor<TInput, Double> {
 
-	private IScalarExecutor<TInput, ? extends Number> left;
-	private IScalarExecutor<TInput, ? extends Number> right;
+	private IScalarExecutor<? super TInput, ? extends Number> left;
+	private IScalarExecutor<? super TInput, ? extends Number> right;
 
-	public SubtractDouble(IScalarExecutor<TInput, ? extends Number> left,
-			IScalarExecutor<TInput, ? extends Number> right) {
+	public SubtractDouble(IScalarExecutor<? super TInput, ? extends Number> left,
+			IScalarExecutor<? super TInput, ? extends Number> right) {
 		this.left = left;
 		this.right = right;
 	}

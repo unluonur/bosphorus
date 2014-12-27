@@ -10,12 +10,12 @@ import org.bosphorus.builder.container.IntegerContainer;
 import org.bosphorus.builder.container.LongContainer;
 import org.bosphorus.builder.container.StringContainer;
 import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
-import org.bosphorus.expression.scalar.executor.date.Now;
+import org.bosphorus.expression.scalar.executor.date.NowExecutor;
 
 public class ExpressionBuilder<TInput> {
 	
 	public DateContainer<TInput> now() {
-		return new DateContainer<TInput>(new Now<TInput>());
+		return new DateContainer<TInput>(new NowExecutor<TInput>());
 	}
 	
 	public IntegerContainer<TInput> constant(Integer value) {

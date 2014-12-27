@@ -22,5 +22,9 @@ public class IntegerListExpression<TInput> extends BaseNumberListExpression<TInp
 			IScalarExpression<TInput, Integer> expression) {
 		return new IntegerExpression<TInput>(expression);
 	}
-
+	
+	public IntegerExpression<TInput> sum() {
+		return this.sumInteger();
+	}
+	
 }

@@ -13,7 +13,7 @@ public class StringListExpression<TInput> extends BasePrimitiveListExpression<TI
 	private static final long serialVersionUID = 1L;
 
 	public StringListExpression(
-			IScalarExpression<TInput, List<? extends String>> builder) {
+			IScalarExpression<TInput, List<String>> builder) {
 		super(builder);
 	}
 	
