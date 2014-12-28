@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.expression.scalar.executor.list.ConstListElement;
+import org.bosphorus.expression.scalar.executor.list.ConstListElementExecutor;
 
 public class ConstListElementExpression<TInput extends List<? extends TOutput>, TOutput> implements IScalarExpression<TInput, TOutput> {
 
@@ -29,7 +29,7 @@ public class ConstListElementExpression<TInput extends List<? extends TOutput>, 
 
 	@Override
 	public IScalarExecutor<TInput, TOutput> build() {
-		return new ConstListElement<TInput, TOutput>(this.getFieldIndex());
+		return new ConstListElementExecutor<TInput, TOutput>(this.getFieldIndex());
 	}
 
 }

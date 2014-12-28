@@ -1,18 +1,19 @@
 package org.bosphorus.expression.aggregate.executor.common;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.expression.aggregate.factory.IAggregateExecutorFactory;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
 
-public class GroupAggregationExecutor<TInput, TKey, TValue> implements IAggregateExecutor<TInput, Map<TKey, TValue>> {
+public class GroupToListAggregationExecutor<TInput, TType, TKey extends TType, TValue extends TType> implements IAggregateExecutor<TInput, List<List<TType>>> {
 	private IScalarExecutor<? super TInput, ? extends TKey> keyExpression;
 	private IAggregateExecutorFactory<? super TInput, ? extends TValue> valueFactory;
 	private HashMap<TKey, IAggregateExecutor<? super TInput, ? extends TValue>> map;
 	
-	public GroupAggregationExecutor(IScalarExecutor<? super TInput, ? extends TKey> keyExpression, 
+	public GroupToListAggregationExecutor(IScalarExecutor<? super TInput, ? extends TKey> keyExpression, 
 			IAggregateExecutorFactory<? super TInput, ? extends TValue> valueExpression) {
 		this.keyExpression = keyExpression;
 		this.valueFactory = valueExpression;
@@ -36,13 +37,29 @@ public class GroupAggregationExecutor<TInput, TKey, TValue> implements IAggregat
 	}
 	
 	@Override
+	public List<List<TType>> getValue() {
+		ArrayList<List<TType>> result = new ArrayList<List<TType>>();
+		for(TKey key: map.keySet()) {
+			ArrayList<TType> item = new ArrayList<TType>();
+			item.add(key);
+			item.add(map.get(key).getValue());
+			result.add(item);
+		}
+		return result;
+		
+	}
+	
+/*
+	@Override
 	public Map<TKey, TValue> getValue() {
 		HashMap<TKey, TValue> result = new HashMap<TKey, TValue>();
 		for(TKey key: map.keySet()) {
-			result.put(key, map.get(key).getValue());
+			IAggregateExecutor<TInput, ? extends TValue> value = map.get(key);
+			result.put(key, value.getValue());
 		}
 		return result;
 	}
+*/
 
 	@Override
 	public void reset() {

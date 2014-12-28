@@ -10,7 +10,6 @@ public class StdDevDoubleExecutor implements IAggregateExecutor<Number, Double> 
 	
 	public StdDevDoubleExecutor() {
 		list = new ArrayList<Number>();
-		reset();
 	}
 
 	@Override

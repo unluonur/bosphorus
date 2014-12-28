@@ -10,7 +10,6 @@ public class MedianDoubleExecutor implements IAggregateExecutor<Number, Double> 
 	
 	public MedianDoubleExecutor() {
 		list = new ArrayList<Number>();
-		reset();
 	}
 
 	@Override

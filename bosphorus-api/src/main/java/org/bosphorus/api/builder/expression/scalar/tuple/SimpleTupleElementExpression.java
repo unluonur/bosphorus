@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.expression.scalar.executor.list.ConstListElement;
+import org.bosphorus.expression.scalar.executor.list.ConstListElementExecutor;
 
 public class SimpleTupleElementExpression<TInput extends List<? extends TOutput>, TOutput> implements IScalarExpression<TInput, TOutput> {
 
@@ -32,7 +32,7 @@ public class SimpleTupleElementExpression<TInput extends List<? extends TOutput>
 
 	@Override
 	public IScalarExecutor<TInput, TOutput> build() {
-		return new ConstListElement<TInput, TOutput>(this.map.get(this.getFieldName()));
+		return new ConstListElementExecutor<TInput, TOutput>(this.map.get(this.getFieldName()));
 	}
 
 }

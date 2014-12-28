@@ -16,7 +16,7 @@ public class FirstNExecutor<TType> implements IAggregateExecutor<TType, List<TTy
 
 	@Override
 	public void execute(TType input) throws Exception {
-		if(list.size()<maxSize) {
+		if(list.size() < maxSize) {
 			list.add(input);
 		}
 	}
