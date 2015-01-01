@@ -8,7 +8,7 @@ An experimental distributed Java CEP engine.
 ```java
 		ListStream stream = new ListStream("City", "Member", "Price", "Date");
 		IAggregateExecutor<List<Object>, List<Object>> executor = stream.list(
-			stream.countAllInteger(),
+			stream.countInteger(),
 			stream.avgDouble(stream.field("Price").doubleValue()),
 			stream.min(stream.field("Price").doubleValue()),
 			stream.max(stream.field("Price").doubleValue()),
@@ -36,7 +36,7 @@ An experimental distributed Java CEP engine.
 		IAggregateExecutor<List<Object>, ?> executor = stream.group(
 			stream.list(stream.field("Member").stringValue(), stream.field("City").stringValue()), /* Key Expression */
 			stream.list(
-				stream.countAllInteger(),
+				stream.countInteger(),
 				stream.avgDouble(stream.field("Price").doubleValue())
 			)
 		).build().create();
@@ -60,7 +60,7 @@ An experimental distributed Java CEP engine.
 		IAggregateExecutor<List<Object>, ?> executor = stream.group(
 			stream.field("City").stringValue(), /* Key expression for parent aggregation */
 			stream.list(
-				stream.countAllInteger(),
+				stream.countInteger(),
 				stream.avgDouble(stream.field("Price").doubleValue()),
 				stream.group(
 					stream.field("Member").stringValue(), /* Key expression for child aggregation */
