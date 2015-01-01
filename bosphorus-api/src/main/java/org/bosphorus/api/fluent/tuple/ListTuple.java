@@ -2,8 +2,8 @@ package org.bosphorus.api.fluent.tuple;
 
 import java.util.List;
 
-import org.bosphorus.api.fluent.expression.scalar.type.primitive.IntegerExpression;
-import org.bosphorus.api.fluent.expression.scalar.type.primitive.ObjectExpression;
+import org.bosphorus.api.fluent.expression.scalar.primitive.IntegerExpression;
+import org.bosphorus.api.fluent.expression.scalar.primitive.ObjectExpression;
 
 public class ListTuple<TType> {
 	private List<String> fields;

@@ -1,14 +1,30 @@
-package org.bosphorus.expression.aggregate.executor.math;
+/**
+ * Copyright (c) Onur Ünlü
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * The latest version of this file can be found at https://github.com/unluonur/bosphorus
+ */
 
-import java.io.Serializable;
+package org.bosphorus.expression.aggregate.executor.math;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 
 public class AvgDoubleExecutor implements IAggregateExecutor<Number, Double> {
-	private State state;
+	private AvgState<Double, Long> state;
 	
 	public AvgDoubleExecutor() {
-		this.state = new State();
+		this.state = new AvgState<Double, Long>();
 		this.reset();
 	}
 
@@ -39,19 +55,9 @@ public class AvgDoubleExecutor implements IAggregateExecutor<Number, Double> {
 		return state;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void setState(Object state) throws Exception {
-		this.state = (State)state;
+		this.state = (AvgState<Double, Long>)state;
 	}
-	
-	private static class State implements Serializable {
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
-		
-		public Double sum;
-		public Long count;
-	}
-
 }
