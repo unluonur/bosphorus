@@ -13,6 +13,7 @@ An experimental distributed Java CEP engine.
 			stream.min(stream.field("Price").doubleValue()),
 			stream.max(stream.field("Price").doubleValue()),
 			stream.countDistinct(stream.field("City").stringValue()),
+			stream.stdDevDouble(stream.field("Price").doubleValue()),
 			stream.distinct(stream.field("City").stringValue())
 		).build().create();
 
@@ -24,7 +25,7 @@ An experimental distributed Java CEP engine.
 
 #####  Sample Output 1
 ```
-[10000000, 49.9927659167969, 1.7413099639984608E-5, 99.9999987747917, 3, [İzmir, Ankara, İstanbul]]
+[10000000, 49.998068143760705, 5.887227660927863E-6, 99.99999969558941, 3, 91298.95383854832, [Ankara, İstanbul, İzmir]]
 ```
 
 
