@@ -5,30 +5,16 @@ import org.bosphorus.api.builder.node.INodeContext;
 import org.bosphorus.stream.IPipeExecutor;
 import org.bosphorus.stream.pipe.FilterExecutor;
 
-public class FilterPipe<TType> implements IStreamInput<TType> {
+public class FilterPipe<TType> extends BaseSingleOutputStream<TType, TType> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
 	private IScalarExpression<? super TType, Boolean> filter;
-	private IStreamOutput<TType> output;
-	
-	public FilterPipe() {
-		this.output = new StreamOutput<TType>();
-	}
 	
 	public FilterPipe(IScalarExpression<? super TType, Boolean> filter) {
-		this.output = new StreamOutput<TType>();
 		this.filter = filter;
-	}
-
-	public IStreamOutput<TType> getOutput() {
-		return output;
-	}
-
-	public void setOutput(IStreamOutput<TType> output) {
-		this.output = output;
 	}
 
 	@Override

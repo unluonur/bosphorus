@@ -19,14 +19,17 @@ public class StreamOutput<TType> implements IStreamOutput<TType> {
 		this.destinations = new ArrayList<IStreamInput<TType>>();
 	}
 
-	@Override
 	public List<IStreamInput<TType>> getDestinations() {
 		return destinations;
 	}
 
-	@Override
 	public void setDestinations(List<IStreamInput<TType>> destinations) {
 		this.destinations = destinations;
+	}
+
+	@Override
+	public void add(IStreamInput<TType> pipe) {
+		this.getDestinations().add(pipe);
 	}
 
 	@Override

@@ -50,7 +50,7 @@ public class TimeIntervalBatch<TInput, TOutput> implements IPipeExecutor<TInput>
 					e.printStackTrace();
 				}
 			}
-		}, interval);
+		}, 0, interval);
 	}
 	
 	@Override

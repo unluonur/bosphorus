@@ -4,6 +4,6 @@ import org.bosphorus.stream.IPipeExecutor;
 
 public interface INodeContext {
 	
-	<TInput> IPipeExecutor<TInput> pipe(String id) throws Exception;
+	<TInput> IPipeExecutor<TInput> pipe(String name) throws Exception;
 	
 }

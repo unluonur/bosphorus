@@ -1,11 +1,9 @@
 package org.bosphorus.api.builder.node;
 
 import java.util.HashMap;
-import java.util.UUID;
 
 import org.bosphorus.api.builder.stream.IStreamInput;
 import org.bosphorus.api.builder.stream.IStreamOutput;
-import org.bosphorus.api.builder.stream.RegisteredPipe;
 
 public class Node implements INode {
 	/**
@@ -32,31 +30,25 @@ public class Node implements INode {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <TType> IStreamInput<TType> streamInput(String id) {
-		return (IStreamInput<TType>)inputs.get(id);
+	public <TType> IStreamInput<TType> streamInput(String name) {
+		return (IStreamInput<TType>)inputs.get(name);
 	}
 
 	@Override
-	public <TType> IStreamInput<TType> registerInput(IStreamInput<TType> pipe) {
-		return registerInput(UUID.randomUUID().toString(), pipe);
-	}
-
-	@Override
-	public <TType> IStreamInput<TType> registerInput(String id,
+	public <TType> void registerInput(String name,
 			IStreamInput<TType> pipe) {
-		this.inputs.put(id, pipe);
-		return new RegisteredPipe<TType>(id);
+		this.inputs.put(name, pipe);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public <TType> IStreamOutput<TType> streamOutput(String id) {
-		return (IStreamOutput<TType>)outputs.get(id);
+	public <TType> IStreamOutput<TType> streamOutput(String name) {
+		return (IStreamOutput<TType>)outputs.get(name);
 	}
 	
 	@Override
-	public <TType> void registerOutput(String id, IStreamOutput<TType> output) {
-		this.outputs.put(id, output);
+	public <TType> void registerOutput(String name, IStreamOutput<TType> output) {
+		this.outputs.put(name, output);
 	}
 
 }
