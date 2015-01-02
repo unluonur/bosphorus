@@ -20,26 +20,20 @@ package org.bosphorus.stream.pipe;
 
 import java.util.List;
 
-import org.bosphorus.stream.IWriter;
+import org.bosphorus.stream.IPipeExecutor;
 
-public class OneToMany<TType> implements IWriter<TType> {
-	private List<? extends IWriter<? super TType>> outputStreams;
-	
-	public OneToMany(List<? extends IWriter<? super TType>> outputStreams) {
-		this.outputStreams = outputStreams;
+public class ItemToListExecutor<TType> implements IPipeExecutor<List<? extends TType>> {
+	private IPipeExecutor<? super TType> output;
+
+	@Override
+	public void writeOne(List<? extends TType> input) throws Exception {
+		output.writeMulti(input);
 	}
 
 	@Override
-	public void writeOne(TType input) throws Exception {
-		for(IWriter<? super TType> writer: outputStreams) {
-			writer.writeOne(input);
-		}
-	}
-
-	@Override
-	public void writeMulti(List<? extends TType> input) throws Exception {
-		for(IWriter<? super TType> writer: outputStreams) {
-			writer.writeMulti(input);
+	public void writeMulti(List<? extends List<? extends TType>> input) throws Exception {
+		for(List<? extends TType> list: input) {
+			output.writeMulti(list);
 		}
 	}
 

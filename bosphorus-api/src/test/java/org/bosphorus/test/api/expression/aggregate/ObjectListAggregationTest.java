@@ -39,7 +39,7 @@ public class ObjectListAggregationTest {
 
 	@Test
 	public void test_aggregate_count_all() throws Exception {
-		ListStream stream = new ListStream("City", "Value");
+		ListStream stream = new ListStream("City", "Member", "Price", "Date");
 		IAggregateExecutor<List<Object>, Integer> executor = stream.countInteger().build().create();
 		
 		for(Integer i=1; i<1000; i++) {
@@ -65,7 +65,7 @@ public class ObjectListAggregationTest {
 				
 		Date date = new Date();
 
-		for(Integer i=1; i<=10000000; i++) {
+		for(Integer i=1; i<=10000; i++) {
 			executor.execute(sampleDataFactory.makeRandomTuple());
 		}
 
@@ -79,7 +79,6 @@ public class ObjectListAggregationTest {
 		//System.out.println(executor.getState());
 
 	}
-
 
 	@SuppressWarnings("unchecked")
 	@Test
@@ -112,8 +111,6 @@ public class ObjectListAggregationTest {
 		//System.out.println(executor.getState());
 
 	}
-	
-
 
 	@SuppressWarnings("unchecked")
 	@Test
@@ -152,6 +149,40 @@ public class ObjectListAggregationTest {
 		 * Sample output : 
 		 * [10000000, 50.012890240373466, 1.8183743200061997E-5, 99.99999377681694, 81, [Hatay, Sivas, Erzurum, Sakarya, Trabzon, Giresun, Bolu, Konya, Bursa, Aydýn, Ýstanbul, Bartýn, Balýkesir, Gaziantep, Sinop, Kütahya, Edirne, Ardahan, Artvin, Ordu, Burdur, Samsun, Çorum, Nevþehir, Malatya, Kýrklareli, Bayburt, Ýzmir, Diyarbakýr, Aðrý, Uþak, Düzce, Kilis, Çankýrý, Erzincan, Bingöl, Iðdýr, Karaman, Tekirdað, Van, Aksaray, Karabük, Tokat, Bilecik, Bitlis, Adana, Yalova, Antalya, Kahramanmaraþ, Þýrnak, Muþ, Rize, Hakkâri, Afyonkarahisar, Kars, Osmaniye, Gümüþhane, Muðla, Kýrþehir, Manisa, Mardin, Kýrýkkale, Mersin, Zonguldak, Kocaeli, Isparta, Elazýð, Batman, Denizli, Kayseri, Eskiþehir, Tunceli, Niðde, Adýyaman, Amasya, Þanlýurfa, Siirt, Çanakkale, Kastamonu, Yozgat, Ankara]]
 		 */
+		System.out.println(executor.getValue());
+		//System.out.println(executor.getState());
+
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Test
+	public void test_group_truncate_date() throws Exception {
+		ListStream stream = new ListStream("City", "Member", "Price", "Date");
+		IAggregateExpression<List<Object>, ?> expression = stream.group(
+			stream.field("Date").dateValue().truncateToWeek(),
+			stream.list(
+				stream.countInteger(),
+				stream.avgDouble(stream.field("Price").doubleValue()),
+				stream.min(stream.field("Price").doubleValue()),
+				stream.max(stream.field("Price").doubleValue()),
+				stream.stdDevDouble(stream.field("Price").doubleValue())
+			)
+		);
+		System.out.println(expression);
+		IAggregateExecutor<List<Object>, ?> executor = expression.build().create();
+		
+			
+		Date date = new Date();
+
+		for(Integer i=1; i<=1000; i++) {
+			executor.execute(sampleDataFactory.makeRandomTuple());
+		}
+
+		// 3,3M EPS (without standard deviation)
+		System.out.println(new Date().getTime() - date.getTime());
+
+		
 		System.out.println(executor.getValue());
 		//System.out.println(executor.getState());
 

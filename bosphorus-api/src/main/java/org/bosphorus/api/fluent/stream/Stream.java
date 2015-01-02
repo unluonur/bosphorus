@@ -26,6 +26,7 @@ import org.bosphorus.api.builder.expression.aggregate.scalar.ScalarToAggregateEx
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 import org.bosphorus.api.builder.expression.scalar.common.ConstantExpression;
 import org.bosphorus.api.builder.expression.scalar.common.InputExpression;
+import org.bosphorus.api.builder.expression.scalar.condition.EqualsExpression;
 import org.bosphorus.api.builder.expression.scalar.list.ExpressionList;
 import org.bosphorus.api.fluent.expression.scalar.list.ObjectListExpression;
 import org.bosphorus.api.fluent.expression.scalar.primitive.BooleanExpression;

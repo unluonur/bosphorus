@@ -15,7 +15,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class ObjectListStreamTest {
-	private ListStream stream = new ListStream("City", "Total");
+	private ListStream stream = new ListStream("City", "Member", "Price", "Date");
+
 	private SampleTupleFactory factory = new SampleTupleFactory();
 
 	@BeforeClass

@@ -23,16 +23,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
-import org.bosphorus.stream.IWriter;
+import org.bosphorus.stream.IPipeExecutor;
 
-public class TimeIntervalBatch<TInput, TOutput> implements IWriter<TInput> {
+public class TimeIntervalBatch<TInput, TOutput> implements IPipeExecutor<TInput> {
 
 	protected Object lockObject;
 	private IAggregateExecutor<? super TInput, ? extends TOutput> executor;
 	private Timer timer;
 
 	public TimeIntervalBatch(final IAggregateExecutor<? super TInput, ? extends TOutput> executor,
-			final IWriter<? super TOutput> output,
+			final IPipeExecutor<? super TOutput> output,
 			Integer interval) {
 		this.lockObject = new Object();
 		this.executor = executor;

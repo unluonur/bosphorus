@@ -3,7 +3,10 @@ package org.bosphorus.api.fluent.expression.scalar.primitive;
 import java.util.Date;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.common.ConstantExpression;
 import org.bosphorus.api.builder.expression.scalar.common.ConvertExpression;
+import org.bosphorus.api.builder.expression.scalar.condition.EqualsExpression;
+import org.bosphorus.api.builder.expression.scalar.condition.NotEqualsExpression;
 import org.bosphorus.api.fluent.expression.scalar.BaseTypeExpression;
 
 public class BaseComparableExpression<TInput, TOutput extends Comparable<TOutput>> extends BaseTypeExpression<TInput, TOutput> {
@@ -43,6 +46,22 @@ public class BaseComparableExpression<TInput, TOutput extends Comparable<TOutput
 	
 	public StringExpression<TInput> convertToString() {
 		return new StringExpression<TInput>(new ConvertExpression<TInput, String, TOutput>(this.getBuilder()));
+	}
+	
+	public BooleanExpression<TInput> isEqualTo(IScalarExpression<TInput, TOutput> expression) {
+		return new BooleanExpression<TInput>(new EqualsExpression<TInput, TOutput>(this, expression));
+	}
+	
+	public BooleanExpression<TInput> isEqualTo(TOutput value) {
+		return this.isEqualTo(new ConstantExpression<TInput, TOutput>(value));
+	}
+	
+	public BooleanExpression<TInput> isNotEqualTo(IScalarExpression<TInput, TOutput> expression) {
+		return new BooleanExpression<TInput>(new NotEqualsExpression<TInput, TOutput>(this, expression));
+	}
+	
+	public BooleanExpression<TInput> isNotEqualTo(TOutput value) {
+		return this.isNotEqualTo(new ConstantExpression<TInput, TOutput>(value));
 	}
 
 }

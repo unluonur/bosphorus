@@ -22,15 +22,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.stream.IWriter;
+import org.bosphorus.stream.IPipeExecutor;
 
-public class ProjectionPipe<TInput, TOutput> implements IWriter<TInput> {
+public class ProjectionExecutor<TInput, TOutput> implements IPipeExecutor<TInput> {
 
 	private IScalarExecutor<? super TInput, ? extends TOutput> expression;
-	private IWriter<? super TOutput> outputStream;
+	private IPipeExecutor<? super TOutput> outputStream;
 	
-	public ProjectionPipe(IScalarExecutor<? super TInput, ? extends TOutput> expression, 
-			IWriter<? super TOutput> outputStream) {
+	public ProjectionExecutor(IScalarExecutor<? super TInput, ? extends TOutput> expression, 
+			IPipeExecutor<? super TOutput> outputStream) {
 		this.expression = expression;
 		this.outputStream = outputStream;
 	}

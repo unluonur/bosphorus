@@ -16,14 +16,31 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.stream;
+package org.bosphorus.stream.pipe;
 
 import java.util.List;
 
-public interface IWriter<TInput> {
+import org.bosphorus.stream.IPipeExecutor;
 
-	void writeOne(TInput input) throws Exception;
+public class OneToManyExecutor<TType> implements IPipeExecutor<TType> {
+	private List<? extends IPipeExecutor<? super TType>> outputStreams;
+	
+	public OneToManyExecutor(List<? extends IPipeExecutor<? super TType>> outputStreams) {
+		this.outputStreams = outputStreams;
+	}
 
-	void writeMulti(List<? extends TInput> input) throws Exception;
+	@Override
+	public void writeOne(TType input) throws Exception {
+		for(IPipeExecutor<? super TType> writer: outputStreams) {
+			writer.writeOne(input);
+		}
+	}
+
+	@Override
+	public void writeMulti(List<? extends TType> input) throws Exception {
+		for(IPipeExecutor<? super TType> writer: outputStreams) {
+			writer.writeMulti(input);
+		}
+	}
 
 }

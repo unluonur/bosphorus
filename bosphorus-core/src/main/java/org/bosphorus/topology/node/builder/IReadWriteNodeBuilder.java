@@ -20,8 +20,8 @@ package org.bosphorus.topology.node.builder;
 
 import java.util.List;
 
-import org.bosphorus.stream.IWriter;
+import org.bosphorus.stream.IPipeExecutor;
 
 public interface IReadWriteNodeBuilder<TInput, TOutput> {
-	List<IWriter<TInput>> build(List<IWriter<TOutput>> outputs);
+	List<IPipeExecutor<TInput>> build(List<IPipeExecutor<TOutput>> outputs);
 }

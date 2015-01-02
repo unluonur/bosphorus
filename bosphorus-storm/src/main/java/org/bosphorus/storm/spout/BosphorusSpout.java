@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.bosphorus.stream.IWriter;
+import org.bosphorus.stream.IPipeExecutor;
 import org.bosphorus.topology.node.old.IReadNode;
 import org.bosphorus.topology.node.old.IStreamDefinition;
 
@@ -21,8 +21,8 @@ public class BosphorusSpout extends BaseRichSpout {
 	public BosphorusSpout(IReadNode<List<Object>> node) {
 		this.node = node;
 		List<IStreamDefinition> definition = this.node.defineOutput();
-		ArrayList<IWriter<List<Object>>> outputs = new ArrayList<IWriter<List<Object>>>();
-		outputs.add(new IWriter<List<Object>>() {
+		ArrayList<IPipeExecutor<List<Object>>> outputs = new ArrayList<IPipeExecutor<List<Object>>>();
+		outputs.add(new IPipeExecutor<List<Object>>() {
 			
 			@Override
 			public void writeMulti(List<? extends List<Object>> input) throws Exception {
@@ -40,7 +40,7 @@ public class BosphorusSpout extends BaseRichSpout {
 		for(Integer i=1; i<definition.size(); i++) {
 			final String streamName = i.toString();
 
-			outputs.add(new IWriter<List<Object>>() {
+			outputs.add(new IPipeExecutor<List<Object>>() {
 				
 				@Override
 				public void writeMulti(List<? extends List<Object>> input) throws Exception {

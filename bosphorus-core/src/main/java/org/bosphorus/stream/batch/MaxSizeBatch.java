@@ -21,18 +21,18 @@ package org.bosphorus.stream.batch;
 import java.util.List;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
-import org.bosphorus.stream.IWriter;
+import org.bosphorus.stream.IPipeExecutor;
 
-public class MaxSizeBatch<TInput, TOutput> implements IWriter<TInput> {
+public class MaxSizeBatch<TInput, TOutput> implements IPipeExecutor<TInput> {
 
 	protected Object lockObject;
 	private IAggregateExecutor<? super TInput, ? extends TOutput> executor;
-	private IWriter<? super TOutput> output;
+	private IPipeExecutor<? super TOutput> output;
 	private Integer maxSize;
 	private Integer count;
 	
 	public MaxSizeBatch(IAggregateExecutor<? super TInput, ? extends TOutput> executor,
-			IWriter<? super TOutput> output,
+			IPipeExecutor<? super TOutput> output,
 			Integer maxSize) {
 		this.lockObject = new Object();
 		this.executor = executor;

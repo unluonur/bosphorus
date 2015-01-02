@@ -3,7 +3,7 @@ package org.bosphorus.storm.bolt;
 import java.util.List;
 import java.util.Map;
 
-import org.bosphorus.stream.IWriter;
+import org.bosphorus.stream.IPipeExecutor;
 
 import backtype.storm.task.OutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -13,7 +13,7 @@ import backtype.storm.tuple.Tuple;
 
 public class ScalarBolt extends BaseRichBolt {
 	private OutputCollector collector;
-	private IWriter<? super List<? extends Object>> output;
+	private IPipeExecutor<? super List<? extends Object>> output;
 
 	@Override
 	public void prepare(Map stormConf, TopologyContext context,

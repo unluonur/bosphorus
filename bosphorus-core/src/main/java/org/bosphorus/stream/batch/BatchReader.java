@@ -22,9 +22,9 @@ import java.util.List;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.stream.IReader;
-import org.bosphorus.stream.IWriter;
+import org.bosphorus.stream.IPipeExecutor;
 
-public class BatchReader<TInput, TOutput> implements IWriter<TInput>, IReader<TOutput> {
+public class BatchReader<TInput, TOutput> implements IPipeExecutor<TInput>, IReader<TOutput> {
 	protected Object lockObject;
 	private IAggregateExecutor<? super TInput, ? extends TOutput> executor;
 	

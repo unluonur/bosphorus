@@ -18,30 +18,40 @@
 
 package org.bosphorus.stream.pipe;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.stream.IWriter;
+import org.bosphorus.stream.IPipeExecutor;
 
-public class IfElse<TInput> implements IWriter<TInput> {
-	private IScalarExecutor<TInput, Boolean> condition;
-	private IWriter<TInput> truePipe;
-	private IWriter<TInput> falsePipe;
+public class FilterExecutor<TInput> implements IPipeExecutor<TInput> {
+	
+	private IScalarExecutor<? super TInput, Boolean> expression;
+	private IPipeExecutor<? super TInput> outputStream;
+	
+	public FilterExecutor(IScalarExecutor<? super TInput, Boolean> expression, 
+			IPipeExecutor<? super TInput> outputStream) {
+		this.expression = expression;
+		this.outputStream = outputStream;
+	}
 
 	@Override
 	public void writeOne(TInput input) throws Exception {
-		if(condition.execute(input)) {
-			truePipe.writeOne(input);
-		}
-		else if(falsePipe != null) {
-			falsePipe.writeOne(input);
+		if(expression.execute(input)) {
+			outputStream.writeOne(input);
 		}
 	}
 
 	@Override
 	public void writeMulti(List<? extends TInput> input) throws Exception {
-		// TODO Auto-generated method stub
-		
+		ArrayList<TInput> result = new ArrayList<TInput>();
+		for(TInput item: input) {
+			if(expression.execute(item)) {
+				result.add(item);
+			}
+		}
+		if(result.size()>0) {
+			outputStream.writeMulti(result);
+		}
 	}
-
 }
