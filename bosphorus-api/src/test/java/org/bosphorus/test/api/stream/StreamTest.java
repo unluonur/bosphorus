@@ -6,8 +6,10 @@ import java.util.List;
 
 import org.bosphorus.api.builder.node.INodeContext;
 import org.bosphorus.api.builder.node.Node;
+import org.bosphorus.api.builder.stream.ConsoleLogPipe;
 import org.bosphorus.api.builder.stream.FilterPipe;
 import org.bosphorus.api.builder.stream.IStreamInput;
+import org.bosphorus.api.builder.stream.OneToManyPipe;
 import org.bosphorus.api.fluent.stream.ListStream;
 import org.bosphorus.stream.IPipeExecutor;
 import org.bosphorus.test.api.util.SampleTupleFactory;
@@ -38,30 +40,10 @@ public class StreamTest {
 
 	@Test
 	public void test_stream_filter() throws Exception {
-		//fail("Not yet implemented");
 		ListStream stream = new ListStream("City", "Member", "Price", "Date");
 		Node node = new Node();
 		FilterPipe<List<Object>> filter = new FilterPipe<List<Object>>(stream.field("City").stringValue().isEqualTo("Ýstanbul"));
-		filter.getOutput().getDestinations().add(new IStreamInput<List<Object>>() {
-			
-			@Override
-			public IPipeExecutor<List<Object>> build(INodeContext context)
-					throws Exception {
-				return new IPipeExecutor<List<Object>>() {
-					
-					@Override
-					public void writeOne(List<Object> input) throws Exception {
-						assertTrue(input.get(0) == "Ýstanbul");
-						System.out.println(input);
-					}
-					
-					@Override
-					public void writeMulti(List<? extends List<Object>> input) throws Exception {
-						System.out.println(input);
-					}
-				};
-			}
-		});
+		filter.getOutput().getDestinations().add(new ConsoleLogPipe<List<Object>>());
 		node.registerInput("sample", filter);
 		INodeContext context = node.build();
 		IPipeExecutor<List<Object>> pipe = context.<List<Object>>pipe("sample");
@@ -69,6 +51,29 @@ public class StreamTest {
 		for(Integer i=1; i<=10000000; i++) {
 			pipe.writeOne(sampleDataFactory.makeRandomTuple());
 		}
+	}
+	
+	@Test
+	public void test_multiple_pipes() throws Exception {
+		ListStream stream = new ListStream("City", "Member", "Price", "Date");
+		Node node = new Node();
+		OneToManyPipe<List<Object>> pipe = new OneToManyPipe<List<Object>>();
+		node.registerInput("sample-stream", pipe);
+		node.registerOutput("sample-stream", pipe.getOutput());
+		FilterPipe<List<Object>> filter1 = new FilterPipe<List<Object>>(stream.field("City").stringValue().isEqualTo("Ýstanbul"));
+		filter1.getOutput().getDestinations().add(new ConsoleLogPipe<List<Object>>());
+		FilterPipe<List<Object>> filter2 = new FilterPipe<List<Object>>(stream.field("City").stringValue().isEqualTo("Ankara"));
+		filter2.getOutput().getDestinations().add(new ConsoleLogPipe<List<Object>>());
+		pipe.getOutput().getDestinations().add(filter1);
+		pipe.getOutput().getDestinations().add(filter2);
+
+		INodeContext context = node.build();
+		IPipeExecutor<List<Object>> executor = context.<List<Object>>pipe("sample-stream");
+
+		for(Integer i=1; i<=10000000; i++) {
+			executor.writeOne(sampleDataFactory.makeRandomTuple());
+		}
+
 	}
 
 }
