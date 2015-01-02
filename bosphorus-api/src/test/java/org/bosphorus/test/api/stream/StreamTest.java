@@ -60,10 +60,13 @@ public class StreamTest {
 		OneToManyPipe<List<Object>> pipe = new OneToManyPipe<List<Object>>();
 		node.registerInput("sample-stream", pipe);
 		node.registerOutput("sample-stream", pipe.getOutput());
-		FilterPipe<List<Object>> filter1 = new FilterPipe<List<Object>>(stream.field("City").stringValue().isEqualTo("Ýstanbul"));
+		
+		FilterPipe<List<Object>> filter1 = new FilterPipe<List<Object>>(stream.and(stream.field("City").stringValue().isEqualTo("Ýstanbul"), stream.field("Price").doubleValue().isLessThan(10.0)));
 		filter1.getOutput().getDestinations().add(new ConsoleLogPipe<List<Object>>());
+		
 		FilterPipe<List<Object>> filter2 = new FilterPipe<List<Object>>(stream.field("City").stringValue().isEqualTo("Ankara"));
 		filter2.getOutput().getDestinations().add(new ConsoleLogPipe<List<Object>>());
+		
 		pipe.getOutput().getDestinations().add(filter1);
 		pipe.getOutput().getDestinations().add(filter2);
 

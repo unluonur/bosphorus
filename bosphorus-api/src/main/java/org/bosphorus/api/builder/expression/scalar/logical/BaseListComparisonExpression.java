@@ -1,4 +1,4 @@
-package org.bosphorus.api.builder.expression.scalar.condition;
+package org.bosphorus.api.builder.expression.scalar.logical;
 
 import java.util.List;
 

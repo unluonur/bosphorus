@@ -1,4 +1,4 @@
-package org.bosphorus.api.builder.expression.scalar.condition;
+package org.bosphorus.api.builder.expression.scalar.logical;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;

@@ -26,8 +26,10 @@ import org.bosphorus.api.builder.expression.aggregate.scalar.ScalarToAggregateEx
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 import org.bosphorus.api.builder.expression.scalar.common.ConstantExpression;
 import org.bosphorus.api.builder.expression.scalar.common.InputExpression;
-import org.bosphorus.api.builder.expression.scalar.condition.EqualsExpression;
 import org.bosphorus.api.builder.expression.scalar.list.ExpressionList;
+import org.bosphorus.api.builder.expression.scalar.logical.AndExpression;
+import org.bosphorus.api.builder.expression.scalar.logical.EqualsExpression;
+import org.bosphorus.api.builder.expression.scalar.logical.OrExpression;
 import org.bosphorus.api.fluent.expression.scalar.list.ObjectListExpression;
 import org.bosphorus.api.fluent.expression.scalar.primitive.BooleanExpression;
 import org.bosphorus.api.fluent.expression.scalar.primitive.DateExpression;
@@ -106,6 +108,14 @@ public class Stream<TInput> {
 	
 	public DateExpression<TInput> constDate(Date value) {
 		return dateExpression(constant(value));
+	}
+	
+	public BooleanExpression<TInput> and(IScalarExpression<TInput, Boolean> left, IScalarExpression<TInput, Boolean> right) {
+		return new BooleanExpression<TInput>(new AndExpression<TInput>(left, right));
+	}
+	
+	public BooleanExpression<TInput> or(IScalarExpression<TInput, Boolean> left, IScalarExpression<TInput, Boolean> right) {
+		return new BooleanExpression<TInput>(new OrExpression<TInput>(left, right));
 	}
 	
 	@SuppressWarnings("unchecked")

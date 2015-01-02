@@ -1,10 +1,10 @@
-package org.bosphorus.api.builder.expression.scalar.condition;
+package org.bosphorus.api.builder.expression.scalar.logical;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.expression.scalar.executor.logical.IsNotNullExecutor;
+import org.bosphorus.expression.scalar.executor.logical.IsNullExecutor;
 
-public class IsNotNullExpression<TInput> implements IScalarExpression<TInput, Boolean> {
+public class IsNullExpression<TInput> implements IScalarExpression<TInput, Boolean> {
 
 	/**
 	 * 
@@ -13,7 +13,7 @@ public class IsNotNullExpression<TInput> implements IScalarExpression<TInput, Bo
 
 	private IScalarExpression<TInput, ?> value;
 
-	public IsNotNullExpression(IScalarExpression<TInput, ?> value) {
+	public IsNullExpression(IScalarExpression<TInput, ?> value) {
 		this.setValue(value);
 	}
 
@@ -27,7 +27,7 @@ public class IsNotNullExpression<TInput> implements IScalarExpression<TInput, Bo
 
 	@Override
 	public IScalarExecutor<TInput, Boolean> build() {
-		return new IsNotNullExecutor<TInput>(getValue().build());
+		return new IsNullExecutor<TInput>(getValue().build());
 	}
 
 }
