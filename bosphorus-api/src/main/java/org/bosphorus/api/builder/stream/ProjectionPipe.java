@@ -1,7 +1,6 @@
 package org.bosphorus.api.builder.stream;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
-import org.bosphorus.api.builder.node.INodeContext;
 import org.bosphorus.stream.IPipeExecutor;
 import org.bosphorus.stream.pipe.ProjectionExecutor;
 
@@ -15,8 +14,8 @@ public class ProjectionPipe<TInput, TOutput> extends BaseSingleOutputStream<TInp
 	private IScalarExpression<? super TInput, ? extends TOutput> expression;
 
 	@Override
-	public IPipeExecutor<TInput> build(INodeContext context) throws Exception {
-		return new ProjectionExecutor<TInput, TOutput>(expression.build(), this.getOutput().build(context));
+	public IPipeExecutor<TInput> build() throws Exception {
+		return new ProjectionExecutor<TInput, TOutput>(expression.build(), this.getOutput().build());
 	}
 
 }

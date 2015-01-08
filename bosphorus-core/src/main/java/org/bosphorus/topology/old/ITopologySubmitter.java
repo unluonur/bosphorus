@@ -16,16 +16,10 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
+package org.bosphorus.topology.old;
 
-package org.bosphorus.topology;
-
-import java.util.List;
-
-public interface ITopology {
+public interface ITopologySubmitter {
 	
-	List<String> streams();
-	<TType> Stream<TType> stream(String name);
-	<TType> Stream<TType> createStream(String name);
-	void removeStream(String name);
+	void submit(ITopology topology);
 	
 }

@@ -17,15 +17,8 @@
  */
 
 
-package org.bosphorus.topology;
+package org.bosphorus.expression.scalar.factory;
 
-import java.util.List;
+public interface IScalarExecutorFactory {
 
-public interface ITopology {
-	
-	List<String> streams();
-	<TType> Stream<TType> stream(String name);
-	<TType> Stream<TType> createStream(String name);
-	void removeStream(String name);
-	
 }

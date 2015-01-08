@@ -19,29 +19,28 @@
 
 package org.bosphorus.api.builder.stream;
 
-public abstract class BaseSingleOutputStream<TInput, TOutput> implements IStreamInput<TInput> {
+import org.bosphorus.api.builder.expression.aggregate.IAggregateExpression;
+import org.bosphorus.stream.IPipeExecutor;
+import org.bosphorus.stream.batch.TimeIntervalBatch;
+
+public class TimeIntervalAggregateStream<TInput, TOutput> extends BaseSingleOutputStream<TInput, TOutput> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private IStream<TOutput> output;
-	
-	public BaseSingleOutputStream() {
-		this.setOutput(new Stream<TOutput>());
-	}
-	
-	public IStream<TOutput> getOutput() {
-		return output;
+	private IAggregateExpression<TInput, TOutput> expression;
+	private int interval;
+
+	public TimeIntervalAggregateStream(IAggregateExpression<TInput, TOutput> expression, int interval) {
+		this.expression = expression;
+		this.interval = interval;
 	}
 
-	public void setOutput(IStream<TOutput> output) {
-		this.output = output;
+	@Override
+	public IPipeExecutor<TInput> build() throws Exception {
+		return new TimeIntervalBatch<TInput, TOutput>(this.expression.build().create(), this.getOutput().build(), interval);
 	}
 	
-	public BaseSingleOutputStream<TInput, TOutput> then(IStreamInput<TOutput> pipe) {
-		this.getOutput().add(pipe);
-		return this;
-	}
 }

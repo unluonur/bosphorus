@@ -1,7 +1,6 @@
 package org.bosphorus.api.builder.stream;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
-import org.bosphorus.api.builder.node.INodeContext;
 import org.bosphorus.stream.IPipeExecutor;
 import org.bosphorus.stream.pipe.FilterExecutor;
 
@@ -18,8 +17,8 @@ public class FilterPipe<TType> extends BaseSingleOutputStream<TType, TType> {
 	}
 
 	@Override
-	public IPipeExecutor<TType> build(INodeContext context) throws Exception {
-		return new FilterExecutor<TType>(filter.build(), this.getOutput().build(context));
+	public IPipeExecutor<TType> build() throws Exception {
+		return new FilterExecutor<TType>(filter.build(), this.getOutput().build());
 	}
 
 }

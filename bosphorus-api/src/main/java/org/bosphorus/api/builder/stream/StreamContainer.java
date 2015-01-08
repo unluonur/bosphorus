@@ -17,15 +17,25 @@
  */
 
 
-package org.bosphorus.topology;
+package org.bosphorus.api.builder.stream;
 
-import java.util.List;
+import org.bosphorus.stream.IPipeExecutor;
 
-public interface ITopology {
+public class StreamContainer<TInput> implements IStreamInput<TInput> {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
-	List<String> streams();
-	<TType> Stream<TType> stream(String name);
-	<TType> Stream<TType> createStream(String name);
-	void removeStream(String name);
+	private IPipeExecutor<TInput> executor;
 	
+	public StreamContainer(IPipeExecutor<TInput> executor) {
+		this.executor = executor;
+	}
+	
+	@Override
+	public IPipeExecutor<TInput> build() throws Exception {
+		return this.executor;
+	}
+
 }

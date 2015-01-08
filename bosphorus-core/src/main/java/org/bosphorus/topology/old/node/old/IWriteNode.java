@@ -16,16 +16,16 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-
-package org.bosphorus.topology;
+package org.bosphorus.topology.old.node.old;
 
 import java.util.List;
 
-public interface ITopology {
+import org.bosphorus.stream.IPipeExecutor;
+
+public interface IWriteNode<TInput> extends IBaseNode {
 	
-	List<String> streams();
-	<TType> Stream<TType> stream(String name);
-	<TType> Stream<TType> createStream(String name);
-	void removeStream(String name);
-	
+	List<IStreamDefinition> defineInput();
+
+	List<IPipeExecutor<TInput>> getInputs();
+
 }

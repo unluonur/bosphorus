@@ -3,10 +3,10 @@ package org.bosphorus.storm.topology;
 import java.util.List;
 import java.util.Map;
 
-import org.bosphorus.topology.ITopology;
-import org.bosphorus.topology.ITopologySubmitter;
-import org.bosphorus.topology.node.old.IBaseNode;
-import org.bosphorus.topology.node.old.IReadNode;
+import org.bosphorus.topology.old.ITopology;
+import org.bosphorus.topology.old.ITopologySubmitter;
+import org.bosphorus.topology.old.node.old.IBaseNode;
+import org.bosphorus.topology.old.node.old.IReadNode;
 
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;

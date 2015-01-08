@@ -5,11 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.bosphorus.stream.IPipeExecutor;
-import org.bosphorus.topology.INodeBinding;
-import org.bosphorus.topology.ITopology;
-import org.bosphorus.topology.ITopologySubmitter;
-import org.bosphorus.topology.node.old.IReadNode;
-import org.bosphorus.topology.node.old.IWriteNode;
+import org.bosphorus.topology.old.INodeBinding;
+import org.bosphorus.topology.old.ITopology;
+import org.bosphorus.topology.old.ITopologySubmitter;
+import org.bosphorus.topology.old.node.old.IReadNode;
+import org.bosphorus.topology.old.node.old.IWriteNode;
 
 public class LocalSubmitter implements ITopologySubmitter {
 

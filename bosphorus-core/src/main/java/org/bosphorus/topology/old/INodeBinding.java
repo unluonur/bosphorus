@@ -16,16 +16,19 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
+package org.bosphorus.topology.old;
 
-package org.bosphorus.topology;
+import org.bosphorus.topology.old.node.old.IReadNode;
+import org.bosphorus.topology.old.node.old.IWriteNode;
 
-import java.util.List;
-
-public interface ITopology {
+public interface INodeBinding<TType> {
 	
-	List<String> streams();
-	<TType> Stream<TType> stream(String name);
-	<TType> Stream<TType> createStream(String name);
-	void removeStream(String name);
+	IReadNode<TType> getSourceNode();
+	
+	Integer getSourceIndex();
+	
+	IWriteNode<TType> getTargetNode();
+	
+	Integer getTargetIndex();
 	
 }
