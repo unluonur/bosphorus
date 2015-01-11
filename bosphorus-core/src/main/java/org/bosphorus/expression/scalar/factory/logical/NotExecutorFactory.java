@@ -17,17 +17,18 @@
  */
 
 
-package org.bosphorus.expression.scalar.factory.common;
+package org.bosphorus.expression.scalar.factory.logical;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.common.PreviousExecutor;
+import org.bosphorus.expression.scalar.executor.logical.NotExecutor;
 import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
-public class PreviousExecutorFactory<TInput> implements IScalarExecutorFactory1<TInput, TInput> {
-
+public class NotExecutorFactory implements IScalarExecutorFactory1<Boolean, Boolean> {
+	private static NotExecutor instance = new NotExecutor();
+	
 	@Override
-	public IScalarExecutor1<TInput, TInput> create() {
-		return new PreviousExecutor<TInput>();
+	public IScalarExecutor1<Boolean, Boolean> create() {
+		return instance;
 	}
 
 }

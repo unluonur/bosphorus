@@ -17,17 +17,18 @@
  */
 
 
-package org.bosphorus.expression.scalar.factory.common;
+package org.bosphorus.expression.scalar.factory.string;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.common.PreviousExecutor;
-import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.string.RegexMatchExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory2;
 
-public class PreviousExecutorFactory<TInput> implements IScalarExecutorFactory1<TInput, TInput> {
+public class RegexMatchExecutorFactory implements IScalarExecutorFactory2<String, String, Boolean> {
+	private static RegexMatchExecutor instance = new RegexMatchExecutor();
 
 	@Override
-	public IScalarExecutor1<TInput, TInput> create() {
-		return new PreviousExecutor<TInput>();
+	public IScalarExecutor2<String, String, Boolean> create() {
+		return instance;
 	}
 
 }

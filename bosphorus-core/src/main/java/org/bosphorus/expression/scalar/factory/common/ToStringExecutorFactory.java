@@ -24,10 +24,11 @@ import org.bosphorus.expression.scalar.executor.common.ToStringExecutor;
 import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
 public class ToStringExecutorFactory implements IScalarExecutorFactory1<Object, String> {
-
+	private static ToStringExecutor instance = new ToStringExecutor();
+	
 	@Override
 	public IScalarExecutor1<Object, String> create() {
-		return new ToStringExecutor();
+		return instance;
 	}
 
 }

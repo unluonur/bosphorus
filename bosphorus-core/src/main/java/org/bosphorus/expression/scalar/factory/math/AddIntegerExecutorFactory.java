@@ -17,17 +17,18 @@
  */
 
 
-package org.bosphorus.expression.scalar.factory.common;
+package org.bosphorus.expression.scalar.factory.math;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.common.PreviousExecutor;
-import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.math.AddIntegerExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory2;
 
-public class PreviousExecutorFactory<TInput> implements IScalarExecutorFactory1<TInput, TInput> {
-
+public class AddIntegerExecutorFactory implements IScalarExecutorFactory2<Number, Number, Integer> {
+	private static AddIntegerExecutor instance = new AddIntegerExecutor();
+	
 	@Override
-	public IScalarExecutor1<TInput, TInput> create() {
-		return new PreviousExecutor<TInput>();
+	public IScalarExecutor2<Number, Number, Integer> create() {
+		return instance;
 	}
 
 }

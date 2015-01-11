@@ -25,12 +25,16 @@ import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory3;
 
 public class ExpressionExecutorFactory3<TInput, TOutput, TType1, TType2, TType3> implements IScalarExecutorFactory1<TInput, TOutput> {
-	private IScalarExecutorFactory3<TType1, TType2, TType3, TOutput> executor;
-	private IScalarExecutorFactory1<TInput, TType1> parameter1;
-	private IScalarExecutorFactory1<TInput, TType2> parameter2;
-	private IScalarExecutorFactory1<TInput, TType3> parameter3;
+	private IScalarExecutorFactory3<? super TType1, ? super TType2, ? super TType3, ? extends TOutput> executor;
+	private IScalarExecutorFactory1<? super TInput, ? extends TType1> parameter1;
+	private IScalarExecutorFactory1<? super TInput, ? extends TType2> parameter2;
+	private IScalarExecutorFactory1<? super TInput, ? extends TType3> parameter3;
 
-	public ExpressionExecutorFactory3(IScalarExecutorFactory3<TType1, TType2, TType3, TOutput> executor, IScalarExecutorFactory1<TInput, TType1> parameter1, IScalarExecutorFactory1<TInput, TType2> parameter2, IScalarExecutorFactory1<TInput, TType3> parameter3) {
+	public ExpressionExecutorFactory3(
+			IScalarExecutorFactory3<? super TType1, ? super TType2, ? super TType3, ? extends TOutput> executor, 
+			IScalarExecutorFactory1<? super TInput, ? extends TType1> parameter1, 
+			IScalarExecutorFactory1<? super TInput, ? extends TType2> parameter2, 
+			IScalarExecutorFactory1<? super TInput, ? extends TType3> parameter3) {
 		this.executor = executor;
 		this.parameter1 = parameter1;
 		this.parameter2 = parameter2;

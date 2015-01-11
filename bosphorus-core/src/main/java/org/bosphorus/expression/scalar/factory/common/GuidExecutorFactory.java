@@ -24,10 +24,11 @@ import org.bosphorus.expression.scalar.executor.common.GuidExecutor;
 import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory0;
 
 public class GuidExecutorFactory implements IScalarExecutorFactory0<String> {
-
+	private static GuidExecutor instance = new GuidExecutor();
+	
 	@Override
 	public IScalarExecutor0<String> create() {
-		return new GuidExecutor();
+		return instance;
 	}
 
 }

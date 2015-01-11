@@ -24,10 +24,11 @@ import org.bosphorus.expression.scalar.executor.common.InputExecutor;
 import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
 public class InputExecutorFactory<TInput> implements IScalarExecutorFactory1<TInput, TInput> {
-
+	private InputExecutor<TInput> instance = new InputExecutor<TInput>();
+	
 	@Override
 	public IScalarExecutor1<TInput, TInput> create() {
-		return new InputExecutor<TInput>();
+		return instance;
 	}
 
 }

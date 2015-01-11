@@ -24,10 +24,12 @@ import org.bosphorus.expression.scalar.executor.event.ExpressionExecutor1;
 import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
 public class ExpressionExecutorFactory1<TInput, TOutput, TType> implements IScalarExecutorFactory1<TInput, TOutput> {
-	private IScalarExecutorFactory1<TType, TOutput> executor;
-	private IScalarExecutorFactory1<TInput, TType> parameter;
+	private IScalarExecutorFactory1<TType, ? extends TOutput> executor;
+	private IScalarExecutorFactory1<TInput, ? extends TType> parameter;
 
-	public ExpressionExecutorFactory1(IScalarExecutorFactory1<TType, TOutput> executor, IScalarExecutorFactory1<TInput, TType> parameter) {
+	public ExpressionExecutorFactory1(
+			IScalarExecutorFactory1<TType, ? extends TOutput> executor, 
+			IScalarExecutorFactory1<TInput, ? extends TType> parameter) {
 		this.executor = executor;
 		this.parameter = parameter;
 	}

@@ -23,9 +23,9 @@ import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
 
 public class ExpressionExecutor0<TInput, TOutput> implements IScalarExecutor1<TInput, TOutput> {
-	private IScalarExecutor0<TOutput> executor;
+	private IScalarExecutor0<? extends TOutput> executor;
 
-	public ExpressionExecutor0(IScalarExecutor0<TOutput> executor) {
+	public ExpressionExecutor0(IScalarExecutor0<? extends TOutput> executor) {
 		this.executor = executor;
 	}
 

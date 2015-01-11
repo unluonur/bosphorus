@@ -24,10 +24,11 @@ import org.bosphorus.expression.scalar.executor.common.ConvertExecutor;
 import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
 public class ConvertExecutorFactory<TInput, TOutput> implements IScalarExecutorFactory1<TInput, TOutput> {
-
+	private ConvertExecutor<TInput, TOutput> instance = new ConvertExecutor<TInput, TOutput>();
+	
 	@Override
 	public IScalarExecutor1<TInput, TOutput> create() {
-		return new ConvertExecutor<TInput, TOutput>();
+		return instance;
 	}
 
 }

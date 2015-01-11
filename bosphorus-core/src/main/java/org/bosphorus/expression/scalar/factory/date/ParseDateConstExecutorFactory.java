@@ -17,17 +17,23 @@
  */
 
 
-package org.bosphorus.expression.scalar.factory.common;
+package org.bosphorus.expression.scalar.factory.date;
+
+import java.util.Date;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.common.PreviousExecutor;
+import org.bosphorus.expression.scalar.executor.date.ParseDateConstExecutor;
 import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
-public class PreviousExecutorFactory<TInput> implements IScalarExecutorFactory1<TInput, TInput> {
-
-	@Override
-	public IScalarExecutor1<TInput, TInput> create() {
-		return new PreviousExecutor<TInput>();
+public class ParseDateConstExecutorFactory implements IScalarExecutorFactory1<String, Date> {
+	private ParseDateConstExecutor instance;
+	
+	public ParseDateConstExecutorFactory(String formatExpression) {
+		this.instance = new ParseDateConstExecutor(formatExpression);
 	}
 
+	@Override
+	public IScalarExecutor1<String, Date> create() {
+		return instance;
+	}
 }

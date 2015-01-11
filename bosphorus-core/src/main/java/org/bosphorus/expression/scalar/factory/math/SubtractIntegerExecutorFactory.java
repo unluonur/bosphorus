@@ -16,17 +16,19 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.expression.scalar.executor.logical;
+
+package org.bosphorus.expression.scalar.factory.math;
 
 import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.math.SubtractIntegerExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory2;
 
-public class NotEquals<TType extends Comparable<TType>> implements IScalarExecutor2<TType, TType, Boolean> {
+public class SubtractIntegerExecutorFactory implements IScalarExecutorFactory2<Number, Number, Integer> {
+	private static SubtractIntegerExecutor instance = new SubtractIntegerExecutor();
 	
-	public Boolean execute(TType input1, TType input2) throws Exception {
-		if(input1 == null) {
-			return input2 != null;
-		}
-		return !input1.equals(input2);
+	@Override
+	public IScalarExecutor2<Number, Number, Integer> create() {
+		return instance;
 	}
 
 }

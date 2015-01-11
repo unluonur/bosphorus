@@ -24,15 +24,15 @@ import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
 import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory0;
 
 public class ConstantExecutorFactory<TType> implements IScalarExecutorFactory0<TType> {
-	private TType value;
+	private ConstantExecutor<TType> instance;
 	
 	public ConstantExecutorFactory(TType value) {
-		this.value = value;
+		instance = new ConstantExecutor<TType>(value);
 	}
 
 	@Override
 	public IScalarExecutor0<TType> create() {
-		return new ConstantExecutor<TType>(value);
+		return instance;
 	}
 
 }

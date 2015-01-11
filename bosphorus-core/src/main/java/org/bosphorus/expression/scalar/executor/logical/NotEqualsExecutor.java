@@ -16,18 +16,17 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
+package org.bosphorus.expression.scalar.executor.logical;
 
-package org.bosphorus.expression.scalar.factory.common;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.common.PreviousExecutor;
-import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
-
-public class PreviousExecutorFactory<TInput> implements IScalarExecutorFactory1<TInput, TInput> {
-
-	@Override
-	public IScalarExecutor1<TInput, TInput> create() {
-		return new PreviousExecutor<TInput>();
+public class NotEqualsExecutor<TType extends Comparable<TType>> implements IScalarExecutor2<TType, TType, Boolean> {
+	
+	public Boolean execute(TType input1, TType input2) throws Exception {
+		if(input1 == null) {
+			return input2 != null;
+		}
+		return !input1.equals(input2);
 	}
 
 }

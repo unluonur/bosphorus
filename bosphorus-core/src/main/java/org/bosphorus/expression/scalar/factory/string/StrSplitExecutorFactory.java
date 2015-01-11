@@ -17,17 +17,20 @@
  */
 
 
-package org.bosphorus.expression.scalar.factory.common;
+package org.bosphorus.expression.scalar.factory.string;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.common.PreviousExecutor;
-import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
+import java.util.List;
 
-public class PreviousExecutorFactory<TInput> implements IScalarExecutorFactory1<TInput, TInput> {
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.string.StrSplitExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory2;
+
+public class StrSplitExecutorFactory implements IScalarExecutorFactory2<String, String, List<String>> {
+	private static StrSplitExecutor instance = new StrSplitExecutor();
 
 	@Override
-	public IScalarExecutor1<TInput, TInput> create() {
-		return new PreviousExecutor<TInput>();
+	public IScalarExecutor2<String, String, List<String>> create() {
+		return instance;
 	}
 
 }
