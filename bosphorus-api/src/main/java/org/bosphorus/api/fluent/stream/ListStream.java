@@ -3,6 +3,8 @@ package org.bosphorus.api.fluent.stream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bosphorus.api.builder.expression.scalar.common.InputExpression;
+import org.bosphorus.api.builder.expression.scalar.event.ScalarExpression1;
 import org.bosphorus.api.builder.expression.scalar.list.ConstListElementExpression;
 import org.bosphorus.api.fluent.expression.scalar.primitive.ObjectExpression;
 
@@ -25,7 +27,8 @@ public class ListStream extends Stream<List<Object>> {
 	}
 	
 	public ObjectExpression<List<Object>> field(Integer fieldIndex) {
-		return new ObjectExpression<List<Object>>(new ConstListElementExpression<List<Object>, Object>(fieldIndex));
+		// TODO :
+		return new ObjectExpression<List<Object>>(new ScalarExpression1(new ConstListElementExpression<Object>(fieldIndex), new InputExpression<List<Object>>()));
 	}
 	
 	public ObjectExpression<List<Object>> field(String fieldName) {

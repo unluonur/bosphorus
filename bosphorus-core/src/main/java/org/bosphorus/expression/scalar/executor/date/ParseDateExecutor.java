@@ -23,22 +23,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-public class ParseDateExecutor<TInput> implements IScalarExecutor<TInput, Date> {
-	private IScalarExecutor<? super TInput, String> expression;
-	private IScalarExecutor<? super TInput, String> formatExpression;
-	
-	public ParseDateExecutor(IScalarExecutor<? super TInput, String> expression, 
-			IScalarExecutor<? super TInput, String> formatExpression) {
-		this.expression = expression;
-		this.formatExpression = formatExpression;
-	}
+public class ParseDateExecutor implements IScalarExecutor2<String, String, Date> {
 
 	@Override
-	public Date execute(TInput input) throws Exception {
-		DateFormat format = new SimpleDateFormat(formatExpression.execute(input), Locale.ENGLISH);
-		return format.parse(expression.execute(input));
+	public Date execute(String input1, String input2) throws Exception {
+		DateFormat format = new SimpleDateFormat(input2, Locale.ENGLISH);
+		return format.parse(input1);
 	}
 	
 }

@@ -18,21 +18,12 @@
 
 package org.bosphorus.expression.scalar.executor.math;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-public class MultiplyLongExecutor<TInput> implements IScalarExecutor<TInput, Long> {
+public class MultiplyLongExecutor implements IScalarExecutor2<Number, Number, Long> {
 
-	private IScalarExecutor<? super TInput, ? extends Number> left;
-	private IScalarExecutor<? super TInput, ? extends Number> right;
-
-	public MultiplyLongExecutor(IScalarExecutor<? super TInput, ? extends Number> left,
-			IScalarExecutor<? super TInput, ? extends Number> right) {
-		this.left = left;
-		this.right = right;
-	}
-
-	public Long execute(TInput input) throws Exception {
-		return left.execute(input).longValue() * right.execute(input).longValue();
+	public Long execute(Number input1, Number input2) throws Exception {
+		return input1.longValue() * input2.longValue();
 	}
 
 }

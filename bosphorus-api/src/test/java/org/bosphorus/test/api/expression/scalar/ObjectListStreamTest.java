@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.bosphorus.api.fluent.expression.scalar.primitive.StringExpression;
 import org.bosphorus.api.fluent.stream.ListStream;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 import org.bosphorus.test.api.util.SampleTupleFactory;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -40,7 +40,7 @@ public class ObjectListStreamTest {
 		List<Object> tuple = factory.makeRandomTuple();
 		
 		StringExpression<List<Object>> expression = stream.field("City").stringValue();
-		IScalarExecutor<List<Object>, String> executor = expression.build();
+		IScalarExecutor1<List<Object>, String> executor = expression.build();
 		System.out.println(expression);
 		assertEquals((String)tuple.get(0), executor.execute(tuple));
 	}

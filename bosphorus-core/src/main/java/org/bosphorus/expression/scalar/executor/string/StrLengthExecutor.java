@@ -18,19 +18,13 @@
 
 package org.bosphorus.expression.scalar.executor.string;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class StrLengthExecutor<TInput> implements IScalarExecutor<TInput, Integer> {
-	
-	private IScalarExecutor<? super TInput, String> value;
+public class StrLengthExecutor implements IScalarExecutor1<String, Integer> {
 
-	public StrLengthExecutor(IScalarExecutor<? super TInput, String> value) {
-		this.value = value;
-	}
-	
 	@Override
-	public Integer execute(TInput input) throws Exception {
-		return value.execute(input).length();
+	public Integer execute(String input) throws Exception {
+		return input.length();
 	}
 
 }

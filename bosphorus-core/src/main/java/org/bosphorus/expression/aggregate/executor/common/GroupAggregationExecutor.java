@@ -23,14 +23,14 @@ import java.util.Map;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.expression.aggregate.factory.IAggregateExecutorFactory;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
 public class GroupAggregationExecutor<TInput, TKey, TValue> implements IAggregateExecutor<TInput, Map<TKey, TValue>> {
-	private IScalarExecutor<? super TInput, ? extends TKey> keyExpression;
+	private IScalarExecutor1<? super TInput, ? extends TKey> keyExpression;
 	private IAggregateExecutorFactory<? super TInput, ? extends TValue> valueFactory;
 	private HashMap<TKey, IAggregateExecutor<? super TInput, ? extends TValue>> map;
 	
-	public GroupAggregationExecutor(IScalarExecutor<? super TInput, ? extends TKey> keyExpression, 
+	public GroupAggregationExecutor(IScalarExecutor1<? super TInput, ? extends TKey> keyExpression, 
 			IAggregateExecutorFactory<? super TInput, ? extends TValue> valueExpression) {
 		this.keyExpression = keyExpression;
 		this.valueFactory = valueExpression;

@@ -2,7 +2,7 @@ package org.bosphorus.api.fluent.expression.scalar.list;
 
 import java.util.List;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 import org.bosphorus.api.fluent.expression.scalar.primitive.FloatExpression;
 
 public class FloatListExpression<TInput> extends BaseNumberListExpression<TInput, Float, FloatExpression<TInput>> {
@@ -13,13 +13,13 @@ public class FloatListExpression<TInput> extends BaseNumberListExpression<TInput
 	private static final long serialVersionUID = 1L;
 
 	public FloatListExpression(
-			IScalarExpression<TInput, List<Float>> builder) {
+			IScalarExpression1<TInput, List<Float>> builder) {
 		super(builder);
 	}
 
 	@Override
 	protected FloatExpression<TInput> create(
-			IScalarExpression<TInput, Float> expression) {
+			IScalarExpression1<TInput, Float> expression) {
 		return new FloatExpression<TInput>(expression);
 	}
 	

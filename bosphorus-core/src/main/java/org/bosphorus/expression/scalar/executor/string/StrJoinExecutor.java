@@ -20,16 +20,13 @@ package org.bosphorus.expression.scalar.executor.string;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-public class StrJoinExecutor<TInput> implements IScalarExecutor<TInput, String> {
-	
-	private IScalarExecutor<? super TInput, ? extends List<String>> list;
-	private IScalarExecutor<? super TInput, String> delimeter;
+public class StrJoinExecutor implements IScalarExecutor2<List<String>, String, String> {
 
 	@Override
-	public String execute(TInput input) throws Exception {
-		return String.join(delimeter.execute(input), list.execute(input));
+	public String execute(List<String> input1, String input2) throws Exception {
+		return String.join(input2, input1);
 	}
 
 }

@@ -19,13 +19,13 @@
 package org.bosphorus.expression.aggregate.executor.scalar;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
 public class ExpressionExecutor<TInput, TType, TOutput> implements IAggregateExecutor<TInput, TOutput> {
-	private IScalarExecutor<? super TInput, ? extends TType> expression;
+	private IScalarExecutor1<? super TInput, ? extends TType> expression;
 	private IAggregateExecutor<? super TType, ? extends TOutput> executor;
 	
-	public ExpressionExecutor(IScalarExecutor<? super TInput, ? extends TType> expression, 
+	public ExpressionExecutor(IScalarExecutor1<? super TInput, ? extends TType> expression, 
 			IAggregateExecutor<? super TType, ? extends TOutput> executor) {
 		this.expression = expression;
 		this.executor = executor;

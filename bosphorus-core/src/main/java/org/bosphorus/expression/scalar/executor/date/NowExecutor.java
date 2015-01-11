@@ -20,12 +20,12 @@ package org.bosphorus.expression.scalar.executor.date;
 
 import java.util.Date;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
 
-public class NowExecutor<TInput> implements IScalarExecutor<TInput, Date> {
+public class NowExecutor implements IScalarExecutor0<Date> {
 	
 	@Override
-	public Date execute(TInput input) {
+	public Date execute() {
 		return new Date();
 	}
 

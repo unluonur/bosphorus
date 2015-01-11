@@ -21,14 +21,14 @@ package org.bosphorus.expression.aggregate.factory.scalar;
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.expression.aggregate.executor.scalar.ExpressionExecutor;
 import org.bosphorus.expression.aggregate.factory.IAggregateExecutorFactory;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
 public class ExpressionFactory<TInput, TType, TOutput> implements IAggregateExecutorFactory<TInput, TOutput> {
 	
-	private IScalarExecutor<? super TInput, ? extends TType> expression;
+	private IScalarExecutor1<? super TInput, ? extends TType> expression;
 	private IAggregateExecutorFactory<? super TType, ? extends TOutput> factory;
 	
-	public ExpressionFactory(IScalarExecutor<? super TInput, ? extends TType> expression, 
+	public ExpressionFactory(IScalarExecutor1<? super TInput, ? extends TType> expression, 
 			IAggregateExecutorFactory<? super TType, ? extends TOutput> factory) {
 		this.expression = expression;
 		this.factory = factory;

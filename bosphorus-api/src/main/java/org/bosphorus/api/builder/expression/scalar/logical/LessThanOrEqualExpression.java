@@ -19,22 +19,17 @@
 
 package org.bosphorus.api.builder.expression.scalar.logical;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression2;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 import org.bosphorus.expression.scalar.executor.logical.LessThanOrEqualExecutor;
 
-public class LessThanOrEqualExpression<TInput, TType extends Comparable<TType>> extends BaseComparisonExpression<TInput, TType> {
+public class LessThanOrEqualExpression<TType extends Comparable<TType>> implements IScalarExpression2<TType, TType, Boolean> {
 
 	private static final long serialVersionUID = 1L;
 
-	public LessThanOrEqualExpression(IScalarExpression<TInput, TType> left,
-			IScalarExpression<TInput, TType> right) {
-		super(left, right);
-	}
-
 	@Override
-	public IScalarExecutor<TInput, Boolean> build() {
-		return new LessThanOrEqualExecutor<TInput, TType>(getLeft().build(), getRight().build());
+	public IScalarExecutor2<TType, TType, Boolean> build() {
+		return new LessThanOrEqualExecutor<TType>();
 	}
 
 }

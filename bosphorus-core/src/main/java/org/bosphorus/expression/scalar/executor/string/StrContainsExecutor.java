@@ -18,16 +18,13 @@
 
 package org.bosphorus.expression.scalar.executor.string;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-public class StrContainsExecutor<TInput> implements IScalarExecutor<TInput, Boolean> {
-	
-	private IScalarExecutor<? super TInput, String> text;
-	private IScalarExecutor<? super TInput, String> searchString;
+public class StrContainsExecutor implements IScalarExecutor2<String, String, Boolean> {
 
 	@Override
-	public Boolean execute(TInput input) throws Exception {
-		return text.execute(input).contains(searchString.execute(input));
+	public Boolean execute(String input1, String input2) throws Exception {
+		return input1.contains(input2);
 	}
 
 }

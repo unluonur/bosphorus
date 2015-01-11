@@ -14,7 +14,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class AddTest {
-	private AddDoubleExecutor<List<Object>> add = new AddDoubleExecutor<List<Object>>(new ListElementExecutor<List<?>, Double>(0), new ListElementExecutor<List<?>, Double>(1));
+	private AddDoubleExecutor add = new AddDoubleExecutor();
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -34,10 +34,7 @@ public class AddTest {
 
 	@Test
 	public void test() throws Exception {
-		ArrayList<Object> input = new ArrayList<Object>();
-		input.add(10);
-		input.add(20);
-		assertTrue(30.0 == add.execute(input));
+		assertTrue(30.0 == add.execute(10, 20));
 		//fail("Not yet implemented");
 	}
 

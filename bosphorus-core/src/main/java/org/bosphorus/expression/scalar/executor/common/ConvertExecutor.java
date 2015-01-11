@@ -18,20 +18,14 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ConvertExecutor<TInput, TOutput, TSource> implements IScalarExecutor<TInput, TOutput> {
-	
-	private IScalarExecutor<? super TInput, ? extends TSource> value;
-	
-	public ConvertExecutor(IScalarExecutor<? super TInput, ? extends TSource> value) {
-		this.value = value;
-	}
+public class ConvertExecutor<TInput, TOutput> implements IScalarExecutor1<TInput, TOutput> {
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public TOutput execute(TInput input) throws Exception {
-		return (TOutput)value.execute(input);
+		return (TOutput)input;
 	}
 
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.bosphorus.api.builder.expression.aggregate.common.MaxExpression;
 import org.bosphorus.api.builder.expression.aggregate.common.MinExpression;
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 import org.bosphorus.api.fluent.expression.scalar.primitive.DateExpression;
 
 public class DateListExpression<TInput> extends BasePrimitiveListExpression<TInput, Date, DateExpression<TInput>> {
@@ -16,13 +16,13 @@ public class DateListExpression<TInput> extends BasePrimitiveListExpression<TInp
 	private static final long serialVersionUID = 1L;
 
 	public DateListExpression(
-			IScalarExpression<TInput, List<Date>> builder) {
+			IScalarExpression1<TInput, List<Date>> builder) {
 		super(builder);
 	}
 
 	@Override
 	protected DateExpression<TInput> create(
-			IScalarExpression<TInput, Date> expression) {
+			IScalarExpression1<TInput, Date> expression) {
 		return new DateExpression<TInput>(expression);
 	}
 	

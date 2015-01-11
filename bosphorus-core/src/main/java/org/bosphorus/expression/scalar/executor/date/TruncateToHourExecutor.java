@@ -20,19 +20,13 @@ package org.bosphorus.expression.scalar.executor.date;
 
 import java.util.Date;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class TruncateToHourExecutor<TInput> implements IScalarExecutor<TInput, Date> {
-	private IScalarExecutor<? super TInput, Date> expression;
-	
-	public TruncateToHourExecutor(IScalarExecutor<? super TInput, Date> expression) {
-		this.expression = expression;
-	}
+public class TruncateToHourExecutor implements IScalarExecutor1<Date, Date> {
 
 	@SuppressWarnings("deprecation")
 	@Override
-	public Date execute(TInput input) throws Exception {
-		Date date = expression.execute(input);
-		return new Date(date.getYear(), date.getMonth(), date.getDate(), date.getHours(), 0);
+	public Date execute(Date input) throws Exception {
+		return new Date(input.getYear(), input.getMonth(), input.getDate(), input.getHours(), 0);
 	}
 }

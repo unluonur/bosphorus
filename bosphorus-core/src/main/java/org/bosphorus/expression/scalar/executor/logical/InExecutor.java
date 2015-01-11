@@ -20,22 +20,13 @@ package org.bosphorus.expression.scalar.executor.logical;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-public class InExecutor<TInput, TType extends Comparable<TType>> implements IScalarExecutor<TInput, Boolean> {
-
-	private IScalarExecutor<? super TInput, ? extends TType> value;
-	private IScalarExecutor<? super TInput, ? extends List<? extends TType>> list;
-
-	public InExecutor(IScalarExecutor<? super TInput, ? extends TType> value,
-			IScalarExecutor<? super TInput, ? extends List<? extends TType>> list) {
-		this.value = value;
-		this.list = list;
-	}
+public class InExecutor<TType extends Comparable<TType>> implements IScalarExecutor2<TType, List<TType>, Boolean> {
 
 	@Override
-	public Boolean execute(TInput input) throws Exception {
-		return list.execute(input).contains(value.execute(input));
+	public Boolean execute(TType input1, List<TType> input2) throws Exception {
+		return input2.contains(input1);
 	}
 
 }

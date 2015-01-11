@@ -2,11 +2,11 @@ package org.bosphorus.api.builder.expression.scalar.list;
 
 import java.util.List;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 import org.bosphorus.expression.scalar.executor.tuple.ConstListElementExecutor;
 
-public class ConstListElementExpression<TInput extends List<? extends TOutput>, TOutput> implements IScalarExpression<TInput, TOutput> {
+public class ConstListElementExpression<TOutput> implements IScalarExpression1<List<? extends TOutput>, TOutput> {
 
 	/**
 	 * 
@@ -28,8 +28,8 @@ public class ConstListElementExpression<TInput extends List<? extends TOutput>, 
 	}
 
 	@Override
-	public IScalarExecutor<TInput, TOutput> build() {
-		return new ConstListElementExecutor<TInput, TOutput>(this.getFieldIndex());
+	public IScalarExecutor1<List<? extends TOutput>, TOutput> build() {
+		return new ConstListElementExecutor<TOutput>(this.getFieldIndex());
 	}
 
 }

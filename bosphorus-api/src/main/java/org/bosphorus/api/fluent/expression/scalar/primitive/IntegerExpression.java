@@ -1,6 +1,6 @@
 package org.bosphorus.api.fluent.expression.scalar.primitive;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 
 public class IntegerExpression<TInput> extends BaseComparableExpression<TInput, Integer> {
 
@@ -9,7 +9,7 @@ public class IntegerExpression<TInput> extends BaseComparableExpression<TInput, 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public IntegerExpression(IScalarExpression<TInput, Integer> builder) {
+	public IntegerExpression(IScalarExpression1<TInput, Integer> builder) {
 		super(builder);
 	}
 

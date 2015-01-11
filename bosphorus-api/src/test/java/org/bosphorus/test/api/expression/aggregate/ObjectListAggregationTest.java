@@ -10,7 +10,7 @@ import org.bosphorus.api.builder.expression.aggregate.IAggregateExpression;
 import org.bosphorus.api.fluent.expression.scalar.primitive.StringExpression;
 import org.bosphorus.api.fluent.stream.ListStream;
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 import org.bosphorus.test.api.util.SampleTupleFactory;
 import org.junit.After;
 import org.junit.AfterClass;

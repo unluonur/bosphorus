@@ -1,7 +1,7 @@
 package org.bosphorus.api.builder.expression.aggregate.scalar;
 
 import org.bosphorus.api.builder.expression.aggregate.IAggregateExpression;
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 import org.bosphorus.expression.aggregate.factory.IAggregateExecutorFactory;
 import org.bosphorus.expression.aggregate.factory.scalar.ExpressionFactory;
 
@@ -11,19 +11,19 @@ public class ScalarToAggregateExpression<TInput, TType, TOutput> implements IAgg
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private IScalarExpression<TInput, ? extends TType> scalarExpression;
+	private IScalarExpression1<TInput, ? extends TType> scalarExpression;
 	private IAggregateExpression<TType, TOutput> aggregateExpression;
 	
-	public ScalarToAggregateExpression(IScalarExpression<TInput, ? extends TType> scalarExpression, IAggregateExpression<TType, TOutput> aggregateExpression) {
+	public ScalarToAggregateExpression(IScalarExpression1<TInput, ? extends TType> scalarExpression, IAggregateExpression<TType, TOutput> aggregateExpression) {
 		this.setScalarExpression(scalarExpression);
 		this.setAggregateExpression(aggregateExpression);
 	}
 	
-	public IScalarExpression<TInput, ? extends TType> getScalarExpression() {
+	public IScalarExpression1<TInput, ? extends TType> getScalarExpression() {
 		return scalarExpression;
 	}
 	
-	public void setScalarExpression(IScalarExpression<TInput, ? extends TType> scalarExpression) {
+	public void setScalarExpression(IScalarExpression1<TInput, ? extends TType> scalarExpression) {
 		this.scalarExpression = scalarExpression;
 	}
 	

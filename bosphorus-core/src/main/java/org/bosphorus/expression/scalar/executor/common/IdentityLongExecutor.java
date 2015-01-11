@@ -18,13 +18,13 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
 
-public class IdentityLongExecutor<TInput> implements IScalarExecutor<TInput, Long> {
+public class IdentityLongExecutor implements IScalarExecutor0<Long> {
 	private Long identity = 0L;
 
 	@Override
-	public Long execute(TInput input) throws Exception {
+	public Long execute() throws Exception {
 		return ++identity;
 	}
 

@@ -21,7 +21,7 @@ package org.bosphorus.api.builder.expression.aggregate.common;
 import java.util.Map;
 
 import org.bosphorus.api.builder.expression.aggregate.IAggregateExpression;
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 import org.bosphorus.expression.aggregate.factory.IAggregateExecutorFactory;
 import org.bosphorus.expression.aggregate.factory.common.GroupAggregationFactory;
 
@@ -35,11 +35,11 @@ public class GroupAggregationExpression<TInput, TKey, TValue> implements IAggreg
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private IScalarExpression<? super TInput, ? extends TKey> keyExpression;
+	private IScalarExpression1<? super TInput, ? extends TKey> keyExpression;
 	private IAggregateExpression<? super TInput, ? extends TValue> valueExpression;
 
 	public GroupAggregationExpression(
-			IScalarExpression<? super TInput, ? extends TKey> keyExpression, 
+			IScalarExpression1<? super TInput, ? extends TKey> keyExpression, 
 			IAggregateExpression<? super TInput, ? extends TValue> valueExpression) {
 		this.keyExpression = keyExpression;
 		this.valueExpression = valueExpression;

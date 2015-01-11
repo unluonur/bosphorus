@@ -17,8 +17,22 @@
  */
 
 
-package org.bosphorus.expression.scalar.factory;
+package org.bosphorus.expression.scalar.factory.common;
 
-public interface IScalarExecutorFactory {
+import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
+import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory0;
+
+public class ConstantExecutorFactory<TType> implements IScalarExecutorFactory0<TType> {
+	private TType value;
+	
+	public ConstantExecutorFactory(TType value) {
+		this.value = value;
+	}
+
+	@Override
+	public IScalarExecutor0<TType> create() {
+		return new ConstantExecutor<TType>(value);
+	}
 
 }

@@ -19,23 +19,17 @@
 
 package org.bosphorus.api.builder.expression.scalar.logical;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression2;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 import org.bosphorus.expression.scalar.executor.logical.OrExecutor;
 
-public class OrExpression<TInput> extends BaseComparisonExpression<TInput, Boolean> {
+public class OrExpression implements IScalarExpression2<Boolean, Boolean, Boolean> {
 
 	private static final long serialVersionUID = 1L;
 
-	public OrExpression(IScalarExpression<TInput, Boolean> left,
-			IScalarExpression<TInput, Boolean> right) {
-		super(left, right);
-		// TODO Auto-generated constructor stub
-	}
-
 	@Override
-	public IScalarExecutor<TInput, Boolean> build() {
-		return new OrExecutor<TInput>(getLeft().build(), getRight().build());
+	public IScalarExecutor2<Boolean, Boolean, Boolean> build() {
+		return new OrExecutor();
 	}
 
 }

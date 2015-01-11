@@ -18,17 +18,17 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class IIfExecutor<TInput, TOutput> implements IScalarExecutor<TInput, TOutput> {
+public class IIfExecutor<TInput, TOutput> implements IScalarExecutor1<TInput, TOutput> {
 	
-	private IScalarExecutor<? super TInput, Boolean> condition;
-	private IScalarExecutor<? super TInput, ? extends TOutput> trueValue;
-	private IScalarExecutor<? super TInput, ? extends TOutput> falseValue;
+	private IScalarExecutor1<? super TInput, Boolean> condition;
+	private IScalarExecutor1<? super TInput, ? extends TOutput> trueValue;
+	private IScalarExecutor1<? super TInput, ? extends TOutput> falseValue;
 	
-	public IIfExecutor(IScalarExecutor<? super TInput, Boolean> condition, 
-			IScalarExecutor<? super TInput, ? extends TOutput> trueValue, 
-			IScalarExecutor<? super TInput, ? extends TOutput> falseValue) {
+	public IIfExecutor(IScalarExecutor1<? super TInput, Boolean> condition, 
+			IScalarExecutor1<? super TInput, ? extends TOutput> trueValue, 
+			IScalarExecutor1<? super TInput, ? extends TOutput> falseValue) {
 		this.condition = condition;
 		this.trueValue = trueValue;
 		this.falseValue = falseValue;

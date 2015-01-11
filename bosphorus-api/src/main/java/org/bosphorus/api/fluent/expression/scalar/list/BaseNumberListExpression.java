@@ -10,7 +10,7 @@ import org.bosphorus.api.builder.expression.aggregate.math.SumDoubleExpression;
 import org.bosphorus.api.builder.expression.aggregate.math.SumFloatExpression;
 import org.bosphorus.api.builder.expression.aggregate.math.SumIntegerExpression;
 import org.bosphorus.api.builder.expression.aggregate.math.SumLongExpression;
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 import org.bosphorus.api.builder.expression.scalar.aggregate.ListAggregateExpression;
 import org.bosphorus.api.fluent.expression.scalar.primitive.BaseComparableExpression;
 import org.bosphorus.api.fluent.expression.scalar.primitive.DoubleExpression;
@@ -25,7 +25,7 @@ public abstract class BaseNumberListExpression<TInput, TType extends Number & Co
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public BaseNumberListExpression(IScalarExpression<TInput, ? extends List<? extends TType>> builder) {
+	public BaseNumberListExpression(IScalarExpression1<TInput, ? extends List<? extends TType>> builder) {
 		super(builder);
 	}
 

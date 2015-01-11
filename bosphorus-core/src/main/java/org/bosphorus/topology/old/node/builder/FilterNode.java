@@ -21,12 +21,12 @@ package org.bosphorus.topology.old.node.builder;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 import org.bosphorus.stream.IPipeExecutor;
 import org.bosphorus.stream.pipe.FilterExecutor;
 
 public class FilterNode<TType> implements IReadWriteNodeBuilder<TType, TType> {
-	IScalarExecutor<TType, Boolean> filter;
+	IScalarExecutor1<TType, Boolean> filter;
 
 	@Override
 	public List<IPipeExecutor<TType>> build(List<IPipeExecutor<TType>> outputs) {

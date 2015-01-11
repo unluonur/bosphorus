@@ -21,13 +21,13 @@ package org.bosphorus.expression.aggregate.executor.scalar;
 import java.util.List;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
 public class ListExpressionExecutor<TInput, TType, TOutput> implements IAggregateExecutor<TInput, TOutput> {
-	private IScalarExecutor<? super TInput, ? extends List<? extends TType>> expression;
+	private IScalarExecutor1<? super TInput, ? extends List<? extends TType>> expression;
 	private IAggregateExecutor<? super TType, ? extends TOutput> executor;
 	
-	public ListExpressionExecutor(IScalarExecutor<? super TInput, ? extends List<? extends TType>> expression, 
+	public ListExpressionExecutor(IScalarExecutor1<? super TInput, ? extends List<? extends TType>> expression, 
 			IAggregateExecutor<? super TType, ? extends TOutput> executor) {
 		this.expression = expression;
 		this.executor = executor;

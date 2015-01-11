@@ -21,20 +21,20 @@ package org.bosphorus.expression.scalar.executor.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ExpressionListExecutor<TInput, TType> implements IScalarExecutor<TInput, List<TType>> {
+public class ExpressionListExecutor<TInput, TType> implements IScalarExecutor1<TInput, List<TType>> {
 
-	private List<? extends IScalarExecutor<? super TInput, ? extends TType>> expressions;
+	private List<? extends IScalarExecutor1<? super TInput, ? extends TType>> expressions;
 
-	public ExpressionListExecutor(List<? extends IScalarExecutor<? super TInput, ? extends TType>> expressions) {
+	public ExpressionListExecutor(List<? extends IScalarExecutor1<? super TInput, ? extends TType>> expressions) {
 		this.expressions = expressions;
 	}
 	
 	@Override
 	public List<TType> execute(TInput input) throws Exception {
 		ArrayList<TType> result = new ArrayList<TType>();
-		for(IScalarExecutor<? super TInput, ? extends TType> expr: expressions) {
+		for(IScalarExecutor1<? super TInput, ? extends TType> expr: expressions) {
 			result.add(expr.execute(input));
 		}
 		return result;

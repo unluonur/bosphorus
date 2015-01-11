@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
 
-public class ConstantExecutor<TInput, TOutput> implements IScalarExecutor <TInput, TOutput> {
+public class ConstantExecutor<TOutput> implements IScalarExecutor0<TOutput> {
 		
 	private TOutput value;
 		
@@ -28,7 +28,7 @@ public class ConstantExecutor<TInput, TOutput> implements IScalarExecutor <TInpu
 		this.value = value;
 	}
 
-	public TOutput execute(TInput input) {
+	public TOutput execute() {
 		return value;
 	}
 

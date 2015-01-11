@@ -20,20 +20,14 @@ package org.bosphorus.expression.scalar.executor.date;
 
 import java.util.Date;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class DayOfWeekExecutor<TInput> implements IScalarExecutor<TInput, Integer> {
-	
-	private IScalarExecutor<? super TInput, Date> value;
-	
-	public DayOfWeekExecutor(IScalarExecutor<? super TInput, Date> value) {
-		this.value = value;
-	}
+public class DayOfWeekExecutor implements IScalarExecutor1<Date, Integer> {
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	public Integer execute(TInput input) throws Exception {
-		return value.execute(input).getDay();
+	public Integer execute(Date input) throws Exception {
+		return input.getDay();
 	}
 
 }

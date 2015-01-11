@@ -20,11 +20,11 @@ package org.bosphorus.stream.pipe;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 import org.bosphorus.stream.IPipeExecutor;
 
 public class IfElseExecutor<TInput> implements IPipeExecutor<TInput> {
-	private IScalarExecutor<TInput, Boolean> condition;
+	private IScalarExecutor1<TInput, Boolean> condition;
 	private IPipeExecutor<TInput> truePipe;
 	private IPipeExecutor<TInput> falsePipe;
 

@@ -21,17 +21,14 @@ package org.bosphorus.expression.scalar.executor.string;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-public class StrSplitExecutor<TInput> implements IScalarExecutor<TInput, List<String>> {
-	
-	private IScalarExecutor<? super TInput, String> text;
-	private IScalarExecutor<? super TInput, String> split;
+public class StrSplitExecutor implements IScalarExecutor2<String, String, List<String>> {
 
 	@Override
-	public List<String> execute(TInput input) throws Exception {
+	public List<String> execute(String input1, String input2) throws Exception {
 		ArrayList<String> result = new ArrayList<String>();
-		for(String s: text.execute(input).split(split.execute(input))){
+		for(String s: input1.split(input2)){
 			result.add(s);
 		}
 		return result;

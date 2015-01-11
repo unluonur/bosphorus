@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.tuple;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ListElementExecutor<TInput extends List<?>, TType> implements IScalarExecutor<TInput, TType> {
+public class ListElementExecutor<TInput extends List<?>, TType> implements IScalarExecutor1<TInput, TType> {
 	
 	private Integer fieldIndex;
 	

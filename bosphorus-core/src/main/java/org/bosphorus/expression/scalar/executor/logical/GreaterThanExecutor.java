@@ -18,26 +18,15 @@
 
 package org.bosphorus.expression.scalar.executor.logical;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-public class GreaterThanExecutor<TInput, TType extends Comparable<TType>> implements IScalarExecutor<TInput, Boolean> {
-
-	private IScalarExecutor<? super TInput, ? extends TType> left;
-	private IScalarExecutor<? super TInput, ? extends TType> right;
-
-	public GreaterThanExecutor(IScalarExecutor<? super TInput, ? extends TType> left, 
-			IScalarExecutor<? super TInput, ? extends TType> right) {
-		this.left = left;
-		this.right = right;
-	}
+public class GreaterThanExecutor<TType extends Comparable<TType>> implements IScalarExecutor2<TType, TType, Boolean> {
 	
-	public Boolean execute(TInput input) throws Exception {
-		TType left = this.left.execute(input);
-		TType right = this.right.execute(input);
-		if(left == null) {
+	public Boolean execute(TType input1, TType input2) throws Exception {
+		if(input1 == null) {
 			return false;
 		}
-		return left.compareTo(right) > 0;
+		return input1.compareTo(input2) > 0;
 	}
 
 }

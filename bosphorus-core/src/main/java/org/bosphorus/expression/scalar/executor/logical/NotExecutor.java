@@ -18,19 +18,13 @@
 
 package org.bosphorus.expression.scalar.executor.logical;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class NotExecutor<TInput> implements IScalarExecutor<TInput, Boolean> {
-
-	private IScalarExecutor<? super TInput, Boolean> value;
-
-	public NotExecutor(IScalarExecutor<? super TInput, Boolean> value) {
-		this.value = value;
-	}
-
+public class NotExecutor implements IScalarExecutor1<Boolean, Boolean> {
+	
 	@Override
-	public Boolean execute(TInput input) throws Exception {
-		return !value.execute(input);
+	public Boolean execute(Boolean input) throws Exception {
+		return !input;
 	}
 
 }

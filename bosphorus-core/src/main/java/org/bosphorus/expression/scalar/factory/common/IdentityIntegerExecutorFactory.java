@@ -16,15 +16,18 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+package org.bosphorus.expression.scalar.factory.common;
 
-public class TupleExecutor<TType> implements IScalarExecutor<TType, TType> {
+import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
+import org.bosphorus.expression.scalar.executor.common.IdentityIntegerExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory0;
+
+public class IdentityIntegerExecutorFactory implements IScalarExecutorFactory0<Integer> {
 
 	@Override
-	public TType execute(TType input) throws Exception {
-		return input;
+	public IScalarExecutor0<Integer> create() {
+		return new IdentityIntegerExecutor();
 	}
 
 }

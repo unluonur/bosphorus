@@ -16,14 +16,13 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.builder;
 
-import java.util.List;
+package org.bosphorus.expression.scalar.factory;
 
-import org.bosphorus.expression.scalar.executor.tuple.ConstListElementExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ListExpressionBuilder extends ExpressionBuilder<List<Object>> {
-	public ConstListElementExecutor<List<Object>, Object> element(Integer fieldIndex) {
-		return new ConstListElementExecutor<List<Object>, Object>(fieldIndex);
-	}
+public interface IScalarExecutorFactory1<TInput, TOutput> {
+	
+	IScalarExecutor1<TInput, TOutput> create();
+	
 }

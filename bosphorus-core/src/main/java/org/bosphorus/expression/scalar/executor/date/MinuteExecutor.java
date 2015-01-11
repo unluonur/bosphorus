@@ -20,20 +20,14 @@ package org.bosphorus.expression.scalar.executor.date;
 
 import java.util.Date;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class MinuteExecutor<TInput> implements IScalarExecutor<TInput, Integer> {
-	
-	private IScalarExecutor<? super TInput, Date> value;
-	
-	public MinuteExecutor(IScalarExecutor<? super TInput, Date> value) {
-		this.value = value;
-	}
+public class MinuteExecutor implements IScalarExecutor1<Date, Integer> {
 	
 	@SuppressWarnings("deprecation")
 	@Override
-	public Integer execute(TInput input) throws Exception {
-		return value.execute(input).getMinutes();
+	public Integer execute(Date input) throws Exception {
+		return input.getMinutes();
 	}
 
 }

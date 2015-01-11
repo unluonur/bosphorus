@@ -20,12 +20,12 @@ package org.bosphorus.expression.scalar.executor.common;
 
 import java.util.UUID;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
 
-public class GuidExecutor<TInput> implements IScalarExecutor<TInput, String> {
+public class GuidExecutor implements IScalarExecutor0<String> {
 
 	@Override
-	public String execute(TInput input) throws Exception {
+	public String execute() throws Exception {
 		return UUID.randomUUID().toString();
 	}
 

@@ -16,12 +16,15 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.expression.scalar.executor;
 
-import org.bosphorus.expression.IStateExpression;
+package org.bosphorus.api.builder.expression.scalar;
 
-public interface IScalarExecutor <TInput, TOutput> {
+import java.io.Serializable;
 
-	TOutput execute(TInput input) throws Exception;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor3;
 
+public interface IScalarExpression3<TInput1, TInput2, TInput3, TOutput> extends Serializable {
+	
+	IScalarExecutor3<TInput1, TInput2, TInput3, TOutput> build();
+	
 }

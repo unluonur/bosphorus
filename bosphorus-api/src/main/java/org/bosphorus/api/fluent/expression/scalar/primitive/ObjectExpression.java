@@ -1,6 +1,6 @@
 package org.bosphorus.api.fluent.expression.scalar.primitive;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 import org.bosphorus.api.fluent.expression.scalar.BaseTypeExpression;
 
 public class ObjectExpression<TInput> extends BaseTypeExpression<TInput, Object> {
@@ -10,7 +10,7 @@ public class ObjectExpression<TInput> extends BaseTypeExpression<TInput, Object>
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public ObjectExpression(IScalarExpression<TInput, Object> builder) {
+	public ObjectExpression(IScalarExpression1<TInput, Object> builder) {
 		super(builder);
 	}
 	

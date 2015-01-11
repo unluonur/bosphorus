@@ -23,14 +23,14 @@ import java.util.List;
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.expression.aggregate.executor.scalar.ListExpressionExecutor;
 import org.bosphorus.expression.aggregate.factory.IAggregateExecutorFactory;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
 public class ListExpressionFactory<TInput, TType, TOutput> implements IAggregateExecutorFactory<TInput, TOutput> {
 	
-	private IScalarExecutor<? super TInput, ? extends List<? extends TType>> expression;
+	private IScalarExecutor1<? super TInput, ? extends List<? extends TType>> expression;
 	private IAggregateExecutorFactory<? super TType, ? extends TOutput> factory;
 	
-	public ListExpressionFactory(IScalarExecutor<? super TInput, ? extends List<? extends TType>> expression, 
+	public ListExpressionFactory(IScalarExecutor1<? super TInput, ? extends List<? extends TType>> expression, 
 			IAggregateExecutorFactory<? super TType, ? extends TOutput> factory) {
 		this.expression = expression;
 		this.factory = factory;

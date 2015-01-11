@@ -1,33 +1,19 @@
 package org.bosphorus.api.builder.expression.scalar.common;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 import org.bosphorus.expression.scalar.executor.common.ConvertExecutor;
 
-public class ConvertExpression<TInput, TOutput, TSource> implements IScalarExpression<TInput, TOutput> {
+public class ConvertExpression<TInput, TOutput> implements IScalarExpression1<TInput, TOutput> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	private IScalarExpression<TInput, TSource> expression;
-	
-	public ConvertExpression(IScalarExpression<TInput, TSource> expression) {
-		this.setExpression(expression);
-	}
-
-	public IScalarExpression<TInput, TSource> getExpression() {
-		return expression;
-	}
-
-	public void setExpression(IScalarExpression<TInput, TSource> expression) {
-		this.expression = expression;
-	}
 
 	@Override
-	public IScalarExecutor<TInput, TOutput> build() {
-		return new ConvertExecutor<TInput, TOutput, TSource>(getExpression().build());
+	public IScalarExecutor1<TInput, TOutput> build() {
+		return new ConvertExecutor<TInput, TOutput>();
 	}
 
 }

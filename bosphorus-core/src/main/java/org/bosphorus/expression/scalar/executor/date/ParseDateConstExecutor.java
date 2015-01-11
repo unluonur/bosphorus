@@ -23,15 +23,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ParseDateConstExecutor<TInput> implements IScalarExecutor<TInput, Date> {
-	private IScalarExecutor<? super TInput, String> expression;
+public class ParseDateConstExecutor implements IScalarExecutor1<String, Date> {
 	private final ThreadLocal<DateFormat> dateFormat;
 
-	public ParseDateConstExecutor(IScalarExecutor<? super TInput, String> expression, 
-			String formatExpression) {
-		this.expression = expression;
+	public ParseDateConstExecutor(String formatExpression) {
 		this.dateFormat = new ThreadLocal<DateFormat>(){
 			@Override
 			protected DateFormat initialValue() {
@@ -41,8 +38,8 @@ public class ParseDateConstExecutor<TInput> implements IScalarExecutor<TInput, D
 	}
 
 	@Override
-	public Date execute(TInput input) throws Exception {
-		return dateFormat.get().parse(expression.execute(input));
+	public Date execute(String input) throws Exception {
+		return dateFormat.get().parse(input);
 	}
 	
 }

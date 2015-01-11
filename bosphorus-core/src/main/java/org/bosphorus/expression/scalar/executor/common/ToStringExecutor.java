@@ -18,18 +18,13 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ToStringExecutor<TInput> implements IScalarExecutor<TInput, String> {
-	private IScalarExecutor<? super TInput, ?> expression;
-	
-	public ToStringExecutor(IScalarExecutor<? super TInput, ?> expression) {
-		this.expression = expression;
-	}
+public class ToStringExecutor implements IScalarExecutor1<Object, String> {
 	
 	@Override
-	public String execute(TInput input) throws Exception {
-		return expression.execute(input).toString();
+	public String execute(Object input) throws Exception {
+		return input.toString();
 	}
 
 }

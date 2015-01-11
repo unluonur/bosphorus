@@ -1,10 +1,10 @@
 package org.bosphorus.api.builder.expression.scalar.common;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
-import org.bosphorus.expression.scalar.executor.common.TupleExecutor;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.common.InputExecutor;
 
-public class InputExpression<TInput> implements IScalarExpression<TInput, TInput> {
+public class InputExpression<TInput> implements IScalarExpression1<TInput, TInput> {
 
 	/**
 	 * 
@@ -12,8 +12,8 @@ public class InputExpression<TInput> implements IScalarExpression<TInput, TInput
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public IScalarExecutor<TInput, TInput> build() {
-		return new TupleExecutor<TInput>();
+	public IScalarExecutor1<TInput, TInput> build() {
+		return new InputExecutor<TInput>();
 	}
 
 }

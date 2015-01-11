@@ -18,16 +18,13 @@
 
 package org.bosphorus.expression.scalar.executor.string;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-public class StrIndexOfExecutor<TInput> implements IScalarExecutor<TInput, Integer> {
-	
-	private IScalarExecutor<? super TInput, String> text;
-	private IScalarExecutor<? super TInput, String> searchString;
+public class StrIndexOfExecutor implements IScalarExecutor2<String, String, Integer> {
 
 	@Override
-	public Integer execute(TInput input) throws Exception {
-		return text.execute(input).indexOf(searchString.execute(input));
+	public Integer execute(String input1, String input2) throws Exception {
+		return input1.indexOf(input2);
 	}
 
 }

@@ -3,32 +3,32 @@ package org.bosphorus.api.builder.expression.scalar.aggregate;
 import java.util.List;
 
 import org.bosphorus.api.builder.expression.aggregate.IAggregateExpression;
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 import org.bosphorus.expression.scalar.executor.aggregate.ListAggregateExecutor;
 
-public class ListAggregateExpression<TInput, TType, TOutput> implements IScalarExpression<TInput, TOutput> {
+public class ListAggregateExpression<TInput, TType, TOutput> implements IScalarExpression1<TInput, TOutput> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private IScalarExpression<TInput, ? extends List<? extends TType>> scalarExpression;
+	private IScalarExpression1<TInput, ? extends List<? extends TType>> scalarExpression;
 	private IAggregateExpression<TType, TOutput> aggregateExpression;
 	
 	public ListAggregateExpression(
-			IScalarExpression<TInput, ? extends List<? extends TType>> scalarExpression, 
+			IScalarExpression1<TInput, ? extends List<? extends TType>> scalarExpression, 
 			IAggregateExpression<TType, TOutput> aggregateExpression) {
 		this.setScalarExpression(scalarExpression);
 		this.setAggregateExpression(aggregateExpression);
 	}
 
-	public IScalarExpression<TInput, ? extends List<? extends TType>> getScalarExpression() {
+	public IScalarExpression1<TInput, ? extends List<? extends TType>> getScalarExpression() {
 		return scalarExpression;
 	}
 
-	public void setScalarExpression(IScalarExpression<TInput, ? extends List<? extends TType>> scalarExpression) {
+	public void setScalarExpression(IScalarExpression1<TInput, ? extends List<? extends TType>> scalarExpression) {
 		this.scalarExpression = scalarExpression;
 	}
 
@@ -41,7 +41,7 @@ public class ListAggregateExpression<TInput, TType, TOutput> implements IScalarE
 	}
 
 	@Override
-	public IScalarExecutor<TInput, TOutput> build() {
+	public IScalarExecutor1<TInput, TOutput> build() {
 		return new ListAggregateExecutor<TInput, TType, TOutput>(getScalarExpression().build(), getAggregateExpression().build());
 	}
 

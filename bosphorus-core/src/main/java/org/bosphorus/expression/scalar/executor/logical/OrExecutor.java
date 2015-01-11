@@ -18,21 +18,12 @@
 
 package org.bosphorus.expression.scalar.executor.logical;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
 
-public class OrExecutor<TInput> implements IScalarExecutor<TInput, Boolean> {
+public class OrExecutor implements IScalarExecutor2<Boolean, Boolean, Boolean> {
 
-	private IScalarExecutor<? super TInput, Boolean> left;
-	private IScalarExecutor<? super TInput, Boolean> right;
-	
-	public OrExecutor(IScalarExecutor<? super TInput, Boolean> left,
-			IScalarExecutor<? super TInput, Boolean> right) {
-		this.left = left;
-		this.right = right;
-	}
-
-	public Boolean execute(TInput input) throws Exception {
-		return left.execute(input) || right.execute(input);
+	public Boolean execute(Boolean input1, Boolean input2) throws Exception {
+		return input1 || input2;
 	}
 
 }

@@ -20,14 +20,13 @@ package org.bosphorus.expression.scalar.executor.list;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ListLengthExecutor<TInput> implements IScalarExecutor<TInput, Integer> {
-	private IScalarExecutor<? super TInput, ? extends List<?>> list;
+public class ListLengthExecutor implements IScalarExecutor1<List<?>, Integer> {
 
 	@Override
-	public Integer execute(TInput input) throws Exception {
-		return list.execute(input).size();
+	public Integer execute(List<?> input) throws Exception {
+		return input.size();
 	}
 
 }

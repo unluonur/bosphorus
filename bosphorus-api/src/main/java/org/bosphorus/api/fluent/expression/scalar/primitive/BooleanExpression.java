@@ -1,6 +1,6 @@
 package org.bosphorus.api.fluent.expression.scalar.primitive;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression;
+import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 
 public class BooleanExpression<TInput> extends BaseComparableExpression<TInput, Boolean> {
 
@@ -9,7 +9,7 @@ public class BooleanExpression<TInput> extends BaseComparableExpression<TInput, 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public BooleanExpression(IScalarExpression<TInput, Boolean> builder) {
+	public BooleanExpression(IScalarExpression1<TInput, Boolean> builder) {
 		super(builder);
 	}
 

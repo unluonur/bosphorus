@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.tuple;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ConstListElementExecutor<TInput extends List<? extends TOutput>, TOutput> implements IScalarExecutor<TInput, TOutput> {
+public class ConstListElementExecutor<TOutput> implements IScalarExecutor1<List<? extends TOutput>, TOutput> {
 
 	private Integer fieldIndex;
 	
@@ -31,7 +31,7 @@ public class ConstListElementExecutor<TInput extends List<? extends TOutput>, TO
 	}
 	
 	@Override
-	public TOutput execute(TInput input) {
+	public TOutput execute(List<? extends TOutput> input) {
 		return input.get(fieldIndex);
 	}
 	

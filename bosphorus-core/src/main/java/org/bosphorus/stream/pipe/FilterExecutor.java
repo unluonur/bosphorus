@@ -21,15 +21,15 @@ package org.bosphorus.stream.pipe;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 import org.bosphorus.stream.IPipeExecutor;
 
 public class FilterExecutor<TInput> implements IPipeExecutor<TInput> {
 	
-	private IScalarExecutor<? super TInput, Boolean> expression;
+	private IScalarExecutor1<? super TInput, Boolean> expression;
 	private IPipeExecutor<? super TInput> outputStream;
 	
-	public FilterExecutor(IScalarExecutor<? super TInput, Boolean> expression, 
+	public FilterExecutor(IScalarExecutor1<? super TInput, Boolean> expression, 
 			IPipeExecutor<? super TInput> outputStream) {
 		this.expression = expression;
 		this.outputStream = outputStream;
