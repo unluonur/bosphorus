@@ -21,9 +21,10 @@ package org.bosphorus.expression.scalar.executor.map;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ExpressionMapExecutor<TInput, TOutput> implements IScalarExecutor1<TInput, Map<String, TOutput>> {
+public class ExpressionMapExecutor<TInput, TOutput> extends BaseStatelessExecutor1<TInput, Map<String, TOutput>> {
 	private Map<String, ? extends IScalarExecutor1<TInput, ? extends TOutput>> expressions;
 
 	public ExpressionMapExecutor(Map<String, ? extends IScalarExecutor1<TInput, ? extends TOutput>> expressions) {

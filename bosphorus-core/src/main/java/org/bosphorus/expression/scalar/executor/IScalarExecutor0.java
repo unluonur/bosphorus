@@ -19,7 +19,9 @@
 
 package org.bosphorus.expression.scalar.executor;
 
-public interface IScalarExecutor0<TOutput> {
+import org.bosphorus.expression.IStateExpression;
+
+public interface IScalarExecutor0<TOutput> extends IStateExpression {
 
 	TOutput execute() throws Exception;
 }

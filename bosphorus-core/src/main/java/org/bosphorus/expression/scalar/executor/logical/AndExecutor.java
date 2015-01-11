@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.logical;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class AndExecutor implements IScalarExecutor2<Boolean, Boolean, Boolean> {
+public class AndExecutor extends BaseStatelessExecutor2<Boolean, Boolean, Boolean> {
 
 	public Boolean execute(Boolean input1, Boolean input2) throws Exception {
 		return input1&&input2;

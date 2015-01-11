@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.string;
 
 import java.util.regex.Pattern;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class RegexMatchConstExecutor implements IScalarExecutor1<String, Boolean> {
+public class RegexMatchConstExecutor extends BaseStatelessExecutor1<String, Boolean> {
 
 	private Pattern pattern;
 	

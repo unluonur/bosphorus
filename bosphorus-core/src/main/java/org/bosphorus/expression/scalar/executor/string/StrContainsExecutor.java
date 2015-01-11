@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.string;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class StrContainsExecutor implements IScalarExecutor2<String, String, Boolean> {
+public class StrContainsExecutor extends BaseStatelessExecutor2<String, String, Boolean> {
 
 	@Override
 	public Boolean execute(String input1, String input2) throws Exception {

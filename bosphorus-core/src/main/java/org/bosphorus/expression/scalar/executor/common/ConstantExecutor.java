@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor0;
 
-public class ConstantExecutor<TOutput> implements IScalarExecutor0<TOutput> {
+public class ConstantExecutor<TOutput> extends BaseStatelessExecutor0<TOutput> {
 		
 	private TOutput value;
 		

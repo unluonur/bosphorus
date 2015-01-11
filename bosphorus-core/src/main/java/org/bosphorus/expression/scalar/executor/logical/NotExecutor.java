@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.logical;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class NotExecutor implements IScalarExecutor1<Boolean, Boolean> {
+public class NotExecutor extends BaseStatelessExecutor1<Boolean, Boolean> {
 	
 	@Override
 	public Boolean execute(Boolean input) throws Exception {

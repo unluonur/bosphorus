@@ -28,4 +28,19 @@ public class IdentityIntegerExecutor implements IScalarExecutor0<Integer> {
 		return ++identity;
 	}
 
+	@Override
+	public void reset() {
+		identity = 0;
+	}
+
+	@Override
+	public Object getState() {
+		return identity;
+	}
+
+	@Override
+	public void setState(Object state) throws Exception {
+		identity = (Integer)state;
+	}
+
 }

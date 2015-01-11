@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.date;
 
 import java.util.Date;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class HourExecutor implements IScalarExecutor1<Date, Integer> {
+public class HourExecutor extends BaseStatelessExecutor1<Date, Integer> {
 
 	@SuppressWarnings("deprecation")
 	@Override

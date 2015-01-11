@@ -23,9 +23,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class ParseDateConstExecutor implements IScalarExecutor1<String, Date> {
+public class ParseDateConstExecutor extends BaseStatelessExecutor1<String, Date> {
 	private final ThreadLocal<DateFormat> dateFormat;
 
 	public ParseDateConstExecutor(String formatExpression) {

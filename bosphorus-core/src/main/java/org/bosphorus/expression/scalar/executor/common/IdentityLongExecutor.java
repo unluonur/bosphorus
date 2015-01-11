@@ -28,4 +28,19 @@ public class IdentityLongExecutor implements IScalarExecutor0<Long> {
 		return ++identity;
 	}
 
+	@Override
+	public void reset() {
+		identity = 0L;
+	}
+
+	@Override
+	public Object getState() {
+		return identity;
+	}
+
+	@Override
+	public void setState(Object state) throws Exception {
+		identity = (Long)state;
+	}
+
 }

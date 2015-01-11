@@ -35,4 +35,25 @@ public class ExpressionExecutor1<TInput, TOutput, TType> implements IScalarExecu
 		return this.expressionExecutor.execute(this.parameterExecutor.execute(input));
 	}
 
+	@Override
+	public void reset() {
+		expressionExecutor.reset();
+		parameterExecutor.reset();
+	}
+
+	@Override
+	public Object getState() {
+		return new Object[] {
+				expressionExecutor.getState(),
+				parameterExecutor.getState()
+		};
+	}
+
+	@Override
+	public void setState(Object state) throws Exception {
+		Object[] arr = (Object[])state;
+		expressionExecutor.setState(arr[0]);
+		parameterExecutor.setState(arr[1]);
+	}
+
 }

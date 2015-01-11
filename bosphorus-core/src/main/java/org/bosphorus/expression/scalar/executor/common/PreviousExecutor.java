@@ -30,4 +30,20 @@ public class PreviousExecutor<TType> implements IScalarExecutor1<TType, TType> {
 		value = input;
 		return result;
 	}
+
+	@Override
+	public void reset() {
+		value = null;
+	}
+
+	@Override
+	public Object getState() {
+		return value;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void setState(Object state) throws Exception {
+		value = (TType)state;
+	}
 }

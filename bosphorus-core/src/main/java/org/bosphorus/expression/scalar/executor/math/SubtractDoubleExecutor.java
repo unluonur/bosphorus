@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.math;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class SubtractDoubleExecutor implements IScalarExecutor2<Number, Number, Double> {
+public class SubtractDoubleExecutor extends BaseStatelessExecutor2<Number, Number, Double> {
 	
 	public Double execute(Number input1, Number input2) throws Exception {
 		return input1.doubleValue() - input2.doubleValue();

@@ -33,4 +33,19 @@ public class ExpressionExecutor0<TInput, TOutput> implements IScalarExecutor1<TI
 	public TOutput execute(TInput input) throws Exception {
 		return executor.execute();
 	}
+
+	@Override
+	public void reset() {
+		executor.reset();
+	}
+
+	@Override
+	public Object getState() {
+		return executor.getState();
+	}
+
+	@Override
+	public void setState(Object state) throws Exception {
+		executor.setState(state);
+	}
 }

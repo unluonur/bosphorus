@@ -45,4 +45,31 @@ public class ExpressionExecutor3<TInput, TOutput, TType1, TType2, TType3> implem
 		return expressionExecutor.execute(parameterExecutor1.execute(input), parameterExecutor2.execute(input), parameterExecutor3.execute(input));
 	}
 
+	@Override
+	public void reset() {
+		expressionExecutor.reset();
+		parameterExecutor1.reset();
+		parameterExecutor2.reset();
+		parameterExecutor3.reset();
+	}
+
+	@Override
+	public Object getState() {
+		return new Object[] {
+				expressionExecutor.getState(),
+				parameterExecutor1.getState(),
+				parameterExecutor2.getState(),
+				parameterExecutor3.getState()
+		};
+	}
+
+	@Override
+	public void setState(Object state) throws Exception {
+		Object[] arr = (Object[])state;
+		expressionExecutor.setState(arr[0]);
+		parameterExecutor1.setState(arr[1]);
+		parameterExecutor2.setState(arr[2]);
+		parameterExecutor3.setState(arr[3]);
+	}
+
 }

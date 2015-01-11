@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.list;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class ListLengthExecutor implements IScalarExecutor1<List<?>, Integer> {
+public class ListLengthExecutor extends BaseStatelessExecutor1<List<?>, Integer> {
 
 	@Override
 	public Integer execute(List<?> input) throws Exception {

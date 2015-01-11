@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.string;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class StrJoinExecutor implements IScalarExecutor2<List<String>, String, String> {
+public class StrJoinExecutor extends BaseStatelessExecutor2<List<String>, String, String> {
 
 	@Override
 	public String execute(List<String> input1, String input2) throws Exception {

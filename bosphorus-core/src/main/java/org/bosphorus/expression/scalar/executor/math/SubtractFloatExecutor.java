@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.math;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class SubtractFloatExecutor implements IScalarExecutor2<Number, Number, Float> {
+public class SubtractFloatExecutor extends BaseStatelessExecutor2<Number, Number, Float> {
 	
 	public Float execute(Number input1, Number input2) throws Exception {
 		return input1.floatValue() - input2.floatValue();

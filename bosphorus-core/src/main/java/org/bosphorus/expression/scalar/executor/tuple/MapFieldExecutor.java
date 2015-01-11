@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.tuple;
 
 import java.util.Map;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class MapFieldExecutor<TOutput> implements IScalarExecutor1<Map<String, ? extends TOutput>, TOutput> {
+public class MapFieldExecutor<TOutput> extends BaseStatelessExecutor1<Map<String, ? extends TOutput>, TOutput> {
 	private String name;
 
 	@Override

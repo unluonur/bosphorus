@@ -21,9 +21,9 @@ package org.bosphorus.expression.scalar.executor.string;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class StrSplitExecutor implements IScalarExecutor2<String, String, List<String>> {
+public class StrSplitExecutor extends BaseStatelessExecutor2<String, String, List<String>> {
 
 	@Override
 	public List<String> execute(String input1, String input2) throws Exception {

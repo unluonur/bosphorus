@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class ConvertExecutor<TInput, TOutput> implements IScalarExecutor1<TInput, TOutput> {
+public class ConvertExecutor<TInput, TOutput> extends BaseStatelessExecutor1<TInput, TOutput> {
 
 	@SuppressWarnings("unchecked")
 	@Override

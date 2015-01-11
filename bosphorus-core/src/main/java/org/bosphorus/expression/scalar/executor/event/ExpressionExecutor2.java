@@ -42,4 +42,28 @@ public class ExpressionExecutor2<TInput, TOutput, TType1, TType2> implements ISc
 		return expressionExecutor.execute(parameterExecutor1.execute(input), parameterExecutor2.execute(input));
 	}
 
+	@Override
+	public void reset() {
+		expressionExecutor.reset();
+		parameterExecutor1.reset();
+		parameterExecutor2.reset();
+	}
+
+	@Override
+	public Object getState() {
+		return new Object[] {
+				expressionExecutor.getState(),
+				parameterExecutor1.getState(),
+				parameterExecutor2.getState()
+		};
+	}
+
+	@Override
+	public void setState(Object state) throws Exception {
+		Object[] arr = (Object[])state;
+		expressionExecutor.setState(arr[0]);
+		parameterExecutor1.setState(arr[1]);
+		parameterExecutor2.setState(arr[2]);
+	}
+
 }

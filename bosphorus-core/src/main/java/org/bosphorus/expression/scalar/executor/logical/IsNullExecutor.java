@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.logical;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class IsNullExecutor implements IScalarExecutor1<Object, Boolean> {
+public class IsNullExecutor extends BaseStatelessExecutor1<Object, Boolean> {
 	
 	@Override
 	public Boolean execute(Object input) throws Exception {

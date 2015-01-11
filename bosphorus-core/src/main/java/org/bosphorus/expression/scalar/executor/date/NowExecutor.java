@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.date;
 
 import java.util.Date;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor0;
 
-public class NowExecutor implements IScalarExecutor0<Date> {
+public class NowExecutor extends BaseStatelessExecutor0<Date> {
 	
 	@Override
 	public Date execute() {

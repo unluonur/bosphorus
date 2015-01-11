@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.string;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class StrIndexOfExecutor implements IScalarExecutor2<String, String, Integer> {
+public class StrIndexOfExecutor extends BaseStatelessExecutor2<String, String, Integer> {
 
 	@Override
 	public Integer execute(String input1, String input2) throws Exception {

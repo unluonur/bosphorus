@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.common;
 
 import java.util.UUID;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor0;
 
-public class GuidExecutor implements IScalarExecutor0<String> {
+public class GuidExecutor extends BaseStatelessExecutor0<String> {
 
 	@Override
 	public String execute() throws Exception {

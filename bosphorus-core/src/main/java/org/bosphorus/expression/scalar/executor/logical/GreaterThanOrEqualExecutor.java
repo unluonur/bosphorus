@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.logical;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class GreaterThanOrEqualExecutor<TType extends Comparable<TType>> implements IScalarExecutor2<TType, TType, Boolean> {
+public class GreaterThanOrEqualExecutor<TType extends Comparable<TType>> extends BaseStatelessExecutor2<TType, TType, Boolean> {
 	
 	public Boolean execute(TType input1, TType input2) throws Exception {
 		if(input1 == null) {

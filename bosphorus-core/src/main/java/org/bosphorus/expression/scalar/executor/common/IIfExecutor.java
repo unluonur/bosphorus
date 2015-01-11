@@ -18,9 +18,10 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class IIfExecutor<TInput, TOutput> implements IScalarExecutor1<TInput, TOutput> {
+public class IIfExecutor<TInput, TOutput> extends BaseStatelessExecutor1<TInput, TOutput> {
 	
 	private IScalarExecutor1<? super TInput, Boolean> condition;
 	private IScalarExecutor1<? super TInput, ? extends TOutput> trueValue;

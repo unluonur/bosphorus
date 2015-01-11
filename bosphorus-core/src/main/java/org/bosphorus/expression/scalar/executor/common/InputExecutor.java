@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class InputExecutor<TType> implements IScalarExecutor1<TType, TType> {
+public class InputExecutor<TType> extends BaseStatelessExecutor1<TType, TType> {
 
 	@Override
 	public TType execute(TType input) throws Exception {

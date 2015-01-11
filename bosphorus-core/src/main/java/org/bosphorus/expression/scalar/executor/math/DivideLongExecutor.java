@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.math;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class DivideLongExecutor implements IScalarExecutor2<Number, Number, Long> {
+public class DivideLongExecutor extends BaseStatelessExecutor2<Number, Number, Long> {
 
 	public Long execute(Number input1, Number input2) throws Exception {
 		return input1.longValue() / input2.longValue();

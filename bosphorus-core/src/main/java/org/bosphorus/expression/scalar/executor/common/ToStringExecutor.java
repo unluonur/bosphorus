@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.common;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class ToStringExecutor implements IScalarExecutor1<Object, String> {
+public class ToStringExecutor extends BaseStatelessExecutor1<Object, String> {
 	
 	@Override
 	public String execute(Object input) throws Exception {

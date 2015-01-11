@@ -22,9 +22,10 @@ import java.util.List;
 
 import org.bosphorus.expression.aggregate.executor.IAggregateExecutor;
 import org.bosphorus.expression.aggregate.factory.IAggregateExecutorFactory;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ListAggregateExecutor<TInput, TType, TOutput> implements IScalarExecutor1<TInput, TOutput> {
+public class ListAggregateExecutor<TInput, TType, TOutput> extends BaseStatelessExecutor1<TInput, TOutput> {
 	private IScalarExecutor1<? super TInput, ? extends List<? extends TType>> listExpression;
 	private IAggregateExecutorFactory<? super TType, ? extends TOutput> factory;
 	

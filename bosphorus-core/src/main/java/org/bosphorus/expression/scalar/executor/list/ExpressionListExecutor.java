@@ -21,9 +21,10 @@ package org.bosphorus.expression.scalar.executor.list;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ExpressionListExecutor<TInput, TType> implements IScalarExecutor1<TInput, List<TType>> {
+public class ExpressionListExecutor<TInput, TType> extends BaseStatelessExecutor1<TInput, List<TType>> {
 
 	private List<? extends IScalarExecutor1<? super TInput, ? extends TType>> expressions;
 

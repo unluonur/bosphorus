@@ -23,9 +23,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class ParseDateExecutor implements IScalarExecutor2<String, String, Date> {
+public class ParseDateExecutor extends BaseStatelessExecutor2<String, String, Date> {
 
 	@Override
 	public Date execute(String input1, String input2) throws Exception {

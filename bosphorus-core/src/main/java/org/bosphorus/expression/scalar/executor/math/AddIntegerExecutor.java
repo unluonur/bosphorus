@@ -18,9 +18,9 @@
 
 package org.bosphorus.expression.scalar.executor.math;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class AddIntegerExecutor implements IScalarExecutor2<Number, Number, Integer> {
+public class AddIntegerExecutor extends BaseStatelessExecutor2<Number, Number, Integer> {
 
 	public Integer execute(Number input1, Number input2) throws Exception {
 		return input1.intValue() + input2.intValue();

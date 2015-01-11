@@ -16,17 +16,11 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.expression.scalar.executor.date;
 
-import java.util.Date;
+package org.bosphorus.expression.scalar.executor;
 
-import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
+import org.bosphorus.expression.BaseStatelessExpression;
 
-public class TruncateToYearExecutor extends BaseStatelessExecutor1<Date, Date> {
+public abstract class BaseStatelessExecutor0<TOutput> extends BaseStatelessExpression implements IScalarExecutor0<TOutput> {
 
-	@SuppressWarnings("deprecation")
-	@Override
-	public Date execute(Date input) throws Exception {
-		return new Date(input.getYear(), 0, 1);
-	}
 }

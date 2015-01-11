@@ -20,9 +20,9 @@ package org.bosphorus.expression.scalar.executor.logical;
 
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
+import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor2;
 
-public class NotInExecutor<TType extends Comparable<TType>> implements IScalarExecutor2<TType, List<TType>, Boolean> {
+public class NotInExecutor<TType extends Comparable<TType>> extends BaseStatelessExecutor2<TType, List<TType>, Boolean> {
 
 	@Override
 	public Boolean execute(TType input1, List<TType> input2) throws Exception {
