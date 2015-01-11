@@ -17,14 +17,24 @@
  */
 
 
-package org.bosphorus.api.builder.expression.scalar;
+package org.bosphorus.expression.scalar.factory.tuple;
 
-import java.io.Serializable;
+import java.util.List;
 
-import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory2;
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.tuple.ListElementExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
-public interface IScalarExpression2<TInput1, TInput2, TOutput> extends Serializable {
+public class ListElementExecutorFactory<TInput extends List<?>, TType> implements IScalarExecutorFactory1<TInput, TType> {
 	
-	IScalarExecutorFactory2<TInput1, TInput2, TOutput> build();
+	private Integer fieldIndex;
 	
+	public ListElementExecutorFactory(Integer fieldIndex) {
+		this.fieldIndex = fieldIndex;
+	}
+
+	@Override
+	public IScalarExecutor1<TInput, TType> create() {
+		return new ListElementExecutor<TInput, TType>(fieldIndex);
+	}
 }

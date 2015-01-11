@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.list.ExpressionListExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
+import org.bosphorus.expression.scalar.factory.list.ExpressionListExecutorFactory;
 
 public class ExpressionList<TInput, TType> implements IScalarExpression1<TInput, List<TType>> {
 	/**
@@ -20,13 +20,13 @@ public class ExpressionList<TInput, TType> implements IScalarExpression1<TInput,
 	}
 	
 	@Override
-	public IScalarExecutor1<TInput, List<TType>> build() {
-		ArrayList<IScalarExecutor1<? super TInput, ? extends TType>> list = new ArrayList<IScalarExecutor1<? super TInput, ? extends TType>>();
+	public IScalarExecutorFactory1<TInput, List<TType>> build() {
+		ArrayList<IScalarExecutorFactory1<? super TInput, ? extends TType>> list = new ArrayList<IScalarExecutorFactory1<? super TInput, ? extends TType>>();
 		for(IScalarExpression1<? super TInput, ? extends TType> expression: getExpressions()) {
 			list.add(expression.build());
 		}
 		
-		return new ExpressionListExecutor<TInput, TType>(list);
+		return new ExpressionListExecutorFactory<TInput, TType>(list);
 	}
 
 	public List<? extends IScalarExpression1<? super TInput, ? extends TType>> getExpressions() {

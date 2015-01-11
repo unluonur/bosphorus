@@ -5,6 +5,7 @@ import org.bosphorus.api.builder.expression.scalar.common.ConvertExpression;
 import org.bosphorus.api.builder.expression.scalar.event.ScalarExpression1;
 import org.bosphorus.api.fluent.expression.scalar.primitive.BooleanExpression;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
 public abstract class BaseTypeExpression<TInput, TOutput> implements IScalarExpression1<TInput, TOutput> {
 
@@ -28,7 +29,7 @@ public abstract class BaseTypeExpression<TInput, TOutput> implements IScalarExpr
 	}
 	
 	@Override
-	public IScalarExecutor1<TInput, TOutput> build() {
+	public IScalarExecutorFactory1<TInput, TOutput> build() {
 		return getBuilder().build();
 	}
 

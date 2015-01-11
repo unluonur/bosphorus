@@ -1,8 +1,8 @@
 package org.bosphorus.api.builder.expression.scalar.common;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression0;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
-import org.bosphorus.expression.scalar.executor.common.ConstantExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory0;
+import org.bosphorus.expression.scalar.factory.common.ConstantExecutorFactory;
 
 public class ConstantExpression<TType> implements IScalarExpression0<TType> {
 	/**
@@ -25,8 +25,8 @@ public class ConstantExpression<TType> implements IScalarExpression0<TType> {
 	}
 
 	@Override
-	public IScalarExecutor0<TType> build() {
-		return new ConstantExecutor<TType>(getValue());
+	public IScalarExecutorFactory0<TType> build() {
+		return new ConstantExecutorFactory<TType>(getValue());
 	}
 	
 }

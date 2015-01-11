@@ -21,10 +21,9 @@ package org.bosphorus.expression.scalar.executor.list;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.BaseStatelessExecutor1;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
 
-public class ExpressionListExecutor<TInput, TType> extends BaseStatelessExecutor1<TInput, List<TType>> {
+public class ExpressionListExecutor<TInput, TType> implements IScalarExecutor1<TInput, List<TType>> {
 
 	private List<? extends IScalarExecutor1<? super TInput, ? extends TType>> expressions;
 
@@ -39,6 +38,31 @@ public class ExpressionListExecutor<TInput, TType> extends BaseStatelessExecutor
 			result.add(expr.execute(input));
 		}
 		return result;
+	}
+
+	@Override
+	public void reset() {
+		for(IScalarExecutor1<? super TInput, ? extends TType> executor: expressions) {
+			executor.reset();
+		}
+	}
+
+	@Override
+	public Object getState() {
+		ArrayList<Object> state = new ArrayList<Object>();
+		for(IScalarExecutor1<? super TInput, ? extends TType> executor: expressions) {
+			state.add(executor.getState());
+		}
+		return state;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void setState(Object state) throws Exception {
+		List<Object> list = (List<Object>)state;
+		for(int i=0; i<list.size(); i++) {
+			expressions.get(i).setState(list.get(i));
+		}
 	}
 
 }

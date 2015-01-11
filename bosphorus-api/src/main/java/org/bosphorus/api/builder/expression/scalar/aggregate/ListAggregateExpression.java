@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.bosphorus.api.builder.expression.aggregate.IAggregateExpression;
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.aggregate.ListAggregateExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
+import org.bosphorus.expression.scalar.factory.aggregate.ListAggregateExecutorFactory;
 
 public class ListAggregateExpression<TInput, TType, TOutput> implements IScalarExpression1<TInput, TOutput> {
 
@@ -41,8 +41,8 @@ public class ListAggregateExpression<TInput, TType, TOutput> implements IScalarE
 	}
 
 	@Override
-	public IScalarExecutor1<TInput, TOutput> build() {
-		return new ListAggregateExecutor<TInput, TType, TOutput>(getScalarExpression().build(), getAggregateExpression().build());
+	public IScalarExecutorFactory1<TInput, TOutput> build() {
+		return new ListAggregateExecutorFactory<TInput, TType, TOutput>(getScalarExpression().build().create(), getAggregateExpression().build());
 	}
 
 }

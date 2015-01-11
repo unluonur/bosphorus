@@ -18,7 +18,7 @@ public class FilterPipe<TType> extends BaseSingleOutputStream<TType, TType> {
 
 	@Override
 	public IPipeExecutor<TType> build() throws Exception {
-		return new FilterExecutor<TType>(filter.build(), this.getOutput().build());
+		return new FilterExecutor<TType>(filter.build().create(), this.getOutput().build());
 	}
 
 }

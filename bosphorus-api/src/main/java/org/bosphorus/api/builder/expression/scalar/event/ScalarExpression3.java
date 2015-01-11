@@ -21,8 +21,8 @@ package org.bosphorus.api.builder.expression.scalar.event;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression3;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.event.ExpressionExecutor3;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
+import org.bosphorus.expression.scalar.factory.event.ExpressionExecutorFactory3;
 
 public class ScalarExpression3<TInput, TOutput, TType1, TType2, TType3> implements IScalarExpression1<TInput, TOutput> {
 	/**
@@ -75,8 +75,8 @@ public class ScalarExpression3<TInput, TOutput, TType1, TType2, TType3> implemen
 	}
 
 	@Override
-	public IScalarExecutor1<TInput, TOutput> build() {
-		return new ExpressionExecutor3<TInput, TOutput, TType1, TType2, TType3>(getExpression().build(), getParameter1().build(), getParameter2().build(), getParameter3().build());
+	public IScalarExecutorFactory1<TInput, TOutput> build() {
+		return new ExpressionExecutorFactory3<TInput, TOutput, TType1, TType2, TType3>(getExpression().build(), getParameter1().build(), getParameter2().build(), getParameter3().build());
 	}
 
 }

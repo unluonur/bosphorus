@@ -3,8 +3,8 @@ package org.bosphorus.api.builder.expression.scalar.list;
 import java.util.List;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.expression.scalar.executor.tuple.ConstListElementExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
+import org.bosphorus.expression.scalar.factory.tuple.ConstListElementExecutorFactory;
 
 public class ConstListElementExpression<TOutput> implements IScalarExpression1<List<? extends TOutput>, TOutput> {
 
@@ -28,8 +28,8 @@ public class ConstListElementExpression<TOutput> implements IScalarExpression1<L
 	}
 
 	@Override
-	public IScalarExecutor1<List<? extends TOutput>, TOutput> build() {
-		return new ConstListElementExecutor<TOutput>(this.getFieldIndex());
+	public IScalarExecutorFactory1<List<? extends TOutput>, TOutput> build() {
+		return new ConstListElementExecutorFactory<TOutput>(this.getFieldIndex());
 	}
 
 }

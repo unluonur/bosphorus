@@ -40,7 +40,7 @@ public class ObjectListStreamTest {
 		List<Object> tuple = factory.makeRandomTuple();
 		
 		StringExpression<List<Object>> expression = stream.field("City").stringValue();
-		IScalarExecutor1<List<Object>, String> executor = expression.build();
+		IScalarExecutor1<List<Object>, String> executor = expression.build().create();
 		System.out.println(expression);
 		assertEquals((String)tuple.get(0), executor.execute(tuple));
 	}

@@ -15,7 +15,7 @@ public class ProjectionPipe<TInput, TOutput> extends BaseSingleOutputStream<TInp
 
 	@Override
 	public IPipeExecutor<TInput> build() throws Exception {
-		return new ProjectionExecutor<TInput, TOutput>(expression.build(), this.getOutput().build());
+		return new ProjectionExecutor<TInput, TOutput>(expression.build().create(), this.getOutput().build());
 	}
 
 }

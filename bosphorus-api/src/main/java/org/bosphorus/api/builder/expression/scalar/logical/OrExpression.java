@@ -20,16 +20,16 @@
 package org.bosphorus.api.builder.expression.scalar.logical;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression2;
-import org.bosphorus.expression.scalar.executor.IScalarExecutor2;
-import org.bosphorus.expression.scalar.executor.logical.OrExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory2;
+import org.bosphorus.expression.scalar.factory.logical.OrExecutorFactory;
 
 public class OrExpression implements IScalarExpression2<Boolean, Boolean, Boolean> {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public IScalarExecutor2<Boolean, Boolean, Boolean> build() {
-		return new OrExecutor();
+	public IScalarExecutorFactory2<Boolean, Boolean, Boolean> build() {
+		return new OrExecutorFactory();
 	}
 
 }

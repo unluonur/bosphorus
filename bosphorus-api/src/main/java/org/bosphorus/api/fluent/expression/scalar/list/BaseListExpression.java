@@ -6,6 +6,7 @@ import org.bosphorus.api.builder.expression.aggregate.IAggregateExpression;
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 import org.bosphorus.api.builder.expression.scalar.aggregate.ListAggregateExpression;
 import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
 public abstract class BaseListExpression<TInput, TType> implements IScalarExpression1<TInput, List<TType>> {
 
@@ -34,8 +35,8 @@ public abstract class BaseListExpression<TInput, TType> implements IScalarExpres
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public IScalarExecutor1<TInput, List<TType>> build() {
-		return (IScalarExecutor1<TInput, List<TType>>) this.getBuilder().build();
+	public IScalarExecutorFactory1<TInput, List<TType>> build() {
+		return (IScalarExecutorFactory1<TInput, List<TType>>) this.getBuilder().build();
 	}
 
 }

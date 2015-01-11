@@ -17,19 +17,25 @@
  */
 
 
-package org.bosphorus.api.builder.expression.scalar.logical;
+package org.bosphorus.expression.scalar.factory.tuple;
 
-import org.bosphorus.api.builder.expression.scalar.IScalarExpression2;
-import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory2;
-import org.bosphorus.expression.scalar.factory.logical.GreaterThanOrEqualExecutorFactory;
+import java.util.List;
 
-public class GreaterThanOrEqualExpression<TType extends Comparable<TType>> implements IScalarExpression2<TType, TType, Boolean> {
+import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.expression.scalar.executor.tuple.ConstListElementExecutor;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory1;
 
-	private static final long serialVersionUID = 1L;
+public class ConstListElementExecutorFactory<TOutput> implements IScalarExecutorFactory1<List<? extends TOutput>, TOutput> {
 
-	@Override
-	public IScalarExecutorFactory2<TType, TType, Boolean> build() {
-		return new GreaterThanOrEqualExecutorFactory<TType>();
+	private Integer fieldIndex;
+	
+	public ConstListElementExecutorFactory(Integer fieldIndex) {
+		this.fieldIndex = fieldIndex;
 	}
 
+	@Override
+	public IScalarExecutor1<List<? extends TOutput>, TOutput> create() {
+		return new ConstListElementExecutor<TOutput>(fieldIndex);
+	}
+	
 }

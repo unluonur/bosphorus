@@ -21,10 +21,10 @@ package org.bosphorus.api.builder.expression.scalar;
 
 import java.io.Serializable;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor0;
+import org.bosphorus.expression.scalar.factory.IScalarExecutorFactory0;
 
 public interface IScalarExpression0<TOutput> extends Serializable {
 
-	IScalarExecutor0<TOutput> build();
+	IScalarExecutorFactory0<TOutput> build();
 
 }

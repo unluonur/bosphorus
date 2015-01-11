@@ -37,7 +37,7 @@ public class ScalarToAggregateExpression<TInput, TType, TOutput> implements IAgg
 
 	@Override
 	public IAggregateExecutorFactory<TInput, TOutput> build() {
-		return new ExpressionFactory<TInput, TType, TOutput>(this.getScalarExpression().build(), this.getAggregateExpression().build());
+		return new ExpressionFactory<TInput, TType, TOutput>(this.getScalarExpression().build().create(), this.getAggregateExpression().build());
 	}
 
 }

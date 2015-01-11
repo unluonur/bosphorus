@@ -47,7 +47,7 @@ public class GroupAggregationExpression<TInput, TKey, TValue> implements IAggreg
 	
 	@Override
 	public IAggregateExecutorFactory<TInput, Map<TKey, TValue>> build() {
-		return new GroupAggregationFactory<TInput, TKey, TValue>(this.keyExpression.build(), this.valueExpression.build());
+		return new GroupAggregationFactory<TInput, TKey, TValue>(this.keyExpression.build().create(), this.valueExpression.build());
 	}
 
 }
