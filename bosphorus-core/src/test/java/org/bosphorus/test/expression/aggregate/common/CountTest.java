@@ -1,11 +1,12 @@
 package org.bosphorus.test.expression.aggregate.common;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-import org.bosphorus.expression.aggregate.executor.common.CountIntegerExecutor;
+import org.bosphorus.core.expression.aggregate.executor.common.CountIntegerExecutor;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

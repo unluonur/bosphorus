@@ -21,9 +21,9 @@ package org.bosphorus.topology.old.node.builder;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bosphorus.expression.scalar.executor.IScalarExecutor1;
-import org.bosphorus.stream.IPipeExecutor;
-import org.bosphorus.stream.pipe.FilterExecutor;
+import org.bosphorus.core.expression.scalar.executor.IScalarExecutor1;
+import org.bosphorus.core.stream.IPipeExecutor;
+import org.bosphorus.core.stream.pipe.FilterExecutor;
 
 public class FilterNode<TType> implements IReadWriteNodeBuilder<TType, TType> {
 	IScalarExecutor1<TType, Boolean> filter;

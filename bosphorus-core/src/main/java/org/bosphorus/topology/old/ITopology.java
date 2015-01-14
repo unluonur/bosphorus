@@ -20,7 +20,7 @@ package org.bosphorus.topology.old;
 
 import java.util.List;
 
-import org.bosphorus.stream.IPipeExecutor;
+import org.bosphorus.core.stream.IPipeExecutor;
 //import org.bosphorus.topology.builder.IStreamBuilder;
 import org.bosphorus.topology.old.node.old.IBaseNode;
 import org.bosphorus.topology.old.node.old.IReadNode;

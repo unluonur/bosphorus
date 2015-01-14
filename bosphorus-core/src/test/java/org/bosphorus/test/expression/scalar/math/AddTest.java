@@ -1,12 +1,8 @@
 package org.bosphorus.test.expression.scalar.math;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.bosphorus.expression.scalar.executor.math.AddDoubleExecutor;
-import org.bosphorus.expression.scalar.executor.tuple.ListElementExecutor;
+import org.bosphorus.core.expression.scalar.executor.math.AddDoubleExecutor;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
