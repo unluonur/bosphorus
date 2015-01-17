@@ -4,6 +4,87 @@ bosphorus
 An experimental distributed Java complex event processor.
 
 
+#####  Scalar Functions
+######  Date Functions
+* year
+* month
+* dateDiff
+* dayOfMonth
+* dayOfWeek
+* hour
+* minute
+* second
+* truncateToYear
+* truncateToMonth
+* truncateToDay
+* truncateToHour
+* truncateToMinute
+* truncateToSecond
+* now
+
+######  Logical Operations
+* and
+* or
+* equals
+* notEquals
+* isNull
+* isNotNull
+* lessThan
+* lessThanOrEqual
+* greaterThan
+* greaterThanOrEqual
+* in
+* notIn
+* not
+
+######  Mathematical Functions
+* add
+* subtract
+* multiply
+* divide
+* mod
+
+######  String Functions
+* parseDate
+* parseInteger
+* parseLong
+* parseFloat
+* parseDouble
+* regexMatch
+* strConcat
+* strContains
+* strIndexOf
+* strJoin
+* strLength
+* strSplit
+* subString
+
+######  Other Functions
+* partition
+* identity
+* previous
+* convert
+* guid
+* iif
+* ifnull
+* random
+
+#####  Aggregate Functions
+* group
+* count
+* countDistinct
+* sum
+* selectDistinct
+* first
+* last
+* min
+* max
+* avg
+* stdDev
+* median
+
+
+
 ##### Projection Example
 
 ```java
@@ -120,83 +201,3 @@ An experimental distributed Java complex event processor.
 [550.0, 110.0, 25.495097567963924]
 
 ```
-
-
-#####  Scalar Functions
-######  Date Functions
-* year
-* month
-* dateDiff
-* dayOfMonth
-* dayOfWeek
-* hour
-* minute
-* second
-* truncateToYear
-* truncateToMonth
-* truncateToDay
-* truncateToHour
-* truncateToMinute
-* truncateToSecond
-* now
-
-######  Logical Operations
-* and
-* or
-* equals
-* notEquals
-* isNull
-* isNotNull
-* lessThan
-* lessThanOrEqual
-* greaterThan
-* greaterThanOrEqual
-* in
-* notIn
-* not
-
-######  Mathematical Functions
-* add
-* subtract
-* multiply
-* divide
-* mod
-
-######  String Functions
-* parseDate
-* parseInteger
-* parseLong
-* parseFloat
-* parseDouble
-* regexMatch
-* strConcat
-* strContains
-* strIndexOf
-* strJoin
-* strLength
-* strSplit
-* subString
-
-######  Other Functions
-* partition
-* identity
-* previous
-* convert
-* guid
-* iif
-* ifnull
-* random
-
-#####  Aggregate Functions
-* group
-* count
-* countDistinct
-* sum
-* selectDistinct
-* first
-* last
-* min
-* max
-* avg
-* stdDev
-* median
