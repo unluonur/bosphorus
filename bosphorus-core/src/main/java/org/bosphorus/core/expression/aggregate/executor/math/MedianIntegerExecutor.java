@@ -33,9 +33,7 @@ public class MedianIntegerExecutor implements IAggregateExecutor<Number, Integer
 
 	@Override
 	public void execute(Number input) throws Exception {
-		if(input != null) {
-			list.add(input);
-		}
+		list.add(input);
 	}
 
 	@Override

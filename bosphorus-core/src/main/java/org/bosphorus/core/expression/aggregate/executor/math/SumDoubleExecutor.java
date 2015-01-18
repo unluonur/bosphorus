@@ -30,9 +30,7 @@ public class SumDoubleExecutor implements IAggregateExecutor<Number, Double> {
 
 	@Override
 	public void execute(Number input) throws Exception {
-		if(input != null) {
-			sum += input.doubleValue();
-		}
+		sum += input.doubleValue();
 	}
 
 	@Override

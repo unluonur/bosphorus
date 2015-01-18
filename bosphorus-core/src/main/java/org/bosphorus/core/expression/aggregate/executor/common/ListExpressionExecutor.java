@@ -16,47 +16,48 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.core.expression.aggregate.executor.math;
+package org.bosphorus.core.expression.aggregate.executor.common;
+
+import java.util.List;
 
 import org.bosphorus.core.expression.aggregate.executor.IAggregateExecutor;
+import org.bosphorus.core.expression.scalar.executor.IScalarExecutor1;
 
-public class AvgLongExecutor implements IAggregateExecutor<Number, Long> {
-	private AvgState<Long, Long> state;
+public class ListExpressionExecutor<TInput, TType, TOutput> implements IAggregateExecutor<TInput, TOutput> {
+	private IScalarExecutor1<? super TInput, ? extends List<? extends TType>> expression;
+	private IAggregateExecutor<? super TType, ? extends TOutput> executor;
 	
-	public AvgLongExecutor() {
-		this.state = new AvgState<Long, Long>();
-		this.reset();
+	public ListExpressionExecutor(IScalarExecutor1<? super TInput, ? extends List<? extends TType>> expression, 
+			IAggregateExecutor<? super TType, ? extends TOutput> executor) {
+		this.expression = expression;
+		this.executor = executor;
 	}
 
 	@Override
-	public void execute(Number input) throws Exception {
-		state.sum += input.longValue();
-		state.count++;
-	}
-
-	@Override
-	public Long getValue() {
-		if(state.count != 0) {
-			return state.sum / state.count;	
+	public void execute(TInput input) throws Exception {
+		for(TType value: expression.execute(input)) {
+			executor.execute(value);
 		}
-		return null;
+	}
+
+	@Override
+	public TOutput getValue() {
+		return executor.getValue();
 	}
 
 	@Override
 	public void reset() {
-		state.sum = 0L;
-		state.count = 0L;
+		executor.reset();
 	}
 
 	@Override
 	public Object getState() {
-		return state;
+		return this.executor.getState();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void setState(Object state) throws Exception {
-		this.state = (AvgState<Long, Long>)state;
+		this.executor.setState(state);
 	}
-	
+
 }

@@ -30,12 +30,12 @@ import org.bosphorus.api.builder.expression.aggregate.common.CountDistinctExpres
 import org.bosphorus.api.builder.expression.aggregate.common.CountIntegerExpression;
 import org.bosphorus.api.builder.expression.aggregate.common.CountLongExpression;
 import org.bosphorus.api.builder.expression.aggregate.common.FirstExpression;
-import org.bosphorus.api.builder.expression.aggregate.common.GroupToMapExpression;
-import org.bosphorus.api.builder.expression.aggregate.common.GroupToValuesExpression;
 import org.bosphorus.api.builder.expression.aggregate.common.MaxExpression;
 import org.bosphorus.api.builder.expression.aggregate.common.MinExpression;
+import org.bosphorus.api.builder.expression.aggregate.common.SelectDistinctExpression;
+import org.bosphorus.api.builder.expression.aggregate.event.GroupToMapExpression;
+import org.bosphorus.api.builder.expression.aggregate.event.GroupToValuesExpression;
 import org.bosphorus.api.builder.expression.aggregate.event.ScalarToAggregateExpression;
-import org.bosphorus.api.builder.expression.aggregate.list.SelectDistinctExpression;
 import org.bosphorus.api.builder.expression.aggregate.math.AvgDoubleExpression;
 import org.bosphorus.api.builder.expression.aggregate.math.AvgFloatExpression;
 import org.bosphorus.api.builder.expression.aggregate.math.AvgIntegerExpression;

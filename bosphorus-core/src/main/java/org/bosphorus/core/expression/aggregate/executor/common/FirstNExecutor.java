@@ -16,41 +16,48 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.core.expression.aggregate.executor.math;
+package org.bosphorus.core.expression.aggregate.executor.common;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.bosphorus.core.expression.aggregate.executor.IAggregateExecutor;
 
-
-public class SumIntegerExecutor implements IAggregateExecutor<Number, Integer> {
-	private Integer sum;
+public class FirstNExecutor<TType> implements IAggregateExecutor<TType, List<TType>> {
+	private List<TType> list;
+	private Integer maxSize;
 	
-	public SumIntegerExecutor() {
-		this.reset();
+	public FirstNExecutor(Integer maxSize) {
+		this.maxSize = maxSize;
+		this.list = new ArrayList<TType>();
 	}
 
 	@Override
-	public void execute(Number input) throws Exception {
-		sum += input.intValue();
+	public void execute(TType input) throws Exception {
+		if(list.size() < maxSize) {
+			list.add(input);
+		}
 	}
 
 	@Override
-	public Integer getValue() {
-		return sum;
+	public List<TType> getValue() {
+		return new ArrayList<TType>(list);
 	}
 
 	@Override
 	public void reset() {
-		sum = 0;
+		list.clear();
 	}
 
 	@Override
 	public Object getState() {
-		return this.sum;
+		return this.list;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void setState(Object state) throws Exception {
-		this.sum = (Integer)state;
+		this.list = (List<TType>)state;
 	}
 
 }

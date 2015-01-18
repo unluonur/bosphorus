@@ -17,53 +17,29 @@
  */
 
 
-package org.bosphorus.core.expression.aggregate.executor.math;
+package org.bosphorus.core.expression.aggregate.executor.event;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.bosphorus.core.expression.aggregate.executor.IAggregateExecutor;
+import org.bosphorus.core.expression.aggregate.factory.IAggregateExecutorFactory;
+import org.bosphorus.core.expression.scalar.executor.IScalarExecutor1;
 
-public class MedianFloatExecutor implements IAggregateExecutor<Number, Float> {
-	private List<Number> list;
-	
-	public MedianFloatExecutor() {
-		list = new ArrayList<Number>();
+public class GroupToValuesExecutor<TInput, TKey, TValue> extends BaseGroupExecutor<TInput, List<TValue>, TKey, TValue> {
+
+	public GroupToValuesExecutor(
+			IScalarExecutor1<? super TInput, ? extends TKey> keyExpression,
+			IAggregateExecutorFactory<? super TInput, ? extends TValue> valueExpression) {
+		super(keyExpression, valueExpression);
 	}
 
 	@Override
-	public void execute(Number input) throws Exception {
-		list.add(input);
-	}
-
-	@Override
-	public Float getValue() {
-		Integer size = list.size();
-		if(size == 0) {
-			return null;
+	public List<TValue> getValue() {
+		ArrayList<TValue> result = new ArrayList<TValue>();
+		for(IAggregateExecutor<? super TInput, ? extends TValue> value: map.values()) {
+			result.add(value.getValue());
 		}
-		if(size % 2 == 1) {
-			return list.get(size / 2).floatValue();
-		}
-		else {
-			return (list.get(size / 2 - 1).floatValue() + list.get(size / 2).floatValue()) / 2;
-		}
+		return result;
 	}
-
-	@Override
-	public void reset() {
-		list.clear();
-	}
-
-	@Override
-	public Object getState() {
-		return list;
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public void setState(Object state) throws Exception {
-		list = (List<Number>)state;
-	}
-
 }

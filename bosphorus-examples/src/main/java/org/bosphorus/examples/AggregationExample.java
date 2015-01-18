@@ -32,6 +32,7 @@ public class AggregationExample {
 
 		IStreamInput<List<Object>> pipe = ss.aggregate(
 			ss.list(
+				ss.countInteger(),
 				ss.sumDouble(ss.doubleField("Value")),
 				ss.avgDouble(ss.doubleField("Value")),
 				ss.stdDevDouble(ss.doubleField("Value"))

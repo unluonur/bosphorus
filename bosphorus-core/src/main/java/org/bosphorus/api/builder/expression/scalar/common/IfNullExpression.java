@@ -21,7 +21,7 @@ package org.bosphorus.api.builder.expression.scalar.common;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
 import org.bosphorus.core.expression.scalar.factory.IScalarExecutorFactory1;
-import org.bosphorus.core.expression.scalar.factory.common.IfNullExecutorFactory;
+import org.bosphorus.core.expression.scalar.factory.event.IfNullExecutorFactory;
 
 public class IfNullExpression<TInput, TOutput> implements IScalarExpression1<TInput, TOutput> {
 	/**

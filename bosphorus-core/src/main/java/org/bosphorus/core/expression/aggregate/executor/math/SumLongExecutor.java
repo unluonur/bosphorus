@@ -30,9 +30,7 @@ public class SumLongExecutor implements IAggregateExecutor<Number, Long> {
 
 	@Override
 	public void execute(Number input) throws Exception {
-		if(input != null) {
-			sum += input.longValue();
-		}
+		sum += input.longValue();
 	}
 
 	@Override

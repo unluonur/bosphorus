@@ -16,37 +16,45 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.core.expression.aggregate.executor.math;
+package org.bosphorus.core.expression.aggregate.executor.common;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.bosphorus.core.expression.aggregate.executor.IAggregateExecutor;
 
-public class MedianDoubleExecutor implements IAggregateExecutor<Number, Double> {
-	private List<Number> list;
+public class TopNExecutor<TType> implements IAggregateExecutor<TType, List<TType>> {
+	private List<TType> list;
+	private Integer maxSize;
+	private Comparator<TType> comparator;
 	
-	public MedianDoubleExecutor() {
-		list = new ArrayList<Number>();
+	public TopNExecutor(Integer maxSize, Comparator<TType> comparator) {
+		this.maxSize = maxSize;
+		this.comparator = comparator;
+		this.list = new ArrayList<TType>();
+	}
+
+	// TODO : Binary search may be implemented
+	@Override
+	public void execute(TType input) throws Exception {
+		if(list.size() < maxSize || comparator.compare(input, list.get(list.size() - 1)) < 0) {
+			Integer index = 0;
+			for(; index<list.size()-1; index++) {
+				if(comparator.compare(input, list.get(index)) < 0) {
+					break;
+				}
+			}
+			list.add(index, input);
+			while(list.size()>maxSize) {
+				list.remove(list.size() - 1);
+			}
+		}
 	}
 
 	@Override
-	public void execute(Number input) throws Exception {
-		list.add(input);
-	}
-
-	@Override
-	public Double getValue() {
-		Integer size = list.size();
-		if(size == 0) {
-			return null;
-		}
-		if(size % 2 == 1) {
-			return list.get(size / 2).doubleValue();
-		}
-		else {
-			return (list.get(size / 2 - 1).doubleValue() + list.get(size / 2).doubleValue()) / 2;
-		}
+	public List<TType> getValue() {
+		return new ArrayList<TType>(list);
 	}
 
 	@Override
@@ -56,13 +64,13 @@ public class MedianDoubleExecutor implements IAggregateExecutor<Number, Double> 
 
 	@Override
 	public Object getState() {
-		return list;
+		return this.list;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public void setState(Object state) throws Exception {
-		list = (List<Number>)state;
+		this.list = (List<TType>)state;
 	}
 
 }

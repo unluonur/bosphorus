@@ -16,41 +16,17 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.core.expression.aggregate.executor.math;
+package org.bosphorus.core.expression.scalar.executor.common;
 
-import org.bosphorus.core.expression.aggregate.executor.IAggregateExecutor;
+import java.util.List;
 
+import org.bosphorus.core.expression.scalar.executor.BaseStatelessExecutor1;
 
-public class SumIntegerExecutor implements IAggregateExecutor<Number, Integer> {
-	private Integer sum;
-	
-	public SumIntegerExecutor() {
-		this.reset();
-	}
+public class ListLengthExecutor extends BaseStatelessExecutor1<List<?>, Integer> {
 
 	@Override
-	public void execute(Number input) throws Exception {
-		sum += input.intValue();
-	}
-
-	@Override
-	public Integer getValue() {
-		return sum;
-	}
-
-	@Override
-	public void reset() {
-		sum = 0;
-	}
-
-	@Override
-	public Object getState() {
-		return this.sum;
-	}
-
-	@Override
-	public void setState(Object state) throws Exception {
-		this.sum = (Integer)state;
+	public Integer execute(List<?> input) throws Exception {
+		return input.size();
 	}
 
 }

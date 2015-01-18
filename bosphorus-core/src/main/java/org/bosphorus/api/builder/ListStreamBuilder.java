@@ -24,9 +24,9 @@ import java.util.Date;
 import java.util.List;
 
 import org.bosphorus.api.builder.expression.scalar.IScalarExpression1;
+import org.bosphorus.api.builder.expression.scalar.common.ConstListElementExpression;
 import org.bosphorus.api.builder.expression.scalar.common.InputExpression;
 import org.bosphorus.api.builder.expression.scalar.event.ScalarExpression1;
-import org.bosphorus.api.builder.expression.scalar.list.ConstListElementExpression;
 
 public class ListStreamBuilder extends StreamBuilder<List<Object>> {
 	private List<String> fieldNames;

@@ -30,9 +30,7 @@ public class SumFloatExecutor implements IAggregateExecutor<Number, Float> {
 
 	@Override
 	public void execute(Number input) throws Exception {
-		if(input != null) {
-			sum += input.floatValue();
-		}
+		sum += input.floatValue();
 	}
 
 	@Override

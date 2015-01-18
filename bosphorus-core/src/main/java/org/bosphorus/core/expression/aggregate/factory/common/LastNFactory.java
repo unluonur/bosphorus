@@ -16,41 +16,24 @@
  * The latest version of this file can be found at https://github.com/unluonur/bosphorus
  */
 
-package org.bosphorus.core.expression.aggregate.executor.math;
+package org.bosphorus.core.expression.aggregate.factory.common;
+
+import java.util.List;
 
 import org.bosphorus.core.expression.aggregate.executor.IAggregateExecutor;
+import org.bosphorus.core.expression.aggregate.executor.common.LastNExecutor;
+import org.bosphorus.core.expression.aggregate.factory.IAggregateExecutorFactory;
 
-
-public class SumIntegerExecutor implements IAggregateExecutor<Number, Integer> {
-	private Integer sum;
+public class LastNFactory<TType> implements IAggregateExecutorFactory<TType, List<TType>> {
+	private Integer maxSize;
 	
-	public SumIntegerExecutor() {
-		this.reset();
+	public LastNFactory(Integer maxSize) {
+		this.maxSize = maxSize;
 	}
-
+	
 	@Override
-	public void execute(Number input) throws Exception {
-		sum += input.intValue();
-	}
-
-	@Override
-	public Integer getValue() {
-		return sum;
-	}
-
-	@Override
-	public void reset() {
-		sum = 0;
-	}
-
-	@Override
-	public Object getState() {
-		return this.sum;
-	}
-
-	@Override
-	public void setState(Object state) throws Exception {
-		this.sum = (Integer)state;
+	public IAggregateExecutor<TType, List<TType>> create() {
+		return new LastNExecutor<TType>(maxSize);
 	}
 
 }

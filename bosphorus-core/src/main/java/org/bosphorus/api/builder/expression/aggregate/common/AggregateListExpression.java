@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.bosphorus.api.builder.expression.aggregate.IAggregateExpression;
 import org.bosphorus.core.expression.aggregate.factory.IAggregateExecutorFactory;
-import org.bosphorus.core.expression.aggregate.factory.list.AggregationListFactory;
+import org.bosphorus.core.expression.aggregate.factory.event.AggregationListFactory;
 
 public class AggregateListExpression<TInput> implements IAggregateExpression<TInput, List<Object>> {
 	/**

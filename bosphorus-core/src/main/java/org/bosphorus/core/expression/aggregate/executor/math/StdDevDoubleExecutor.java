@@ -32,9 +32,7 @@ public class StdDevDoubleExecutor implements IAggregateExecutor<Number, Double> 
 
 	@Override
 	public void execute(Number input) throws Exception {
-		if(input != null) {
-			list.add(input);
-		}
+		list.add(input);
 	}
 
 	@Override
